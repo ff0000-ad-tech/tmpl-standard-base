@@ -3,11 +3,8 @@
 # tmpl-standard-base
 Build banners with ES6 & Greensock animations. Deliver to traffic, out-of-the-box, without any configuration.
 
-The output is Webpack-compiled into IAB compatible packages including:
-* index.html
-* polite text payload
-* polite binary payload
-* static backup
+The output is Webpack/FBA-compiled into concise IAB-compatible packages:
+[Sample Output](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/sample-output.png)
 
 Your job is to build out the creative using your ES6/Javascript/Html/CSS abilities. This template uses the FF0000 Ad Tech framework, but you are welcome to author however you like.
 
