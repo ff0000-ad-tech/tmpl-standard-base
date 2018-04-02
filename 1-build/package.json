@@ -1,0 +1,29 @@
+{
+	"name": "ff0000-ad-tech-builder",
+	"version": "1.0.0",
+	"description": "FF0000 Ad Tech - Builder: Provides frontend modules for building banner creative.",
+	"main": "",
+	"scripts": {},
+	"repository": "https://greg.connell@stash.ff0000.com/scm/at/ad-es6.git",
+	"author": "RED Interactive Agency",
+	"license": "MIT",
+	"dependencies": {
+		
+		"@ff0000-ad-tech/ad-animation": "latest",
+		"@ff0000-ad-tech/ad-assets": "latest",
+		"@ff0000-ad-tech/ad-canvas": "latest",
+		"@ff0000-ad-tech/ad-control": "latest",
+		"@ff0000-ad-tech/ad-dates": "latest",
+		"@ff0000-ad-tech/ad-entry": "latest",
+		"@ff0000-ad-tech/ad-events": "latest",
+		"@ff0000-ad-tech/ad-external": "latest",
+		"@ff0000-ad-tech/ad-geom": "latest",
+		"@ff0000-ad-tech/ad-load": "latest",
+		"@ff0000-ad-tech/ad-particles": "latest",
+		"@ff0000-ad-tech/ad-polyfills": "latest",
+		"@ff0000-ad-tech/ad-video": "latest",
+		"@ff0000-ad-tech/ad-ui": "latest",
+		"@ff0000-ad-tech/ad-utils": "latest",
+		"@ff0000-ad-tech/ad-view": "latest"
+	}
+}

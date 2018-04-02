@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<!-- BUILD SOURCE: Standard - Base / OPTIONS:  / AdApp: 1.9.3 / AdHtml: v2.8.2 / Created: 04/02/18 02:23pm -->
+
+<head>
+	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta content="utf-8" http-equiv="encoding">
+		<!-- Red.Network.meta.start -->
+
+		<!-- Red.Network.meta.end -->
+
+
+	<title>RED Dev 300x250</title>
+
+	<script type="text/javascript">
+
+
+		/*-- Red.Network.clicktags.start --*/
+		var clickTag = "http://www.changeme.com/";
+		var collapsedExit = "http://www.changeme.com/";
+		var expandedExit = "http://www.changeme.com/";
+		/*-- Red.Network.clicktags.end --*/
+
+
+		/* -- INDEX SETTINGS ---------------------------------------------------------------------------
+		 *
+		 *
+		 *	Documentation is here: https://confluence.ff0000.com/display/AT/INDEX
+		 *
+		 *
+		 *
+		 */
+		/*-- Red.Settings.ad_params.start --*/
+		var adParams = {
+				networkId				: "STANDARD",
+				adWidth				: 300,
+				adHeight				: 250,
+				environmentId			: "debug",
+				politeLoadAfter		: 1,
+				failoverOnError		: true,
+			};
+		/*-- Red.Settings.ad_params.end --*/
+
+
+		/*-- Red.Settings.assets.start --*/
+			var assets = {
+				preloader: {
+					backgroundColor: "#000000",
+					images: [{
+						source: "preloader_white.gif"
+					}]
+				},
+				failover: {
+					images: [{
+						source: "backup.jpg"
+					}]
+				},
+				payload: {
+					text: ["build.bundle.js"],
+					binary: []
+				}
+			};
+		/*-- Red.Settings.assets.end --*/
+
+
+		/*-- Red.Settings.environments.start --*/
+		var environments = [
+				{
+					id: "debug",
+					runPath: "../",
+					adPath: "300x250/",
+				},
+				{
+					id: "ff0000-cdn",
+					runPath: "http://red.ff0000-cdn.net/ad_templates/html/mobile_base/",
+					adPath: "300x250/",
+				},
+				{
+					id: "dc-campaign",
+					runPath: "",
+					adPath: "",
+				},
+
+			];
+		/*-- Red.Settings.environments.end --*/
+
+		/*-- Red.Settings.external_includes.start --*/
+		var externalIncludes = [
+				'https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.18.0_71489205621d46cbe88348eeb8fe493f_min.js',
+				'https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.18.0_ed5816e732515f56d96a67f6a2a15ccb_min.js',
+				'https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.18.0_56fa823cfbbef1c2f4d4346f0f0e6c3c_min.js',
+			];
+		/*-- Red.Settings.external_includes.end --*/
+
+
+		/*-- Red.Settings.runtime_includes.start --*/
+		var runtimeIncludes = {
+			};
+		/*-- Red.Settings.runtime_includes.end --*/
+
+
+		function onImpression(fbaContent) {
+			console.log('Index.onImpression()')
+			Control.prepare(fbaContent)
+
+
+		}
+
+		function isDevEnvironment() {
+			return adParams.environmentId == 'debug' || window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
+		}
+
+	</script>
+
+	<style type="text/css">
+		html,
+		body,
+		#view {
+			width: 100%;
+			height: 100%;
+		}
+
+		body {
+			margin: 0px;
+			outline: none;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+	</style>
+	<style type="text/css" id="RED_uiBorder">
+		.ui-border {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			border-width: 0px;
+			border-style: solid;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+	</style>
+
+
+
+	<!-- Red.Network.script.start -->
+
+	<!-- Red.Network.script.end -->
+</head>
+
+<body>
+	<div id="view">
+		<div id="main"></div>
+		<div id="aux">
+			<div id="preloader" class="ui-border"></div>
+			<div id="fail"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		/*-- Red.Inject.promise_polyfill.start --*/
+		/*-- Red.Inject.promise_polyfill.end --*/
+	</script>
+
+
+		<!-- preload inline scripts...if not needed until the build, use externalIncludes  --> 
+
+
+	<script type="text/javascript">
+		function useStatic() {
+			console.log("Index.useStatic()");
+			removePreloader();
+			document.getElementById( "main" ).style.display = "none";
+			document.getElementById( "aux" ).style.display = "block";
+			document.body.style = "width: " + adParams.failoverWidth + "px; height: " + adParams.failoverHeight + "px; overflow: hidden;";
+			document.getElementById( "fail" ).style.cssText = "position: absolute; " +
+				"width: " + adParams.failoverWidth + "px; height: " + adParams.failoverHeight + "px; " +
+				"left:" + adParams.failoverX + "px; top:" + adParams.failoverY + "px; " + 
+				"background-image: url(" + adParams.adPath + assets.failover.images[0].source + "); background-size: contain; overflow: hidden; ";
+
+		}
+		function failAd() {
+			console.log("Index.failAd()");
+			useStatic();
+
+		}
+	</script>
+
+	<script type="text/javascript">
+		var global = this
+		var View = {}
+		var Network,
+			queryParams,
+			adData
+
+		/* -- LAUNCH --------------------------------------------
+		 *
+		 *
+		 */
+		// immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
+		function prepareIndex() {
+			console.log('Index.prepareIndex()')
+			return new Promise(function(resolve) {
+				/*-- Red.Network.onload.start --*/
+				resolve();
+				/*-- Red.Network.onload.end --*/
+
+
+			}, function(error) {
+				global.failAd()
+			})
+		}
+
+		// ad-params
+		function prepareAdParamsMisc() {
+			console.log('Index.prepareAdParamsMisc()')
+			return new Promise(function(resolve) {
+				resolve()
+
+			}, function(error) {
+				global.failAd()
+			})
+		}
+
+		// preloader
+		function preparePreloadMisc() {
+			console.log('Index.preparePreloadMisc()')
+			return new Promise(function(resolve) {
+				resolve()
+
+			}, function(error) {
+				global.failAd()
+			})
+		}
+		function removePreloader() {
+			console.log('Index.removePreloader()')
+			var preloader = document.getElementById('preloader')
+			if (preloader) {
+				var aux = document.getElementById('aux')
+				aux.style.display = 'none'
+				aux.removeChild(preloader)
+			}
+		}
+
+		// exits
+		function prepareNetworkExit() {
+			console.log('Index.prepareNetworkExit()')
+			Network = new function () {
+					/*-- Red.Network.exit.start --*/
+					this.exit = function(clickTag) {
+						console.log("Network -> STANDARD EXIT");
+						window.open(clickTag, "_blank");
+					}
+					/*-- Red.Network.exit.end --*/	
+
+				this.appendMacro = function (_macro, _clickTag) {
+					if (_macro.search(/^%%/) > -1)
+						return _clickTag
+					else return _macro + _clickTag
+				}
+			}
+		}
+		function makeAuxClickable() {
+			var aux = document.getElementById('aux')
+			aux.setAttribute('onclick', 'handleAuxClick()')
+		}
+		function handleAuxClick() {
+			console.log('Index.handleAuxClick()')
+			Network.exit(clickTag)
+			if (adParams.redAnalytics)
+				trackExit()
+		}
+
+
+
+		/* -- GLOBAL UTILITIES --------------------------------------------
+		 *
+		 *
+		 */
+		function getDeployProfile(id) {
+			for (var i = 0; i < environments.length; i++) {
+				if (environments[i].id === id) return environments[i]
+			}
+			return false
+		}
+
+		function getQueryParams() {
+			var queryParams = {}
+			var query = window.location.href.split('?')
+			if (query.length > 1) {
+				var params = query[1].split('&')
+				for (var i in params) {
+					var keyValue = params[i].split('=')
+					if (keyValue.length == 2)
+						queryParams[keyValue[0]] = decodeURIComponent(keyValue[1])
+				}
+			}
+			return queryParams
+		}
+
+		function matchProtocolTo(_url) {
+			var noProtocol = _url.search(/^\/\//) > -1
+			if (_url.search(/^http/) > -1 || noProtocol) {
+				var _secure = window.location.href.search(/^https/) > -1 || adParams.forceHttps
+				var _httpProtocol = _secure ? 'https://' : 'http://'
+				if (noProtocol) {
+					_url = _url.replace(/^\/\//, _httpProtocol)
+				}
+				if (_url.search(/.*edgecastcdn/) > -1) {
+					var _edgecastContext = _secure ? 'ne1.' + _url.match(/w(a|p)c/i)[0] + '.' : _url.match(/w(a|p)c\.[a-z0-9]*\./i)[0]
+					_url = _httpProtocol + _edgecastContext + 'edgecastcdn' + _url.replace(/.*edgecastcdn/, '')
+				}
+				else if (_url.search(/.*paramount\.com/) > -1) {
+					var _paramountContext = _secure ? 'paramountdlds-a.akamaihd.net' : 'downloads.paramount.com'
+					_url = _httpProtocol + _paramountContext + _url.replace(/.*paramount\.com/, '')
+				}
+				else if (_url.search(/espn\.go\.com/) > -1 || _url.search(/secure\.espncdn\.com/) > -1) {
+					_url = 'https://secure.espncdn.com' + _url.replace(/^.*\.com/, '')
+				}
+				else {
+					_url = _url.replace(/^https?\:\/\//i, _httpProtocol)
+				}
+			}
+			return _url
+		}
+	</script>
+
+	<!-- commons bundle -->
+	<script type="text/javascript">
+			/*-- Red.Inject.commons.start --*/
+			/*-- Red.Inject.commons.end --*/
+	</script>
+
+	<!-- inline bundle -->
+	<script type="text/javascript">
+			/*-- Red.Inject.inline_entry.start --*/
+			/*-- Red.Inject.inline_entry.end --*/
+	</script>
+
+	<!-- build bundle -->
+	<script type="text/javascript">
+			/*-- Red.Inject.initial_entry.start --*/
+			/*-- Red.Inject.initial_entry.end --*/
+	</script>
+</body>
+
+</html>

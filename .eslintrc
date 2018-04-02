@@ -1,0 +1,28 @@
+{
+	"extends": ["prettier"],
+	"plugins": ["prettier"],
+	"env": {
+		"commonjs": true,
+		"es6": true,
+		"mocha": true,
+		"node": true
+	},
+	"rules": {
+		"indent": 0,
+		"max-len": 0,
+		"prettier/prettier": [
+			"error",
+			{
+				"semi": false,
+				"tabWidth": 2,
+				"useTabs": true,
+				"singleQuote": true,
+				"trailingComma": "none",
+				"printWidth": 140
+			}
+		]
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	}
+}

@@ -1,0 +1,24 @@
+{
+    "status": "quick-out", 
+    "tag_sheets": [], 
+    "clone_priviledge": "none", 
+    "flash_project_settings": {}, 
+    "id": "4fd262ae-720a-4823-9650-cdd596c7082b", 
+    "size": "", 
+    "by_user": "greg.connell.mbp-dev", 
+    "name": "stadard-base", 
+    "modified_datetime": "04/02/18 02:23pm", 
+    "check_logs": [
+        {
+            "action": "quick-out", 
+            "log_datetime": "04/02/18 02:23pm", 
+            "size_hash": "d41d8cd98f00b204e9800998ecf8427e", 
+            "by_user": "greg.connell.mbp-dev", 
+            "comments": ""
+        }
+    ], 
+    "html_deploy_profiles": [], 
+    "is_being_processed": false, 
+    "mirror_priviledge": "", 
+    "type": "CreativeIteration"
+}
