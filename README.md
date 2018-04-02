@@ -17,6 +17,7 @@ To solve these problems, we compile all binary assets into a single load that is
 You don't have to worry about it, just:
 
 ```javascript
+import { ImageManager } from 'ad-control'
 import './images/my_asset.png'
 
 var image = new Image()
