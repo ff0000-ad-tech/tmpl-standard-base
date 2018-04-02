@@ -11,9 +11,9 @@ Your job is to build out the creative using your ES6/Javascript/Html/CSS abiliti
 
 More advanced applications/workflows can be integrated as needed. For example, Preact/React and/or other Javascript libraries & frameworks, Web Components, etc. Anything that Webpack can handle can be compiled.
 
-For more info about the Creative Server interface, please see the (https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md)[README]
+For more info about the Creative Server interface, please see the [Creative Server - README](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md).
 
-If you want to adapt Creative Server to a different hierarchy, contact us and we can help you get your head around the webpack.config.js which has been divided into sub-modules for organizational reasons.
+If you want to adapt Creative Server to a different hierarchy, contact us and we can help you get your head around the `webpack.config.js` which has been divided into sub-modules for organization.
 
 ## Getting Started
 Clone this repo locally. Then:
