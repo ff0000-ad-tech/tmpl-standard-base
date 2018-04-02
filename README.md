@@ -1,17 +1,30 @@
 ##### RED Interactive Agency - Ad Technology
 
 # tmpl-standard-base
-Build banners with ES6 & Greensock animations. Deliver to traffic, out-of-the-box, without any configuration.
+Build banners with ES6 & Greensock animations. Compile using [Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) and deliver to traffic, out-of-the-box, without any boilerplate configuration.
 
-The output is Webpack/FBA-compiled into concise IAB-compatible packages:
+The output is Webpack/FBA-compiled, per-size, per-index into concise IAB-compatible packages:
 
 ![Sample Output](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/sample-output.png)
 
-Your job is to build out the creative using your ES6/Javascript/Html/CSS abilities. This template uses the FF0000 Ad Tech framework, but you are welcome to author however you like.
+Your job is to build out the creative using your ES6/Javascript/Html/CSS abilities. This template uses the [FF0000 Ad Tech framework](https://ff0000-ad-tech.github.io/ad-docs/), but you are welcome to author however you like.
 
-More advanced applications/workflows can be integrated as needed. For example, Preact/React and/or other Javascript libraries & frameworks, Web Components, etc. Anything that Webpack can handle can be compiled.
+## FBA Compiling
+Binary assets like images & fonts are 25% bigger when expressed as base64 text. Even after gzip, there is significant waste. Loading the assets individually is even worse in terms of load delay.
 
-For more info about the Creative Server interface, please see the [Creative Server - README](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md).
+To solve these problems, we compile all binary assets into a single load that is streamed into the ad and written into the DOM in a single execution loop. 
+
+You don't have to worry about it, just:
+
+```
+import './images/my_asset.png'
+
+var image = new Image()
+image.src = ImageManager.get('my_asset')
+```
+
+##### Advanced Usage
+Alternative applications & workflows can be integrated as needed. For example, Preact/React and/or other Javascript libraries & frameworks, Web Components, etc...anything that Webpack can handle can be compiled.
 
 If you want to adapt Creative Server to a different hierarchy, contact us and we can help you get your head around the `webpack.config.js` which has been divided into sub-modules for organization.
 
