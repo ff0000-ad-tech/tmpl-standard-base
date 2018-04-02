@@ -2,10 +2,14 @@
 
 ## Getting Started
 Clone this repo locally. Then:
-`npm install`
+```
+npm install
+```
 
 This will install the top-level and build-level packages. Then:
-`npm run server`
+```
+npm run server
+```
 
 See the README for Creative Server for more info:
 
