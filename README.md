@@ -24,7 +24,7 @@ var image = new Image()
 image.src = ImageManager.get('my_asset')
 ```
 
-##### Advanced Usage
+### Advanced Usage
 Alternative applications & workflows can be integrated as needed. For example, Preact/React and/or other Javascript libraries & frameworks, Web Components, etc...anything that Webpack can handle can be compiled.
 
 If you want to adapt Creative Server to a different hierarchy, contact us and we can help you get your head around the `webpack.config.js` which has been divided into sub-modules for organization.
