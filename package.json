@@ -15,6 +15,7 @@
 	"author": "RED Interactive Agency",
 	"license": "MIT",
 	"devDependencies": {
+		"@ff0000-ad-tech/debug": "latest",
 		"@ff0000-ad-tech/wp-creative-server": "latest",
 		"@ff0000-ad-tech/wp-deploy-manager": "latest",
 		"@ff0000-ad-tech/wp-process-manager": "latest",
@@ -24,7 +25,6 @@
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.6.1",
-		"debug": "git+https://github.com/gmcdev/debug.git",
 		"eslint": "^4.18.0",
 		"eslint-config-prettier": "^2.9.0",
 		"eslint-plugin-prettier": "^2.5.0",

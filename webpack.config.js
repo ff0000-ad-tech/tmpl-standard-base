@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const path = require('path')
 
-const debug = require('debug')
+const debug = require('@ff0000-ad-tech/debug')
 var log = debug('webpack.config.js')
 
 const PM = require('@ff0000-ad-tech/wp-process-manager')
