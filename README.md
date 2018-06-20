@@ -135,7 +135,7 @@ Bulk Control lets you run processes, with the current Deploy Profile settings, o
 
 ![Bulk Control](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/bulk-control.png)
 
-The dropdown lists plugins that can be used on the selected set of ads.
+The dropdown lists plugins that can be used on the selected set of ads. Click the 🔥 icon to execute.
 
 Several plugins are installed by default that simplify publishing:
 
