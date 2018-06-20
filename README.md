@@ -44,7 +44,7 @@ The output will include the address where CS is running:
 
 #### Creative Server
 
-This platform will help you manage, compile, & package your volume of sizes/indexes. See the [README for Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) for more info:
+The Creative Server app will help you manage, compile, & package your volume of sizes/indexes. See the [README for Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) for more info:
 
 #### FAT Framework
 
@@ -54,7 +54,7 @@ FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instanti
 - Execution control
 - Packaging
 
-All of the `ad-...` repos in the [@ff0000-ad-tech GitHub organization](https://github.com/ff0000-ad-tech) are the frontened core. We are working on better README documentation for each. In the meantime, all of the modules have up-to-date code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs). Search for the class you require.
+All of the `ad-...` repos in the [@ff0000-ad-tech GitHub organization](https://github.com/ff0000-ad-tech) are the front-end core. We are working on better README documentation for each. In the meantime, all of the modules have up-to-date code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs). Search for the class you require.
 
 ## Ad Networks
 
@@ -62,7 +62,7 @@ All of the `ad-...` repos in the [@ff0000-ad-tech GitHub organization](https://g
 
 This template is configured for DCM (Doubleclick Campaign Manager).
 
-Changing the configuration for DC Studio, Flashtalking, and Sizmek (or many others) is not difficult. Most of your creative execution will be unchanged. Contact [gmcdev](https://github.com/gmcdev) for specifics.
+Changing the configuration for DC Studio, Flashtalking, and Sizmek (or many others) is not difficult. Most of your creative execution will be unchanged. Contact [us](https://github.com/gmcdev) for specifics.
 
 ## Binary Compiling
 
