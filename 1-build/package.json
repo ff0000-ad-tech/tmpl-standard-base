@@ -18,12 +18,14 @@
 		"@ff0000-ad-tech/ad-events": "latest",
 		"@ff0000-ad-tech/ad-external": "latest",
 		"@ff0000-ad-tech/ad-geom": "latest",
+		"@ff0000-ad-tech/ad-global": "latest",
 		"@ff0000-ad-tech/ad-load": "latest",
 		"@ff0000-ad-tech/ad-particles": "latest",
 		"@ff0000-ad-tech/ad-polyfills": "latest",
 		"@ff0000-ad-tech/ad-video": "latest",
 		"@ff0000-ad-tech/ad-ui": "latest",
 		"@ff0000-ad-tech/ad-utils": "latest",
-		"@ff0000-ad-tech/ad-view": "latest"
+		"@ff0000-ad-tech/ad-view": "latest",
+		"@ff0000-ad-tech/ad-velvet": "latest"
 	}
 }

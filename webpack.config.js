@@ -192,7 +192,7 @@ module.exports = config => {
 			test: [].concat(imageIncludes).concat(fontIncludes),
 			use: [
 				{
-					loader: 'fba-loader',
+					loader: '@ff0000-ad-tech/fba-loader',
 					options: {
 						emitFile: false
 					}
@@ -255,7 +255,8 @@ module.exports = config => {
 		},
 		output: {
 			path: path.resolve(__dirname, `${DM.deploy.get().output.context}/${DM.deploy.get().output.folder}`),
-			filename: '[name].bundle.js'
+			filename: '[name].bundle.js',
+			chunkFilename: '[name].bundle.js'
 		},
 		externals: {
 			'ad-load': 'adLoad'

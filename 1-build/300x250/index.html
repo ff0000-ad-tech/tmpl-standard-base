@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- BUILD SOURCE: Standard - Base / OPTIONS:  / AdApp: 1.9.3 / AdHtml: v2.8.2 / Created: 04/02/18 02:23pm -->
+<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / AdApp: 3.0.3 / AdHtml: v0.1.3 / Created: 06/20/18 11:35am -->
 
 <head>
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
@@ -39,6 +39,11 @@
 				environmentId			: "debug",
 				politeLoadAfter		: 1,
 				failoverOnError		: true,
+				version: {
+					major: 0,
+					minor: 1,
+					patch: 3
+				},
 			};
 		/*-- Red.Settings.ad_params.end --*/
 
@@ -161,6 +166,8 @@
 	<script type="text/javascript">
 		/*-- Red.Inject.promise_polyfill.start --*/
 		/*-- Red.Inject.promise_polyfill.end --*/
+
+
 	</script>
 
 
@@ -194,6 +201,7 @@
 			queryParams,
 			adData
 
+
 		/* -- LAUNCH --------------------------------------------
 		 *
 		 *
@@ -201,13 +209,13 @@
 		// immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
 		function prepareIndex() {
 			console.log('Index.prepareIndex()')
-			return new Promise(function(resolve) {
+			return new Promise(function (resolve) {
 				/*-- Red.Network.onload.start --*/
 				resolve();
 				/*-- Red.Network.onload.end --*/
 
 
-			}, function(error) {
+			}, function (error) {
 				global.failAd()
 			})
 		}
@@ -215,10 +223,10 @@
 		// ad-params
 		function prepareAdParamsMisc() {
 			console.log('Index.prepareAdParamsMisc()')
-			return new Promise(function(resolve) {
+			return new Promise(function (resolve) {
 				resolve()
 
-			}, function(error) {
+			}, function (error) {
 				global.failAd()
 			})
 		}
@@ -226,15 +234,17 @@
 		// preloader
 		function preparePreloadMisc() {
 			console.log('Index.preparePreloadMisc()')
-			return new Promise(function(resolve) {
+			return new Promise(function (resolve) {
+				makeAuxClickable()
 				resolve()
 
-			}, function(error) {
+			}, function (error) {
 				global.failAd()
 			})
 		}
 		function removePreloader() {
 			console.log('Index.removePreloader()')
+
 			var preloader = document.getElementById('preloader')
 			if (preloader) {
 				var aux = document.getElementById('aux')
@@ -267,66 +277,21 @@
 		}
 		function handleAuxClick() {
 			console.log('Index.handleAuxClick()')
+			/*-- Red.Network.exit_aux.start --*/
 			Network.exit(clickTag)
-			if (adParams.redAnalytics)
-				trackExit()
+			/*-- Red.Network.exit_aux.end --*/
+
+
 		}
 
 
 
-		/* -- GLOBAL UTILITIES --------------------------------------------
-		 *
-		 *
-		 */
-		function getDeployProfile(id) {
-			for (var i = 0; i < environments.length; i++) {
-				if (environments[i].id === id) return environments[i]
-			}
-			return false
-		}
-
-		function getQueryParams() {
-			var queryParams = {}
-			var query = window.location.href.split('?')
-			if (query.length > 1) {
-				var params = query[1].split('&')
-				for (var i in params) {
-					var keyValue = params[i].split('=')
-					if (keyValue.length == 2)
-						queryParams[keyValue[0]] = decodeURIComponent(keyValue[1])
-				}
-			}
-			return queryParams
-		}
-
-		function matchProtocolTo(_url) {
-			var noProtocol = _url.search(/^\/\//) > -1
-			if (_url.search(/^http/) > -1 || noProtocol) {
-				var _secure = window.location.href.search(/^https/) > -1 || adParams.forceHttps
-				var _httpProtocol = _secure ? 'https://' : 'http://'
-				if (noProtocol) {
-					_url = _url.replace(/^\/\//, _httpProtocol)
-				}
-				if (_url.search(/.*edgecastcdn/) > -1) {
-					var _edgecastContext = _secure ? 'ne1.' + _url.match(/w(a|p)c/i)[0] + '.' : _url.match(/w(a|p)c\.[a-z0-9]*\./i)[0]
-					_url = _httpProtocol + _edgecastContext + 'edgecastcdn' + _url.replace(/.*edgecastcdn/, '')
-				}
-				else if (_url.search(/.*paramount\.com/) > -1) {
-					var _paramountContext = _secure ? 'paramountdlds-a.akamaihd.net' : 'downloads.paramount.com'
-					_url = _httpProtocol + _paramountContext + _url.replace(/.*paramount\.com/, '')
-				}
-				else if (_url.search(/espn\.go\.com/) > -1 || _url.search(/secure\.espncdn\.com/) > -1) {
-					_url = 'https://secure.espncdn.com' + _url.replace(/^.*\.com/, '')
-				}
-				else {
-					_url = _url.replace(/^https?\:\/\//i, _httpProtocol)
-				}
-			}
-			return _url
-		}
+		// ad-global bundle
+		/*-- Red.Inject.ad-global.start --*/
+		/*-- Red.Inject.ad-global.end --*/
 	</script>
 
-	<!-- commons bundle -->
+	<!-- ad-load bundle -->
 	<script type="text/javascript">
 			/*-- Red.Inject.commons.start --*/
 			/*-- Red.Inject.commons.end --*/
@@ -338,7 +303,7 @@
 			/*-- Red.Inject.inline_entry.end --*/
 	</script>
 
-	<!-- build bundle -->
+	<!-- initial bundle -->
 	<script type="text/javascript">
 			/*-- Red.Inject.initial_entry.start --*/
 			/*-- Red.Inject.initial_entry.end --*/

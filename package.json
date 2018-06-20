@@ -6,6 +6,7 @@
 	"scripts": {
 		"postinstall": "npm run install-build && npm run eslint",
 		"install-build": "cd ./1-build && npm install && cd ../",
+		"reinstall": "rm -rf ./node_modules && rm ./package-lock.json && npm i",
 		"eslint": "./node_modules/.bin/eslint ./1-build --ignore-pattern 1-build/node_modules --fix",
 		"start": "npm run browser",
 		"server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
@@ -17,9 +18,11 @@
 	"devDependencies": {
 		"@ff0000-ad-tech/debug": "latest",
 		"@ff0000-ad-tech/fba-loader": "latest",
+		"@ff0000-ad-tech/webpack-rollup-babel-loader": "latest",
 		"@ff0000-ad-tech/wp-creative-server": "latest",
 		"@ff0000-ad-tech/wp-deploy-manager": "latest",
 		"@ff0000-ad-tech/wp-process-manager": "latest",
+		"babel-plugin-dynamic-import-webpack": "^1.0.2",
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.2.1",
 		"babel-loader": "^7.1.2",
@@ -37,7 +40,7 @@
 		"webpack-cli": "^2.0.9"
 	},
 	"dependencies": {
-		"@ff0000-ad-tech/cs-plugin-bulk-compile": "git+ssh://git@github.com:ff0000-ad-tech/cs-plugin-bulk-compile.git",
-		"@ff0000-ad-tech/cs-plugin-vendor-indexes": "git+ssh://git@github.com:ff0000-ad-tech/cs-plugin-vendor-indexes.git"
+		"@ff0000-ad-tech/cs-plugin-bulk-compile": "latest",
+		"@ff0000-ad-tech/cs-plugin-vendor-indexes": "latest"
 	}
 }

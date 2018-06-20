@@ -1,6 +1,7 @@
 {
 	"ad-es6-particles": "git+ssh://git@stash.ff0000.com:7999/at/ad-es6-particles.git",
-	"@ff0000-ad-tech/cs-plugin-bulk-compile": "git+ssh://git@github.com:ff0000-ad-tech/cs-plugin-bulk-compile.git",
-	"@ff0000-ad-tech/cs-plugin-vendor-indexes": "git+ssh://git@github.com:ff0000-ad-tech/cs-plugin-vendor-indexes.git",
-	"@ff0000-ad-tech/cs-plugin-vendor-c20": "git+ssh://git@github.com:ff0000-ad-tech/cs-plugin-vendor-c20.git"
+	"@ff0000-ad-tech/cs-plugin-bulk-compile": "latest",
+	"@ff0000-ad-tech/cs-plugin-vendor-indexes": "latest",
+	"@ff0000-ad-tech/cs-plugin-vendor-c20": "latest",
+	"@ff0000-ad-tech/cs-plugin-vendor-ft": "latest"
 }

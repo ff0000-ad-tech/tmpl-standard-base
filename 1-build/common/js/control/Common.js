@@ -63,4 +63,37 @@ export class Common {
 		*/
 		// -->
 	}
+
+	/**
+		@memberof Common
+		@method loadDynamicJS
+		@desc 
+			Method for loading dynamic, compiled ES6 modules at runtime. This should be threaded into 
+			Common.init()'s promise chain, as needed.
+
+			You must:
+			 - define THIS_CASE__ID
+			 - replace THIS_CASE__ASSET_PATH with a string
+			 - handle the implementation of the loaded module.
+	*/
+	static loadDynamicJS(id) {
+		return new Promise((resolve, reject) => {
+			switch (id) {
+				/*
+				case THIS_CASE__ID: // ex: '300x250_Endframe'
+					import('THIS_CASE__ASSET_PATH') // ex: '@common/dynamic_js/300x250_Endframe.js'
+						.then(module => {
+							// example implementation of loaded ES6 module
+							global[module.default.name] = module.default
+							resolve()
+						})
+						.catch(err => reject(err))
+					break
+				*/
+				default:
+					console.log(`Common.loadDynamicJS() has no import case for: ${id}`)
+					resolve()
+			}
+		})
+	}
 }

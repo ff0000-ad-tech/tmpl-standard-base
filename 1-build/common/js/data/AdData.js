@@ -1,4 +1,5 @@
 import { ImageManager } from 'ad-control'
+import '../../fonts/template_font.ttf'
 
 
 function AdData(){
