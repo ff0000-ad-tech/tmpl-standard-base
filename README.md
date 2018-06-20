@@ -24,29 +24,71 @@ Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. 
 
 <a name="getting-started"></a>
 
-Make sure you have Node `^9.0.0` and NPM `^6.0.0` installed.
+1.  [Install](#install) this template
+2.  Run [Creative Server](#creative-server)
+3.  Begin a [Watch Process](#watch-process)
+4.  [Preview](#preview) the result
+5.  [Author](#author) your Size/Index & `build.js`
 
-Clone this repo locally. Then:
+#### Install
 
-```
+<a name="install"></a>
+
+Make sure you have Node `^9.0.0` and NPM `^6.0.0` installed. Open up your Terminal (or shell of preference): Type `node -v` and `npm -v` to see where you're at.
+
+Download this repo and unzip it. In Terminal, `cd` into the result directory, then:
+
+```sh
 npm install
 ```
 
-This will install the top-level and build-level packages. Then:
-
-```
-npm run server
-```
-
-The output will include the address where CS is running:
-
-![Creative Server Launch](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/creative-server-launch.png)
+This will install the top-level and build-level packages.
 
 #### Creative Server
 
-The Creative Server app will help you manage, compile, & package your volume of sizes/indexes. See the [README for Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) for more info:
+<a name="creative-server"></a>
 
-#### FAT Framework
+Creative Server app will help you manage, compile, & package your volume of sizes/indexes. See the [README for Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) for more info:
+
+Run it with this command:
+
+```sh
+npm run browser
+```
+
+If you don't want a new browser opened, use `npm run server`.
+
+#### Watch Process
+
+<a name="watch-process"></a>
+
+This template uses ES6. It must be compiled in order to run in a browser.
+
+Creative Server can start a "Watch Process" that will recompile the ad every time its source files are updated (saved).
+
+![CS Watch Process](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/cs-watch-process.png)
+
+If you want more visibility, click the "Terminal Icon" next to the left. This will copy the Webpack command to you clipboard. Paste & execute that in your Terminal.
+
+#### Preview
+
+<a name="preview"></a>
+
+The 👁 icon is a browser shortcut to the `2-debug/[size]` folder. Similarly, once a "Traffic Version" has been compiled, the Date/Time indication links to a preview.
+
+#### Authoring
+
+<a name="authoring"></a>
+
+To begin authoring a size, open the `1-build/[size]/build.js` file. This is your creative-coding place. It is organized into 3 sections:
+
+1.  **Control** - Access the lifespan of the creative.
+2.  **View** - Declare visual elements / components.
+3.  **Animation** - Run transitions & effects.
+
+Many devs code up their entire ad in this file. But remember, this is ES6. You can modularize your code as much as needed. For example, the `./1-build/common/js` folder is a great place to write code that wants to be re-used across all sizes. In fact, stubs already exist for doing that: `./1-build/common/js/Common.js` & `./1-build/common/js/AdData.js`.
+
+## FAT Framework
 
 FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instantiating, styling, and animating elements. The benefits of being 100% Javascript include:
 
