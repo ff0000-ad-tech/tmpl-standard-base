@@ -36,6 +36,10 @@ This will install the top-level and build-level packages. Then:
 npm run server
 ```
 
+The output will include the address where CS is running:
+
+![Creative Server Launch](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/creative-server-launch.png)
+
 #### Creative Server
 
 This platform will help you manage, compile, & package your volume of sizes/indexes. See the [README for Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) for more info:
