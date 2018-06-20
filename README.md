@@ -56,7 +56,7 @@ Run it with this command:
 npm run browser
 ```
 
-If you don't want a new browser opened, use `npm run server`.
+In order restart Creative Server, use `npm run server`.
 
 ### Watch Process
 
@@ -68,7 +68,7 @@ Creative Server can start a "Watch Process" that will recompile the ad every tim
 
 ![CS Watch Process](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/cs-watch-process.png)
 
-If you want more visibility, click the "Terminal Icon" next to the left. This will copy the Webpack command to you clipboard. Paste & execute that in your Terminal.
+If you want more visibility, click the ![Terminal Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/terminal-icon.png) next to the left. This will copy the Webpack command to you clipboard. Paste & execute that in your Terminal. Similarly, the ![Webpack Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/webpack-icon.png) will copy the Traffic command to your clipboard, for better visibility when run from a shell.
 
 ### Preview
 
