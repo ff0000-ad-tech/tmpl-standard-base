@@ -4,6 +4,8 @@
 
 [Getting Started](#getting-started)
 
+[FAT Framework](#fat-framework)
+
 [Ad Networks](#ad-networks)
 
 [Binary Compiling](#binary-compiling)
@@ -90,6 +92,8 @@ Many devs code up their entire ad in this file. But remember, this is ES6. You c
 
 ## FAT Framework
 
+<a name="fat-framework"></a>
+
 FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instantiating, styling, and animating elements. The benefits of being 100% Javascript include:
 
 - Authoring flexibility
@@ -97,6 +101,8 @@ FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instanti
 - Packaging
 
 All of the `ad-...` repos in the [@ff0000-ad-tech GitHub organization](https://github.com/ff0000-ad-tech) are the front-end core. We are working on better README documentation for each. In the meantime, all of the modules have up-to-date code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs). Search for the class you require.
+
+TODO: Write guides for building standard layouts.
 
 ## Ad Networks
 
