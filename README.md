@@ -38,17 +38,17 @@ npm run server
 
 #### Creative Server
 
-This platform will help you manage, compile, & package your volume of sizes/indexes. See the README for Creative Server for more info:
-
-https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md
+This platform will help you manage, compile, & package your volume of sizes/indexes. See the [README for Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) for more info:
 
 #### FAT Framework
 
-FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instantiating, styling, and animating elements.
+FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instantiating, styling, and animating elements. The benefits of being 100% Javascript include:
 
-The syntax may seem verbose. However, there are great benefits of being 100% Javascript, in terms of authoring, execution, as well as packaging.
+- Authoring flexibility
+- Execution control
+- Packaging
 
-All of the `ad-...` repos in this GitHub organization are the core. We are working on better README documentation for each. In the meantime, all of the modules have code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs).
+All of the `ad-...` repos in the [@ff0000-ad-tech GitHub organization](https://github.com/ff0000-ad-tech) are the frontened core. We are working on better README documentation for each. In the meantime, all of the modules have up-to-date code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs). Search for the class you require.
 
 ## Binary Compiling
 
@@ -71,22 +71,22 @@ image.src = ImageManager.get('my_asset') // id is the filename of the image-asse
 #### Fonts
 
 ```javascript
-import '../../fonts/template_font.ttf'
-// font will get unpacked at runtime and declared via CSS
+import './fonts/template_font.ttf'
+// "template_font" will get unpacked at runtime and declared via CSS
 ```
 
 ## Advanced Usage
 
 <a name="advanced-usage"></a>
 
-Alternative applications & workflows can be integrated as needed.
+Alternative workflows, frameworks, and components can be integrated as needed.
 
-For example, Preact/React and/or other Javascript libraries & frameworks, Web Components, etc..._anything that Webpack can load can be compiled_. We are always interested in refining the authoring layer, to be as lightweight & intuitive as possible.
-
-Repos in the [@ff0000-ad-tech](https://github.com/ff0000-ad-tech) organization with a `ad-...` prefix house these authoring libs.
+For example, Preact/React, Web Components, home-grown modules, etc..._anything that Webpack can load can be compiled_. Be encouraged to adapt -- we are always interested in refining the authoring layer, to be as lightweight & intuitive as possible.
 
 If you want to adapt Creative Server to a different organization, contact us and we can help you get your head around the `webpack.config.js` which has been divided into sub-modules for organization.
 
-`wp-...` prefix are webpack related modules.
+Repos in [@ff0000-ad-tech](https://github.com/ff0000-ad-tech) dealing with Webpack & Creative Server are:
 
-`cs-...` prefex are Creative Server related modules.
+- `wp-...` prefix are webpack related modules.
+
+- `cs-...` prefex are Creative Server related modules.
