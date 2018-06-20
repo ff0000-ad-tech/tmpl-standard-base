@@ -82,7 +82,7 @@ The 👁 icon is a browser shortcut to the `2-debug/[size]` folder. Similarly, o
 
 <a name="authoring"></a>
 
-##### build.js
+#### build.js
 
 To begin authoring a size, open the `1-build/[size]/build.js` file. This is your creative-coding place. It is organized into 3 sections:
 
@@ -92,15 +92,15 @@ To begin authoring a size, open the `1-build/[size]/build.js` file. This is your
 
 For more information about the framework implemented in this template, see [FAT Framework](#fat-framework).
 
-##### common/
+#### common/
 
 Many devs code up their entire ad in "the build". But remember, this is ES6. You can modularize your code as much as needed. For example, the `./1-build/common/js` folder is a great place to write code that wants to be re-used across all sizes. In fact, shared scripts already exist for doing that: `./1-build/common/js/Common.js` & `./1-build/common/js/AdData.js`.
 
-##### Assets
+#### Assets
 
 Images and fonts are [Binary Assets](#binary-assets). To get them compiled into a single payload, declare them like so:
 
-**Images**
+##### Images
 
 ```javascript
 import { ImageManager } from 'ad-control'
@@ -110,7 +110,7 @@ var image = new Image()
 image.src = ImageManager.get('my_asset') // id is the filename of the image-asset
 ```
 
-**Fonts**
+##### Fonts
 
 ```javascript
 import './fonts/template_font.ttf'
