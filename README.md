@@ -6,7 +6,7 @@
 
 [FAT Framework](#fat-framework)
 
-[Ad Networks](#ad-networks)
+[Ad Networks & Publishing](#ad-networks-publishing)
 
 [Binary Assets](#binary-assets)
 
@@ -119,6 +119,29 @@ import './fonts/template_font.ttf'
 
 This only needs to be done once, usually in `./1-build/common/js/AdData.js`.
 
+### Publishing
+
+##### Deploy Profiles
+
+Creative Server lets you maintain Profiles for different deploy targets. For each, different settings can be injected into the selected indexes, depending on the intended Network & media targets.
+
+![Deploy Profiles](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/deploy-profiles.png)
+
+Click the "+" icon to define a new profile. Click the ![Settings Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/settings-icon.png) to override index settings for this profile.
+
+##### Bulk Control
+
+Bulk Control lets you run processes, with the current Deploy Profile settings, on all of the selected size/indexes.
+
+![Bulk Control](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/bulk-control.png)
+
+The dropdown lists plugins that can be used on the selected set of ads.
+
+Several plugins are installed by default that simplify publishing:
+
+- [cs-plugin-bulk-compile](https://github.com/ff0000-ad-tech/cs-plugin-bulk-compile), compiles all of the selected ads, at once. Laugh while your CPU cries.
+- [cs-plugin-vendor-indexes](https://github.com/ff0000-ad-tech/cs-plugin-vendor-indexes), assuming assets are hosted on a 4th party CDN, this will output only the indexes necessary for traffic.
+
 ## FAT Framework
 
 <a name="fat-framework"></a>
@@ -137,9 +160,11 @@ TODO: Write guides for building standard layouts.
 
 <a name="ad-networks"></a>
 
-This template is configured for DCM (Doubleclick Campaign Manager).
+This template is configured for DCM (Doubleclick Campaign Manager). Other templates for DC Studio, Flashtalking, and Sizmek are available -- contact [us](https://github.com/gmcdev) for specifics.
 
-Changing the configuration for DC Studio, Flashtalking, and Sizmek (or many others) is not difficult. Most of your creative execution will be unchanged. Contact [us](https://github.com/gmcdev) for specifics.
+We have tried to isolate Network interfacing to the `index.html`, so that creative is easily ported from one template-type to another.
+
+Some networks, like Flashtalking, have very unique packaging requirements. In this case, we've built plugins, like [cs-plugin-vendor-ft](https://github.com/ff0000-ad-tech/cs-plugin-vendor-ft) to simplify the packaging process.
 
 ## Binary Assets
 
