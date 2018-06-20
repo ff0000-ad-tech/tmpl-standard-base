@@ -62,7 +62,7 @@ All of the `ad-...` repos in the [@ff0000-ad-tech GitHub organization](https://g
 
 This template is configured for DCM (Doubleclick Campaign Manager).
 
-Changing the configuration for DC Studio, Flashtalking, and Sizmek is not difficult. Most of your creative execution will be unchanged. Contact us for specifics.
+Changing the configuration for DC Studio, Flashtalking, and Sizmek (or many others) is not difficult. Most of your creative execution will be unchanged. Contact [gmcdev](https://github.com/gmcdev) for specifics.
 
 ## Binary Compiling
 
@@ -95,9 +95,9 @@ import './fonts/template_font.ttf'
 
 Alternative workflows, frameworks, and components can be integrated as needed.
 
-For example, Preact/React, Web Components, home-grown modules, etc..._anything that Webpack can load can be compiled_. Be encouraged to adapt -- we are always interested in refining the authoring layer, to be as lightweight & intuitive as possible.
+For example, Preact/React, Web Components, home-grown modules, etc..._anything that Webpack can load can be compiled_. Be encouraged to adapt -- we are always interested in different use-cases. Such efforts will advance the overall project goals: To offer a flexible, lightweight, and intuitive system for building interactive ad content.
 
-If you want to adapt Creative Server to a different organization, contact us and we can help you get your head around the `webpack.config.js` which has been divided into sub-modules for organization.
+If you want to adapt Creative Server to a different organization (index, hierarchy, etc), contact [us](https://github.com/gmcdev) and we can help you get your head around the `webpack.config.js` which has been divided into sub-modules for organization.
 
 Repos in [@ff0000-ad-tech](https://github.com/ff0000-ad-tech) dealing with Webpack & Creative Server are:
 
