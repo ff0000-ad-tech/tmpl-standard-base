@@ -8,7 +8,7 @@
 
 [Ad Networks](#ad-networks)
 
-[Binary Compiling](#binary-compiling)
+[Binary Assets](#binary-assets)
 
 [Advanced Usage](#advanced-usage)
 
@@ -82,13 +82,42 @@ The 👁 icon is a browser shortcut to the `2-debug/[size]` folder. Similarly, o
 
 <a name="authoring"></a>
 
+##### build.js
+
 To begin authoring a size, open the `1-build/[size]/build.js` file. This is your creative-coding place. It is organized into 3 sections:
 
 1.  **Control** - Access the lifespan of the creative.
 2.  **View** - Declare visual elements / components.
 3.  **Animation** - Run transitions & effects.
 
-Many devs code up their entire ad in this file. But remember, this is ES6. You can modularize your code as much as needed. For example, the `./1-build/common/js` folder is a great place to write code that wants to be re-used across all sizes. In fact, stubs already exist for doing that: `./1-build/common/js/Common.js` & `./1-build/common/js/AdData.js`.
+For more information about the framework implemented in this template, see [FAT Framework](#fat-framework).
+
+##### common/
+
+Many devs code up their entire ad in "the build". But remember, this is ES6. You can modularize your code as much as needed. For example, the `./1-build/common/js` folder is a great place to write code that wants to be re-used across all sizes. In fact, shared scripts already exist for doing that: `./1-build/common/js/Common.js` & `./1-build/common/js/AdData.js`.
+
+##### Assets
+
+Images and fonts are [Binary Assets](#binary-assets). To get them compiled into a single payload, declare them like so:
+
+**Images**
+
+```javascript
+import { ImageManager } from 'ad-control'
+import './images/my_asset.png'
+
+var image = new Image()
+image.src = ImageManager.get('my_asset') // id is the filename of the image-asset
+```
+
+**Fonts**
+
+```javascript
+import './fonts/template_font.ttf'
+// "template_font" will get unpacked at runtime and declared via CSS
+```
+
+This only needs to be done once, usually in `./1-build/common/js/AdData.js`.
 
 ## FAT Framework
 
@@ -112,30 +141,13 @@ This template is configured for DCM (Doubleclick Campaign Manager).
 
 Changing the configuration for DC Studio, Flashtalking, and Sizmek (or many others) is not difficult. Most of your creative execution will be unchanged. Contact [us](https://github.com/gmcdev) for specifics.
 
-## Binary Compiling
+## Binary Assets
 
-<a name="binary-compiling"></a>
+<a name="binary-assets"></a>
 
-Binary assets like images & fonts are 25% bigger when expressed as base64 text. Even after gzip, there is significant waste. Loading the assets individually is even worse in terms of load delay.
+Assets like images & fonts are 25% bigger when expressed as base64 text. Even after gzip, there is significant waste. Loading the assets individually is even worse in terms of load delay.
 
 To solve these problems, we compile all binary assets into a single load that is streamed into the ad and written into the DOM in a single execution loop.
-
-#### Images
-
-```javascript
-import { ImageManager } from 'ad-control'
-import './images/my_asset.png'
-
-var image = new Image()
-image.src = ImageManager.get('my_asset') // id is the filename of the image-asset
-```
-
-#### Fonts
-
-```javascript
-import './fonts/template_font.ttf'
-// "template_font" will get unpacked at runtime and declared via CSS
-```
 
 ## Advanced Usage
 
