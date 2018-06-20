@@ -30,7 +30,7 @@ Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. 
 4.  [Preview](#preview) the result
 5.  [Author](#author) your Size/Index & `build.js`
 
-#### Install
+### Install
 
 <a name="install"></a>
 
@@ -44,7 +44,7 @@ npm install
 
 This will install the top-level and build-level packages.
 
-#### Creative Server
+### Creative Server
 
 <a name="creative-server"></a>
 
@@ -58,7 +58,7 @@ npm run browser
 
 If you don't want a new browser opened, use `npm run server`.
 
-#### Watch Process
+### Watch Process
 
 <a name="watch-process"></a>
 
@@ -70,13 +70,13 @@ Creative Server can start a "Watch Process" that will recompile the ad every tim
 
 If you want more visibility, click the "Terminal Icon" next to the left. This will copy the Webpack command to you clipboard. Paste & execute that in your Terminal.
 
-#### Preview
+### Preview
 
 <a name="preview"></a>
 
 The 👁 icon is a browser shortcut to the `2-debug/[size]` folder. Similarly, once a "Traffic Version" has been compiled, the Date/Time indication links to a preview.
 
-#### Authoring
+### Authoring
 
 <a name="authoring"></a>
 
