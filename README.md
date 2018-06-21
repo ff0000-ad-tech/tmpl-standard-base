@@ -71,7 +71,7 @@ Creative Server can start a "Watch Process" that will recompile the ad every tim
 
 ![CS Watch Process](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/cs-watch-process.png)
 
-If you want more visibility, click ![Terminal Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/terminal-icon.png). This will copy the Webpack command to you clipboard. Paste & execute that in your Terminal. Similarly, clicking ![Webpack Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/webpack-icon.png) will copy the Traffic command to your clipboard, for better visibility when run from a shell.
+If you want more visibility, click ![Terminal Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/terminal-icon.png). This will copy the Webpack command to your clipboard. Paste & execute that in your Terminal. Similarly, clicking ![Webpack Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/webpack-icon.png) will copy the Traffic command to your clipboard, for better visibility when run from a shell.
 
 ### Preview
 
