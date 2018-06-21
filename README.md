@@ -6,7 +6,7 @@
 
 [FAT Framework](#fat-framework)
 
-[Ad Networks & Publishing](#ad-networks-publishing)
+[Ad Networks](#ad-networks)
 
 [Binary Assets](#binary-assets)
 
@@ -31,6 +31,7 @@ Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. 
 3.  Begin a [Watch Process](#watch-process)
 4.  [Preview](#preview) the result
 5.  [Author](#author) your Size/Index & `build.js`
+6.  Publish for [Traffic](#traffic)
 
 ### Install
 
@@ -120,6 +121,8 @@ import './fonts/template_font.ttf'
 This only needs to be done once, usually in `./1-build/common/js/AdData.js`.
 
 ### Publishing
+
+<a name="traffic"></a>
 
 ##### Deploy Profiles
 
