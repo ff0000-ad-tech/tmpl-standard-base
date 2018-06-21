@@ -114,11 +114,12 @@ image.src = ImageManager.get('my_asset') // id is the filename of the image-asse
 ##### Fonts
 
 ```javascript
+// Usually done once per font in `./1-build/common/js/AdData.js`.
 import './fonts/template_font.ttf'
 // "template_font" will get unpacked at runtime and declared via CSS
 ```
 
-This only needs to be done once, usually in `./1-build/common/js/AdData.js`.
+
 
 ### Publishing
 
