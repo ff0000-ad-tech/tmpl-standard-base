@@ -59,7 +59,7 @@ Run it with this command:
 npm run browser
 ```
 
-In order restart Creative Server, use `npm run server`.
+In order to restart Creative Server, use `npm run server`.
 
 ### Watch Process
 
@@ -134,7 +134,7 @@ Click the "+" icon to define a new profile. Click the ![Settings Icon](https://g
 
 ##### Bulk Control
 
-Bulk Control lets you run processes, with the current Deploy Profile settings, on all of the selected size/indexes.
+Bulk Control lets you run processes, with the current Deploy Profile settings, on all of the selected size/indexes. The output ends up in `./3-traffic/`.
 
 ![Bulk Control](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/bulk-control.png)
 
@@ -142,8 +142,8 @@ The dropdown lists plugins that can be used on the selected set of ads. Click th
 
 Several plugins are installed by default that simplify publishing:
 
-- [cs-plugin-bulk-compile](https://github.com/ff0000-ad-tech/cs-plugin-bulk-compile), compiles all of the selected ads, at once. Laugh while your CPU cries.
-- [cs-plugin-vendor-indexes](https://github.com/ff0000-ad-tech/cs-plugin-vendor-indexes), assuming assets are hosted on a 4th party CDN, this will output only the indexes necessary for traffic.
+- [cs-plugin-bulk-compile](https://github.com/ff0000-ad-tech/cs-plugin-bulk-compile), compiles all of the selected ads, at once -- laugh while your CPU cries.
+- [cs-plugin-vendor-indexes](https://github.com/ff0000-ad-tech/cs-plugin-vendor-indexes), for when assets are hosted on a 4th party CDN and only then indexes are needed for media. This plugin will transfer indexes from your traffic output to `./4-vendor`.
 
 ## FAT Framework
 
@@ -155,7 +155,7 @@ FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instanti
 - Execution control
 - Packaging
 
-All of the `ad-...` repos in the [@ff0000-ad-tech GitHub organization](https://github.com/ff0000-ad-tech) are the front-end core. We are working on better README documentation for each. In the meantime, all of the modules have up-to-date code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs). Search for the class you require.
+Repos in the [@ff0000-ad-tech GitHub organization](https://github.com/ff0000-ad-tech) with the `ad-...` prefix are the frontend core. We are working on better README documentation for each. In the meantime, all of the modules have up-to-date code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs). Search for the class you require.
 
 TODO: Write guides for building standard layouts.
 
@@ -165,7 +165,7 @@ TODO: Write guides for building standard layouts.
 
 This template is configured for DCM (Doubleclick Campaign Manager). Other templates for DC Studio, Flashtalking, and Sizmek are available -- contact [us](https://github.com/gmcdev) for specifics.
 
-We have tried to isolate Network interfacing to the `index.html`, so that creative is easily ported from one template-type to another.
+As much as possible, we have tried to isolate Network interfacing to the `index.html`, so that creative is easily ported from one template-type to another.
 
 Some networks, like Flashtalking, have very unique packaging requirements. In this case, we've built plugins, like [cs-plugin-vendor-ft](https://github.com/ff0000-ad-tech/cs-plugin-vendor-ft) to simplify the packaging process.
 
@@ -177,6 +177,8 @@ Assets like images & fonts are 25% bigger when expressed as base64 text. Even af
 
 To solve these problems, we compile all binary assets into a single load that is streamed into the ad and written into the DOM in a single execution loop.
 
+See the [authoring](#authoring) notes above for how to implement.
+
 ## Advanced Usage
 
 <a name="advanced-usage"></a>
@@ -185,7 +187,7 @@ Alternative workflows, frameworks, and components can be integrated as needed.
 
 For example, Preact/React, Web Components, home-grown modules, etc..._anything that Webpack can load can be compiled_. Be encouraged to adapt -- we are always interested in different use-cases. Such efforts will advance the overall project goals: To offer a flexible, lightweight, and intuitive system for building interactive ad content.
 
-If you want to adapt Creative Server to a different organization (index, hierarchy, etc), contact [us](https://github.com/gmcdev) and we can help you get your head around the `webpack.config.js` which has been divided into sub-modules for organization.
+If you want to adapt Creative Server to a different organization (index, hierarchy, etc), contact [us](https://github.com/gmcdev) and we can help you adapt `webpack.config.js` which has been divided into sub-modules for organization.
 
 Repos in [@ff0000-ad-tech](https://github.com/ff0000-ad-tech) dealing with Webpack & Creative Server are:
 
