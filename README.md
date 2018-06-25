@@ -71,7 +71,7 @@ Creative Server can start a "Watch Process" that will recompile the ad every tim
 
 ![CS Watch Process](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/cs-watch-process.png)
 
-If you want more visibility, click ![Terminal Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/terminal-icon.png). This will copy the Webpack command to you clipboard. Paste & execute that in your Terminal. Similarly, clicking ![Webpack Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/webpack-icon.png) will copy the Traffic command to your clipboard, for better visibility when run from a shell.
+If you want more visibility, click ![Terminal Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/terminal-icon.png). This will copy the Webpack command to your clipboard. Paste & execute that in your Terminal. Similarly, clicking ![Webpack Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/webpack-icon.png) will copy the Traffic command to your clipboard, for better visibility when run from a shell.
 
 ### Preview
 
@@ -114,11 +114,12 @@ image.src = ImageManager.get('my_asset') // id is the filename of the image-asse
 ##### Fonts
 
 ```javascript
+// Usually done once per font in `./1-build/common/js/AdData.js`.
 import './fonts/template_font.ttf'
 // "template_font" will get unpacked at runtime and declared via CSS
 ```
 
-This only needs to be done once, usually in `./1-build/common/js/AdData.js`.
+
 
 ### Publishing
 
@@ -185,9 +186,9 @@ See the [authoring](#authoring) notes above for how to implement.
 
 Alternative workflows, frameworks, and components can be integrated as needed.
 
-For example, Preact/React, Web Components, home-grown modules, etc..._anything that Webpack can load can be compiled_. Be encouraged to adapt -- we are always interested in different use-cases. Such efforts will advance the overall project goals: To offer a flexible, lightweight, and intuitive system for building interactive ad content.
+For example, Preact/React, Web Components, home-grown modules, etc..._anything that Webpack can load can be compiled_. Be encouraged to modify -- we are always interested in different use-cases. Such efforts will advance the overall project goals: To offer a flexible, lightweight, and intuitive system for building interactive ad content.
 
-If you want to adapt Creative Server to a different organization (index, hierarchy, etc), contact [us](https://github.com/gmcdev) and we can help you adapt `webpack.config.js` which has been divided into sub-modules for organization.
+If you want to adapt Creative Server to a different setup (index, hierarchy, etc), contact [us](https://github.com/gmcdev) and we can help you with our `webpack.config.js` which has been divided into sub-modules for organizational purposes.
 
 Repos in [@ff0000-ad-tech](https://github.com/ff0000-ad-tech) dealing with Webpack & Creative Server are:
 
