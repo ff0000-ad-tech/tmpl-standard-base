@@ -236,7 +236,7 @@ module.exports = config => {
 	 *
 	 */
 	return {
-		mode: 'none',
+		mode: DM.deploy.get().output.debug ? 'development' : 'production',
 		entry: {
 			// are injected into index.html, via wp-plugin-index
 			initial: path.resolve(__dirname, `${DM.deploy.get().source.context}/node_modules/@ff0000-ad-tech/ad-entry/index.js`),
