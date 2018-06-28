@@ -50,8 +50,7 @@ module.exports = config => {
 	 */
 	// deploy settings
 	DM.deploy.prepare(
-		_.merge(
-			{
+		_.merge({
 				// deploy profile
 				profile: {
 					name: 'default',
@@ -93,8 +92,7 @@ module.exports = config => {
 	 */
 	// ad settings
 	DM.ad.prepare(
-		_.merge(
-			{
+		_.merge({
 				settings: {
 					// ** REQUIRED: where to load settings from
 					source: {
@@ -122,8 +120,7 @@ module.exports = config => {
 					// `index.html?debug=true` will cause the ad to load from this location
 					debug: {
 						domain: 'red.ff0000-cdn.net',
-						path:
-							`/_debug/${DM.deploy.get().profile.client}/${DM.deploy.get().profile.project}/` +
+						path: `/_debug/${DM.deploy.get().profile.client}/${DM.deploy.get().profile.project}/` +
 							`${DM.deploy.get().source.size}/${DM.deploy.get().source.index}`
 					}
 				},
@@ -148,25 +145,22 @@ module.exports = config => {
 	 *
 	 */
 	DM.payload.prepare(
-		_.merge(
-			{
+		_.merge({
 				// payload settings
 				watchPaths: [path.resolve(`${__dirname}/${DM.ad.get().settings.source.path}`)],
-				entries: [
-					{
-						name: 'inline',
-						type: 'inline',
-						assets: {
-							get: function() {
-								return DM.ad.get().settings.ref.assets.preloader.images.map(obj => {
-									return obj.source
-								})
-							},
-							importPath: `./${DM.ad.get().paths.ad.images}`,
-							requestPath: `${DM.ad.get().paths.ad.images}`
-						}
+				entries: [{
+					name: 'inline',
+					type: 'inline',
+					assets: {
+						get: function () {
+							return DM.ad.get().settings.ref.assets.preloader.images.map(obj => {
+								return obj.source
+							})
+						},
+						importPath: `./${DM.ad.get().paths.ad.images}`,
+						requestPath: `${DM.ad.get().paths.ad.images}`
 					}
-				]
+				}]
 			},
 			config.payload
 		)
@@ -178,7 +172,7 @@ module.exports = config => {
 	// (see: https://github.com/rollup/rollup-pluginutils)
 	// accepts either a RegExp, glob/minimatch pattern, or an array of either of the types mentioned
 	// also allows for optional query strings
-	const imageIncludes = /\.(png|jpg|gif|svg)(\?.*)?$/ 
+	const imageIncludes = /\.(png|jpg|gif|svg)(\?.*)?$/
 	const fontIncludes = /\.(ttf|woff)(\?.*)?$/
 
 	/** -- LOADERS -----------------------------------------------------------------------------------------------
@@ -190,14 +184,12 @@ module.exports = config => {
 		// loads images and fonts
 		{
 			test: [].concat(imageIncludes).concat(fontIncludes),
-			use: [
-				{
-					loader: '@ff0000-ad-tech/fba-loader',
-					options: {
-						emitFile: false
-					}
+			use: [{
+				loader: '@ff0000-ad-tech/fba-loader',
+				options: {
+					emitFile: false
 				}
-			]
+			}]
 		}
 	]
 
@@ -208,8 +200,7 @@ module.exports = config => {
 
 	// FBA type objects used with binary-imports module
 	// (https://github.com/ff0000-ad-tech/binary-imports)
-	const fbaTypes = [
-		{
+	const fbaTypes = [{
 			type: 'fbAi',
 			include: imageIncludes
 		},
@@ -245,6 +236,7 @@ module.exports = config => {
 	 *
 	 */
 	return {
+		mode: 'none',
 		entry: {
 			// are injected into index.html, via wp-plugin-index
 			initial: path.resolve(__dirname, `${DM.deploy.get().source.context}/node_modules/@ff0000-ad-tech/ad-entry/index.js`),
@@ -255,15 +247,13 @@ module.exports = config => {
 		},
 		output: {
 			path: path.resolve(__dirname, `${DM.deploy.get().output.context}/${DM.deploy.get().output.folder}`),
-			filename: '[name].bundle.js',
-			chunkFilename: '[name].bundle.js'
+			filename: '[name].bundle.js'
 		},
 		externals: {
 			'ad-load': 'adLoad'
 		},
 		resolve: {
-			alias: Object.assign(
-				{
+			alias: Object.assign({
 					AdData: path.resolve(__dirname, `${DM.deploy.get().source.context}/common/js/data/AdData`),
 					FtData: path.resolve(__dirname, `${DM.deploy.get().source.context}/common/js/data/FtData`),
 					GdcData: path.resolve(__dirname, `${DM.deploy.get().source.context}/common/js/data/GdcData`),
@@ -282,7 +272,6 @@ module.exports = config => {
 			buildEntry,
 			fbaTypes
 		}),
-		watch: DM.deploy.get().output.debug,
 		devtool: DM.deploy.get().output.debug ? 'source-map' : false
 	}
 }
