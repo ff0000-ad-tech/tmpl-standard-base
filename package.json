@@ -18,6 +18,7 @@
 	"devDependencies": {
 		"@ff0000-ad-tech/debug": "latest",
 		"@ff0000-ad-tech/fba-loader": "latest",
+		"@ff0000-ad-tech/wp-resolve-plugin-index-variation": "git+https://github.com/ff0000-ad-tech/wp-resolve-plugin-index-variation.git",
 		"@ff0000-ad-tech/wp-creative-server": "latest",
 		"@ff0000-ad-tech/wp-deploy-manager": "git+https://github.com/ff0000-ad-tech/wp-deploy-manager.git#develop/webpack4",
 		"@ff0000-ad-tech/wp-process-manager": "latest",
