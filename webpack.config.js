@@ -24,7 +24,7 @@ const babelOptions = {
 			}
 		]
 	],
-	plugins: ['transform-class-properties', 'transform-object-rest-spread']
+	plugins: ['transform-class-properties', 'transform-object-rest-spread', 'dynamic-import-webpack', 'syntax-dynamic-import']
 }
 
 module.exports = config => {
