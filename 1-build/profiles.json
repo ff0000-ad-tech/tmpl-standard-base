@@ -1,0 +1,24 @@
+{
+  "default": {
+    "webpack": {
+      "deploy": {
+        "profile": {
+          "name": "default",
+          "adEnvironment": {
+            "id": "default",
+            "runPath": "",
+            "adPath": ""
+          }
+        }
+      }
+    },
+    "targets": [
+      {
+        "size": "300x250",
+        "index": "index.html",
+        "deployAt": 1532025735173
+      }
+    ],
+    "updateAt": 1529532948685
+  }
+}
