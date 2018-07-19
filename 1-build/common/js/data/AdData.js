@@ -1,10 +1,9 @@
 import { ImageManager } from 'ad-control'
 import '../../fonts/template_font.ttf'
 
+function AdData() {
+	var self = this
 
-function AdData(){
-	var self = this;
-	
 	// ==============================================================================================================
 	// EXTRACT JSON DATA HERE
 
@@ -19,20 +18,12 @@ function AdData(){
 
 	self.fonts = {
 		primary: 'template_font'
-
-
 	}
 
-	self.colors = {
-
-	}
+	self.colors = {}
 
 	// Store svg markup for use in all UISvg instances, reduces duplicate code across builds.  See UISvg.
-	self.svg = {
-
-	}
-
-
+	self.svg = {}
 }
 
 export default AdData
