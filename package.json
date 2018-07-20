@@ -31,7 +31,6 @@
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.6.1",
-		"binary-imports": "git+https://github.com/ff0000-ad-tech/binary-imports.git",
 		"eslint": "^4.18.0",
 		"eslint-config-prettier": "^2.9.0",
 		"eslint-plugin-prettier": "^2.5.0",
@@ -39,7 +38,6 @@
 		"lodash": "^4.17.4",
 		"prettier": "^1.10.2",
 		"promise-polyfill": "^7.0.0",
-		"traverse": "^0.6.6",
 		"url-loader": "^0.6.2",
 		"webpack": "^4.5.0",
 		"webpack-cli": "^2.0.9"
