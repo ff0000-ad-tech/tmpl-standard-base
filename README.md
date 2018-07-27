@@ -33,15 +33,16 @@ Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. 
 5.  [Author](#author) your Size/Index & `build.js`
 6.  Publish for [Traffic](#traffic)
 
-### Install
+### System Dependencies
+Make sure your machine has at least these versions installed:
 
-<a name="install"></a>
-
-Make sure you have 
  * Node `^9.0.0`
  * NPM `^6.0.0`
- * Python `^2.7.0` installed. Open up your Terminal (or shell of preference): Type `node -v` and `npm -v` to see where you're at.
+ * Python `^2.7.0`
+ 
+You can check in Terminal (or shell of preference): Execute `node -v`, `npm -v`, and `python` to see where you're at.
 
+### Install
 Download this repo and unzip it. In Terminal, `cd` into the result directory, then:
 
 ```sh
