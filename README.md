@@ -37,7 +37,10 @@ Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. 
 
 <a name="install"></a>
 
-Make sure you have Node `^9.0.0` and NPM `^6.0.0` installed. Open up your Terminal (or shell of preference): Type `node -v` and `npm -v` to see where you're at.
+Make sure you have 
+ * Node `^9.0.0`
+ * NPM `^6.0.0`
+ * Python `^2.7.0` installed. Open up your Terminal (or shell of preference): Type `node -v` and `npm -v` to see where you're at.
 
 Download this repo and unzip it. In Terminal, `cd` into the result directory, then:
 
