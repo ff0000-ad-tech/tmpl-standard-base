@@ -40,9 +40,9 @@ Make sure your machine has at least these versions installed:
  * NPM `^6.0.0`
  * Python `^2.7.0`
  
-You can check in Terminal (or shell of preference): Execute `node -v`, `npm -v`, and `python` to see where you're at.
+You can check your versions in Terminal (or shell of preference): Execute commands `node -v`, `npm -v`, and `python` to see which versions you're running.
 
-Check online for instructions on how to update or install these dependencies on your OS.
+If you need to update or install, check online for instructions for your operating system.
 
 ### Install Ad Template
 Download this repo and unzip it. In Terminal, `cd` into the result directory, then:
