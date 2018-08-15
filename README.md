@@ -26,7 +26,7 @@ Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. 
 
 <a name="getting-started"></a>
 
-1.  [Install](#install) this template
+1.  [NPM Install](#install) this template
 2.  Run [Creative Server](#creative-server)
 3.  Begin a [Watch Process](#watch-process)
 4.  [Preview](#preview) the result
@@ -45,7 +45,10 @@ You can check your versions in Terminal (or shell of preference): Execute comman
 If you need to update or install, check online for instructions for your operating system.
 
 ### Install Ad Template
-Download this repo and unzip it. In Terminal, `cd` into the result directory, then:
+
+<a name="install"></a>
+
+Clone or Download this repo and unzip it. In Terminal, `cd` into the result directory, then:
 
 ```sh
 npm install
