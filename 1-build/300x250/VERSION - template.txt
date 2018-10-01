@@ -1,1 +1,1 @@
-BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / AdApp: 3.0.3 / AdHtml: v0.1.3 / Created: 06/20/18 11:35am
+BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.0 / Created: 10/01/18 03:37pm

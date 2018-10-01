@@ -1,13 +1,15 @@
-/* BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / AdApp: 3.0.3 / AdHtml: v0.1.3 / Created: 06/20/18 11:35am */
+/* BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.0 / Created: 10/01/18 03:37pm */
 import { Styles, Markup, Align, Effects } from 'ad-view'
 import { ImageManager, Core } from 'ad-control'
 import { Gesture, GestureEvent } from 'ad-events'
-import { Common } from '../common/js/control/Common.js'
-import './images/template_image.png'
+import { Common } from '@common/js/control/Common.js'
 import { UIComponent, UIBorder, UIButton, UIImage, TextFormat, UITextField } from 'ad-ui'
+import '@size/images/template_image.png'
+
 
 /* -- CONTROL ----------------------------------------------------------------------------------------------------
  *
+ *	API Docs are here: https://ff0000-ad-tech.github.io/ad-docs/
  *
  *
  */
@@ -25,7 +27,7 @@ window.Control = new function() {
 				this.prepareBuild()
 			})
 			.catch(err => {
-				throw err
+				throw(err)
 			})
 	}
 
@@ -34,37 +36,51 @@ window.Control = new function() {
 		console.log('Control.prepareBuild()')
 		Control.preMarkup()
 
+
 		View.main = new Main()
 		View.mainBorder = new MainBorder()
 
+
 		Control.postMarkup()
 
+
 		Animation.startAd()
+
 	}
 
 	this.preMarkup = function() {
 		console.log('Control.preMarkup()')
+
 	}
 
 	this.postMarkup = function() {
 		console.log('Control.postMarkup()')
 		// listen for default exit
 		Gesture.add(View.main, GestureEvent.CLICK, Control.handleClick)
+
+
+
 	}
 
 	// IMPORTANT!!! If this method has content, Call this function when your animation is complete!
 	this.animationComplete = function() {
 		console.log('Control.animationComplete()')
+
 	}
 
 	this.handleClick = function(event) {
-		Network.exit(clickTag)
+
+		Network.exit(clickTag) 
 	}
-}()
+
+
+
+
+}
 
 /* -- VIEW ------------------------------------------------------------------------------------------------------
  *
- *
+ *	API Docs are here: https://ff0000-ad-tech.github.io/ad-docs/
  *
  */
 
@@ -110,15 +126,15 @@ function Main() {
 			right: 5
 		},
 		leading: 1,
-		text: 'MOBILE ADS'
+		text: 'MOBILE ADS'			
 	})
 
 	Effects.textDropShadow({
-		target: T.txtGreeting,
-		angle: 45,
-		distance: 2,
-		size: 2,
-		color: '#000000',
+		target: T.txtGreeting, 
+		angle: 45, 
+		distance: 2, 
+		size: 2, 
+		color: '#000000', 
 		alpha: 0.5
 	})
 
@@ -155,23 +171,30 @@ function Main() {
 	})
 
 	// add background color to ad if needed
-	Styles.setCss(T, { 'background-color': '#cccccc' })
+	Styles.setCss(T, { 'background-color':'#cccccc' })		
+
+	
+
+
 
 	return T
 }
 
+
 // ==============================================================================================================
-function MainBorder() {
+function MainBorder(){
 	new UIBorder({
-		target: View.main,
-		size: 1,
-		color: '#000000'
+		target : View.main,
+		size : 1,
+		color : '#000000'
 	})
 }
 
+
+
 /* -- ANIMATION -------------------------------------------------------------------------------------------------
  *
- *
+ *	Greensock Docs are here: https://greensock.com/docs
  *
  */
 window.Animation = new function() {
@@ -180,9 +203,13 @@ window.Animation = new function() {
 
 		// show the main container
 		global.removePreloader()
-		Styles.setCss(View.main, { opacity: 1 })
+		Styles.setCss(View.main, {opacity: 1})
 
-		TweenLite.from(View.main.logoContainer, 1, { y: -40 })
-		TweenLite.from(View.main.txtGreeting, 1, { y: 330 })
+		TweenLite.from(View.main.logoContainer, 1, { y:-40 })
+		TweenLite.from(View.main.txtGreeting, 1, { y:330 })
+
+
 	}
-}()
+
+
+}

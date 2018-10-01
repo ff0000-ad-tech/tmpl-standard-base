@@ -277,6 +277,7 @@ module.exports = config => {
 			buildEntry,
 			fbaTypes
 		}),
+		optimization: DM.optimization.getOptimization(),
 		watch: DM.deploy.get().output.debug,
 		devtool: DM.deploy.get().output.debug ? 'source-map' : false
 	}
