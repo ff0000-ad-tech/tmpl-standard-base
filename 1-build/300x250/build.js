@@ -1,13 +1,14 @@
-/* BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / AdApp: 3.0.3 / AdHtml: v0.1.3 / Created: 06/20/18 11:35am */
+/* BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.1 / Created: 10/02/18 09:53am */
 import { Styles, Markup, Align, Effects } from 'ad-view'
 import { ImageManager, Core } from 'ad-control'
 import { Gesture, GestureEvent } from 'ad-events'
-import { Common } from '../common/js/control/Common.js'
-import './images/template_image.png'
+import { Common } from '@common/js/control/Common.js'
 import { UIComponent, UIBorder, UIButton, UIImage, TextFormat, UITextField } from 'ad-ui'
+import '@size/images/template_image.png'
 
 /* -- CONTROL ----------------------------------------------------------------------------------------------------
  *
+ *	API Docs are here: https://ff0000-ad-tech.github.io/ad-docs/
  *
  *
  */
@@ -64,7 +65,7 @@ window.Control = new function() {
 
 /* -- VIEW ------------------------------------------------------------------------------------------------------
  *
- *
+ *	API Docs are here: https://ff0000-ad-tech.github.io/ad-docs/
  *
  */
 
@@ -171,7 +172,7 @@ function MainBorder() {
 
 /* -- ANIMATION -------------------------------------------------------------------------------------------------
  *
- *
+ *	Greensock Docs are here: https://greensock.com/docs
  *
  */
 window.Animation = new function() {

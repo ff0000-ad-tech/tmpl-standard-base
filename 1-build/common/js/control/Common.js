@@ -17,6 +17,7 @@
 		modules that were added procedurally during the Build Source creation.
 */
 import AdData from '../data/AdData.js'
+import { ImageManager } from 'ad-control'
 /*-- Red.Imports.head.start --*/
 /*-- Red.Imports.head.end --*/
 
@@ -32,13 +33,33 @@ export class Common {
 
 			Promise.all(promises)
 				.then(() => {
+					this.addPreloadedImages()
 					this.prepareAdData()
+				})
+				.then(() => {
 					resolve()
 				})
 				.catch(err => {
 					reject(err)
 				})
 		})
+	}
+
+	/**
+		@memberof Common
+		@method addPreloadedImages
+		@desc
+			Makes all images associated with the preloader available to the ad as a whole
+	*/
+	static addPreloadedImages() {
+		console.log('Common.addPreloadedImages()')
+		ImageManager.addToDictionary(assets.preloadedImages)
+
+		/* ---- USER-DEFINED Common -------------------------------------------------------
+		*
+		*		This is BEFORE the image-queue is loaded...
+		*/
+		// -->
 	}
 
 	/**
