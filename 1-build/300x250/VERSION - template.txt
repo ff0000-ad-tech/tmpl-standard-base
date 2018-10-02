@@ -1,1 +1,1 @@
-BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.0 / Created: 10/01/18 03:49pm
+BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.1 / Created: 10/02/18 09:53am

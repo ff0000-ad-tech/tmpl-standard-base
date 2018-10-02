@@ -1,4 +1,4 @@
-/* BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.0 / Created: 10/01/18 03:49pm */
+/* BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.1 / Created: 10/02/18 09:53am */
 import { Styles, Markup, Align, Effects } from 'ad-view'
 import { ImageManager, Core } from 'ad-control'
 import { Gesture, GestureEvent } from 'ad-events'
