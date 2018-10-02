@@ -31,8 +31,6 @@ export class Common {
 		return new Promise((resolve, reject) => {
 			let promises = []
 
-
-
 			Promise.all(promises)
 				.then(() => {
 					this.addPreloadedImages()
@@ -46,8 +44,6 @@ export class Common {
 				})
 		})
 	}
-
-
 
 	/**
 		@memberof Common
@@ -74,7 +70,6 @@ export class Common {
 	*/
 	static prepareAdData() {
 		console.log('Common.prepareAdData()')
-
 
 		global.adData = new AdData()
 
