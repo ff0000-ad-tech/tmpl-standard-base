@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.1 / Created: 10/02/18 09:53am -->
+<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.1 / Created: 10/25/18 06:56pm -->
 
 <head>
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
@@ -71,21 +71,6 @@
 
 		/*-- Red.Settings.environments.start --*/
 		var environments = [
-				{
-					id: "debug",
-					runPath: "../",
-					adPath: "300x250/",
-				},
-				{
-					id: "ff0000-cdn",
-					runPath: "http://red.ff0000-cdn.net/ad_templates/html/mobile_base/",
-					adPath: "300x250/",
-				},
-				{
-					id: "dc-campaign",
-					runPath: "",
-					adPath: "",
-				},
 
 			];
 		/*-- Red.Settings.environments.end --*/
@@ -99,15 +84,9 @@
 		/*-- Red.Settings.external_includes.end --*/
 
 
-		/*-- Red.Settings.runtime_includes.start --*/
-		var runtimeIncludes = {
-			};
-		/*-- Red.Settings.runtime_includes.end --*/
-
-
 		function onImpression(fbaContent) {
 			console.log('Index.onImpression()')
-			Control.prepare(fbaContent)
+Ad.launch(fbaContent)
 
 
 		}
