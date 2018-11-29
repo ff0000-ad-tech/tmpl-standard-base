@@ -2,6 +2,13 @@
 	"name": "ff0000-ad-tech-compiler",
 	"version": "1.0.0",
 	"description": "FF0000 Ad Tech - Compiler: Provides backend modules for running Creative Server, which compiles the various Builds.",
+	"engines": {
+		"node": ">=9.8.0",
+		"npm": ">=6.0.0"
+	},
+	"repository": "https://greg.connell@stash.ff0000.com/scm/at/ad-es6.git",
+	"author": "RED Interactive Agency",
+	"license": "MIT",
 	"main": "webpack.config.js",
 	"scripts": {
 		"postinstall": "npm run install-build && npm run eslint",
@@ -12,15 +19,12 @@
 		"server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
 		"browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser"
 	},
-	"repository": "https://greg.connell@stash.ff0000.com/scm/at/ad-es6.git",
-	"author": "RED Interactive Agency",
-	"license": "MIT",
 	"devDependencies": {
 		"@ff0000-ad-tech/debug": "^4.0.2",
 		"@ff0000-ad-tech/fba-loader": "^1.0.0",
 		"@ff0000-ad-tech/webpack-rollup-babel-loader": "^1.0.1",
 		"@ff0000-ad-tech/wp-creative-server": "^1.6.0",
-		"@ff0000-ad-tech/wp-deploy-manager": "git+https://github.com/ff0000-ad-tech/wp-deploy-manager.git#feature/prune-legacy",
+		"@ff0000-ad-tech/wp-deploy-manager": "^4.0.0",
 		"@ff0000-ad-tech/wp-process-manager": "^1.0.4",
 		"@ff0000-ad-tech/wp-resolve-plugin-index-variation": "^1.0.2",
 		"babel-core": "^6.26.0",

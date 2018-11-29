@@ -4,6 +4,10 @@
 	"description": "FF0000 Ad Tech - Builder: Provides frontend modules for building banner creative.",
 	"main": "",
 	"scripts": {},
+	"engines": {
+		"node": ">=9.8.0",
+		"npm": ">=6.0.0"
+	},
 	"repository": "https://greg.connell@stash.ff0000.com/scm/at/ad-es6.git",
 	"author": "RED Interactive Agency",
 	"license": "MIT",
@@ -21,12 +25,12 @@
 		"@ff0000-ad-tech/ad-global": "^2.0.1",
 		"@ff0000-ad-tech/ad-load": "^2.0.0",
 		"@ff0000-ad-tech/ad-particles": "^2.0.0",
-		"@ff0000-ad-tech/ad-polyfills": "^1.0.3",
-		"@ff0000-ad-tech/ad-video": "^1.0.5",
+		"@ff0000-ad-tech/ad-polyfills": "^1.1.0",
+		"@ff0000-ad-tech/ad-video": "^2.0.0",
 		"@ff0000-ad-tech/ad-ui": "^1.2.2",
 		"@ff0000-ad-tech/ad-utils": "^2.0.0",
 		"@ff0000-ad-tech/ad-view": "^1.0.5",
-		"@ff0000-ad-tech/ad-velvet": "^2.0.1",
+		"@ff0000-ad-tech/ad-velvet": "^3.1.1",
 		"core-js": "^2.5.7"
 	}
 }

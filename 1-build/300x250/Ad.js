@@ -24,7 +24,8 @@ export class Ad {
 
 
 		View.main = new Main()
-		View.mainBorder = new MainBorder()
+View.mainBorder = new MainBorder()
+
 
 
 		Control.postMarkup()
