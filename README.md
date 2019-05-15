@@ -1,6 +1,7 @@
 ##### RED Interactive Agency - Ad Technology
 
 <!-- Red.Component.title.start -->
+
 # Standard - Base
 
 <!-- Red.Component.title.end -->
@@ -27,7 +28,7 @@ Build banners with ES6 & Greensock animations. Compile using [Creative Server](h
 
 The output is bundled, per-size, per-index into concise IAB-compatible packages:
 
-![Sample Output](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/sample-output.png)
+![Sample Output](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/sample-output.png)
 
 Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. Please see the [authoring](#authoring) section for more info.
 
@@ -46,9 +47,9 @@ Your job is to build the creative using your ES6/Javascript/Html/CSS abilities. 
 
 Make sure your machine has at least these versions installed:
 
-- Node `^9.0.0`
-- NPM `^6.0.0`
-- Python `^2.7.0`
+-   Node `^9.0.0`
+-   NPM `^6.0.0`
+-   Python `^2.7.0`
 
 You can check your versions in Terminal (or shell of preference): Execute commands `node -v`, `npm -v`, and `python` to see which versions you're running.
 
@@ -88,9 +89,9 @@ This template uses ES6. It must be compiled in order to run in a browser.
 
 Creative Server can start a "Watch Process" that will recompile the ad every time its source files are updated (saved).
 
-![CS Watch Process](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/cs-watch-process.png)
+![CS Watch Process](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/cs-watch-process.png)
 
-If you want more visibility, click ![Terminal Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/terminal-icon.png). This will copy the Webpack command to your clipboard. Paste & execute that in your Terminal. Similarly, clicking ![Webpack Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/webpack-icon.png) will copy the Traffic command to your clipboard, for better visibility when run from a shell.
+If you want more visibility, click ![Terminal Icon](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/terminal-icon.png). This will copy the Webpack command to your clipboard. Paste & execute that in your Terminal. Similarly, clicking ![Webpack Icon](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/webpack-icon.png) will copy the Traffic command to your clipboard, for better visibility when run from a shell.
 
 <a name="preview"></a>
 
@@ -102,18 +103,18 @@ The 👁 icon is a browser shortcut to the `2-debug/[size]` folder. Similarly, o
 
 ## Authoring
 
-- [Scopes](#scopes)
-  - [1-build/[size]/](#size)
-    - [index.html](#index)
-    - [Ad.js](#ad)
-  - [1-build/common/](#common)
-    - [Animation.js](#common)
-    - [AdData.js](#common)
-    - [Control.js](#common)
-    - [Preflight.js](#common)
-- [Modular Strategies](#modular)
-- [Aliases](#aliases)
-- [Assets](#assets)
+-   [Scopes](#scopes)
+    -   [1-build/[size]/](#size)
+        -   [index.html](#index)
+        -   [Ad.js](#ad)
+    -   [1-build/common/](#common)
+        -   [Animation.js](#common)
+        -   [AdData.js](#common)
+        -   [Control.js](#common)
+        -   [Preflight.js](#common)
+-   [Modular Strategies](#modular)
+-   [Aliases](#aliases)
+-   [Assets](#assets)
 
 FF0000 Ad Tech is a code-based authoring platform.
 
@@ -131,7 +132,7 @@ In the meantime, our ES6 framework provides all of the tools you need to build a
 
 Sizes that share similar creative can be added as "size folders", using the `[0-9]x[0-9]` format. Each size folder must have its own `index.html`, `Ad.js`, and `backup.jpg`. The `index.html`'s global `adParams.adWidth` and `adParams.adHeight` object should be updated accordingly:
 
-![Ad Params](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/ad-params.png)
+![Ad Params](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/ad-params.png)
 
 <a name="index"></a>
 
@@ -139,18 +140,18 @@ Sizes that share similar creative can be added as "size folders", using the `[0-
 
 An Index contains:
 
-- Settings
-- Click Tag Defs
-- Exit Mechanics
-- Preload State
-- Polite Loader
-- Failover
+-   Settings
+-   Click Tag Defs
+-   Exit Mechanics
+-   Preload State
+-   Polite Loader
+-   Failover
 
 Each size folder can have one or many indexes. Additional indexes are used to switch the dynamic state to different demographics. These are known as "Dynamic Targets".
 
 Dynamic Targets are defined by duplicating `1-build/[size]/index.html`. The new targets should be formatted like `index_target1.html`, `index_target2.html`, etc... Using this method, you can create lots of variation without loads of redundancy.
 
-![Index Targets](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/index-targets.png)
+![Index Targets](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/index-targets.png)
 
 By additionally creating a folder with the same name, you can import assets specific to that index. Then ES6 import the asset with the Webpack alias: `@index`. During compile, if no folder matching the current index-target is found, `@index` will default to the main index scope.
 
@@ -163,7 +164,7 @@ import { MyModule } from '@index/js/modules.js'
 
 ###### 1-build/[size]/Ad.js
 
-- `Ad.js` - _Size specific_ lifespan & function of the ad. **Note: Ad.js is where the creative authoring starts!**
+-   `Ad.js` - _Size specific_ lifespan & function of the ad. **Note: Ad.js is where the creative authoring starts!**
 
 Import modules into `Ad.js` scope. Instantiate them with overrides, as needed. The remaining authoring scope lives in [1-build/common](#common)
 
@@ -175,11 +176,11 @@ Different sizes often share structure, function, and assets. Use the [1-build/co
 
 The following JS modules are initially set up as common across sizes:
 
-- `Build.js` - Declare visual elements / components.
-- `Animation.js` - Run transitions & effects.
-- `AdData.js` - Global stateful object that can be referenced anywhere as `adData`
-- `Control.js` - Define event-handlers and other operators.
-- `Preflight.js` - Dynamic asset load and other runtime decisions, after the preload, ahead of the build.
+-   `Build.js` - Declare visual elements / components.
+-   `Animation.js` - Run transitions & effects.
+-   `AdData.js` - Global stateful object that can be referenced anywhere as `adData`
+-   `Control.js` - Define event-handlers and other operators.
+-   `Preflight.js` - Dynamic asset load and other runtime decisions, after the preload, ahead of the build.
 
 <a name="modular"></a>
 
@@ -197,9 +198,9 @@ Both strategies have their place. It is up to you and your needs.
 
 There are several aliases that make pathing easier:
 
-- `@common` - `1-build/common`
-- `@size` - `1-build/[size]/js`
-- `@index` - `1-build/[size]/[index-folder]`
+-   `@common` - `1-build/common`
+-   `@size` - `1-build/[size]/js`
+-   `@index` - `1-build/[size]/[index-folder]`
 
 For example:
 
@@ -239,13 +240,13 @@ import './fonts/template_font.ttf'
 
 Creative Server lets you maintain Profiles for different deploy targets. For each, different settings can be injected into the selected size / indexes, depending on the intended Network & media targets.
 
-![Deploy Profiles](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/deploy-profiles.png)
+![Deploy Profiles](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/deploy-profiles.png)
 
-Click the "+" icon to define a new profile. Click the ![Settings Icon](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/settings-icon.png) to override index settings for this profile.
+Click the "+" icon to define a new profile. Click the ![Settings Icon](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/settings-icon.png) to override index settings for this profile.
 
 The dropdown lists [Plugins](#plugins) that can be used on the selected set of ads. Click the 🔥 icon to execute.
 
-![Bulk Compile](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/bulk-control.png)
+![Bulk Compile](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/bulk-control.png)
 
 <a name="plugins"></a>
 
@@ -253,12 +254,12 @@ The dropdown lists [Plugins](#plugins) that can be used on the selected set of a
 
 Plugins are declared as dependencies in the top `./package.json`. Once installed, they will appear in Creative Server in various places, depending on their function.
 
-![Plugins](https://github.com/ff0000-ad-tech/readme-assets/blob/master/tmpl-standard-base/plugins.png)
+![Plugins](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/plugins.png)
 
 Several plugins are installed by default that simplify publishing:
 
-- [cs-plugin-bulk-compile](https://github.com/ff0000-ad-tech/cs-plugin-bulk-compile), compiles all of the selected ads, at once -- laugh while your CPU cries.
-- [cs-plugin-vendor-indexes](https://github.com/ff0000-ad-tech/cs-plugin-vendor-indexes), for when assets are hosted on a 4th party CDN and only then `index.html` and `backup.jpg` are needed for media. This plugin will transfer those files from your traffic output to `./4-vendor`.
+-   [cs-plugin-bulk-compile](https://github.com/ff0000-ad-tech/cs-plugin-bulk-compile), compiles all of the selected ads, at once -- laugh while your CPU cries.
+-   [cs-plugin-vendor-indexes](https://github.com/ff0000-ad-tech/cs-plugin-vendor-indexes), for when assets are hosted on a 4th party CDN and only then `index.html` and `backup.jpg` are needed for media. This plugin will transfer those files from your traffic output to `./4-vendor`.
 
 <!-- Red.Component.plugins.start -->
 <!-- Red.Component.plugins.end -->
@@ -269,9 +270,9 @@ Several plugins are installed by default that simplify publishing:
 
 FF0000-Ad-Tech is a lightweight, capable Javascript-based framework for instantiating, styling, and animating elements. The benefits of being 100% Javascript include:
 
-- Authoring flexibility
-- Execution control
-- Packaging
+-   Authoring flexibility
+-   Execution control
+-   Packaging
 
 Repos in the [@ff0000-ad-tech GitHub organization](https://github.com/ff0000-ad-tech) with the `ad-...` prefix are the frontend core. We are working on better README documentation for each. In the meantime, all of the modules have up-to-date code docs, which can be found in the [API Docs](https://ff0000-ad-tech.github.io/ad-docs). Search for the class you require.
 
@@ -282,6 +283,7 @@ TODO: Write guides for building standard layouts.
 ## Ad Networks
 
 <!-- Red.Component.networks.start -->
+
 This template is a standard banner format, configured for DCM (Doubleclick Campaign Manager).
 
 <!-- Red.Component.networks.end -->
@@ -314,6 +316,6 @@ If you want to adapt Creative Server to a different setup (index, hierarchy, etc
 
 Repos in [@ff0000-ad-tech](https://github.com/ff0000-ad-tech) dealing with Webpack & Creative Server are:
 
-- `wp-...` prefix are webpack related modules.
+-   `wp-...` prefix are webpack related modules.
 
-- `cs-...` prefex are Creative Server related modules.
+-   `cs-...` prefex are Creative Server related modules.
