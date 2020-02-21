@@ -7,9 +7,9 @@ import { Control } from '@common/js/Control.js'
 
 export class Ad {
 	// called from index.html onImpression()
-	static launch(fbaContent) {
+	static launch(binaryAssets) {
 		console.log('Ad.launch()')
-		Core.init(fbaContent)
+		Core.init(binaryAssets)
 			.then(() => Preflight.init())
 			.then(() => Core.loadDynamic())
 			.then(() => Ad.prepare())

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/tmpl-build-sources: 1.0.1 / Created: 11/29/18 11:03am -->
+<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/build-source-assembler: 3.6.7 / Created: 02/21/20 09:50am -->
 
 <head>
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta content="utf-8" http-equiv="encoding">
+	<meta name="ad.size" content="width=300,height=250" />
 		<!-- Red.Network.meta.start -->
-
 		<!-- Red.Network.meta.end -->
 
 
@@ -17,9 +17,9 @@
 
 
 		/*-- Red.Network.clicktags.start --*/
-		var clickTag = "http://www.changeme.com/";
-		var collapsedExit = "http://www.changeme.com/";
-		var expandedExit = "http://www.changeme.com/";
+var clickTag = 'http://www.changeme.com/'
+var collapsedExit = 'http://www.changeme.com/'
+var expandedExit = 'http://www.changeme.com/'
 		/*-- Red.Network.clicktags.end --*/
 
 
@@ -40,9 +40,9 @@
 				politeLoadAfter		: 1,
 				failoverOnError		: true,
 				version: {
-					major: 1,
-					minor: 0,
-					patch: 1
+					major: 3,
+					minor: 6,
+					patch: 7
 				},
 			};
 		/*-- Red.Settings.ad_params.end --*/
@@ -84,9 +84,9 @@
 		/*-- Red.Settings.external_includes.end --*/
 
 
-		function onImpression(fbaContent) {
+		function onImpression(binaryAssets) {
 			console.log('Index.onImpression()')
-Ad.launch(fbaContent)
+Ad.launch(binaryAssets)
 
 
 		}
@@ -133,7 +133,6 @@ Ad.launch(fbaContent)
 
 
 	<!-- Red.Network.script.start -->
-
 	<!-- Red.Network.script.end -->
 </head>
 
@@ -194,7 +193,7 @@ Ad.launch(fbaContent)
 			console.log('Index.prepareIndex()')
 			return new Promise(function (resolve) {
 				/*-- Red.Network.onload.start --*/
-				resolve();
+resolve()
 				/*-- Red.Network.onload.end --*/
 
 
@@ -241,10 +240,10 @@ Ad.launch(fbaContent)
 			console.log('Index.prepareNetworkExit()')
 			Network = new function () {
 					/*-- Red.Network.exit.start --*/
-					this.exit = function(clickTag) {
-						console.log("Network -> STANDARD EXIT");
-						window.open(clickTag, "_blank");
-					}
+this.exit = function(clickTag) {
+	console.log('Network -> STANDARD EXIT')
+	window.open(clickTag, '_blank')
+}
 					/*-- Red.Network.exit.end --*/	
 
 				this.appendMacro = function (_macro, _clickTag) {
@@ -261,7 +260,7 @@ Ad.launch(fbaContent)
 		function handleAuxClick() {
 			console.log('Index.handleAuxClick()')
 			/*-- Red.Network.exit_aux.start --*/
-			Network.exit(clickTag)
+Network.exit(clickTag)
 			/*-- Red.Network.exit_aux.end --*/
 
 

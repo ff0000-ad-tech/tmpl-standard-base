@@ -1,54 +1,35 @@
 {
-	"name": "ff0000-ad-tech-compiler",
-	"version": "1.0.0",
-	"description": "FF0000 Ad Tech - Compiler: Provides backend modules for running Creative Server, which compiles the various Builds.",
-	"engines": {
-		"node": ">=9.8.0",
-		"npm": ">=6.0.0"
-	},
-	"repository": "https://greg.connell@stash.ff0000.com/scm/at/ad-es6.git",
-	"author": "RED Interactive Agency",
-	"license": "MIT",
-	"main": "webpack.config.js",
-	"scripts": {
-		"postinstall": "npm run install-build && npm run eslint",
-		"install-build": "cd ./1-build && npm install && cd ../",
-		"reinstall": "rm -rf ./node_modules && rm ./package-lock.json && npm i",
-		"eslint": "./node_modules/.bin/eslint ./1-build --ignore-pattern 1-build/node_modules --fix",
-		"start": "npm run browser",
-		"server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
-		"browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser"
-	},
-	"devDependencies": {
-		"@ff0000-ad-tech/debug": "^4.0.2",
-		"@ff0000-ad-tech/fba-loader": "^1.0.0",
-		"@ff0000-ad-tech/webpack-rollup-babel-loader": "^1.0.1",
-		"@ff0000-ad-tech/wp-creative-server": "^1.6.0",
-		"@ff0000-ad-tech/wp-deploy-manager": "^4.0.0",
-		"@ff0000-ad-tech/wp-process-manager": "^1.0.4",
-		"@ff0000-ad-tech/wp-resolve-plugin-index-variation": "^1.0.2",
-		"babel-core": "^6.26.0",
-		"babel-eslint": "^8.2.1",
-		"babel-loader": "^7.1.2",
-		"babel-plugin-dynamic-import-webpack": "^1.0.2",
-		"babel-plugin-syntax-dynamic-import": "^6.18.0",
-		"babel-plugin-transform-class-properties": "^6.24.1",
-		"babel-plugin-transform-object-rest-spread": "^6.26.0",
-		"babel-preset-env": "^1.6.1",
-		"eslint": "^4.18.0",
-		"eslint-config-prettier": "^2.9.0",
-		"eslint-plugin-prettier": "^2.5.0",
-		"file-loader": "^1.1.11",
-		"lodash": "^4.17.4",
-		"prettier": "^1.10.2",
-		"promise-polyfill": "^7.0.0",
-		"url-loader": "^0.6.2",
-		"webpack": "^4.20.1",
-		"webpack-cli": "^3.1.0"
-	},
-	"dependencies": {
-		
-		"@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.0.1",
-		"@ff0000-ad-tech/cs-plugin-vendor-indexes": "^1.1.0"
-	}
+  "name": "ff0000-ad-tech-compiler",
+  "version": "1.0.0",
+  "description": "FF0000 Ad Tech - Compiler: Provides backend modules for running Creative Server, which compiles the various Builds.",
+  "engines": {
+    "node": ">=9.8.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": "https://greg.connell@stash.ff0000.com/scm/at/ad-es6.git",
+  "author": "RED Interactive Agency",
+  "license": "MIT",
+  "main": "webpack.config.js",
+  "scripts": {
+    "postinstall": "npm run install-build && npm run prettier",
+    "install-build": "cd ./1-build && npm install && cd ../",
+    "reinstall": "rm -rf ./node_modules && rm ./package-lock.json && npm i",
+    "prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
+    "start": "npm run browser",
+    "server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
+    "browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser"
+  },
+  "devDependencies": {
+    "@ff0000-ad-tech/wp-creative-server": "^1.11.0",
+		"@ff0000-ad-tech/wp-deploy-manager": "^8.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.17.0"
+  },
+  "dependencies": {
+    "@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.0.1",
+    "@ff0000-ad-tech/cs-plugin-vendor-indexes": "^1.1.0",
+    "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0"
+  }
 }

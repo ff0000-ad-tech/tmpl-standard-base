@@ -1,7 +1,8 @@
 {
-	"ad-es6-particles": "git+ssh://git@stash.ff0000.com:7999/at/ad-es6-particles.git",
+	"@ff0000-ad-tech/cs-plugin-particle-simulator": "^v1.1.0",
 	"@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.0.1",
 	"@ff0000-ad-tech/cs-plugin-vendor-indexes": "^1.0.1",
 	"@ff0000-ad-tech/cs-plugin-vendor-c20": "^1.0.1",
-	"@ff0000-ad-tech/cs-plugin-vendor-ft": "^1.1.0"
+	"@ff0000-ad-tech/cs-plugin-vendor-ft": "^1.1.0",
+	"@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0"
 }
