@@ -96,27 +96,28 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ad", function() { return Ad; });
-/* harmony import */ var ad_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ad-control */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/index.js");
-/* harmony import */ var _common_js_Preflight_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @common/js/Preflight.js */ "./1-build/common/js/Preflight.js");
-/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
-/* harmony import */ var _components_Build__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Build */ "./1-build/300x250/components/Build/index.js");
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
+/* harmony import */ var ad_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ad-control */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/index.js");
+/* harmony import */ var _common_js_Preflight_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @common/js/Preflight.js */ "./1-build/common/js/Preflight.js");
+/* harmony import */ var _common_js_Control_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @common/js/Control.js */ "./1-build/common/js/Control.js");
+/* harmony import */ var _components_Build_index_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Build/index.jsx */ "./1-build/300x250/components/Build/index.jsx");
+
 
 
 
  // import { Main, MainBorder } from "@common/js/Build.js";
 // import { Animation } from "@common/js/Animation.js";
-// import { Control } from "@common/js/Control.js";
 
 var Ad = /*#__PURE__*/function () {
   function Ad() {}
 
   // called from index.html onImpression()
   Ad.launch = function launch(binaryAssets) {
-    console.log("Ad.launch()");
-    ad_control__WEBPACK_IMPORTED_MODULE_0__["Core"].init(binaryAssets).then(function () {
-      return _common_js_Preflight_js__WEBPACK_IMPORTED_MODULE_1__["Preflight"].init();
+    console.log('Ad.launch()');
+    ad_control__WEBPACK_IMPORTED_MODULE_1__["Core"].init(binaryAssets).then(function () {
+      return _common_js_Preflight_js__WEBPACK_IMPORTED_MODULE_2__["Preflight"].init();
     }).then(function () {
-      return ad_control__WEBPACK_IMPORTED_MODULE_0__["Core"].loadDynamic();
+      return ad_control__WEBPACK_IMPORTED_MODULE_1__["Core"].loadDynamic();
     }).then(function () {
       return Ad.prepare();
     })["catch"](function (err) {
@@ -125,12 +126,12 @@ var Ad = /*#__PURE__*/function () {
   };
 
   Ad.prepare = function prepare() {
-    console.log("Ad.prepare()"); // Control.preMarkup()
-
-    Object(preact__WEBPACK_IMPORTED_MODULE_2__["render"])(Object(preact__WEBPACK_IMPORTED_MODULE_2__["h"])(_components_Build__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById("main")); // View.main = new Main()
+    console.log('Ad.prepare()');
+    _common_js_Control_js__WEBPACK_IMPORTED_MODULE_3__["Control"].preMarkup();
+    Object(preact__WEBPACK_IMPORTED_MODULE_0__["render"])(Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_components_Build_index_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('main')); // View.main = new Main()
     // View.mainBorder = new MainBorder()
-    // Control.postMarkup()
-    // Animation.start()
+
+    _common_js_Control_js__WEBPACK_IMPORTED_MODULE_3__["Control"].postMarkup(); // Animation.start()
   };
 
   return Ad;
@@ -139,14 +140,57 @@ window.Ad = Ad;
 
 /***/ }),
 
-/***/ "./1-build/300x250/components/Build/index.js":
-/*!***************************************************!*\
-  !*** ./1-build/300x250/components/Build/index.js ***!
-  \***************************************************/
+/***/ "./1-build/300x250/components/Build/index.jsx":
+/*!****************************************************!*\
+  !*** ./1-build/300x250/components/Build/index.jsx ***!
+  \****************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/Greg/Documents/_RED_AD_TECH/tmpl-standard-base/1-build/300x250/components/Build/index.js'");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var Build = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(Build, _Component);
+
+  function Build() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      setInterval(function () {
+        _this.setState({
+          time: new Date().toLocaleTimeString()
+        });
+      }, 1000);
+    });
+
+    return _this;
+  }
+
+  var _proto = Build.prototype;
+
+  _proto.render = function render() {
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("span", null, this.state.time);
+  };
+
+  return Build;
+}(preact__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Build);
 
 /***/ }),
 
@@ -179,25 +223,61 @@ __webpack_require__.r(__webpack_exports__);
 function AdData() {
   var self = this;
   /**
-  EXTRACT JSON DATA
-  Prepare dynamic data here.
-  */
+  	EXTRACT JSON DATA
+  	Prepare dynamic data here.
+   */
 
   /**
-  DYNAMIC IMAGES
-  Dynamically loaded images need to be in their own directory, like "dynamic_images/".
-  	Then, you need to add your dynamic image-paths to the load-queue, so that when
-  the secondary preload happens, these assets will get loaded. For example:
-  	self.theImageName = ImageManager.addToLoad(adParams.imagesPath + 'sample.jpg');
-  */
+  	DYNAMIC IMAGES
+  	Dynamically loaded images need to be in their own directory, like "dynamic_images/".
+  		Then, you need to add your dynamic image-paths to the load-queue, so that when
+  	the secondary preload happens, these assets will get loaded. For example:
+  		self.theImageName = ImageManager.addToLoad(adParams.imagesPath + 'sample.jpg');
+   */
 
   self.fonts = {
-    primary: "template_font"
+    primary: 'template_font'
   };
   self.colors = {}; // Store svg markup for use in all UISvg instances, reduces duplicate code across builds.  See UISvg.
 
   self.svg = {};
 }
+
+/***/ }),
+
+/***/ "./1-build/common/js/Control.js":
+/*!**************************************!*\
+  !*** ./1-build/common/js/Control.js ***!
+  \**************************************/
+/*! exports provided: Control */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Control", function() { return Control; });
+// import { Gesture, GestureEvent } from 'ad-events'
+var Control = /*#__PURE__*/function () {
+  function Control() {}
+
+  Control.preMarkup = function preMarkup() {
+    console.log('Control.preMarkup()');
+    document.getElementById('main').addEventListener('onclick', this.handleClick);
+  };
+
+  Control.postMarkup = function postMarkup() {
+    console.log('Control.postMarkup()'); // listen for default exit
+    // Gesture.add(View.main, GestureEvent.CLICK, Control.handleClick)
+
+    global.removePreloader();
+  };
+
+  Control.handleClick = function handleClick(event) {
+    Network.exit(clickTag);
+  };
+
+  return Control;
+}();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -234,7 +314,7 @@ var Preflight = /*#__PURE__*/function () {
   Preflight.init = function init() {
     var _this = this;
 
-    console.log("Preflight.init()");
+    console.log('Preflight.init()');
     return new Promise(function (resolve, reject) {
       var promises = [// this.loadDynamicJS('define-your-case-id')
       ];
@@ -251,21 +331,21 @@ var Preflight = /*#__PURE__*/function () {
   };
 
   Preflight.addPreloadedImages = function addPreloadedImages() {
-    console.log("Preflight.addPreloadedImages()");
+    console.log('Preflight.addPreloadedImages()');
     ad_control__WEBPACK_IMPORTED_MODULE_1__["ImageManager"].addToDictionary(assets.preloadedImages);
   };
 
   Preflight.prepareAdData = function prepareAdData() {
-    console.log("Preflight.prepareAdData()");
+    console.log('Preflight.prepareAdData()');
     global.adData = new _common_js_AdData_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
   }
   /**
-  Method for loading dynamic, compiled ES6 modules at runtime. This should be threaded into 
-  Preflight.init()'s promise chain, as needed.
-  	You must:
-  	- define THIS_CASE__ID
-  	- replace THIS_CASE__ASSET_PATH with a string
-  	- handle the implementation of the loaded module.
+  	Method for loading dynamic, compiled ES6 modules at runtime. This should be threaded into 
+  	Preflight.init()'s promise chain, as needed.
+  		You must:
+  		- define THIS_CASE__ID
+  		- replace THIS_CASE__ASSET_PATH with a string
+  		- handle the implementation of the loaded module.
   */
   ;
 
@@ -274,14 +354,14 @@ var Preflight = /*#__PURE__*/function () {
       switch (id) {
         /*
         case THIS_CASE__ID: // ex: '300x250_Endframe'
-        import('THIS_CASE__ASSET_PATH') // ex: '@common/dynamic_js/300x250_Endframe.js'
-        .then(module => {
-        // example implementation of loaded ES6 module
-        global[module.default.name] = module.default
-        resolve()
-        })
-        .catch(err => reject(err))
-        break
+        	import('THIS_CASE__ASSET_PATH') // ex: '@common/dynamic_js/300x250_Endframe.js'
+        		.then(module => {
+        			// example implementation of loaded ES6 module
+        			global[module.default.name] = module.default
+        			resolve()
+        		})
+        		.catch(err => reject(err))
+        	break
         */
         default:
           console.log("Common.loadDynamicJS() has no import case for: " + id);

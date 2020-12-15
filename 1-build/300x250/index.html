@@ -1,295 +1,287 @@
 <!DOCTYPE html>
 <html>
-  <!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/build-source-assembler: 3.6.7 / Created: 02/21/20 09:50am -->
+	<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/build-source-assembler: 3.6.7 / Created: 02/21/20 09:50am -->
 
-  <head>
-    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta content="utf-8" http-equiv="encoding" />
-    <meta name="ad.size" content="width=300,height=250" />
-    <!-- Red.Network.meta.start -->
-    <!-- Red.Network.meta.end -->
+	<head>
+		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta content="utf-8" http-equiv="encoding" />
+		<meta name="ad.size" content="width=300,height=250" />
+		<!-- Red.Network.meta.start -->
+		<!-- Red.Network.meta.end -->
 
-    <title>**CLIENT NAME** **PROJECT NAME** 300x250</title>
+		<title>**CLIENT NAME** **PROJECT NAME** 300x250</title>
 
-    <script type="text/javascript">
-      /*-- Red.Network.clicktags.start --*/
-      var clickTag = "http://www.changeme.com/";
-      var collapsedExit = "http://www.changeme.com/";
-      var expandedExit = "http://www.changeme.com/";
-      /*-- Red.Network.clicktags.end --*/
+		<script type="text/javascript">
+			/*-- Red.Network.clicktags.start --*/
+			var clickTag = 'http://www.changeme.com/'
+			var collapsedExit = 'http://www.changeme.com/'
+			var expandedExit = 'http://www.changeme.com/'
+			/*-- Red.Network.clicktags.end --*/
 
-      /* -- INDEX SETTINGS ---------------------------------------------------------------------------
-       *
-       *
-       *	API Documentation is here: https://ff0000-ad-tech.github.io/ad-docs/
-       *
-       *
-       *
-       */
-      /*-- Red.Settings.ad_params.start --*/
-      var adParams = {
-        networkId: "STANDARD",
-        adWidth: 300,
-        adHeight: 250,
-        environmentId: "debug",
-        politeLoadAfter: 1,
-        failoverOnError: true,
-        version: {
-          major: 3,
-          minor: 6,
-          patch: 7
-        }
-      };
-      /*-- Red.Settings.ad_params.end --*/
+			/* -- INDEX SETTINGS ---------------------------------------------------------------------------
+			 *
+			 *
+			 *	API Documentation is here: https://ff0000-ad-tech.github.io/ad-docs/
+			 *
+			 *
+			 *
+			 */
+			/*-- Red.Settings.ad_params.start --*/
+			var adParams = {
+				networkId: 'STANDARD',
+				adWidth: 300,
+				adHeight: 250,
+				environmentId: 'debug',
+				politeLoadAfter: 1,
+				failoverOnError: true,
+				version: {
+					major: 3,
+					minor: 6,
+					patch: 7
+				}
+			}
+			/*-- Red.Settings.ad_params.end --*/
 
-      /*-- Red.Settings.assets.start --*/
-      var assets = {
-        preloader: {
-          backgroundColor: "#000000",
-          images: [
-            {
-              source: "preloader_white.gif"
-            }
-          ]
-        },
-        failover: {
-          images: [
-            {
-              source: "backup.jpg"
-            }
-          ]
-        },
-        payload: {
-          text: ["build.bundle.js"],
-          binary: []
-        }
-      };
-      /*-- Red.Settings.assets.end --*/
+			/*-- Red.Settings.assets.start --*/
+			var assets = {
+				preloader: {
+					backgroundColor: '#000000',
+					images: [
+						{
+							source: 'preloader_white.gif'
+						}
+					]
+				},
+				failover: {
+					images: [
+						{
+							source: 'backup.jpg'
+						}
+					]
+				},
+				payload: {
+					text: ['build.bundle.js'],
+					binary: []
+				}
+			}
+			/*-- Red.Settings.assets.end --*/
 
-      /*-- Red.Settings.environments.start --*/
-      var environments = [];
-      /*-- Red.Settings.environments.end --*/
+			/*-- Red.Settings.environments.start --*/
+			var environments = []
+			/*-- Red.Settings.environments.end --*/
 
-      /*-- Red.Settings.external_includes.start --*/
-      var externalIncludes = [
-        "https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.18.0_71489205621d46cbe88348eeb8fe493f_min.js",
-        "https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.18.0_ed5816e732515f56d96a67f6a2a15ccb_min.js",
-        "https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.18.0_56fa823cfbbef1c2f4d4346f0f0e6c3c_min.js"
-      ];
-      /*-- Red.Settings.external_includes.end --*/
+			/*-- Red.Settings.external_includes.start --*/
+			var externalIncludes = [
+				'https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.18.0_71489205621d46cbe88348eeb8fe493f_min.js',
+				'https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.18.0_ed5816e732515f56d96a67f6a2a15ccb_min.js',
+				'https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.18.0_56fa823cfbbef1c2f4d4346f0f0e6c3c_min.js'
+			]
+			/*-- Red.Settings.external_includes.end --*/
 
-      function onImpression(binaryAssets) {
-        console.log("Index.onImpression()");
-        Ad.launch(binaryAssets);
-      }
+			function onImpression(binaryAssets) {
+				console.log('Index.onImpression()')
+				Ad.launch(binaryAssets)
+			}
 
-      function isDevEnvironment() {
-        return (
-          adParams.environmentId == "debug" ||
-          window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
-        );
-      }
-    </script>
+			function isDevEnvironment() {
+				return adParams.environmentId == 'debug' || window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
+			}
+		</script>
 
-    <style type="text/css">
-      html,
-      body,
-      #view {
-        width: 100%;
-        height: 100%;
-      }
+		<style type="text/css">
+			html,
+			body,
+			#view {
+				width: 100%;
+				height: 100%;
+			}
 
-      #view {
-        overflow: hidden;
-      }
+			#view {
+				overflow: hidden;
+			}
 
-      body {
-        margin: 0px;
-        outline: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      }
-    </style>
-    <style type="text/css" id="RED_uiBorder">
-      .ui-border {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        border-width: 0px;
-        border-style: solid;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-      }
-    </style>
+			body {
+				margin: 0px;
+				outline: none;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+		</style>
+		<style type="text/css" id="RED_uiBorder">
+			.ui-border {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				border-width: 0px;
+				border-style: solid;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+			}
+		</style>
 
-    <!-- Red.Network.script.start -->
-    <!-- Red.Network.script.end -->
-  </head>
+		<!-- Red.Network.script.start -->
+		<!-- Red.Network.script.end -->
+	</head>
 
-  <body>
-    <div id="view">
-      <div id="main"></div>
-      <div id="aux">
-        <div id="preloader" class="ui-border"></div>
-        <div id="fail"></div>
-      </div>
-    </div>
+	<body>
+		<div id="view">
+			<div id="main"></div>
+			<div id="aux">
+				<div id="preloader" class="ui-border"></div>
+				<div id="fail"></div>
+			</div>
+		</div>
 
-    <script type="text/javascript">
-      /*-- Red.Inject.promise_polyfill.start --*/
-      /*-- Red.Inject.promise_polyfill.end --*/
-    </script>
+		<script type="text/javascript">
+			/*-- Red.Inject.promise_polyfill.start --*/
+			/*-- Red.Inject.promise_polyfill.end --*/
+		</script>
 
-    <!-- preload inline scripts...if not needed until the build, use externalIncludes  -->
+		<!-- preload inline scripts...if not needed until the build, use externalIncludes  -->
 
-    <script type="text/javascript">
-      function useStatic() {
-        console.log("Index.useStatic()");
-        removePreloader();
-        document.getElementById("main").style.display = "none";
-        document.getElementById("aux").style.display = "block";
-        document.body.style =
-          "width: " +
-          adParams.failoverWidth +
-          "px; height: " +
-          adParams.failoverHeight +
-          "px; overflow: hidden;";
-        document.getElementById("fail").style.cssText =
-          "position: absolute; " +
-          "width: " +
-          adParams.failoverWidth +
-          "px; height: " +
-          adParams.failoverHeight +
-          "px; " +
-          "left:" +
-          adParams.failoverX +
-          "px; top:" +
-          adParams.failoverY +
-          "px; " +
-          "background-image: url(" +
-          adParams.adPath +
-          assets.failover.images[0].source +
-          "); background-size: contain; overflow: hidden; ";
-      }
-      function failAd() {
-        console.log("Index.failAd()");
-        useStatic();
-      }
-    </script>
+		<script type="text/javascript">
+			function useStatic() {
+				console.log('Index.useStatic()')
+				removePreloader()
+				document.getElementById('main').style.display = 'none'
+				document.getElementById('aux').style.display = 'block'
+				document.body.style = 'width: ' + adParams.failoverWidth + 'px; height: ' + adParams.failoverHeight + 'px; overflow: hidden;'
+				document.getElementById('fail').style.cssText =
+					'position: absolute; ' +
+					'width: ' +
+					adParams.failoverWidth +
+					'px; height: ' +
+					adParams.failoverHeight +
+					'px; ' +
+					'left:' +
+					adParams.failoverX +
+					'px; top:' +
+					adParams.failoverY +
+					'px; ' +
+					'background-image: url(' +
+					adParams.adPath +
+					assets.failover.images[0].source +
+					'); background-size: contain; overflow: hidden; '
+			}
+			function failAd() {
+				console.log('Index.failAd()')
+				useStatic()
+			}
+		</script>
 
-    <script type="text/javascript">
-      var global = this;
-      var View = {};
-      var Network, queryParams, adData;
+		<script type="text/javascript">
+			var global = this
+			var View = {}
+			var Network, queryParams, adData
 
-      /* -- LAUNCH --------------------------------------------
-       *
-       *
-       */
-      // immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
-      function prepareIndex() {
-        console.log("Index.prepareIndex()");
-        return new Promise(
-          function(resolve) {
-            /*-- Red.Network.onload.start --*/
-            resolve();
-            /*-- Red.Network.onload.end --*/
-          },
-          function(error) {
-            global.failAd();
-          }
-        );
-      }
+			/* -- LAUNCH --------------------------------------------
+			 *
+			 *
+			 */
+			// immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
+			function prepareIndex() {
+				console.log('Index.prepareIndex()')
+				return new Promise(
+					function(resolve) {
+						/*-- Red.Network.onload.start --*/
+						resolve()
+						/*-- Red.Network.onload.end --*/
+					},
+					function(error) {
+						global.failAd()
+					}
+				)
+			}
 
-      // ad-params
-      function prepareAdParamsMisc() {
-        console.log("Index.prepareAdParamsMisc()");
-        return new Promise(
-          function(resolve) {
-            resolve();
-          },
-          function(error) {
-            global.failAd();
-          }
-        );
-      }
+			// ad-params
+			function prepareAdParamsMisc() {
+				console.log('Index.prepareAdParamsMisc()')
+				return new Promise(
+					function(resolve) {
+						resolve()
+					},
+					function(error) {
+						global.failAd()
+					}
+				)
+			}
 
-      // preloader
-      function preparePreloadMisc() {
-        console.log("Index.preparePreloadMisc()");
-        return new Promise(
-          function(resolve) {
-            makeAuxClickable();
-            resolve();
-          },
-          function(error) {
-            global.failAd();
-          }
-        );
-      }
-      function removePreloader() {
-        console.log("Index.removePreloader()");
+			// preloader
+			function preparePreloadMisc() {
+				console.log('Index.preparePreloadMisc()')
+				return new Promise(
+					function(resolve) {
+						makeAuxClickable()
+						resolve()
+					},
+					function(error) {
+						global.failAd()
+					}
+				)
+			}
+			function removePreloader() {
+				console.log('Index.removePreloader()')
 
-        var preloader = document.getElementById("preloader");
-        if (preloader) {
-          var aux = document.getElementById("aux");
-          aux.style.display = "none";
-          aux.removeChild(preloader);
-        }
-      }
+				var preloader = document.getElementById('preloader')
+				if (preloader) {
+					var aux = document.getElementById('aux')
+					aux.style.display = 'none'
+					aux.removeChild(preloader)
+				}
+			}
 
-      // exits
-      function prepareNetworkExit() {
-        console.log("Index.prepareNetworkExit()");
-        Network = new (function() {
-          /*-- Red.Network.exit.start --*/
-          this.exit = function(clickTag) {
-            console.log("Network -> STANDARD EXIT");
-            window.open(clickTag, "_blank");
-          };
-          /*-- Red.Network.exit.end --*/
+			// exits
+			function prepareNetworkExit() {
+				console.log('Index.prepareNetworkExit()')
+				Network = new (function() {
+					/*-- Red.Network.exit.start --*/
+					this.exit = function(clickTag) {
+						console.log('Network -> STANDARD EXIT')
+						window.open(clickTag, '_blank')
+					}
+					/*-- Red.Network.exit.end --*/
 
-          this.appendMacro = function(_macro, _clickTag) {
-            if (_macro.search(/^%%/) > -1) return _clickTag;
-            else return _macro + _clickTag;
-          };
-        })();
-      }
-      function makeAuxClickable() {
-        var aux = document.getElementById("aux");
-        aux.setAttribute("onclick", "handleAuxClick()");
-      }
-      function handleAuxClick() {
-        console.log("Index.handleAuxClick()");
-        /*-- Red.Network.exit_aux.start --*/
-        Network.exit(clickTag);
-        /*-- Red.Network.exit_aux.end --*/
-      }
+					this.appendMacro = function(_macro, _clickTag) {
+						if (_macro.search(/^%%/) > -1) return _clickTag
+						else return _macro + _clickTag
+					}
+				})()
+			}
+			function makeAuxClickable() {
+				var aux = document.getElementById('aux')
+				aux.setAttribute('onclick', 'handleAuxClick()')
+			}
+			function handleAuxClick() {
+				console.log('Index.handleAuxClick()')
+				/*-- Red.Network.exit_aux.start --*/
+				Network.exit(clickTag)
+				/*-- Red.Network.exit_aux.end --*/
+			}
 
-      // ad-global bundle
-      /*-- Red.Inject.ad-global.start --*/
-      /*-- Red.Inject.ad-global.end --*/
-    </script>
+			// ad-global bundle
+			/*-- Red.Inject.ad-global.start --*/
+			/*-- Red.Inject.ad-global.end --*/
+		</script>
 
-    <!-- ad-load bundle -->
-    <script type="text/javascript">
-      /*-- Red.Inject.commons.start --*/
-      /*-- Red.Inject.commons.end --*/
-    </script>
+		<!-- ad-load bundle -->
+		<script type="text/javascript">
+			/*-- Red.Inject.commons.start --*/
+			/*-- Red.Inject.commons.end --*/
+		</script>
 
-    <!-- inline bundle -->
-    <script type="text/javascript">
-      /*-- Red.Inject.inline_entry.start --*/
-      /*-- Red.Inject.inline_entry.end --*/
-    </script>
+		<!-- inline bundle -->
+		<script type="text/javascript">
+			/*-- Red.Inject.inline_entry.start --*/
+			/*-- Red.Inject.inline_entry.end --*/
+		</script>
 
-    <!-- initial bundle -->
-    <script type="text/javascript">
-      /*-- Red.Inject.initial_entry.start --*/
-      /*-- Red.Inject.initial_entry.end --*/
-    </script>
-  </body>
+		<!-- initial bundle -->
+		<script type="text/javascript">
+			/*-- Red.Inject.initial_entry.start --*/
+			/*-- Red.Inject.initial_entry.end --*/
+		</script>
+	</body>
 </html>

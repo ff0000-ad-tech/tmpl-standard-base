@@ -1,9 +1,15 @@
 import { h, render, Component } from "preact";
 
 class Build extends Component {
+	componentDidMount = () => {
+		setInterval(() => {
+			this.setState({
+				time: new Date().toLocaleTimeString()
+			})
+		}, 1000)
+	}
 	render() {
-		let time = new Date().toLocaleTimeString();
-		return <span>{time}</span>
+		return <span>{this.state.time}</span>
 	}
 }
 

@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/build-source-assembler: 3.6.7 / Created: 02/21/20 09:50am -->
+	<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/build-source-assembler: 3.6.7 / Created: 02/21/20 09:50am -->
 
-  <head>
-    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta content="utf-8" http-equiv="encoding" />
-    <meta name="ad.size" content="width=300,height=250" />
-    <!-- Red.Network.meta.start -->
-    <!-- Red.Network.meta.end -->
+	<head>
+		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta content="utf-8" http-equiv="encoding" />
+		<meta name="ad.size" content="width=300,height=250" />
+		<!-- Red.Network.meta.start -->
+		<!-- Red.Network.meta.end -->
 
-    <title>**CLIENT NAME** **PROJECT NAME** 300x250</title>
+		<title>**CLIENT NAME** **PROJECT NAME** 300x250</title>
 
-    <script type="text/javascript">
-      /*-- Red.Network.clicktags.start --*/
-      var clickTag = "http://www.changeme.com/";
-      var collapsedExit = "http://www.changeme.com/";
-      var expandedExit = "http://www.changeme.com/";
-      /*-- Red.Network.clicktags.end --*/
+		<script type="text/javascript">
+			/*-- Red.Network.clicktags.start --*/
+			var clickTag = 'http://www.changeme.com/'
+			var collapsedExit = 'http://www.changeme.com/'
+			var expandedExit = 'http://www.changeme.com/'
+			/*-- Red.Network.clicktags.end --*/
 
-      /* -- INDEX SETTINGS ---------------------------------------------------------------------------
-       *
-       *
-       *	API Documentation is here: https://ff0000-ad-tech.github.io/ad-docs/
-       *
-       *
-       *
-       */
+			/* -- INDEX SETTINGS ---------------------------------------------------------------------------
+			 *
+			 *
+			 *	API Documentation is here: https://ff0000-ad-tech.github.io/ad-docs/
+			 *
+			 *
+			 *
+			 */
 var adParams = {
 	"networkId": "STANDARD",
 	"adWidth": 300,
@@ -75,217 +75,209 @@ var environments = [
 	}
 ];
 
-      /*-- Red.Settings.external_includes.start --*/
-      var externalIncludes = [
-        "https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.18.0_71489205621d46cbe88348eeb8fe493f_min.js",
-        "https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.18.0_ed5816e732515f56d96a67f6a2a15ccb_min.js",
-        "https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.18.0_56fa823cfbbef1c2f4d4346f0f0e6c3c_min.js"
-      ];
-      /*-- Red.Settings.external_includes.end --*/
+			/*-- Red.Settings.external_includes.start --*/
+			var externalIncludes = [
+				'https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.18.0_71489205621d46cbe88348eeb8fe493f_min.js',
+				'https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.18.0_ed5816e732515f56d96a67f6a2a15ccb_min.js',
+				'https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.18.0_56fa823cfbbef1c2f4d4346f0f0e6c3c_min.js'
+			]
+			/*-- Red.Settings.external_includes.end --*/
 
-      function onImpression(binaryAssets) {
-        console.log("Index.onImpression()");
-        Ad.launch(binaryAssets);
-      }
+			function onImpression(binaryAssets) {
+				console.log('Index.onImpression()')
+				Ad.launch(binaryAssets)
+			}
 
-      function isDevEnvironment() {
-        return (
-          adParams.environmentId == "debug" ||
-          window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
-        );
-      }
-    </script>
+			function isDevEnvironment() {
+				return adParams.environmentId == 'debug' || window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
+			}
+		</script>
 
-    <style type="text/css">
-      html,
-      body,
-      #view {
-        width: 100%;
-        height: 100%;
-      }
+		<style type="text/css">
+			html,
+			body,
+			#view {
+				width: 100%;
+				height: 100%;
+			}
 
-      #view {
-        overflow: hidden;
-      }
+			#view {
+				overflow: hidden;
+			}
 
-      body {
-        margin: 0px;
-        outline: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      }
-    </style>
-    <style type="text/css" id="RED_uiBorder">
-      .ui-border {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        border-width: 0px;
-        border-style: solid;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-      }
-    </style>
+			body {
+				margin: 0px;
+				outline: none;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+		</style>
+		<style type="text/css" id="RED_uiBorder">
+			.ui-border {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				border-width: 0px;
+				border-style: solid;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+			}
+		</style>
 
-    <!-- Red.Network.script.start -->
-    <!-- Red.Network.script.end -->
-  </head>
+		<!-- Red.Network.script.start -->
+		<!-- Red.Network.script.end -->
+	</head>
 
-  <body>
-    <div id="view">
-      <div id="main"></div>
-      <div id="aux">
-        <div id="preloader" class="ui-border"></div>
-        <div id="fail"></div>
-      </div>
-    </div>
+	<body>
+		<div id="view">
+			<div id="main"></div>
+			<div id="aux">
+				<div id="preloader" class="ui-border"></div>
+				<div id="fail"></div>
+			</div>
+		</div>
 
-    <script type="text/javascript">
+		<script type="text/javascript">
 !function(e,n){"object"==typeof exports&&"undefined"!=typeof module?n():"function"==typeof define&&define.amd?define(n):n()}(0,function(){"use strict";function e(){}function n(e){if(!(this instanceof n))throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=undefined,this._deferreds=[],f(e,this)}function t(e,t){for(;3===e._state;)e=e._value;0!==e._state?(e._handled=!0,n._immediateFn(function(){var n=1===e._state?t.onFulfilled:t.onRejected;if(null!==n){var i;try{i=n(e._value)}catch(f){return void r(t.promise,f)}o(t.promise,i)}else(1===e._state?o:r)(t.promise,e._value)})):e._deferreds.push(t)}function o(e,t){try{if(t===e)throw new TypeError("A promise cannot be resolved with itself.");if(t&&("object"==typeof t||"function"==typeof t)){var o=t.then;if(t instanceof n)return e._state=3,e._value=t,void i(e);if("function"==typeof o)return void f(function(e,n){return function(){e.apply(n,arguments)}}(o,t),e)}e._state=1,e._value=t,i(e)}catch(u){r(e,u)}}function r(e,n){e._state=2,e._value=n,i(e)}function i(e){2===e._state&&0===e._deferreds.length&&n._immediateFn(function(){e._handled||n._unhandledRejectionFn(e._value)});for(var o=0,r=e._deferreds.length;r>o;o++)t(e,e._deferreds[o]);e._deferreds=null}function f(e,n){var t=!1;try{e(function(e){t||(t=!0,o(n,e))},function(e){t||(t=!0,r(n,e))})}catch(i){if(t)return;t=!0,r(n,i)}}var u=setTimeout;n.prototype["catch"]=function(e){return this.then(null,e)},n.prototype.then=function(n,o){var r=new this.constructor(e);return t(this,new function(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}(n,o,r)),r},n.prototype["finally"]=function(e){var n=this.constructor;return this.then(function(t){return n.resolve(e()).then(function(){return t})},function(t){return n.resolve(e()).then(function(){return n.reject(t)})})},n.all=function(e){return new n(function(n,t){function o(e,f){try{if(f&&("object"==typeof f||"function"==typeof f)){var u=f.then;if("function"==typeof u)return void u.call(f,function(n){o(e,n)},t)}r[e]=f,0==--i&&n(r)}catch(c){t(c)}}if(!e||"undefined"==typeof e.length)throw new TypeError("Promise.all accepts an array");var r=Array.prototype.slice.call(e);if(0===r.length)return n([]);for(var i=r.length,f=0;r.length>f;f++)o(f,r[f])})},n.resolve=function(e){return e&&"object"==typeof e&&e.constructor===n?e:new n(function(n){n(e)})},n.reject=function(e){return new n(function(n,t){t(e)})},n.race=function(e){return new n(function(n,t){for(var o=0,r=e.length;r>o;o++)e[o].then(n,t)})},n._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){u(e,0)},n._unhandledRejectionFn=function(e){void 0!==console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)};var c=function(){if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if("undefined"!=typeof global)return global;throw Error("unable to locate global object")}();c.Promise||(c.Promise=n)});
 
-    </script>
+		</script>
 
-    <!-- preload inline scripts...if not needed until the build, use externalIncludes  -->
+		<!-- preload inline scripts...if not needed until the build, use externalIncludes  -->
 
-    <script type="text/javascript">
-      function useStatic() {
-        console.log("Index.useStatic()");
-        removePreloader();
-        document.getElementById("main").style.display = "none";
-        document.getElementById("aux").style.display = "block";
-        document.body.style =
-          "width: " +
-          adParams.failoverWidth +
-          "px; height: " +
-          adParams.failoverHeight +
-          "px; overflow: hidden;";
-        document.getElementById("fail").style.cssText =
-          "position: absolute; " +
-          "width: " +
-          adParams.failoverWidth +
-          "px; height: " +
-          adParams.failoverHeight +
-          "px; " +
-          "left:" +
-          adParams.failoverX +
-          "px; top:" +
-          adParams.failoverY +
-          "px; " +
-          "background-image: url(" +
-          adParams.adPath +
-          assets.failover.images[0].source +
-          "); background-size: contain; overflow: hidden; ";
-      }
-      function failAd() {
-        console.log("Index.failAd()");
-        useStatic();
-      }
-    </script>
+		<script type="text/javascript">
+			function useStatic() {
+				console.log('Index.useStatic()')
+				removePreloader()
+				document.getElementById('main').style.display = 'none'
+				document.getElementById('aux').style.display = 'block'
+				document.body.style = 'width: ' + adParams.failoverWidth + 'px; height: ' + adParams.failoverHeight + 'px; overflow: hidden;'
+				document.getElementById('fail').style.cssText =
+					'position: absolute; ' +
+					'width: ' +
+					adParams.failoverWidth +
+					'px; height: ' +
+					adParams.failoverHeight +
+					'px; ' +
+					'left:' +
+					adParams.failoverX +
+					'px; top:' +
+					adParams.failoverY +
+					'px; ' +
+					'background-image: url(' +
+					adParams.adPath +
+					assets.failover.images[0].source +
+					'); background-size: contain; overflow: hidden; '
+			}
+			function failAd() {
+				console.log('Index.failAd()')
+				useStatic()
+			}
+		</script>
 
-    <script type="text/javascript">
-      var global = this;
-      var View = {};
-      var Network, queryParams, adData;
+		<script type="text/javascript">
+			var global = this
+			var View = {}
+			var Network, queryParams, adData
 
-      /* -- LAUNCH --------------------------------------------
-       *
-       *
-       */
-      // immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
-      function prepareIndex() {
-        console.log("Index.prepareIndex()");
-        return new Promise(
-          function(resolve) {
-            /*-- Red.Network.onload.start --*/
-            resolve();
-            /*-- Red.Network.onload.end --*/
-          },
-          function(error) {
-            global.failAd();
-          }
-        );
-      }
+			/* -- LAUNCH --------------------------------------------
+			 *
+			 *
+			 */
+			// immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
+			function prepareIndex() {
+				console.log('Index.prepareIndex()')
+				return new Promise(
+					function(resolve) {
+						/*-- Red.Network.onload.start --*/
+						resolve()
+						/*-- Red.Network.onload.end --*/
+					},
+					function(error) {
+						global.failAd()
+					}
+				)
+			}
 
-      // ad-params
-      function prepareAdParamsMisc() {
-        console.log("Index.prepareAdParamsMisc()");
-        return new Promise(
-          function(resolve) {
-            resolve();
-          },
-          function(error) {
-            global.failAd();
-          }
-        );
-      }
+			// ad-params
+			function prepareAdParamsMisc() {
+				console.log('Index.prepareAdParamsMisc()')
+				return new Promise(
+					function(resolve) {
+						resolve()
+					},
+					function(error) {
+						global.failAd()
+					}
+				)
+			}
 
-      // preloader
-      function preparePreloadMisc() {
-        console.log("Index.preparePreloadMisc()");
-        return new Promise(
-          function(resolve) {
-            makeAuxClickable();
-            resolve();
-          },
-          function(error) {
-            global.failAd();
-          }
-        );
-      }
-      function removePreloader() {
-        console.log("Index.removePreloader()");
+			// preloader
+			function preparePreloadMisc() {
+				console.log('Index.preparePreloadMisc()')
+				return new Promise(
+					function(resolve) {
+						makeAuxClickable()
+						resolve()
+					},
+					function(error) {
+						global.failAd()
+					}
+				)
+			}
+			function removePreloader() {
+				console.log('Index.removePreloader()')
 
-        var preloader = document.getElementById("preloader");
-        if (preloader) {
-          var aux = document.getElementById("aux");
-          aux.style.display = "none";
-          aux.removeChild(preloader);
-        }
-      }
+				var preloader = document.getElementById('preloader')
+				if (preloader) {
+					var aux = document.getElementById('aux')
+					aux.style.display = 'none'
+					aux.removeChild(preloader)
+				}
+			}
 
-      // exits
-      function prepareNetworkExit() {
-        console.log("Index.prepareNetworkExit()");
-        Network = new (function() {
-          /*-- Red.Network.exit.start --*/
-          this.exit = function(clickTag) {
-            console.log("Network -> STANDARD EXIT");
-            window.open(clickTag, "_blank");
-          };
-          /*-- Red.Network.exit.end --*/
+			// exits
+			function prepareNetworkExit() {
+				console.log('Index.prepareNetworkExit()')
+				Network = new (function() {
+					/*-- Red.Network.exit.start --*/
+					this.exit = function(clickTag) {
+						console.log('Network -> STANDARD EXIT')
+						window.open(clickTag, '_blank')
+					}
+					/*-- Red.Network.exit.end --*/
 
-          this.appendMacro = function(_macro, _clickTag) {
-            if (_macro.search(/^%%/) > -1) return _clickTag;
-            else return _macro + _clickTag;
-          };
-        })();
-      }
-      function makeAuxClickable() {
-        var aux = document.getElementById("aux");
-        aux.setAttribute("onclick", "handleAuxClick()");
-      }
-      function handleAuxClick() {
-        console.log("Index.handleAuxClick()");
-        /*-- Red.Network.exit_aux.start --*/
-        Network.exit(clickTag);
-        /*-- Red.Network.exit_aux.end --*/
-      }
+					this.appendMacro = function(_macro, _clickTag) {
+						if (_macro.search(/^%%/) > -1) return _clickTag
+						else return _macro + _clickTag
+					}
+				})()
+			}
+			function makeAuxClickable() {
+				var aux = document.getElementById('aux')
+				aux.setAttribute('onclick', 'handleAuxClick()')
+			}
+			function handleAuxClick() {
+				console.log('Index.handleAuxClick()')
+				/*-- Red.Network.exit_aux.start --*/
+				Network.exit(clickTag)
+				/*-- Red.Network.exit_aux.end --*/
+			}
 
-      // ad-global bundle
+			// ad-global bundle
 !function(){"use strict";var r=Object.freeze({__proto__:null,getDeployProfile:function(r){for(var a=0;a<environments.length;a++)if(environments[a].id===r)return environments[a];return!1},getQueryParams:function(){var r={},a=window.location.href.split("?");if(a.length>1){var e=a[1].split("&");for(var n in e){var t=e[n].split("=");2==t.length&&(r[t[0]]=decodeURIComponent(t[1]))}}return r},matchProtocolTo:function(r){var a=r.search(/^\/\//)>-1;if(r.search(/^http/)>-1||a){var e=window.location.href.search(/^https/)>-1||window.adParams&&adParams.forceHttps,n=e?"https://":"http://";if(a&&(r=r.replace(/^\/\//,n)),r.search(/.*edgecastcdn/)>-1){var t=e?"ne1."+r.match(/w(a|p)c/i)[0]+".":r.match(/w(a|p)c\.[a-z0-9]*\./i)[0];r=n+t+"edgecastcdn"+r.replace(/.*edgecastcdn/,"")}else if(r.search(/.*paramount\.com/)>-1){r=n+(e?"paramountdlds-a.akamaihd.net":"downloads.paramount.com")+r.replace(/.*paramount\.com/,"")}else r=r.search(/espn\.go\.com/)>-1||r.search(/secure\.espncdn\.com/)>-1?"https://secure.espncdn.com"+r.replace(/^.*\.com/,""):r.replace(/^https?\:\/\//i,n)}return r},isVersionOrNewer:function(r){var a=r.split(".").map((function(r){return parseInt(r)}));if(adParams.version.major>a[0])return!0;if(adParams.version.major===a[0]){if(adParams.version.minor>a[1])return!0;if(adParams.version.minor>a[1]&&adParams.version.patch>=a[2])return!0}return!1},fbaDataToBlobs:function(r){var a=new Uint8Array(4),e=new Uint32Array(a.buffer),n=44,t=new Uint8Array(r,n,1)[0];n+=5;for(var o=[],i=0;i<t;i++){for(var c=new Uint8Array(r,n,4),s=4,p=0;p<4;p++)a[--s]=c[p];var f=e[0];n+=7;var m=String.fromCharCode.apply(String,new Uint8Array(r,n++,1)),l=new Uint8Array(r,n+3,1)[0]||0,d=new Uint8Array(r,n+4,l),v=String.fromCharCode.apply(String,d);l+=4;var u=new Uint8Array(r,n+l,f-l);n+=f+4;var h=v.split("."),w=h[0],g=h[1],y=void 0;y="f"===m?"application/"+("ttf"===h[1]?"x-font-ttf":"font-".concat(h[1])):"image/"+("svg"==h[1]?"svg+xml":h[1]);var U=new Blob([u],{type:y}),P=URL.createObjectURL(U);o.push({path:w,src:P,fileType:g})}return o}});Object.keys(r).forEach((function(a){var e=r[a];window[a]=e}))}();
 
-    </script>
+		</script>
 
-    <!-- ad-load bundle -->
-    <script type="text/javascript">
-      /*-- Red.Inject.commons.start --*/
-      /*-- Red.Inject.commons.end --*/
-    </script>
+		<!-- ad-load bundle -->
+		<script type="text/javascript">
+			/*-- Red.Inject.commons.start --*/
+			/*-- Red.Inject.commons.end --*/
+		</script>
 
-    <!-- inline bundle -->
-    <script type="text/javascript">
+		<!-- inline bundle -->
+		<script type="text/javascript">
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -502,10 +494,10 @@ var InlineSrc = /*#__PURE__*/function () {
 
 /******/ });
 //# sourceMappingURL=inline.bundle.js.map
-    </script>
+		</script>
 
-    <!-- initial bundle -->
-    <script type="text/javascript">
+		<!-- initial bundle -->
+		<script type="text/javascript">
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -1284,6 +1276,6 @@ module.exports = window;
 
 /******/ });
 //# sourceMappingURL=initial.bundle.js.map
-    </script>
-  </body>
+		</script>
+	</body>
 </html>

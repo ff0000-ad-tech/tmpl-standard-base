@@ -22,10 +22,11 @@
 	"devDependencies": {
 		"@ff0000-ad-tech/wp-creative-server": "^2.0.1",
 		"@ff0000-ad-tech/wp-deploy-manager": "git+ssh://git@github.com:ff0000-ad-tech/wp-deploy-manager.git#preact",
-		"eslint": "^5.16.0",
-		"eslint-config-prettier": "^2.10.0",
-		"eslint-plugin-prettier": "^3.0.1",
-		"prettier": "^1.17.0"
+		"babel-eslint": "^8.2.1",
+		"eslint": "^4.16.0",
+		"eslint-config-prettier": "^2.9.0",
+		"eslint-plugin-prettier": "^2.5.0",
+		"prettier": "^1.10.2"
 	},
 	"dependencies": {
 		"@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.0.1",
