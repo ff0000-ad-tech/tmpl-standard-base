@@ -1,5 +1,5 @@
-import AdData from '@common/js/AdData.js'
-import { ImageManager } from 'ad-control'
+import AdData from "@common/js/AdData.js";
+import { ImageManager } from "ad-control";
 /*-- Red.Imports.head.start --*/
 /*-- Red.Imports.head.end --*/
 
@@ -12,41 +12,39 @@ import { ImageManager } from 'ad-control'
 	Once resolved, control moves to AdData.
 */
 export class Preflight {
-	static init() {
-		console.log('Preflight.init()')
-		return new Promise((resolve, reject) => {
-			let promises = [
-				// this.loadDynamicJS('define-your-case-id')
-			]
+  static init() {
+    console.log("Preflight.init()");
+    return new Promise((resolve, reject) => {
+      let promises = [
+        // this.loadDynamicJS('define-your-case-id')
+      ];
 
-			Promise.all(promises)
-				.then(() => {
-					this.addPreloadedImages()
-					this.prepareAdData()
-				})
-				.then(() => {
-					resolve()
-				})
-				.catch(err => {
-					reject(err)
-				})
-		})
-	}
+      Promise.all(promises)
+        .then(() => {
+          this.addPreloadedImages();
+          this.prepareAdData();
+        })
+        .then(() => {
+          resolve();
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
 
+  static addPreloadedImages() {
+    console.log("Preflight.addPreloadedImages()");
+    ImageManager.addToDictionary(assets.preloadedImages);
+  }
 
-	static addPreloadedImages() {
-		console.log('Preflight.addPreloadedImages()')
-		ImageManager.addToDictionary(assets.preloadedImages)
-	}
+  static prepareAdData() {
+    console.log("Preflight.prepareAdData()");
 
-	static prepareAdData() {
-		console.log('Preflight.prepareAdData()')
+    global.adData = new AdData();
+  }
 
-
-		global.adData = new AdData()
-	}
-
-	/**
+  /**
 		Method for loading dynamic, compiled ES6 modules at runtime. This should be threaded into 
 		Preflight.init()'s promise chain, as needed.
 
@@ -55,10 +53,10 @@ export class Preflight {
 			- replace THIS_CASE__ASSET_PATH with a string
 			- handle the implementation of the loaded module.
 	*/
-	static loadDynamicJS(id) {
-		return new Promise((resolve, reject) => {
-			switch (id) {
-				/*
+  static loadDynamicJS(id) {
+    return new Promise((resolve, reject) => {
+      switch (id) {
+        /*
 				case THIS_CASE__ID: // ex: '300x250_Endframe'
 					import('THIS_CASE__ASSET_PATH') // ex: '@common/dynamic_js/300x250_Endframe.js'
 						.then(module => {
@@ -69,10 +67,10 @@ export class Preflight {
 						.catch(err => reject(err))
 					break
 				*/
-				default:
-					console.log(`Common.loadDynamicJS() has no import case for: ${id}`)
-					resolve()
-			}
-		})
-	}
+        default:
+          console.log(`Common.loadDynamicJS() has no import case for: ${id}`);
+          resolve();
+      }
+    });
+  }
 }
