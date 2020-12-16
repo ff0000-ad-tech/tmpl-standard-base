@@ -3,7 +3,6 @@
 export class Control {
 	static preMarkup() {
 		console.log('Control.preMarkup()')
-		document.getElementById('main').addEventListener('onclick', this.handleClick)
 	}
 
 	static postMarkup() {

@@ -85,7 +85,7 @@ var environments = [
 
 			function onImpression(binaryAssets) {
 				console.log('Index.onImpression()')
-				Ad.launch(binaryAssets)
+				Bundle.launch(binaryAssets)
 			}
 
 			function isDevEnvironment() {
@@ -228,12 +228,10 @@ var environments = [
 			}
 			function removePreloader() {
 				console.log('Index.removePreloader()')
-
 				var preloader = document.getElementById('preloader')
 				if (preloader) {
 					var aux = document.getElementById('aux')
 					aux.style.display = 'none'
-					aux.removeChild(preloader)
 				}
 			}
 
@@ -423,8 +421,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var InlineSrc = /*#__PURE__*/function () {
-  function InlineSrc() {
+class InlineSrc {
+  constructor() {
     this.assets = [];
   }
   /**
@@ -436,9 +434,7 @@ var InlineSrc = /*#__PURE__*/function () {
   */
 
 
-  var _proto = InlineSrc.prototype;
-
-  _proto.add = function add(path, src, preloader) {
+  add(path, src, preloader) {
     var asset = this.getAsset(path);
 
     if (asset) {
@@ -462,20 +458,20 @@ var InlineSrc = /*#__PURE__*/function () {
   		If the asset path has NOT been declared:
   	 - the path will be returned.
   */
-  ;
 
-  _proto.get = function get(path) {
+
+  get(path) {
     var asset = this.getAsset(path);
 
     if (asset) {
-      return asset.src || asset.path + "?=" + Date.now();
+      return asset.src || `${asset.path}?=${Date.now()}`;
     } else {
       return path;
     }
   } // internal
-  ;
 
-  _proto.getAsset = function getAsset(path) {
+
+  getAsset(path) {
     for (var i in this.assets) {
       console.log(this.assets[i], path);
 
@@ -483,10 +479,9 @@ var InlineSrc = /*#__PURE__*/function () {
         return this.assets[i];
       }
     }
-  };
+  }
 
-  return InlineSrc;
-}();
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (new InlineSrc());
 
@@ -615,45 +610,23 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 _lib_polite_js__WEBPACK_IMPORTED_MODULE_2__["prepare"](window.adParams.politeLoadAfter) // prepare vendor onload (Network.js)
-.then(function () {
-  return window.prepareIndex();
-}) // prepare scope
-.then(function () {
-  return _lib_scope_js__WEBPACK_IMPORTED_MODULE_1__["prepare"]();
-}) // misc index control
-.then(function () {
-  return window.prepareAdParamsMisc();
-}) // prepare network
-.then(function () {
-  return window.prepareNetworkExit();
-}) // prepare preloader
-.then(function () {
-  return _lib_preloader_js__WEBPACK_IMPORTED_MODULE_3__["prepare"]();
-}).then(function () {
-  return window.preparePreloadMisc();
-}) // finish polite timeout
-.then(function () {
-  return _lib_polite_js__WEBPACK_IMPORTED_MODULE_2__["resolveDelay"]();
-}) // prepare payload
-.then(function () {
-  return _lib_payloader_js__WEBPACK_IMPORTED_MODULE_4__["execute"]();
-}) // load any inlined base64 assets
-.then(function (fbaImages) {
-  return _lib_inline_js__WEBPACK_IMPORTED_MODULE_5__["loadAssets"]().then(function (base64Images) {
-    if (base64Images === void 0) {
-      base64Images = [];
-    }
-
+.then(() => window.prepareIndex()) // prepare scope
+.then(() => _lib_scope_js__WEBPACK_IMPORTED_MODULE_1__["prepare"]()) // misc index control
+.then(() => window.prepareAdParamsMisc()) // prepare network
+.then(() => window.prepareNetworkExit()) // prepare preloader
+.then(() => _lib_preloader_js__WEBPACK_IMPORTED_MODULE_3__["prepare"]()).then(() => window.preparePreloadMisc()) // finish polite timeout
+.then(() => _lib_polite_js__WEBPACK_IMPORTED_MODULE_2__["resolveDelay"]()) // prepare payload
+.then(() => _lib_payloader_js__WEBPACK_IMPORTED_MODULE_4__["execute"]()) // load any inlined base64 assets
+.then(fbaImages => {
+  return _lib_inline_js__WEBPACK_IMPORTED_MODULE_5__["loadAssets"]().then((base64Images = []) => {
     // get dataRaw from loaders
-    var binaryAssets = base64Images.concat(fbaImages || []);
+    const binaryAssets = base64Images.concat(fbaImages || []);
     return binaryAssets;
   });
 }) // launch polite
-.then(function (binaryAssets) {
-  _lib_preloader_js__WEBPACK_IMPORTED_MODULE_3__["isComplete"].then(function () {
-    return window.onImpression(binaryAssets);
-  });
-})["catch"](function (err) {
+.then(binaryAssets => {
+  _lib_preloader_js__WEBPACK_IMPORTED_MODULE_3__["isComplete"].then(() => window.onImpression(binaryAssets));
+}).catch(err => {
   console.error(err);
   window.failAd();
 });
@@ -712,19 +685,15 @@ function loadAssets() {
   if (window.InlineSrc && InlineSrc.assets) {
     console.log('Inline.loadAssets()'); // filter out any preloader images
 
-    var inlineAssets = InlineSrc.assets.filter(function (asset) {
-      return !asset.preloader;
-    });
-    var assetProcessPromises = inlineAssets.map(function (asset) {
-      var isImageAsset = asset.src.indexOf('image') >= 0;
-      var processor = isImageAsset ? _load_js__WEBPACK_IMPORTED_MODULE_0__["loadImg"] : _load_js__WEBPACK_IMPORTED_MODULE_0__["loadFont"];
+    const inlineAssets = InlineSrc.assets.filter(asset => !asset.preloader);
+    const assetProcessPromises = inlineAssets.map(asset => {
+      const isImageAsset = asset.src.indexOf('image') >= 0;
+      const processor = isImageAsset ? _load_js__WEBPACK_IMPORTED_MODULE_0__["loadImg"] : _load_js__WEBPACK_IMPORTED_MODULE_0__["loadFont"];
       return processor(asset);
     });
-    return Promise.all(assetProcessPromises).then(function (results) {
+    return Promise.all(assetProcessPromises).then(results => {
       // should return only Images containing base64 image assets
-      return results.filter(function (result) {
-        return result;
-      });
+      return results.filter(result => result);
     });
   }
 
@@ -750,9 +719,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ad_global__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ad_global__WEBPACK_IMPORTED_MODULE_0__);
 
 function loadJs() {
-  var jsLoadPromises = window.adParams.dependencies.map(function (dep) {
-    var jsLoadPromise = new Promise(function (resolve, reject) {
-      var script = document.createElement('script');
+  const jsLoadPromises = window.adParams.dependencies.map(dep => {
+    const jsLoadPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
       script.type = 'text/javascript';
       script.charset = 'utf-8';
       script.onload = resolve;
@@ -766,9 +735,9 @@ function loadJs() {
 }
 function loadFba() {
   if (window.assets.payload.binary.length) {
-    return new Promise(function (resolve, reject) {
-      var fbaPath = window.adParams.adPath + window.assets.payload.binary[0];
-      var req = new XMLHttpRequest();
+    return new Promise((resolve, reject) => {
+      const fbaPath = window.adParams.adPath + window.assets.payload.binary[0];
+      const req = new XMLHttpRequest();
 
       req.onreadystatechange = function (target) {
         if (req.readyState === 4) {
@@ -776,7 +745,7 @@ function loadFba() {
             resolve(req.response);
           } else {
             reject({
-              target: target
+              target
             });
           }
         }
@@ -785,15 +754,15 @@ function loadFba() {
       req.open('GET', fbaPath, true);
       req.responseType = 'arraybuffer';
       req.send();
-    }).then(function (dataRaw) {
-      var blobAssets = Object(ad_global__WEBPACK_IMPORTED_MODULE_0__["fbaDataToBlobs"])(dataRaw);
-      var assetLoadPromises = blobAssets.map(function (blobAsset) {
-        var isFont = /(ttf|woff)/.test(blobAsset.fileType);
-        var assetLoader = isFont ? loadFont : loadImg;
+    }).then(dataRaw => {
+      const blobAssets = Object(ad_global__WEBPACK_IMPORTED_MODULE_0__["fbaDataToBlobs"])(dataRaw);
+      const assetLoadPromises = blobAssets.map(blobAsset => {
+        const isFont = /(ttf|woff)/.test(blobAsset.fileType);
+        const assetLoader = isFont ? loadFont : loadImg;
         return assetLoader(blobAsset);
       });
       return Promise.all(assetLoadPromises) // filter only truthy Promise results
-      .then(function (loadResults) {
+      .then(loadResults => {
         return loadResults.filter(Boolean);
       });
     });
@@ -802,30 +771,30 @@ function loadFba() {
   }
 }
 function loadFont(asset) {
-  var fontLoadPromise;
+  let fontLoadPromise;
 
   if (document.fonts && window.FontFace && !_hasSafari10Bug()) {
-    var font = new FontFace(asset.path, "url(" + asset.src + ")");
-    fontLoadPromise = font.load().then(function (font) {
+    const font = new FontFace(asset.path, `url(${asset.src})`);
+    fontLoadPromise = font.load().then(font => {
       document.fonts.add(font);
-    })["catch"](function (err) {
-      console.error("Font (" + asset.src + ") failed to load");
+    }).catch(err => {
+      console.error(`Font (${asset.src}) failed to load`);
       throw err;
     });
   } else {
-    var format = 'truetype';
+    let format = 'truetype';
 
     if (asset.fileType.match(/woff/)) {
       format = 'woff';
     }
 
-    var assembledFontRule = "@font-face { font-family: '" + asset.path + "'; src: url(" + asset.src + ") format('" + format + "'); }";
-    var getSheet = document.getElementById('RED_fontStyleSheet');
+    const assembledFontRule = "@font-face { font-family: '" + asset.path + "'; src: url(" + asset.src + ") format('" + format + "'); }";
+    let getSheet = document.getElementById('RED_fontStyleSheet');
 
     if (getSheet) {
       getSheet.innerHTML += assembledFontRule;
     } else {
-      var styleScript = document.createElement('style');
+      let styleScript = document.createElement('style');
       styleScript.type = 'text/css';
       styleScript.media = 'screen';
       styleScript.id = 'RED_fontStyleSheet';
@@ -833,21 +802,21 @@ function loadFont(asset) {
       document.getElementsByTagName('head')[0].appendChild(styleScript);
     }
 
-    fontLoadPromise = new Promise(function (resolve, reject) {
-      var font = asset.path;
-      var content = ' !"\\#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~';
-      var css = 'position:absolute; top:-1000px; font-size:100px; font-family:san-serif; font-variant:normal; font-style:normal; font-weight:normal; letter-spacing:0; white-space:nowrap;';
-      var fontLoadChecker = document.createElement('div');
+    fontLoadPromise = new Promise((resolve, reject) => {
+      const font = asset.path;
+      const content = ' !"\\#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+      const css = 'position:absolute; top:-1000px; font-size:100px; font-family:san-serif; font-variant:normal; font-style:normal; font-weight:normal; letter-spacing:0; white-space:nowrap;';
+      const fontLoadChecker = document.createElement('div');
       fontLoadChecker.innerHTML = content;
       fontLoadChecker.style.cssText = css;
       document.body.appendChild(fontLoadChecker);
-      var initWidth = fontLoadChecker.offsetWidth;
+      const initWidth = fontLoadChecker.offsetWidth;
       fontLoadChecker.style.fontFamily = font;
-      var timeout = setTimeout(function () {
+      const timeout = setTimeout(() => {
         clearInterval(interval);
-        reject(new Error("Font (" + asset.src + ") failed to load"));
+        reject(new Error(`Font (${asset.src}) failed to load`));
       }, 5000);
-      var interval = setInterval(function () {
+      const interval = setInterval(() => {
         if (fontLoadChecker.offsetWidth !== initWidth) {
           clearTimeout(timeout);
           clearInterval(interval);
@@ -871,11 +840,11 @@ function _hasSafari10Bug() {
 }
 
 function loadImg(asset) {
-  return new Promise(function (resolve, reject) {
-    var img = new Image();
+  return new Promise((resolve, reject) => {
+    const img = new Image();
     img.id = asset.path;
 
-    img.onload = function () {
+    img.onload = () => {
       resolve(img);
     };
 
@@ -915,16 +884,16 @@ function concatDependencies() {
 
 function loadDependencies() {
   console.log('Payloader.loadDependencies()');
-  return new Promise(function (resolve, reject) {
-    var loadJsPromise = Object(_load_js__WEBPACK_IMPORTED_MODULE_0__["loadJs"])().then(function () {
+  return new Promise((resolve, reject) => {
+    const loadJsPromise = Object(_load_js__WEBPACK_IMPORTED_MODULE_0__["loadJs"])().then(() => {
       window.jsBundleLoadComplete && jsBundleLoadComplete();
     });
-    var loadFbaPromise = Object(_load_js__WEBPACK_IMPORTED_MODULE_0__["loadFba"])();
-    Promise.all([loadJsPromise, loadFbaPromise]).then(function (results) {
+    const loadFbaPromise = Object(_load_js__WEBPACK_IMPORTED_MODULE_0__["loadFba"])();
+    Promise.all([loadJsPromise, loadFbaPromise]).then(results => {
       // getting results of loadFba()
-      var fbaImages = results[1];
+      const fbaImages = results[1];
       resolve(fbaImages);
-    })["catch"](function (err) {
+    }).catch(err => {
       reject(err);
     });
   });
@@ -943,25 +912,25 @@ function loadDependencies() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prepare", function() { return prepare; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resolveDelay", function() { return resolveDelay; });
-var delay;
-var initTime; //
+let delay;
+let initTime; //
 
 function prepare(politeLoadAfter) {
-  console.log("Polite.prepare()");
+  console.log(`Polite.prepare()`);
   initTime = Date.now();
 
   if (isDevEnvironment()) {
-    console.log(" - no polite load delay in dev environment");
+    console.log(` - no polite load delay in dev environment`);
     delay = 0;
   } else {
-    console.log(" - polite load after " + politeLoadAfter + "s");
+    console.log(` - polite load after ${politeLoadAfter}s`);
     delay = politeLoadAfter * 1000;
   }
 
   return Promise.resolve();
 }
 function resolveDelay() {
-  return new Promise(function (resolve) {
+  return new Promise(resolve => {
     try {
       // attempt to listen for publisher page load event
       listenPublisher(window.top).then(resolve);
@@ -976,27 +945,25 @@ function listenPublisher(w) {
   if (w.document.readyState === 'complete') {
     return runDelay();
   } else {
-    return new Promise(function (resolve) {
-      w.addEventListener('load', function () {
-        runDelay().then(function () {
-          return resolve();
-        });
+    return new Promise(resolve => {
+      w.addEventListener('load', () => {
+        runDelay().then(() => resolve());
       });
     });
   }
 }
 
 function runDelay() {
-  console.log("Polite.runDelay(), on window[top].onload + " + delay / 1000 + "s..."); // determine time elapsed to now
+  console.log(`Polite.runDelay(), on window[top].onload + ${delay / 1000}s...`); // determine time elapsed to now
 
-  var duration = Date.now() - initTime;
+  const duration = Date.now() - initTime;
 
   if (duration > delay) {
     return Promise.resolve();
   } else {
     // if required delay is not meant, timeout for remainder
-    return new Promise(function (resolve) {
-      setTimeout(function () {
+    return new Promise(resolve => {
+      setTimeout(() => {
         resolve();
       }, delay - duration);
     });
@@ -1023,8 +990,8 @@ __webpack_require__.r(__webpack_exports__);
  *	`assets` is `window.assets`, declared in the index.html
  *
  */
-var preloader;
-var borderWidth; //
+let preloader;
+let borderWidth; //
 
 function prepare() {
   console.log('Preloader.prepare()');
@@ -1034,9 +1001,9 @@ function prepare() {
   return load();
 } // as preloader loads & plays, payload should begin loading as soon as polite-reqs allow (see polite.js)
 
-var completeResolve;
-var completeReject;
-var isComplete = new Promise(function (resolve, reject) {
+let completeResolve;
+let completeReject;
+var isComplete = new Promise((resolve, reject) => {
   completeResolve = resolve;
   completeReject = reject;
 });
@@ -1049,21 +1016,21 @@ function resolveIsComplete() {
 function load() {
   assets.preloadedImages = []; // begin loading the images
 
-  var promises = [];
-  assets.preloader.images.forEach(function (pdata) {
+  let promises = [];
+  assets.preloader.images.forEach(pdata => {
     promises.push(loaderPreloaderImage(pdata));
   });
-  Promise.all(promises).then(function () {
+  Promise.all(promises).then(() => {
     applyContainerStyle(); // do final isComplete resolve once startDelay is passed
 
     if (assets.preloader.startDelay > 0) {
-      setTimeout(function () {
+      setTimeout(() => {
         resolveIsComplete();
       }, assets.preloader.startDelay * 1000);
     } else {
       resolveIsComplete();
     }
-  })["catch"](function (err) {
+  }).catch(err => {
     completeReject(err);
   });
   return Promise.resolve();
@@ -1073,13 +1040,11 @@ function loaderPreloaderImage(pdata) {
   function _uriToBlob(dataURI) {
     // convert base64 to raw binary data held in a string
     // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-    var byteString = window.atob(dataURI.split(',')[1]); // separate out the mime component
+    const byteString = window.atob(dataURI.split(',')[1]); // separate out the mime component
 
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]; // write the bytes of the string to an ArrayBuffer
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]; // write the bytes of the string to an ArrayBuffer
 
-    var ab = Uint8Array.from(byteString, function (ch) {
-      return ch.charCodeAt(0);
-    }).buffer; // write the ArrayBuffer to a blob, and you're done
+    const ab = Uint8Array.from(byteString, ch => ch.charCodeAt(0)).buffer; // write the ArrayBuffer to a blob, and you're done
 
     return new Blob([ab], {
       type: mimeString
@@ -1091,7 +1056,7 @@ function loaderPreloaderImage(pdata) {
 
     img.onload = function (event) {
       if (addToLibrary) {
-        var id = pdata.source.split('/');
+        const id = pdata.source.split('/');
         img.id = id[id.length - 1].split('.')[0];
         assets.preloadedImages.push(img);
       } else {
@@ -1101,29 +1066,29 @@ function loaderPreloaderImage(pdata) {
     }; // ** note: InlineSrc is introduced by the webpack "inline" entry bundle
 
 
-    var dataURI = window.InlineSrc.get('images/' + pdata.source);
+    const dataURI = window.InlineSrc.get('images/' + pdata.source);
     img.src = URL.createObjectURL(_uriToBlob(dataURI));
   }
 
-  return new Promise(function (resolve, reject) {
-    Promise.all([]).then(function () {
+  return new Promise((resolve, reject) => {
+    Promise.all([]).then(() => {
       console.log('\tLoading preloader image for preloader application');
 
       _loadImage();
-    }).then(function () {
+    }).then(() => {
       console.log('\tLoading preloader image for ImageManager application');
 
       _loadImage(true);
-    }).then(function () {
+    }).then(() => {
       resolve();
-    })["catch"](function (err) {
+    }).catch(err => {
       reject(err);
     });
   });
 }
 
 function applyContainerStyle() {
-  var styleCss = 'width: ' + adParams.preloaderWidth + 'px; height: ' + adParams.preloaderHeight + 'px; ';
+  let styleCss = 'width: ' + adParams.preloaderWidth + 'px; height: ' + adParams.preloaderHeight + 'px; ';
   if (adParams.responsive) styleCss = 'width: 100%; height: 100%; ';
   preloader.style.cssText = 'display: block; overflow: hidden; position: absolute; ' + 'top:' + adParams.preloaderY + 'px; left:' + adParams.preloaderX + 'px; ' + (assets.preloader.gradient ? 'background-image: ' + assets.preloader.gradient + '; ' : '') + styleCss + 'border-color: ' + (assets.preloader.borderColor || assets.preloader.backgroundColor) + '; border-width: ' + borderWidth + 'px; background-color: ' + assets.preloader.backgroundColor + '; ';
 }
@@ -1135,8 +1100,8 @@ function applyImageStyle(img, pdata) {
   };
   img.width *= pdata.scale || 1;
   img.height *= pdata.scale || 1;
-  var left = Math.round((adParams.preloaderWidth - img.width) / 2 + (pdata.offset.x || 0) - borderWidth);
-  var top = Math.round((adParams.preloaderHeight - img.height) / 2 + (pdata.offset.y || 0) - borderWidth);
+  const left = Math.round((adParams.preloaderWidth - img.width) / 2 + (pdata.offset.x || 0) - borderWidth);
+  const top = Math.round((adParams.preloaderHeight - img.height) / 2 + (pdata.offset.y || 0) - borderWidth);
   img.style.cssText = 'position: absolute; left: ' + left + 'px; top: ' + top + 'px;';
 }
 
@@ -1199,15 +1164,15 @@ function prepareOnError() {
 function handleError() {
   console.log('Scope.handleError() - JAVASCRIPT ERROR!'); // ignore known errors. Currently only a DC analytic error happens when tapping on video player in iOS
 
-  var surpressedErrorList = ["TypeError: b.some is not a function. (In 'b.some(function(b){return a.j.includes(b.identifier)})', 'b.some' is undefined)"];
-  var error = arguments[0];
+  const surpressedErrorList = ["TypeError: b.some is not a function. (In 'b.some(function(b){return a.j.includes(b.identifier)})', 'b.some' is undefined)"];
+  const error = arguments[0];
 
   if (surpressedErrorList.indexOf(error) > -1) {
     console.log('surpressing known error');
     return;
   }
 
-  onerror = function onerror() {}; // after the first error, disable the event listening
+  onerror = function () {}; // after the first error, disable the event listening
 
 
   window.failAd();
@@ -1245,7 +1210,9 @@ __webpack_require__.r(__webpack_exports__);
 try {
   new CustomEvent('test');
 } catch (e) {
-  var CustomEvent2 = function CustomEvent2(event, params) {
+  console.log(' -> CustomEvent');
+
+  function CustomEvent2(event, params) {
     params = params || {
       bubbles: false,
       cancelable: false,
@@ -1254,9 +1221,8 @@ try {
     var evt = document.createEvent('CustomEvent');
     evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
     return evt;
-  };
+  }
 
-  console.log(' -> CustomEvent');
   CustomEvent2.prototype = window.Event.prototype;
   window.CustomEvent = CustomEvent2;
 }

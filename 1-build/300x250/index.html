@@ -81,7 +81,7 @@
 
 			function onImpression(binaryAssets) {
 				console.log('Index.onImpression()')
-				Ad.launch(binaryAssets)
+				Bundle.launch(binaryAssets)
 			}
 
 			function isDevEnvironment() {
@@ -224,12 +224,10 @@
 			}
 			function removePreloader() {
 				console.log('Index.removePreloader()')
-
 				var preloader = document.getElementById('preloader')
 				if (preloader) {
 					var aux = document.getElementById('aux')
 					aux.style.display = 'none'
-					aux.removeChild(preloader)
 				}
 			}
 

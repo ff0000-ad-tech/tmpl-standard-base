@@ -81,62 +81,87 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./1-build/300x250/Ad.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./1-build/300x250/bundle.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./1-build/300x250/Ad.js":
-/*!*******************************!*\
-  !*** ./1-build/300x250/Ad.js ***!
-  \*******************************/
-/*! exports provided: Ad */
+/***/ "./1-build/300x250/bundle.js":
+/*!***********************************!*\
+  !*** ./1-build/300x250/bundle.js ***!
+  \***********************************/
+/*! exports provided: Bundle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ad", function() { return Ad; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Bundle", function() { return Bundle; });
 /* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
 /* harmony import */ var ad_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ad-control */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/index.js");
 /* harmony import */ var _common_js_Preflight_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @common/js/Preflight.js */ "./1-build/common/js/Preflight.js");
-/* harmony import */ var _common_js_Control_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @common/js/Control.js */ "./1-build/common/js/Control.js");
-/* harmony import */ var _components_Build_index_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Build/index.jsx */ "./1-build/300x250/components/Build/index.jsx");
+/* harmony import */ var _components_Ad__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Ad */ "./1-build/300x250/components/Ad/index.jsx");
 
 
 
 
- // import { Main, MainBorder } from "@common/js/Build.js";
-// import { Animation } from "@common/js/Animation.js";
-
-var Ad = /*#__PURE__*/function () {
-  function Ad() {}
-
+class Bundle {
   // called from index.html onImpression()
-  Ad.launch = function launch(binaryAssets) {
-    console.log('Ad.launch()');
-    ad_control__WEBPACK_IMPORTED_MODULE_1__["Core"].init(binaryAssets).then(function () {
-      return _common_js_Preflight_js__WEBPACK_IMPORTED_MODULE_2__["Preflight"].init();
-    }).then(function () {
-      return ad_control__WEBPACK_IMPORTED_MODULE_1__["Core"].loadDynamic();
-    }).then(function () {
-      return Ad.prepare();
-    })["catch"](function (err) {
+  static launch(binaryAssets) {
+    console.log('Bundle.launch()');
+    ad_control__WEBPACK_IMPORTED_MODULE_1__["Core"].init(binaryAssets).then(() => _common_js_Preflight_js__WEBPACK_IMPORTED_MODULE_2__["Preflight"].init()).then(() => ad_control__WEBPACK_IMPORTED_MODULE_1__["Core"].loadDynamic()).then(() => Object(preact__WEBPACK_IMPORTED_MODULE_0__["render"])(Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_components_Ad__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('main'))).catch(err => {
       throw err;
     });
-  };
+  }
 
-  Ad.prepare = function prepare() {
-    console.log('Ad.prepare()');
-    _common_js_Control_js__WEBPACK_IMPORTED_MODULE_3__["Control"].preMarkup();
-    Object(preact__WEBPACK_IMPORTED_MODULE_0__["render"])(Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_components_Build_index_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('main')); // View.main = new Main()
-    // View.mainBorder = new MainBorder()
+}
+window.Bundle = Bundle;
 
-    _common_js_Control_js__WEBPACK_IMPORTED_MODULE_3__["Control"].postMarkup(); // Animation.start()
-  };
+/***/ }),
 
-  return Ad;
-}();
-window.Ad = Ad;
+/***/ "./1-build/300x250/components/Ad/index.jsx":
+/*!*************************************************!*\
+  !*** ./1-build/300x250/components/Ad/index.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
+/* harmony import */ var _Build__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Build */ "./1-build/300x250/components/Build/index.jsx");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+class Ad extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "componentDidMount", () => {
+      window.removePreloader();
+    });
+
+    _defineProperty(this, "handleClick", () => {
+      Network.exit(window.clickTag);
+    });
+  }
+
+  render() {
+    const bid = `build-${adParams.adWidth}x${adParams.adHeight}`;
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+      id: bid,
+      style: {
+        width: `${adParams.adWidth}px`,
+        height: `${adParams.adHeight}px`
+      },
+      onClick: this.handleClick
+    }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_Build__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Ad);
 
 /***/ }),
 
@@ -150,47 +175,86 @@ window.Ad = Ad;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+/* harmony import */ var ad_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ad-control */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/index.js");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.scss */ "./1-build/300x250/components/Build/styles.scss");
+/* harmony import */ var _common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @common/fonts/template_font.ttf */ "./1-build/common/fonts/template_font.ttf");
+/* harmony import */ var _common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @size/images/160over90-logo.png */ "./1-build/300x250/images/160over90-logo.png");
+/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_4__);
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-var Build = /*#__PURE__*/function (_Component) {
-  _inheritsLoose(Build, _Component);
 
-  function Build() {
-    var _this;
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
-
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      setInterval(function () {
-        _this.setState({
-          time: new Date().toLocaleTimeString()
-        });
-      }, 1000);
-    });
-
-    return _this;
+class Build extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+      className: "b"
+    }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+      className: "b__brand"
+    }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
+      src: ad_control__WEBPACK_IMPORTED_MODULE_1__["ImageManager"].get('160over90-logo').src,
+      width: 150,
+      height: 150
+    }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+      className: "b__cta"
+    }, "CLICK ME")));
   }
 
-  var _proto = Build.prototype;
-
-  _proto.render = function render() {
-    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("span", null, this.state.time);
-  };
-
-  return Build;
-}(preact__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Build);
+
+/***/ }),
+
+/***/ "./1-build/300x250/components/Build/styles.scss":
+/*!******************************************************!*\
+  !*** ./1-build/300x250/components/Build/styles.scss ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../../node_modules/sass-loader/dist/cjs.js!./styles.scss */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./1-build/300x250/components/Build/styles.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./1-build/300x250/images/160over90-logo.png":
+/*!***************************************************!*\
+  !*** ./1-build/300x250/images/160over90-logo.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = '160over90-logo'
+
+/***/ }),
+
+/***/ "./1-build/common/fonts/template_font.ttf":
+/*!************************************************!*\
+  !*** ./1-build/common/fonts/template_font.ttf ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = 'template_font'
 
 /***/ }),
 
@@ -245,42 +309,6 @@ function AdData() {
 
 /***/ }),
 
-/***/ "./1-build/common/js/Control.js":
-/*!**************************************!*\
-  !*** ./1-build/common/js/Control.js ***!
-  \**************************************/
-/*! exports provided: Control */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Control", function() { return Control; });
-// import { Gesture, GestureEvent } from 'ad-events'
-var Control = /*#__PURE__*/function () {
-  function Control() {}
-
-  Control.preMarkup = function preMarkup() {
-    console.log('Control.preMarkup()');
-    document.getElementById('main').addEventListener('onclick', this.handleClick);
-  };
-
-  Control.postMarkup = function postMarkup() {
-    console.log('Control.postMarkup()'); // listen for default exit
-    // Gesture.add(View.main, GestureEvent.CLICK, Control.handleClick)
-
-    global.removePreloader();
-  };
-
-  Control.handleClick = function handleClick(event) {
-    Network.exit(clickTag);
-  };
-
-  return Control;
-}();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
-
-/***/ }),
-
 /***/ "./1-build/common/js/Preflight.js":
 /*!****************************************!*\
   !*** ./1-build/common/js/Preflight.js ***!
@@ -308,34 +336,29 @@ __webpack_require__.r(__webpack_exports__);
 	Once resolved, control moves to AdData.
 */
 
-var Preflight = /*#__PURE__*/function () {
-  function Preflight() {}
-
-  Preflight.init = function init() {
-    var _this = this;
-
+class Preflight {
+  static init() {
     console.log('Preflight.init()');
-    return new Promise(function (resolve, reject) {
-      var promises = [// this.loadDynamicJS('define-your-case-id')
+    return new Promise((resolve, reject) => {
+      let promises = [// this.loadDynamicJS('define-your-case-id')
       ];
-      Promise.all(promises).then(function () {
-        _this.addPreloadedImages();
-
-        _this.prepareAdData();
-      }).then(function () {
+      Promise.all(promises).then(() => {
+        this.addPreloadedImages();
+        this.prepareAdData();
+      }).then(() => {
         resolve();
-      })["catch"](function (err) {
+      }).catch(err => {
         reject(err);
       });
     });
-  };
+  }
 
-  Preflight.addPreloadedImages = function addPreloadedImages() {
+  static addPreloadedImages() {
     console.log('Preflight.addPreloadedImages()');
     ad_control__WEBPACK_IMPORTED_MODULE_1__["ImageManager"].addToDictionary(assets.preloadedImages);
-  };
+  }
 
-  Preflight.prepareAdData = function prepareAdData() {
+  static prepareAdData() {
     console.log('Preflight.prepareAdData()');
     global.adData = new _common_js_AdData_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
   }
@@ -347,10 +370,10 @@ var Preflight = /*#__PURE__*/function () {
   		- replace THIS_CASE__ASSET_PATH with a string
   		- handle the implementation of the loaded module.
   */
-  ;
 
-  Preflight.loadDynamicJS = function loadDynamicJS(id) {
-    return new Promise(function (resolve, reject) {
+
+  static loadDynamicJS(id) {
+    return new Promise((resolve, reject) => {
       switch (id) {
         /*
         case THIS_CASE__ID: // ex: '300x250_Endframe'
@@ -364,14 +387,13 @@ var Preflight = /*#__PURE__*/function () {
         	break
         */
         default:
-          console.log("Common.loadDynamicJS() has no import case for: " + id);
+          console.log(`Common.loadDynamicJS() has no import case for: ${id}`);
           resolve();
       }
     });
-  };
+  }
 
-  return Preflight;
-}();
+}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
@@ -461,8 +483,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function init(binaryAssets) {
   console.log('Core.init()');
-  return new Promise(function (resolve, reject) {
-    var promises = []; // device
+  return new Promise((resolve, reject) => {
+    let promises = []; // device
 
     ad_external__WEBPACK_IMPORTED_MODULE_0__["Device"].init(); // css
 
@@ -470,9 +492,9 @@ function init(binaryAssets) {
 
     _ImageManager__WEBPACK_IMPORTED_MODULE_2__["addToDictionary"](binaryAssets); // async
 
-    Promise.all(promises).then(function () {
+    Promise.all(promises).then(() => {
       resolve();
-    })["catch"](function (err) {
+    }).catch(err => {
       reject(err);
     });
   });
@@ -495,7 +517,7 @@ function init(binaryAssets) {
 
 function loadDynamic() {
   console.log('Core.loadDynamic()');
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     console.log('\t Core load Image Queue');
     _ImageManager__WEBPACK_IMPORTED_MODULE_2__["load"](resolve, global.failAd);
   });
@@ -557,7 +579,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var CssManager = function CssManager() {};
+class CssManager {}
 
 _defineProperty(CssManager, "debug_level1", false);
 
@@ -575,7 +597,7 @@ _defineProperty(CssManager, "init", function () {
 });
 
 _defineProperty(CssManager, "setDebugLevel", function (level) {
-  var C = this;
+  const C = this;
 
   switch (parseInt(level)) {
     case 1:
@@ -596,19 +618,19 @@ _defineProperty(CssManager, "setDebugLevel", function (level) {
 });
 
 _defineProperty(CssManager, "setDebugFilter", function (filter) {
-  var C = this;
+  const C = this;
   console.log('CssManager.setDebugFilter(),', filter);
   C.filter = filter;
   C.debug_level1 = true;
 });
 
 _defineProperty(CssManager, "ifDebug", function (debugLevel) {
-  var C = this;
+  const C = this;
   if (!C.filter) return C[debugLevel];else if (C.passDebugFilter() && C[debugLevel]) return true;
 });
 
 _defineProperty(CssManager, "passDebugFilter", function () {
-  var C = this;
+  const C = this;
   if (C.debug_element) if (C.debug_element.id.indexOf(C.filter) > -1) return true;
   if (C.debug_css_list) for (var i in C.debug_css_list) {
     if (i.indexOf(C.filter) > -1) return true;else if (String(C.debug_css_list[i]).indexOf(C.filter) > -1) return true;
@@ -617,7 +639,7 @@ _defineProperty(CssManager, "passDebugFilter", function () {
 });
 
 _defineProperty(CssManager, "generateBrowserKeyDictionary", function () {
-  var C = this;
+  const C = this;
   console.log('CssManager.generateBrowserKeyDictionary()');
   C.deviceKeyDict = {};
   var styles = document.createElement('div').style;
@@ -685,7 +707,7 @@ _defineProperty(CssManager, "generateBrowserKeyDictionary", function () {
 });
 
 _defineProperty(CssManager, "apply", function (element, cssList) {
-  var C = this;
+  const C = this;
   C.debug_element = element;
   C.debug_css_list = cssList;
   if (C.ifDebug('debug_level1')) console.log('  CssManager.apply()', element.id); // creates a collection of only the transforms
@@ -709,7 +731,7 @@ _defineProperty(CssManager, "apply", function (element, cssList) {
 });
 
 _defineProperty(CssManager, "conformCssObject", function (cssObject, debugElement) {
-  var C = this;
+  const C = this;
   C.debug_element = debugElement;
   if (C.ifDebug('debug_level1')) console.log('CssManager.conformCssObject()', cssObject);
   var cssList = {};
@@ -731,7 +753,7 @@ _defineProperty(CssManager, "conformCssObject", function (cssObject, debugElemen
 });
 
 _defineProperty(CssManager, "conformCssString", function (cssString, debugElement) {
-  var C = this;
+  const C = this;
   C.debug_element = debugElement;
   if (C.ifDebug('debug_level1')) console.log(' CssManager.conformCssString()');
   var cssList = {};
@@ -758,7 +780,7 @@ _defineProperty(CssManager, "conformCssString", function (cssString, debugElemen
 });
 
 _defineProperty(CssManager, "conformCssKeyValue", function (key, value) {
-  var C = this;
+  const C = this;
   if (C.ifDebug('debug_level1')) console.log(' CssManager.conformCssKeyValue()');
   var cssObject = {};
   cssObject[key] = value;
@@ -766,7 +788,7 @@ _defineProperty(CssManager, "conformCssKeyValue", function (key, value) {
 });
 
 _defineProperty(CssManager, "applyTransforms", function (element, value) {
-  var C = this;
+  const C = this;
   if (C.ifDebug('debug_level1')) console.log('    - CssManager.applyTransforms(), ', value);
   var matrix2D = new ad_geom__WEBPACK_IMPORTED_MODULE_1__["Matrix2D"](); // existing transform
 
@@ -843,7 +865,7 @@ _defineProperty(CssManager, "applyTransforms", function (element, value) {
 });
 
 _defineProperty(CssManager, "conformKeyValue", function (key, value) {
-  var C = this;
+  const C = this;
   key = String(key).trim();
   value = String(value).trim();
   var keyAsStandard = C.standardizeKey(key);
@@ -851,24 +873,24 @@ _defineProperty(CssManager, "conformKeyValue", function (key, value) {
 });
 
 _defineProperty(CssManager, "hasPrefix", function (key) {
-  var C = this;
+  const C = this;
   return key.search(C.matchPrefixRegex()) > -1;
 });
 
 _defineProperty(CssManager, "getPrefix", function (key) {
-  var C = this;
+  const C = this;
   var match = key.match(C.matchPrefixRegex());
   return match ? match[1].replace(/-/g, '').toLowerCase() : null;
 });
 
 _defineProperty(CssManager, "stripPrefix", function (key) {
-  var C = this;
+  const C = this;
   var keyless = key.replace(C.matchPrefixRegex(), '');
   return keyless.charAt(0).toLowerCase() + keyless.slice(1);
 });
 
 _defineProperty(CssManager, "getDeviceKey", function (key) {
-  var C = this;
+  const C = this;
   return key in C.deviceKeyDict ? C.deviceKeyDict[key] : key;
 });
 
@@ -879,7 +901,7 @@ _defineProperty(CssManager, "prependPrefix", function (prefix, key) {
 });
 
 _defineProperty(CssManager, "standardizeKey", function (key) {
-  var C = this;
+  const C = this;
   key = C.stripPrefix(key); // check if key is an exception
 
   if (key in C.keyFormatExceptions()) key = C.keyFormatExceptions()[key];else // or procedurally convert to camel
@@ -910,7 +932,7 @@ _defineProperty(CssManager, "keyFormatExceptions", function () {
 });
 
 _defineProperty(CssManager, "conformValue", function (key, value) {
-  var C = this;
+  const C = this;
   var conformedValues = [];
   var conformedValue; // look for numeric values
 
@@ -957,7 +979,7 @@ _defineProperty(CssManager, "conformValue", function (key, value) {
     // && Device.browser == 'ie') {
     if (C.ifDebug('debug_level2')) console.log('   convert "transform" functions to individual transforms');
     var functionRegex = /([a-z0-9]+)\(([^\)]+)\)/gi;
-    var params;
+    let params;
 
     while (params = functionRegex.exec(value)) {
       var args = params[2].replace(/\s/g, '').split(',').map(function (value, index, array) {
@@ -1054,41 +1076,41 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-var _arg;
+let _arg;
 
-var _afterInitExpanded = true;
-var _hasUserInteracted = false;
-var extend = {
-  init: function init() {},
-  collapse: function collapse(gestureEvent) {
+let _afterInitExpanded = true;
+let _hasUserInteracted = false;
+let extend = {
+  init: () => {},
+  collapse: gestureEvent => {
     handle.collapseStart();
   },
-  expand: function expand(gestureEvent) {
+  expand: gestureEvent => {
     handle.expandStart();
   },
-  collapseComplete: function collapseComplete() {
+  collapseComplete: () => {
     handle.collapseComplete();
   },
-  expandComplete: function expandComplete() {
+  expandComplete: () => {
     handle.expandComplete();
   }
 };
-var handle = {
-  expandStart: function expandStart(event) {
+const handle = {
+  expandStart: event => {
     fireCallback('expandStart');
     animateExpand();
   },
-  expandComplete: function expandComplete(event) {
+  expandComplete: event => {
     fireCallback('expandComplete');
     _hasUserInteracted = _afterInitExpanded;
     _afterInitExpanded = true;
   },
-  collapseStart: function collapseStart(event) {
+  collapseStart: event => {
     animateCollapse();
     fireCallback('collapseStart');
     _hasUserInteracted = true;
   },
-  collapseComplete: function collapseComplete(event) {
+  collapseComplete: event => {
     fireCallback('collapseComplete');
     _hasUserInteracted = true;
   }
@@ -1178,7 +1200,7 @@ function hasUserInteracted() {
 }
 
 function animateExpand() {
-  var param = adParams.expandable;
+  const param = adParams.expandable;
   TweenLite.to(_arg.target, _arg.expandTime, {
     x: param.expandedX,
     y: param.expandedY,
@@ -1189,8 +1211,8 @@ function animateExpand() {
 }
 
 function animateCollapse(isInit) {
-  var time = isInit ? 0 : _arg.collapseTime;
-  var param = adParams.expandable;
+  const time = isInit ? 0 : _arg.collapseTime;
+  const param = adParams.expandable;
   TweenLite.to(_arg.target, time, {
     x: param.collapsedX,
     y: param.collapsedY,
@@ -1236,7 +1258,7 @@ __webpack_require__.r(__webpack_exports__);
  * </codeblock>
  */
 /* harmony default export */ __webpack_exports__["default"] = ({
-  init: function init(handle) {
+  init: handle => {
     Enabler.addEventListener(studio.events.StudioEvent.EXPAND_START, handle.expandStart);
     Enabler.addEventListener(studio.events.StudioEvent.EXPAND_FINISH, handle.expandComplete);
     Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_START, handle.collapseStart);
@@ -1246,20 +1268,20 @@ __webpack_require__.r(__webpack_exports__);
       Enabler.setStartExpanded(true);
     }
   },
-  collapse: function collapse(gestureEvent) {
+  collapse: gestureEvent => {
     console.log('DCS > collapse()');
     Enabler.requestCollapse();
     if (gestureEvent) Enabler.reportManualClose();
   },
-  expand: function expand(gestureEvent) {
+  expand: gestureEvent => {
     console.log('DCS > expand()');
     Enabler.requestExpand();
   },
-  collapseComplete: function collapseComplete() {
+  collapseComplete: () => {
     console.log('DCS > collapseComplete()');
     Enabler.finishCollapse();
   },
-  expandComplete: function expandComplete() {
+  expandComplete: () => {
     console.log('DCS > expandComplete()');
     Enabler.finishExpand();
   }
@@ -1293,20 +1315,20 @@ __webpack_require__.r(__webpack_exports__);
  * </codeblock>
  */
 
-var _pendingImages = [];
-var _pendingCanvasImages = [];
-var _pendingLoaders = [];
-var _nextLoadCallback = [];
+let _pendingImages = [];
+let _pendingCanvasImages = [];
+let _pendingLoaders = [];
+let _nextLoadCallback = [];
 
-var _imageManagerLoader;
+let _imageManagerLoader;
 
-var _dict = {};
-var _isLoading = false;
-var _loaderCount = 0;
+let _dict = {};
+let _isLoading = false;
+let _loaderCount = 0;
 
-var _onComplete = function _onComplete() {};
+let _onComplete = function () {};
 
-var _onFail = function _onFail() {};
+let _onFail = function () {};
 /* ------------------------------------------------------------------------------------------------------------- */
 // PUBLIC METHODS
 
@@ -1427,13 +1449,13 @@ function load(callback, onFail) {
     _onComplete = [].concat(callback);
     _nextLoadCallback = [];
 
-    var currentPendingImages = _pendingImages.slice();
+    const currentPendingImages = _pendingImages.slice();
 
     _pendingImages = [];
-    var imgLoads = currentPendingImages.map(function (img) {
-      return new Promise(function (resolve, reject) {
+    const imgLoads = currentPendingImages.map(img => {
+      return new Promise((resolve, reject) => {
         new ad_load__WEBPACK_IMPORTED_MODULE_0__["ImageLoader"](img, {
-          onComplete: function onComplete(event) {
+          onComplete: event => {
             resolve(event.dataRaw);
           },
           onFail: reject
@@ -1441,25 +1463,23 @@ function load(callback, onFail) {
       });
     });
 
-    var currentPendingCanvasImages = _pendingCanvasImages.slice();
+    const currentPendingCanvasImages = _pendingCanvasImages.slice();
 
     _pendingCanvasImages = [];
-    var canvasImgLoads = currentPendingCanvasImages.map(function (canvasImg) {
-      return new Promise(function (resolve, reject) {
+    const canvasImgLoads = currentPendingCanvasImages.map(canvasImg => {
+      return new Promise((resolve, reject) => {
         new ad_load__WEBPACK_IMPORTED_MODULE_0__["ImageLoader"](canvasImg, {
-          onComplete: function onComplete(event) {
-            return resolve(event.dataRaw);
-          },
+          onComplete: event => resolve(event.dataRaw),
           onFail: reject,
           crossOrigin: 'anonymous'
         }).load();
       });
     });
 
-    var addedLoaderPromises = _pendingLoaders.map(function (loader) {
-      return new Promise(function (resolve, reject) {
-        var _onComplete = loader.onComplete;
-        var _onFail = loader.onFail;
+    const addedLoaderPromises = _pendingLoaders.map(loader => {
+      return new Promise((resolve, reject) => {
+        const _onComplete = loader.onComplete;
+        const _onFail = loader.onFail;
 
         loader.onComplete = function (event) {
           _onComplete && _onComplete(event);
@@ -1476,10 +1496,10 @@ function load(callback, onFail) {
     });
 
     _isLoading = true;
-    Promise.all(imgLoads.concat(canvasImgLoads).concat(addedLoaderPromises)).then(function (imgDataArr) {
+    Promise.all(imgLoads.concat(canvasImgLoads).concat(addedLoaderPromises)).then(imgDataArr => {
       _isLoading = false;
       addToDictionary(imgDataArr);
-    })["catch"](function () {
+    }).catch(() => {
       _isLoading = false;
 
       _onFail.call();
@@ -1741,7 +1761,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var FrameRate = function FrameRate() {};
+class FrameRate {}
 
 _defineProperty(FrameRate, "_isPaused", true);
 
@@ -1751,8 +1771,8 @@ _defineProperty(FrameRate, "_sets", {});
 
 _defineProperty(FrameRate, "_RAF", undefined);
 
-_defineProperty(FrameRate, "register", function (from, handler, fps) {
-  var F = FrameRate;
+_defineProperty(FrameRate, "register", (from, handler, fps) => {
+  const F = FrameRate;
   fps = fps || 30;
 
   if (!F._sets[fps]) {
@@ -1775,8 +1795,8 @@ _defineProperty(FrameRate, "register", function (from, handler, fps) {
   if (F._isActive) F.resume();
 });
 
-_defineProperty(FrameRate, "unregister", function (from, handler, fps) {
-  var F = FrameRate; //var handlerString = handler.toString();
+_defineProperty(FrameRate, "unregister", (from, handler, fps) => {
+  const F = FrameRate; //var handlerString = handler.toString();
 
   for (var key in F._sets) {
     // if fps is provided, only look in that FrameRateBase for handlers
@@ -1807,12 +1827,12 @@ _defineProperty(FrameRate, "unregister", function (from, handler, fps) {
   }
 });
 
-_defineProperty(FrameRate, "pause", function () {
-  var F = FrameRate;
+_defineProperty(FrameRate, "pause", (...args) => {
+  const F = FrameRate;
 
-  if (arguments.length > 0) {
-    for (var i = 0; i < arguments.length; i++) {
-      var fpsTarget = i < 0 || arguments.length <= i ? undefined : arguments[i];
+  if (args.length > 0) {
+    for (var i = 0; i < args.length; i++) {
+      var fpsTarget = args[i];
 
       if (F._sets[fpsTarget]) {
         F._sets[fpsTarget]._paused = true;
@@ -1827,9 +1847,7 @@ _defineProperty(FrameRate, "pause", function () {
       }
     }
   } else {
-    for (var d in F._sets) {
-      F._sets[d]._paused = true;
-    }
+    for (var d in F._sets) F._sets[d]._paused = true;
 
     F._isPaused = true;
   }
@@ -1840,14 +1858,14 @@ _defineProperty(FrameRate, "pause", function () {
   }
 });
 
-_defineProperty(FrameRate, "resume", function () {
-  var F = FrameRate;
+_defineProperty(FrameRate, "resume", (...args) => {
+  const F = FrameRate;
 
   var _currentlyRunning = !F._isPaused;
 
-  if (arguments.length > 0) {
-    for (var i = 0; i < arguments.length; i++) {
-      var fpsTarget = i < 0 || arguments.length <= i ? undefined : arguments[i];
+  if (args.length > 0) {
+    for (var i = 0; i < args.length; i++) {
+      var fpsTarget = args[i];
 
       if (F._sets[fpsTarget]) {
         F._sets[fpsTarget]._paused = false;
@@ -1855,9 +1873,7 @@ _defineProperty(FrameRate, "resume", function () {
       }
     }
   } else {
-    for (var d in F._sets) {
-      F._sets[d]._paused = false;
-    }
+    for (var d in F._sets) F._sets[d]._paused = false;
 
     F._isPaused = false;
   }
@@ -1868,12 +1884,12 @@ _defineProperty(FrameRate, "resume", function () {
   }
 });
 
-_defineProperty(FrameRate, "secondsAsFrames", function (sec) {
+_defineProperty(FrameRate, "secondsAsFrames", sec => {
   return 1 / sec;
 });
 
-_defineProperty(FrameRate, "tick", function () {
-  var F = FrameRate; //console.log( 'tick' )
+_defineProperty(FrameRate, "tick", () => {
+  const F = FrameRate; //console.log( 'tick' )
 
   if (!F._isPaused) {
     for (var h in F._sets) {
@@ -1921,7 +1937,7 @@ function FrameRateBase(fps) {
 }
 
 FrameRateBase.prototype = {
-  resume: function resume() {
+  resume: function () {
     var F = this;
 
     if (F._isPaused) {
@@ -1932,7 +1948,7 @@ FrameRateBase.prototype = {
       F._isPaused = false;
     }
   },
-  tick: function tick() {
+  tick: function () {
     var F = this;
 
     if (!F._paused) {
@@ -1962,7 +1978,7 @@ FrameRateBase.prototype = {
       if (call) F.dispatch();
     }
   },
-  dispatch: function dispatch() {
+  dispatch: function () {
     var F = this;
 
     for (var i = 0; i < F.pool.length; i++) {
@@ -2288,8 +2304,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var GestureBase = /*#__PURE__*/function () {
-  function GestureBase(elem) {
+class GestureBase {
+  constructor(elem) {
     var G = this;
     G.elem = elem;
     G.hasActiveChildren = true;
@@ -2319,9 +2335,7 @@ var GestureBase = /*#__PURE__*/function () {
     G.init();
   }
 
-  var _proto = GestureBase.prototype;
-
-  _proto.init = function init() {
+  init() {
     var G = this;
     if (G.debug) console.log('GestureBase.init()');
     G._handleTouchStart = G._handleTouchStart.bind(G);
@@ -2333,9 +2347,9 @@ var GestureBase = /*#__PURE__*/function () {
 
     G._reset();
   } // replace addEventListener so can flag the event type
-  ;
 
-  _proto.register = function register(name, handler) {
+
+  register(name, handler) {
     var G = this;
     if (G.debug) console.log('GestureBase.register(', name, ')');
     G.eventList.push(name);
@@ -2344,9 +2358,9 @@ var GestureBase = /*#__PURE__*/function () {
 
 
     G._elemAdd(name, handler);
-  };
+  }
 
-  _proto.unregister = function unregister(name, handler) {
+  unregister(name, handler) {
     var G = this;
     if (G.debug) console.log('GestureBase.unregister(', name, ')');
     var index = G.eventList.indexOf(name);
@@ -2361,9 +2375,9 @@ var GestureBase = /*#__PURE__*/function () {
   }
   /* ------------------------------------------------------------------------------------------------------------- */
   // UTILITY
-  ;
 
-  _proto._reset = function _reset() {
+
+  _reset() {
     var G = this;
     G._cursor = 'mouse';
     G._start = 'down';
@@ -2371,17 +2385,17 @@ var GestureBase = /*#__PURE__*/function () {
     G.elem.addEventListener('touchstart', G._handleTouchStart); // listen for both touch and mouse, except on iOS devices
 
     if (ad_external__WEBPACK_IMPORTED_MODULE_0__["Device"].os != 'ios') G.elem.addEventListener('mousedown', G._handleDown);
-  };
+  }
 
-  _proto._checkDragEnabled = function _checkDragEnabled() {
+  _checkDragEnabled() {
     var G = this;
     var hasDragEventIndex = G.eventList.join('').indexOf('onDrag'); // check if it is a drag, therefore enabling dragability
 
     G._isDragEnabled = hasDragEventIndex > -1;
   } // Android stores things like pageX in an array. This scopes the internally used event properly
-  ;
 
-  _proto._getEventScope = function _getEventScope(event) {
+
+  _getEventScope(event) {
     //if( this.debug ) console.log( 'GestureBase._getEventScope(), event:', event );
     // check for existence of changedTouches instead
     //return ( Device.os == 'android' && event instanceof TouchEvent ) ? event.changedTouches[0] : event ;
@@ -2389,20 +2403,20 @@ var GestureBase = /*#__PURE__*/function () {
   }
   /* ------------------------------------------------------------------------------------------------------------- */
   // WINDOW EVENT ENABLE
-  ;
 
-  _proto._add = function _add(type, handler) {
+
+  _add(type, handler) {
     window.addEventListener(this._cursor + type, handler);
-  };
+  }
 
-  _proto._remove = function _remove(type, handler) {
+  _remove(type, handler) {
     window.removeEventListener(this._cursor + type, handler);
   }
   /* ------------------------------------------------------------------------------------------------------------- */
   // HANLDERS
-  ;
 
-  _proto._handleDown = function _handleDown(event) {
+
+  _handleDown(event) {
     var G = this;
     if (G.debug) console.log('GestureBase._handleDown()');
     _GestureEvent__WEBPACK_IMPORTED_MODULE_2__["startPoint"]();
@@ -2451,9 +2465,9 @@ var GestureBase = /*#__PURE__*/function () {
       if (G.debug) console.log(' -> dispatch', name);
       G.elem.dispatchEvent(newEvent);
     }
-  };
+  }
 
-  _proto._handleUp = function _handleUp(event, bypass) {
+  _handleUp(event, bypass) {
     var G = this;
     if (G.debug) console.log('GestureBase._handleUp()');
 
@@ -2513,9 +2527,9 @@ var GestureBase = /*#__PURE__*/function () {
   /* ------------------------------------------------------------------------------------------------------------- */
   // TOUCH BYPASSING
   // This will stop from both touch and mouse events firing, thus doubling every Gesture Event fired.
-  ;
 
-  _proto._handleTouchStart = function _handleTouchStart(event) {
+
+  _handleTouchStart(event) {
     var G = this;
     if (G.debug) console.log('GestureBase._handleTouchStart()'); // Change the native events to listen for the rest of the system
 
@@ -2527,9 +2541,9 @@ var GestureBase = /*#__PURE__*/function () {
   }
   /* ------------------------------------------------------------------------------------------------------------- */
   // DRAG
-  ;
 
-  _proto._handleDrag = function _handleDrag(event) {
+
+  _handleDrag(event) {
     var G = this;
     if (G.debug) console.log('GestureBase._handleDrag()');
 
@@ -2589,9 +2603,9 @@ var GestureBase = /*#__PURE__*/function () {
   }
   /* ------------------------------------------------------------------------------------------------------------- */
   // DRAG END | SWIPE
-  ;
 
-  _proto._dragEndOrSwipe = function _dragEndOrSwipe(type) {
+
+  _dragEndOrSwipe(type) {
     var G = this;
     if (G.debug) console.log('GestureBase._dragEndOrSwipe()', type);
     if (_GestureEvent__WEBPACK_IMPORTED_MODULE_2__["stopped"](name)) return;
@@ -2600,10 +2614,9 @@ var GestureBase = /*#__PURE__*/function () {
     G._p2X - G._sX, G._p2Y - G._sY, G._vX, G._vY);
     if (G.debug) console.log(' -> dispatch', type);
     G.elem.dispatchEvent(evt);
-  };
+  }
 
-  return GestureBase;
-}();
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (GestureBase);
 
@@ -2725,7 +2738,7 @@ function createEvent(name, mouseGlobalX, mouseGlobalY, mouseLocalX, mouseLocalY,
   return E;
 }
 
-var Event = createEvent;
+const Event = createEvent;
 
 function stopBubble(event) {
   if (event) {
@@ -2759,13 +2772,13 @@ function stopBubble(event) {
 	*/
 
 
-var stop = stopBubble;
+const stop = stopBubble;
 
 function isStopped(type) {
   return _kills[type] != undefined;
 }
 
-var stopped = isStopped; // A flag for the start of the event loop through all bases
+const stopped = isStopped; // A flag for the start of the event loop through all bases
 
 function startPoint() {
   if (!_eventLooping) {
@@ -2787,7 +2800,7 @@ function endPoint() {
 		GestureEvent.OVER
 */
 
-var OVER = 'mouseover';
+const OVER = 'mouseover';
 /**	
 	@memberOf GestureEvent	
 	@const {string} OUT
@@ -2797,7 +2810,7 @@ var OVER = 'mouseover';
 		GestureEvent.OUT
 */
 
-var OUT = 'mouseout';
+const OUT = 'mouseout';
 /**	
 	@memberOf GestureEvent	
 	@const {string} MOVE
@@ -2807,7 +2820,7 @@ var OUT = 'mouseout';
 		GestureEvent.MOVE
 */
 
-var MOVE = 'mousemove';
+const MOVE = 'mousemove';
 /**	
 	@memberOf GestureEvent	
 	@const {string} PRESS
@@ -2817,7 +2830,7 @@ var MOVE = 'mousemove';
 		GestureEvent.PRESS
 */
 
-var PRESS = 'onPress';
+const PRESS = 'onPress';
 /**	
 	@memberOf GestureEvent	
 	@const {string} RELEASE
@@ -2827,7 +2840,7 @@ var PRESS = 'onPress';
 		GestureEvent.RELEASE
 */
 
-var RELEASE = 'onRelease';
+const RELEASE = 'onRelease';
 /**	
 	@memberOf GestureEvent	
 	@const {string} CLICK
@@ -2837,7 +2850,7 @@ var RELEASE = 'onRelease';
 		GestureEvent.CLICK
 */
 
-var CLICK = 'onSelect';
+const CLICK = 'onSelect';
 /**	
 	@memberOf GestureEvent	
 	@const {string} DRAG
@@ -2848,7 +2861,7 @@ var CLICK = 'onSelect';
 		GestureEvent.DRAG
 */
 
-var DRAG = 'onDrag';
+const DRAG = 'onDrag';
 /**	
 	@memberOf GestureEvent	
 	@const {string} DRAG_START
@@ -2867,7 +2880,7 @@ var DRAG = 'onDrag';
 		}
 */
 
-var DRAG_START = 'onDragStart';
+const DRAG_START = 'onDragStart';
 /**	
 	@memberOf GestureEvent	
 	@const {string} DRAG_STOP
@@ -2886,7 +2899,7 @@ var DRAG_START = 'onDragStart';
 		}
 */
 
-var DRAG_STOP = 'onDragStop';
+const DRAG_STOP = 'onDragStop';
 /**	
 	@memberOf GestureEvent	
 	@const {string} SWIPE
@@ -2908,7 +2921,7 @@ var DRAG_STOP = 'onDragStop';
 		}
 */
 
-var SWIPE = 'onSwipe';
+const SWIPE = 'onSwipe';
 
 /***/ }),
 
@@ -3014,10 +3027,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
@@ -3034,141 +3043,133 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		
 		Global constant that provide information about the Device on which the code is currently executing
 */
-var Device = /*#__PURE__*/function () {
-  function Device() {}
+class Device {
+  /**	
+  	@memberOf Device	
+  	@var {string} agentString
+  	@desc
+  		Current user agent of browser. */
 
-  _createClass(Device, null, [{
-    key: "orientation",
+  /**	
+  	@memberOf Device	
+  	@var {string} brand
+  	@desc
+  		Brand of device, possible values are: 
+  		<code>microsoft</code>, 
+  		<code>apple</code>, 
+  		<code>android</code>, 
+  		<code>rim</code>, 
+  		<code>unknown</code>. 
+  */
 
-    /**	
-    	@memberOf Device	
-    	@var {string} agentString
-    	@desc
-    		Current user agent of browser. */
+  /**	
+  	@memberOf Device	
+  	@var {string} product
+  	@desc
+  		Brand subtype, possible values are: 
+  		<code>windows phone</code>, 
+  		<code>windows</code>, 
+  		<code>iphone</code>, 
+  		<code>ipad</code>, 
+  		<code>ipod</code>, 
+  		<code>mac</code>, 
+  		<code>android</code>, 
+  		<code>pixel 2</code>, 
+  		<code>blackberry</code>. 
+  	*/
 
-    /**	
-    	@memberOf Device	
-    	@var {string} brand
-    	@desc
-    		Brand of device, possible values are: 
-    		<code>microsoft</code>, 
-    		<code>apple</code>, 
-    		<code>android</code>, 
-    		<code>rim</code>, 
-    		<code>unknown</code>. 
-    */
+  /**	
+  	@memberOf Device	
+  	@var {string} type
+  	@desc
+  		Device type, possible values are: 
+  		<code>mobile</code>, 
+  		<code>tablet</code>, 
+  		<code>desktop</code>. 
+  		<br><br>
+  		Windows > 8 currently returns tablet, currently no way to differentiate from desktop. */
 
-    /**	
-    	@memberOf Device	
-    	@var {string} product
-    	@desc
-    		Brand subtype, possible values are: 
-    		<code>windows phone</code>, 
-    		<code>windows</code>, 
-    		<code>iphone</code>, 
-    		<code>ipad</code>, 
-    		<code>ipod</code>, 
-    		<code>mac</code>, 
-    		<code>android</code>, 
-    		<code>pixel 2</code>, 
-    		<code>blackberry</code>. 
-    	*/
+  /**	
+  	@memberOf Device	
+  	@var {string} os
+  	@desc
+  		Operating system of device. */
 
-    /**	
-    	@memberOf Device	
-    	@var {string} type
-    	@desc
-    		Device type, possible values are: 
-    		<code>mobile</code>, 
-    		<code>tablet</code>, 
-    		<code>desktop</code>. 
-    		<br><br>
-    		Windows > 8 currently returns tablet, currently no way to differentiate from desktop. */
+  /**	
+  	@memberOf Device	
+  	@var {string} osVersion
+  	@desc
+  		Version of operating system of device. */
 
-    /**	
-    	@memberOf Device	
-    	@var {string} os
-    	@desc
-    		Operating system of device. */
+  /** 	
+  	@memberOf Device	
+  	@var {string} browser
+  	@desc
+  		Brand of browser. */
 
-    /**	
-    	@memberOf Device	
-    	@var {string} osVersion
-    	@desc
-    		Version of operating system of device. */
+  /**	
+  	@memberOf Device	
+  	@var {string} browserVersion
+  	@desc
+  		Version of browser. 
+  */
 
-    /** 	
-    	@memberOf Device	
-    	@var {string} browser
-    	@desc
-    		Brand of browser. */
+  /**	
+  	@memberOf Device	
+  	@var {string} pixelRatio
+  	@desc
+  		Pixel ratio of device viewport. 
+  */
 
-    /**	
-    	@memberOf Device	
-    	@var {string} browserVersion
-    	@desc
-    		Version of browser. 
-    */
+  /** ------------------------------------------------------------------------------------------------------------- */
+  // GETTERS
 
-    /**	
-    	@memberOf Device	
-    	@var {string} pixelRatio
-    	@desc
-    		Pixel ratio of device viewport. 
-    */
+  /**	
+  	@memberOf Device	
+  	@var {string} orientation
+  	@desc
+  		Orientaion of device viewport: landscape or portrait. 
+  */
+  static get orientation() {
+    return window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+  }
+  /**	
+  	@memberOf Device	
+  	@var {object} dimensions
+  	@property {number} width
+  		window inner-width
+  	@property {number} height
+  		window inner-height
+  	@desc
+  		The current dimensions of the device's viewport, returns an object with a width and height 
+  		value that are direct returns of windowWidth and windowHeight.
+  */
 
-    /** ------------------------------------------------------------------------------------------------------------- */
-    // GETTERS
 
-    /**	
-    	@memberOf Device	
-    	@var {string} orientation
-    	@desc
-    		Orientaion of device viewport: landscape or portrait. 
-    */
-    get: function get() {
-      return window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
-    }
-    /**	
-    	@memberOf Device	
-    	@var {object} dimensions
-    	@property {number} width
-    		window inner-width
-    	@property {number} height
-    		window inner-height
-    	@desc
-    		The current dimensions of the device's viewport, returns an object with a width and height 
-    		value that are direct returns of windowWidth and windowHeight.
-    */
+  static get dimensions() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  }
+  /** ------------------------------------------------------------------------------------------------------------- */
+  // PUBLIC METHODS
 
-  }, {
-    key: "dimensions",
-    get: function get() {
-      return {
-        width: window.innerWidth,
-        height: window.innerHeight
-      };
-    }
-    /** ------------------------------------------------------------------------------------------------------------- */
-    // PUBLIC METHODS
+  /**	
+  	@memberOf Device	
+  	@method init
+  	@desc
+  		Initializes the module, which is called from within the pipeline.
+  */
 
-    /**	
-    	@memberOf Device	
-    	@method init
-    	@desc
-    		Initializes the module, which is called from within the pipeline.
-    */
 
-  }]);
-
-  return Device;
-}();
+}
 
 _defineProperty(Device, "pixelRatio", window.devicePixelRatio || 'unknown');
 
 _defineProperty(Device, "init", function () {
   console.log('Device.init()');
-  var D = this;
+  const D = this;
   D.agentString = navigator.userAgent;
 
   D._getType();
@@ -3204,7 +3205,7 @@ _defineProperty(Device, "init", function () {
 });
 
 _defineProperty(Device, "_getType", function () {
-  var D = this;
+  const D = this;
   var hasMobile = /(android|mobile)/gi.exec(D.agentString);
   var hasTablet = /(tablet|touch)/gi.exec(D.agentString);
   var hasIPad = /(ipad)/gi.exec(D.agentString);
@@ -3292,7 +3293,7 @@ _defineProperty(Device, "_getBrandAndOS", function () {
 });
 
 _defineProperty(Device, "_getBrowser", function () {
-  var D = this;
+  const D = this;
   var browserMatches = /(edge(?=\/))\/?\s*([0-9\.]+)/i.exec(D.agentString); // check for edge first
   // if it's not edge, check for other common browsers
 
@@ -3359,7 +3360,7 @@ _defineProperty(Device, "_getBrowser", function () {
 });
 
 _defineProperty(Device, "_checkForSpecial", function (targetParam, array, focus) {
-  var D = this;
+  const D = this;
   var param;
 
   for (var i = 0; i < array.length; i++) {
@@ -3443,21 +3444,21 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-var Matrix2D = function Matrix2D() {
-  var M = this; // initial set identity base matrix array to data
+const Matrix2D = function () {
+  const M = this; // initial set identity base matrix array to data
 
   M.identity = new Float32Array([1, 0, 0, 0, 1, 0]);
   M.data = new Float32Array(M.identity);
 };
 
 Matrix2D.prototype = {
-  clear: function clear() {
+  clear: function () {
     var M = this; //console.log( M.data instanceof Float32Array )
     //M.data.set ( M.identity );
 
     M.data = new Float32Array(M.identity);
   },
-  rotate: function rotate(radians) {
+  rotate: function (radians) {
     var M = this; // copy the identity to be modified
 
     var _m = new Float32Array(M.identity);
@@ -3474,7 +3475,7 @@ Matrix2D.prototype = {
     M.multiply(_m, false);
     return M;
   },
-  scale: function scale(x, y) {
+  scale: function (x, y) {
     var M = this; // copy the identity to be modified
 
     var _m = new Float32Array(M.identity);
@@ -3487,7 +3488,7 @@ Matrix2D.prototype = {
     M.multiply(_m, false);
     return M;
   },
-  skew: function skew(ax, ay) {
+  skew: function (ax, ay) {
     var M = this; // copy the identity to be modified
 
     var _m = new Float32Array(M.identity);
@@ -3500,7 +3501,7 @@ Matrix2D.prototype = {
     M.multiply(_m);
     return M;
   },
-  translate: function translate(x, y) {
+  translate: function (x, y) {
     var M = this; // copy the identity to be modified
 
     var _m = new Float32Array(M.identity);
@@ -3513,7 +3514,7 @@ Matrix2D.prototype = {
     M.multiply(_m, true);
     return M;
   },
-  multiply: function multiply(m, invert) {
+  multiply: function (m, invert) {
     var M = this; // copy the current matrix data into '_c'
 
     var _copy = new Float32Array(M.data); // translate multiply needs to be inverted, where others do not
@@ -3540,30 +3541,30 @@ Matrix2D.prototype = {
     // 0
     // 1
   },
-  getCss: function getCss() {
+  getCss: function () {
     // a, c, tx
     // b, d, ty
     // 0, 0, 1
     // matrix(a, c, b, d, tx, ty)
-    var d = this.data;
-    return "matrix(" + d[0] + "," + d[1] + "," + d[3] + "," + d[4] + "," + d[2] + "," + d[5] + ")";
+    const d = this.data;
+    return `matrix(${d[0]},${d[1]},${d[3]},${d[4]},${d[2]},${d[5]})`;
   },
-  getX: function getX() {
+  getX: function () {
     return this.data[2];
   },
-  getY: function getY() {
+  getY: function () {
     return this.data[5];
   },
-  setFromCss: function setFromCss(matrixString) {
+  setFromCss: function (matrixString) {
     // const cssMatrix = matrixString
     // 	.match(/\(([^\)]+)\)/)[1]
     // 	.replace(/\s/g, '')
     // 	.split(',')
     // 	.map(Number)
-    var matrixArray = Object(_matrixUtils__WEBPACK_IMPORTED_MODULE_0__["cssToData"])(matrixString);
+    const matrixArray = Object(_matrixUtils__WEBPACK_IMPORTED_MODULE_0__["cssToData"])(matrixString);
     this.setFromArray(matrixArray);
   },
-  setFromArray: function setFromArray(matrixArray) {
+  setFromArray: function (matrixArray) {
     this.data = [matrixArray[0], matrixArray[1], matrixArray[4], matrixArray[2], matrixArray[3], matrixArray[5]];
   }
 }; //http://www.wikihow.com/Inverse-a-3X3-Matrix
@@ -3654,19 +3655,19 @@ __webpack_require__.r(__webpack_exports__);
 */
 
 
-var Matrix3D = function Matrix3D() {
-  var M = this; // initial set identity base matrix array to data
+const Matrix3D = function () {
+  const M = this; // initial set identity base matrix array to data
 
   M.identity = new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
   M.data = new Float32Array(M.identity);
 };
 
 Matrix3D.prototype = {
-  clear: function clear() {
+  clear: function () {
     var M = this;
     M.data.set(M.identity);
   },
-  rotateX: function rotateX(radians) {
+  rotateX: function (radians) {
     var M = this;
     var c = Math.cos(radians).toFixed(15);
     var s = Math.sin(radians).toFixed(15); // copy the identity to be modified
@@ -3684,7 +3685,7 @@ Matrix3D.prototype = {
     M.multiply(_m);
     return M;
   },
-  rotateY: function rotateY(radians) {
+  rotateY: function (radians) {
     var M = this;
     var c = Math.cos(radians).toFixed(15);
     var s = Math.sin(radians).toFixed(15); // copy the identity to be modified
@@ -3702,7 +3703,7 @@ Matrix3D.prototype = {
     M.multiply(_m);
     return M;
   },
-  rotateZ: function rotateZ(radians) {
+  rotateZ: function (radians) {
     var M = this;
     var c = Math.cos(radians).toFixed(15);
     var s = Math.sin(radians).toFixed(15); // copy the identity to be modified
@@ -3720,7 +3721,7 @@ Matrix3D.prototype = {
     M.multiply(_m);
     return M;
   },
-  scale: function scale(x, y) {
+  scale: function (x, y) {
     var M = this; // copy the identity to be modified
 
     var _m = new Float32Array(M.identity);
@@ -3734,7 +3735,7 @@ Matrix3D.prototype = {
     M.multiply(_m);
     return M;
   },
-  skew: function skew(ax, ay) {
+  skew: function (ax, ay) {
     var M = this; // copy the identity to be modified
 
     var _m = new Float32Array(M.identity);
@@ -3748,7 +3749,7 @@ Matrix3D.prototype = {
     M.multiply(_m);
     return M;
   },
-  translate: function translate(x, y, z) {
+  translate: function (x, y, z) {
     var M = this; // copy the identity to be modified
 
     var _m = new Float32Array(M.identity);
@@ -3763,14 +3764,14 @@ Matrix3D.prototype = {
     M.multiply(_m);
     return this;
   },
-  multiply: function multiply(m) {
+  multiply: function (m) {
     var M = this; // copy the current matrix data into '_c'
 
     var _c = new Float32Array(M.data);
 
     for (var i = 0; i < 15; i++) {
-      var q = Math.floor(i / 4) * 4;
-      var t = i % 3;
+      const q = Math.floor(i / 4) * 4;
+      const t = i % 3;
 
       if ((i - 3) % 4) {
         M.data[i] = _c[q] * m[t] + _c[q + 1] * m[t + 4] + _c[q + 2] * m[t + 8];
@@ -3800,24 +3801,24 @@ Matrix3D.prototype = {
     // M.data[14] = _c[12] * m[2] + _c[13] * m[6] + _c[14] * m[10] + m[14]
     // M.data[15] = 1
   },
-  getCss: function getCss() {
-    return "matrix3d(" + this.data.join(',') + ")";
+  getCss: function () {
+    return `matrix3d(${this.data.join(',')})`;
   },
-  getX: function getX() {
+  getX: function () {
     return this.data[12];
   },
-  getY: function getY() {
+  getY: function () {
     return this.data[13];
   },
-  getZ: function getZ() {
+  getZ: function () {
     return this.data[14];
   },
-  setFromCss: function setFromCss(matrixString) {
-    var matrixArray = Object(_matrixUtils__WEBPACK_IMPORTED_MODULE_0__["cssToData"])(matrixString);
+  setFromCss: function (matrixString) {
+    const matrixArray = Object(_matrixUtils__WEBPACK_IMPORTED_MODULE_0__["cssToData"])(matrixString);
     this.setFromArray(matrixArray);
   },
-  setFromArray: function setFromArray(matrixArray) {
-    var M = this; // check for transform: translate3d(0px, 45px, -100px) format
+  setFromArray: function (matrixArray) {
+    const M = this; // check for transform: translate3d(0px, 45px, -100px) format
     // only happens when only changing Z with no rotation or skew
 
     if (matrixArray.length === 3) {
@@ -3860,7 +3861,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ParentTransform = function ParentTransform(arg) {
+var ParentTransform = function (arg) {
   var self = this;
   arg = arg || {}
   /* --------------------------------------------------------------------------- */
@@ -3969,7 +3970,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 */
 
 
-var SimpleNoise2D = function SimpleNoise2D() {};
+class SimpleNoise2D {}
 
 _defineProperty(SimpleNoise2D, "rx", []);
 
@@ -3979,12 +3980,12 @@ _defineProperty(SimpleNoise2D, "MAX_VERTICES", 256);
 
 _defineProperty(SimpleNoise2D, "MAX_VERTICES_MASK", 255);
 
-_defineProperty(SimpleNoise2D, "get", function (x, y) {
+_defineProperty(SimpleNoise2D, "get", (x, y) => {
   return new _Vector2D__WEBPACK_IMPORTED_MODULE_0__["default"](SimpleNoise2D._getVal('x', x), SimpleNoise2D._getVal('y', y));
 });
 
-_defineProperty(SimpleNoise2D, "_init", function () {
-  for (var i = 0; i < SimpleNoise2D.MAX_VERTICES; ++i) {
+_defineProperty(SimpleNoise2D, "_init", () => {
+  for (let i = 0; i < SimpleNoise2D.MAX_VERTICES; ++i) {
     if (i === SimpleNoise2D.MAX_VERTICES - 1) {
       SimpleNoise2D.rx.push(SimpleNoise2D.rx[0]);
       SimpleNoise2D.ry.push(SimpleNoise2D.ry[0]);
@@ -3995,18 +3996,18 @@ _defineProperty(SimpleNoise2D, "_init", function () {
   }
 });
 
-_defineProperty(SimpleNoise2D, "_lerp", function (a, b, t) {
+_defineProperty(SimpleNoise2D, "_lerp", (a, b, t) => {
   return a * (1 - t) + b * t;
 });
 
-_defineProperty(SimpleNoise2D, "_getVal", function (axis, index) {
+_defineProperty(SimpleNoise2D, "_getVal", (axis, index) => {
   if (SimpleNoise2D.rx.length == 0) SimpleNoise2D._init();
-  var vals = axis === 'x' ? SimpleNoise2D.rx : SimpleNoise2D.ry;
+  const vals = axis === 'x' ? SimpleNoise2D.rx : SimpleNoise2D.ry;
   index = index % SimpleNoise2D.MAX_VERTICES;
-  var t = index - ~~index;
-  var step = t * t * (3 - 2 * t);
-  var min = ~~index & SimpleNoise2D.MAX_VERTICES_MASK;
-  var max = min + 1 & SimpleNoise2D.MAX_VERTICES_MASK;
+  const t = index - ~~index;
+  const step = t * t * (3 - 2 * t);
+  const min = ~~index & SimpleNoise2D.MAX_VERTICES_MASK;
+  const max = min + 1 & SimpleNoise2D.MAX_VERTICES_MASK;
   return SimpleNoise2D._lerp(vals[min], vals[max], step);
 });
 
@@ -4045,8 +4046,8 @@ __webpack_require__.r(__webpack_exports__);
 */
 
 
-var Vector2D = /*#__PURE__*/function () {
-  function Vector2D(x, y) {
+class Vector2D {
+  constructor(x, y) {
     this.x = x || 0;
     this.y = y || 0;
   }
@@ -4062,9 +4063,7 @@ var Vector2D = /*#__PURE__*/function () {
   */
 
 
-  var _proto = Vector2D.prototype;
-
-  _proto.add = function add(v) {
+  add(v) {
     this.x += v.x;
     this.y += v.y;
     return this;
@@ -4079,9 +4078,9 @@ var Vector2D = /*#__PURE__*/function () {
   		@example
           	myVector1.sub( myVector2 );
      */
-  ;
 
-  _proto.sub = function sub(v) {
+
+  sub(v) {
     this.x -= v.x;
     this.y -= v.y;
     return this;
@@ -4094,9 +4093,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
           	var distance = myVector.dist( myVector2 );
      */
-  ;
 
-  _proto.dist = function dist(v) {
+
+  dist(v) {
     var x = this.x - v.x;
     var y = this.y - v.y;
     return Math.sqrt(x * x + y * y);
@@ -4110,9 +4109,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
           	myVector.mult( 10.3 );
      */
-  ;
 
-  _proto.mult = function mult(s) {
+
+  mult(s) {
     this.x *= s;
     this.y *= s;
     return this;
@@ -4127,9 +4126,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
           	myVector.div( 2 );
      */
-  ;
 
-  _proto.div = function div(s) {
+
+  div(s) {
     this.x /= s;
     this.y /= s;
     return this;
@@ -4144,9 +4143,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
           	myVector.limit( 18.2 );
      */
-  ;
 
-  _proto.limit = function limit(s) {
+
+  limit(s) {
     var m = this.length();
 
     if (m > s) {
@@ -4162,9 +4161,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
           	var length = myVector.length();
      */
-  ;
 
-  _proto.length = function length() {
+
+  length() {
     return Math.sqrt(this.x * this.x + this.y * this.y);
   }
   /** 
@@ -4176,9 +4175,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
           	myVector.normalize();
      */
-  ;
 
-  _proto.normalize = function normalize() {
+
+  normalize() {
     var ratio = 1 / this.length();
     return this.mult(ratio);
   }
@@ -4191,9 +4190,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
           	var newVecotor = myVector.clone();
      */
-  ;
 
-  _proto.clone = function clone() {
+
+  clone() {
     return new Vector2D(this.x, this.y);
   }
   /** 
@@ -4205,9 +4204,9 @@ var Vector2D = /*#__PURE__*/function () {
   	@example
   	    	var myVecotor = Vector2D.degreeToVector( 45 );
   */
-  ;
 
-  Vector2D.degreeToVector = function degreeToVector(d) {
+
+  static degreeToVector(d) {
     var theta = ad_utils__WEBPACK_IMPORTED_MODULE_0__["MathUtils"].toRadians(d);
     return new Vector2D(Math.cos(theta), Math.sin(theta));
   }
@@ -4223,15 +4222,14 @@ var Vector2D = /*#__PURE__*/function () {
   		var myVecotor1 = Vector2D.random();
   		var myVecotor2 = Vector2D.random( 1 );
   */
-  ;
 
-  Vector2D.random = function random(degreeIncrement) {
+
+  static random(degreeIncrement) {
     var inc = degreeIncrement || 0.01;
     return Vector2D.degreeToVector(ad_utils__WEBPACK_IMPORTED_MODULE_0__["MathUtils"].random(0, 360, inc));
-  };
+  }
 
-  return Vector2D;
-}();
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Vector2D);
 
@@ -4285,10 +4283,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _lib_mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/mixin/LoaderTickerMixin.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTickerMixin.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setTicker", function() { return _lib_mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_7__["setTicker"]; });
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 /**
  * @class Loader
@@ -4404,22 +4398,11 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 
 
 
-
-var Loader = /*#__PURE__*/function (_LoaderBase) {
-  _inheritsLoose(Loader, _LoaderBase);
-
-  function Loader() {
-    var _this;
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _LoaderBase.call.apply(_LoaderBase, [this].concat(args)) || this;
-    var arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
-
-    var L = _assertThisInitialized(_this);
-
+class Loader extends _lib_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__["LoaderBase"] {
+  constructor(...args) {
+    super(...args);
+    let arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
+    const L = this;
     L._queue = {};
     L._total = 0;
     L._active = false;
@@ -4430,7 +4413,6 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
     L.content = [];
     L.crossOrigin = arg.crossOrigin || undefined;
     L.add(arguments[0]);
-    return _this;
   }
   /* ---------------------------------------------------------------------------------------------------------------- */
   // PUBLIC
@@ -4462,10 +4444,8 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
    */
 
 
-  var _proto = Loader.prototype;
-
-  _proto.add = function add(arg) {
-    var L = this;
+  add(arg) {
+    const L = this;
 
     if (typeof arg === 'string') {
       // single load as first parameter
@@ -4493,29 +4473,29 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
    * var imgLoader = new Loader({ onComplete:handleComplete })
    * imgLoader.load()
    */
-  ;
 
-  _proto.load = function load() {
-    var L = this;
+
+  load() {
+    const L = this;
     L._active = true;
 
     if (L._total <= 0) {
       console.log('Loader "' + L.name + '" has NO assets to be loaded.');
     } else {
-      var _has = false;
-      var _output = '';
+      let _has = false;
+      let _output = '';
 
-      for (var l in L._queue) {
+      for (let l in L._queue) {
         if (!(L._queue[l] instanceof Loader)) {
           if (!_has) {
             _has = true;
             _output += 'Loader "' + L.name + '" requesting:';
           }
 
-          var fileName = L._queue[l].fileName;
-          var extension = L._queue[l].fileType;
-          var extensionIndex = fileName.indexOf('.' + extension);
-          var fileAndExtension = extensionIndex > -1 ? fileName : fileName + '.' + extension;
+          const fileName = L._queue[l].fileName;
+          const extension = L._queue[l].fileType;
+          const extensionIndex = fileName.indexOf('.' + extension);
+          const fileAndExtension = extensionIndex > -1 ? fileName : fileName + '.' + extension;
           _output += '\n\t -> ' + (L._queue[l].prepend || '') + fileAndExtension;
         }
       }
@@ -4544,13 +4524,13 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
    *  	console.log("Content found:", myContent)
    *  }
    */
-  ;
 
-  _proto.getAllContent = function getAllContent() {
-    var _found = [];
+
+  getAllContent() {
+    let _found = [];
 
     function searchSubLoader(content) {
-      for (var i = 0; i < content.length; i++) {
+      for (let i = 0; i < content.length; i++) {
         //console.log( "   -> sub:", content[i] )
         if (content[i] instanceof Loader) {
           searchSubLoader(content[i].content);
@@ -4584,12 +4564,12 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
    * 	console.log("Content found:", myContent)
    * }
    */
-  ;
 
-  _proto.getAllContentRaw = function getAllContentRaw() {
-    var _content = this.getAllContent();
 
-    for (var i = 0; i < _content.length; i++) {
+  getAllContentRaw() {
+    let _content = this.getAllContent();
+
+    for (let i = 0; i < _content.length; i++) {
       _content[i] = _content[i].dataRaw;
     }
 
@@ -4618,13 +4598,13 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
    * 	var fontLoader = target.getLoader('load_fonts')
    * }
    */
-  ;
 
-  _proto.getLoader = function getLoader(id) {
-    var _found = null;
+
+  getLoader(id) {
+    let _found = null;
 
     function searchSubLoader(content) {
-      for (var i = 0; i < content.length; i++) {
+      for (let i = 0; i < content.length; i++) {
         //console.log( "   -> sub:", content[i] )
         if (content[i] instanceof Loader) {
           if (content[i] && (content[i].name === id || content[i] === id)) {
@@ -4645,13 +4625,13 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
     return _found;
   } // -------------------------------------------------------------------------------------------------------------
   // PRIVATE METHODS
-  ;
 
-  _proto._addSingleLoad = function _addSingleLoad(url, fileName, fileTypeOverwrite) {
-    var L = this; // fileTypeOverwrite can be a string of the explicit file type
 
-    var fileType = fileTypeOverwrite || L.fileType || _lib_mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__["getFileType"](url);
-    var loaderType;
+  _addSingleLoad(url, fileName, fileTypeOverwrite) {
+    const L = this; // fileTypeOverwrite can be a string of the explicit file type
+
+    const fileType = fileTypeOverwrite || L.fileType || _lib_mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__["getFileType"](url);
+    let loaderType;
 
     switch (fileType) {
       case 'jpg':
@@ -4680,7 +4660,7 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
     } // either the data as binary OR the file path and name
 
 
-    var urlChoice = fileTypeOverwrite ? url : L.prepend + url; // console.log('\t url:', url, '| loaderType:', loaderType)
+    const urlChoice = fileTypeOverwrite ? url : L.prepend + url; // console.log('\t url:', url, '| loaderType:', loaderType)
 
     var singleLoader = new loaderType(urlChoice, {
       scope: L,
@@ -4701,10 +4681,10 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
     singleLoader.queueIndex = L._total;
     L._queue[L._total] = singleLoader;
     L._total++; // console.log(L._total, L._queue)
-  };
+  }
 
-  _proto._addSubLoad = function _addSubLoad(loader) {
-    var L = this; //console.log(L.name, '_addSubLoad()')
+  _addSubLoad(loader) {
+    const L = this; //console.log(L.name, '_addSubLoad()')
 
     loader.onComplete = L._handleSingleLoadComplete.bind(L);
     loader.onProgress = L._handleProgress.bind(L);
@@ -4713,20 +4693,18 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
     loader.queueIndex = L._total;
     L._queue[L._total] = loader;
     L._total++;
-  };
+  }
 
-  _proto._addFbaSubLoads = function _addFbaSubLoads(loader) {
-    var _this2 = this;
-
-    var blobs = Object(ad_global__WEBPACK_IMPORTED_MODULE_0__["fbaDataToBlobs"])(loader.dataRaw);
-    blobs.forEach(function (blob) {
-      _this2._addSingleLoad(blob.src, blob.path, blob.fileType);
+  _addFbaSubLoads(loader) {
+    const blobs = Object(ad_global__WEBPACK_IMPORTED_MODULE_0__["fbaDataToBlobs"])(loader.dataRaw);
+    blobs.forEach(blob => {
+      this._addSingleLoad(blob.src, blob.path, blob.fileType);
     });
-  };
+  }
 
-  _proto._startSingleLoad = function _startSingleLoad(i) {
-    var L = this;
-    var _inst = L._queue[i]; // console.log(L.name, '_startSingleLoad()', 'index:', i, 'total:', L._total)
+  _startSingleLoad(i) {
+    const L = this;
+    const _inst = L._queue[i]; // console.log(L.name, '_startSingleLoad()', 'index:', i, 'total:', L._total)
 
     if (L._total == 0) {
       // fire a complete because there are no requests
@@ -4745,19 +4723,19 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
         _inst.load();
       }
     }
-  };
+  }
 
-  _proto._startLoadTimeOut = function _startLoadTimeOut(i) {
-    var L = this;
-    setTimeout(function () {
+  _startLoadTimeOut(i) {
+    const L = this;
+    setTimeout(() => {
       L._startSingleLoad(i);
     }, 10);
   } // -------------------------------------------------------------------------------------------------------------
   // EVENT HANDLERS
-  ;
 
-  _proto._handleSingleLoadComplete = function _handleSingleLoadComplete(target) {
-    var L = this; // console.log('_handleSingleLoadComplete(), target:', target)
+
+  _handleSingleLoadComplete(target) {
+    const L = this; // console.log('_handleSingleLoadComplete(), target:', target)
 
     L.content[target.queueIndex] = target;
     delete L._queue[target.queueIndex];
@@ -4771,20 +4749,20 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
         L._startLoadTimeOut(target.queueIndex + 1);
       }
     }
-  };
+  }
 
-  _proto._handleProgress = function _handleProgress() {
-    var L = this;
-    var _length = L.content.length;
-    var _count = 0;
+  _handleProgress() {
+    const L = this;
+    const _length = L.content.length;
+    let _count = 0;
 
-    for (var i = 0; i < _length; i++) {
+    for (let i = 0; i < _length; i++) {
       if (L.content[i]) _count++;
     } // console.log(L.name, '_handleProgress()', '_count:', _count, 'total:', L._total)
 
 
-    var _consecutive = _count;
-    var _subProgress = 0;
+    const _consecutive = _count;
+    let _subProgress = 0;
 
     if (_count < L._total && L._queue[_count]) {
       _subProgress = L._queue[_count].progress / L._total || 0;
@@ -4798,18 +4776,15 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
       //console.log( 'Loader calling _handleComplete()')
       L._handleComplete();
     }
-  };
+  }
 
-  _proto._handleComplete = function _handleComplete() {
-    var L = this; // console.log('Loader "' + L.name + '" is Complete')
+  _handleComplete() {
+    const L = this; // console.log('Loader "' + L.name + '" is Complete')
 
     L.onComplete.call(L.scope, L);
-  };
+  }
 
-  return Loader;
-}(_lib_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__["LoaderBase"]);
-
-
+}
 
 /***/ }),
 
@@ -4823,14 +4798,10 @@ var Loader = /*#__PURE__*/function (_LoaderBase) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoaderBase", function() { return LoaderBase; });
-var LoaderBase = /*#__PURE__*/function () {
-  function LoaderBase() {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    var arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
-    var L = this;
+class LoaderBase {
+  constructor(...args) {
+    const arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
+    const L = this;
 
     L.onComplete = arg.onComplete || function () {};
 
@@ -4845,20 +4816,17 @@ var LoaderBase = /*#__PURE__*/function () {
     L._failCalled = false;
   }
 
-  var _proto = LoaderBase.prototype;
-
-  _proto._handleFail = function _handleFail() {
-    var L = this; // console.log( 'LoaderBase._handleFail()' )
+  _handleFail() {
+    const L = this; // console.log( 'LoaderBase._handleFail()' )
 
     if (!L._failCalled) {
       L._failCalled = true;
       L.onFail.call(L.scope, L);
       console.log('Loader "' + L.name + '" Fail:', L.url);
     }
-  };
+  }
 
-  return LoaderBase;
-}();
+}
 
 /***/ }),
 
@@ -4875,42 +4843,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
 /* harmony import */ var ad_global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ad-global */ "ad-global");
 /* harmony import */ var ad_global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(ad_global__WEBPACK_IMPORTED_MODULE_1__);
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 
+const LoaderSourceMixin = superclass => class extends superclass {
+  constructor(...args) {
+    super(...args);
+    const arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
+    const L = this;
+    L.url = Object(ad_global__WEBPACK_IMPORTED_MODULE_1__["matchProtocolTo"])(arguments[0] || '');
 
-var LoaderSourceMixin = function LoaderSourceMixin(superclass) {
-  return /*#__PURE__*/function (_superclass) {
-    _inheritsLoose(_class, _superclass);
-
-    function _class() {
-      var _this;
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = _superclass.call.apply(_superclass, [this].concat(args)) || this;
-      var arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
-
-      var L = _assertThisInitialized(_this);
-
-      L.url = Object(ad_global__WEBPACK_IMPORTED_MODULE_1__["matchProtocolTo"])(arguments[0] || '');
-
-      if (arg.platformGetUrl) {
-        L.platformGetUrl = arg.platformGetUrl;
-        L.url = arg.platformGetUrl(L.url);
-      }
-
-      L.fileName = arg.id === undefined ? _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__["getFileName"](L.url) : arg.id;
-      L.fileType = arg.fileType || _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__["getFileType"](L.url);
-      return _this;
+    if (arg.platformGetUrl) {
+      L.platformGetUrl = arg.platformGetUrl;
+      L.url = arg.platformGetUrl(L.url);
     }
 
-    return _class;
-  }(superclass);
+    L.fileName = arg.id === undefined ? _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__["getFileName"](L.url) : arg.id;
+    L.fileType = arg.fileType || _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__["getFileType"](L.url);
+  }
+
 };
 
 /***/ }),
@@ -4927,66 +4877,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoaderTickerMixin", function() { return LoaderTickerMixin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTicker", function() { return setTicker; });
 /* harmony import */ var _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
+const LoaderTickerMixin = superclass => class extends superclass {
+  constructor(...args) {
+    super(...args);
+  }
 
-var LoaderTickerMixin = function LoaderTickerMixin(superclass) {
-  return /*#__PURE__*/function (_superclass) {
-    _inheritsLoose(_class, _superclass);
+  _setTicker(args) {
+    const L = this;
+    setTicker({
+      content: args.content,
+      css: args.css,
+      width: args.width,
+      font: args.font,
+      handleFail: L._handleFail.bind(L),
+      handleTickerComplete: L._handleTickerComplete.bind(L)
+    });
+  }
 
-    function _class() {
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
+  _removeTickerNode(node) {
+    node.parentNode.removeChild(node);
+  }
 
-      return _superclass.call.apply(_superclass, [this].concat(args)) || this;
-    }
-
-    var _proto = _class.prototype;
-
-    _proto._setTicker = function _setTicker(args) {
-      var L = this;
-      setTicker({
-        content: args.content,
-        css: args.css,
-        width: args.width,
-        font: args.font,
-        handleFail: L._handleFail.bind(L),
-        handleTickerComplete: L._handleTickerComplete.bind(L)
-      });
-    };
-
-    _proto._removeTickerNode = function _removeTickerNode(node) {
-      node.parentNode.removeChild(node);
-    };
-
-    return _class;
-  }(superclass);
 };
-function setTicker(_temp) {
-  var _ref = _temp === void 0 ? {} : _temp,
-      content = _ref.content,
-      css = _ref.css,
-      width = _ref.width,
-      font = _ref.font,
-      handleFail = _ref.handleFail,
-      handleTickerComplete = _ref.handleTickerComplete;
-
-  var node = document.createElement('div');
+function setTicker({
+  content,
+  css,
+  width,
+  font,
+  handleFail,
+  handleTickerComplete
+} = {}) {
+  let node = document.createElement('div');
   node.innerHTML = content;
   node.style.cssText = css || '';
   document.body.appendChild(node);
 
-  var _width = width != undefined ? width : node.offsetWidth;
+  const _width = width != undefined ? width : node.offsetWidth;
 
   node.style.fontFamily = font || '';
 
-  var _timeOut = setTimeout(function () {
+  let _timeOut = setTimeout(() => {
     clearInterval(_interval);
     handleFail && handleFail();
   }, 5000);
 
-  var _interval = setInterval(function () {
+  let _interval = setInterval(() => {
     if (node.offsetWidth != _width) {
       clearTimeout(_timeOut);
       clearInterval(_interval);
@@ -5051,8 +4987,8 @@ function createXMLHttpRequest() {
  */
 
 function getFileName(url) {
-  var extension = url.lastIndexOf(".");
-  var directory = url.lastIndexOf("/") + 1;
+  let extension = url.lastIndexOf(".");
+  let directory = url.lastIndexOf("/") + 1;
   if (directory > extension) extension = undefined;
   return url.substring(directory, extension);
 }
@@ -5080,17 +5016,17 @@ function getFontName(url) {
 function getFileType(url) {
   url = url || "";
 
-  var _index = url.indexOf("?");
+  const _index = url.indexOf("?");
 
   if (_index > -1) {
     url = url.substr(0, _index);
   }
 
-  var _split = url.match(/[^\\]*\.(\w+)$/);
+  const _split = url.match(/[^\\]*\.(\w+)$/);
 
-  var _base64 = url.match(/(?:(?:image)|(?:font))\/(jpeg|jpg|png|gif|svg|ttf|woff)/);
+  const _base64 = url.match(/(?:(?:image)|(?:font))\/(jpeg|jpg|png|gif|svg|ttf|woff)/);
 
-  var _type = _split ? _split[1] : _base64 ? _base64[1] : "unknown";
+  const _type = _split ? _split[1] : _base64 ? _base64[1] : "unknown";
 
   return _type;
 }
@@ -5109,9 +5045,9 @@ function getFileType(url) {
  */
 
 function getFullUrl(prepend, file, platformGetUrl) {
-  var _prepend = getUrlPrepend(prepend);
+  const _prepend = getUrlPrepend(prepend);
 
-  var _url = Object(ad_global__WEBPACK_IMPORTED_MODULE_0__["matchProtocolTo"])(_prepend + _file);
+  let _url = Object(ad_global__WEBPACK_IMPORTED_MODULE_0__["matchProtocolTo"])(_prepend + _file);
 
   if (platformGetUrl) {
     _url = platformGetUrl(_url);
@@ -5147,9 +5083,9 @@ function getParamsFromData(query) {
      */
     return query;
   } else {
-    var queryString = "";
+    let queryString = "";
 
-    for (var prop in query) {
+    for (let prop in query) {
       console.log("      prop =", prop);
       queryString += prop + "=" + query[prop] + "&";
     }
@@ -5173,10 +5109,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
 /* harmony import */ var _mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderSourceMixin.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSourceMixin.js");
 /* harmony import */ var _mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
 /**
  * @class DataLoader
  * @param {string} target
@@ -5202,26 +5134,14 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 
 
 
-
-var DataLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
-  _inheritsLoose(DataLoader, _LoaderSourceMixin);
-
-  function DataLoader() {
-    var _this;
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _LoaderSourceMixin.call.apply(_LoaderSourceMixin, [this].concat(args)) || this;
-    var arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
-
-    var D = _assertThisInitialized(_this);
-
+class DataLoader extends Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"]) {
+  constructor(...args) {
+    super(...args);
+    let arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {};
+    const D = this;
     D.method = (arg.method || "get").toLowerCase();
     D.query = arg.query || null;
     D.responseType = arg.responseType || null;
-    return _this;
   }
   /**
    * @memberOf DataLoader
@@ -5247,16 +5167,14 @@ var DataLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
    */
 
 
-  var _proto = DataLoader.prototype;
+  load() {
+    const D = this; // console.log('DataLoader "' + D.name + '" requesting:\n\t->', D.url)
 
-  _proto.load = function load() {
-    var D = this; // console.log('DataLoader "' + D.name + '" requesting:\n\t->', D.url)
-
-    var queryString = null;
-    var isPost = D.method === "post";
+    let queryString = null;
+    const isPost = D.method === "post";
     D.req = _mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__["createXMLHttpRequest"]();
     if (D.responseType != undefined) D.req.responseType = D.responseType;
-    var url = D.url;
+    let url = D.url;
 
     if (D.query) {
       queryString = _mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__["getParamsFromData"](D.query);
@@ -5299,10 +5217,10 @@ var DataLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
     }
 
     D.req.send(queryString);
-  };
+  }
 
-  _proto._handleStateChange = function _handleStateChange(target) {
-    var D = this;
+  _handleStateChange(target) {
+    const D = this;
 
     switch (D.req.readyState) {
       case 3:
@@ -5327,23 +5245,20 @@ var DataLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
 
         break;
     }
-  };
+  }
 
-  _proto._handleProgress = function _handleProgress() {
-    var D = this;
+  _handleProgress() {
+    const D = this;
     D.onProgress.call(D.scope, D);
-  };
+  }
 
-  _proto._handleComplete = function _handleComplete() {
-    var D = this; // console.log('DataLoader "' + D.name + '" is Complete')
+  _handleComplete() {
+    const D = this; // console.log('DataLoader "' + D.name + '" is Complete')
 
     D.onComplete.call(D.scope, D);
-  };
+  }
 
-  return DataLoader;
-}(Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"]));
-
-
+}
 
 /***/ }),
 
@@ -5360,8 +5275,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
 /* harmony import */ var _mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderSourceMixin.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSourceMixin.js");
 /* harmony import */ var _mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderTickerMixin.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTickerMixin.js");
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
 /**
  * @class FontLoader
  * @param {string} target
@@ -5381,16 +5294,9 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 
 
 
-
-var FontLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
-  _inheritsLoose(FontLoader, _LoaderSourceMixin);
-
-  function FontLoader() {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _LoaderSourceMixin.call.apply(_LoaderSourceMixin, [this].concat(args)) || this;
+class FontLoader extends Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(Object(_mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_2__["LoaderTickerMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"])) {
+  constructor(...args) {
+    super(...args);
   }
   /**
    * @memberOf FontLoader
@@ -5400,38 +5306,36 @@ var FontLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
    */
 
 
-  var _proto = FontLoader.prototype;
-
-  _proto.load = function load() {
-    var F = this; // console.log('FontLoader "' + F.name + '" requesting:\n\t->', F.url)
+  load() {
+    const F = this; // console.log('FontLoader "' + F.name + '" requesting:\n\t->', F.url)
 
     F.fileName = F.fileName.split('.')[0];
 
     if (document.fonts && window.FontFace) {
-      var font = new FontFace(F.fileName, "url(" + F.url + ")");
-      font.load().then(function (font) {
+      const font = new FontFace(F.fileName, `url(${F.url})`);
+      font.load().then(font => {
         document.fonts.add(font);
 
         F._handleComplete.call(F);
-      })["catch"](function (err) {
-        console.error("Font (" + F.url + ") failed to load");
+      }).catch(err => {
+        console.error(`Font (${F.url}) failed to load`);
 
         F._handleFail.call(F);
       });
     } else {
-      var format = 'truetype';
+      let format = 'truetype';
 
       if (F.fileType.match(/woff/)) {
         format = F.fileType;
       }
 
-      var assembledFontRule = "@font-face { font-family: '" + F.fileName + "'; src: url(" + F.url + ") format('" + format + "'); }";
-      var getSheet = document.getElementById('RED_fontStyleSheet');
+      const assembledFontRule = "@font-face { font-family: '" + F.fileName + "'; src: url(" + F.url + ") format('" + format + "'); }";
+      let getSheet = document.getElementById('RED_fontStyleSheet');
 
       if (getSheet) {
         getSheet.innerHTML += assembledFontRule;
       } else {
-        var styleScript = document.createElement('style');
+        let styleScript = document.createElement('style');
         styleScript.type = 'text/css';
         styleScript.media = 'screen';
         styleScript.id = 'RED_fontStyleSheet';
@@ -5445,10 +5349,10 @@ var FontLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
         font: F.fileName
       });
     }
-  };
+  }
 
-  _proto._handleTickerComplete = function _handleTickerComplete(node) {
-    var F = this; // added timeout to leave a rendered textfield on stage for initial textfields
+  _handleTickerComplete(node) {
+    const F = this; // added timeout to leave a rendered textfield on stage for initial textfields
     // to return proper offsetWidth values
 
     setTimeout(function () {
@@ -5458,19 +5362,16 @@ var FontLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
     }, 300);
 
     F._handleComplete();
-  };
+  }
 
-  _proto._handleComplete = function _handleComplete(event) {
-    var F = this; // console.log('FontLoader "' + F.name + '" is Complete')
+  _handleComplete(event) {
+    const F = this; // console.log('FontLoader "' + F.name + '" is Complete')
 
     F.dataRaw = F.fileName;
     F.onComplete.call(F.scope, F);
-  };
+  }
 
-  return FontLoader;
-}(Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(Object(_mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_2__["LoaderTickerMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"])));
-
-
+}
 
 /***/ }),
 
@@ -5487,8 +5388,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
 /* harmony import */ var _mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderSourceMixin.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSourceMixin.js");
 /* harmony import */ var _mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderTickerMixin.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTickerMixin.js");
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
 /**
  * @class ImageLoader
  * @param {string} target
@@ -5511,23 +5410,13 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 
 
 
+class ImageLoader extends Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(Object(_mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_2__["LoaderTickerMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"])) {
+  constructor(...args) {
+    super(...args);
+    let arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {}; // used when only needing to render, such as writing into the DOM as markup <svg>
 
-var ImageLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
-  _inheritsLoose(ImageLoader, _LoaderSourceMixin);
-
-  function ImageLoader() {
-    var _this;
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _LoaderSourceMixin.call.apply(_LoaderSourceMixin, [this].concat(args)) || this;
-    var arg = arguments && arguments.length > 1 ? arguments[1] : arguments[0] || {}; // used when only needing to render, such as writing into the DOM as markup <svg>
-
-    _this.renderOnly = !!arg.renderOnly;
-    _this.crossOrigin = arg.crossOrigin;
-    return _this;
+    this.renderOnly = !!arg.renderOnly;
+    this.crossOrigin = arg.crossOrigin;
   }
   /**
    * @memberOf ImageLoader
@@ -5537,10 +5426,8 @@ var ImageLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
    */
 
 
-  var _proto = ImageLoader.prototype;
-
-  _proto.load = function load() {
-    var I = this;
+  load() {
+    const I = this;
 
     if (I.renderOnly) {
       I._setTicker({
@@ -5548,26 +5435,23 @@ var ImageLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
         width: 0
       });
     } else {
-      var img = new Image();
+      let img = new Image();
       img.id = I.fileName;
       img.crossOrigin = I.crossOrigin;
       img.onload = I._handleComplete.bind(I);
       img.onerror = I._handleFail;
       img.src = I.url;
     }
-  };
+  }
 
-  _proto._handleComplete = function _handleComplete(event) {
-    var I = this; // console.log('ImageLoader "' + I.name + '" is Complete')
+  _handleComplete(event) {
+    const I = this; // console.log('ImageLoader "' + I.name + '" is Complete')
 
     I.dataRaw = event.target;
     I.onComplete.call(I.scope, I);
-  };
+  }
 
-  return ImageLoader;
-}(Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(Object(_mixin_LoaderTickerMixin_js__WEBPACK_IMPORTED_MODULE_2__["LoaderTickerMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"])));
-
-
+}
 
 /***/ }),
 
@@ -5583,8 +5467,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return InlineLoader; });
 /* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
 /* harmony import */ var _mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderSourceMixin.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSourceMixin.js");
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
 /**
  * @class InlineLoader
  * @param {string} target
@@ -5603,16 +5485,9 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
  */
 
 
-
-var InlineLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
-  _inheritsLoose(InlineLoader, _LoaderSourceMixin);
-
-  function InlineLoader() {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _LoaderSourceMixin.call.apply(_LoaderSourceMixin, [this].concat(args)) || this;
+class InlineLoader extends Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"]) {
+  constructor(...args) {
+    super(...args);
   }
   /**
    * @memberOf InlineLoader
@@ -5622,11 +5497,9 @@ var InlineLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
    */
 
 
-  var _proto = InlineLoader.prototype;
-
-  _proto.load = function load() {
-    var I = this;
-    var elem;
+  load() {
+    const I = this;
+    let elem;
 
     if (I.fileType == 'css') {
       elem = I._createCssLink();
@@ -5641,39 +5514,36 @@ var InlineLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
     elem.onerror = I._handleFail;
     I.fileType == 'css' || I.fileType == 'html' ? elem.href = this.url : elem.src = I.url;
     document.getElementsByTagName('head')[0].appendChild(elem);
-  };
+  }
 
-  _proto._createCssLink = function _createCssLink() {
-    var elem = document.createElement('link');
+  _createCssLink() {
+    let elem = document.createElement('link');
     elem.rel = 'stylesheet';
     elem.type = 'text/css';
     return elem;
-  };
+  }
 
-  _proto._createHtmlLink = function _createHtmlLink() {
-    var elem = document.createElement('link');
+  _createHtmlLink() {
+    let elem = document.createElement('link');
     elem.rel = 'import'; // elem.async = ''
 
     return elem;
-  };
+  }
 
-  _proto._createScript = function _createScript() {
-    var elem = document.createElement('script');
+  _createScript() {
+    let elem = document.createElement('script');
     elem.type = 'text/javascript';
     return elem;
-  };
+  }
 
-  _proto._handleComplete = function _handleComplete(event) {
-    var I = this; // console.log('InlineLoader "' + I.name + '" is Complete')
+  _handleComplete(event) {
+    const I = this; // console.log('InlineLoader "' + I.name + '" is Complete')
 
     I.dataRaw = event.target;
     I.onComplete.call(I.scope, I);
-  };
+  }
 
-  return InlineLoader;
-}(Object(_mixin_LoaderSourceMixin_js__WEBPACK_IMPORTED_MODULE_1__["LoaderSourceMixin"])(_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_0__["LoaderBase"]));
-
-
+}
 
 /***/ }),
 
@@ -5686,11 +5556,11 @@ var InlineLoader = /*#__PURE__*/function (_LoaderSourceMixin) {
 
 // POLYFILL : check for and/or replace window.requestAnimationFrame
 // there is a bug in iOS6 for RAF, so just detect being on it and fall back
-var _isiOS6 = /iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent);
+const _isiOS6 = /iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent);
 
-var _prefix = ['webkit', 'moz'];
+const _prefix = ['webkit', 'moz'];
 
-for (var i = 0; !window.requestAnimationFrame && i < _prefix.length; i++) {
+for (let i = 0; !window.requestAnimationFrame && i < _prefix.length; i++) {
   window.requestAnimationFrame = window[_prefix[i] + 'RequestAnimationFrame'];
   window.cancelAnimationFrame = window[_prefix[i] + 'CancelAnimationFrame'] || window[_prefix[i] + 'CancelRequestAnimationFrame'];
 }
@@ -5858,9 +5728,7 @@ function removeAt(array, index) {
 function remove(array, item) {
   var _returnArray = array.slice();
 
-  while (_returnArray.indexOf(item) >= 0) {
-    _returnArray = removeAt(_returnArray, _returnArray.indexOf(item));
-  }
+  while (_returnArray.indexOf(item) >= 0) _returnArray = removeAt(_returnArray, _returnArray.indexOf(item));
 
   return _returnArray;
 }
@@ -6029,11 +5897,11 @@ function toRgbaString(color, alpha) {
 
 function hue(obj) {
   obj = _convert(obj);
-  var hsl = rgbToHSL(obj.from);
+  let hsl = rgbToHSL(obj.from);
   hsl.h = (hsl.h + obj.amount) % 360;
   if (hsl.h < 0) hsl.h += 360;
 
-  var returnColors = _hslToRGB(hsl);
+  let returnColors = _hslToRGB(hsl);
 
   if (obj.from.a >= 0) returnColors.a = obj.from.a;
   return obj.format === 'object' ? returnColors : toRgbaString(returnColors);
@@ -6069,10 +5937,10 @@ function hue(obj) {
 function saturation(obj) {
   delete obj.to;
   obj = _convert(obj);
-  var returnColors = {};
+  let returnColors = {};
 
-  for (var val in obj.from) {
-    var _fromVal = parseInt(obj.from[val]);
+  for (let val in obj.from) {
+    let _fromVal = parseInt(obj.from[val]);
 
     if (val === 'a') {
       returnColors[val] = _fromVal;
@@ -6124,10 +5992,10 @@ function saturation(obj) {
 function contrast(obj) {
   delete obj.to;
   obj = _convert(obj);
-  var returnColors = {};
+  let returnColors = {};
 
-  for (var val in obj.from) {
-    var _fromVal = parseInt(obj.from[val]);
+  for (let val in obj.from) {
+    let _fromVal = parseInt(obj.from[val]);
 
     returnColors[val] = val === 'a' ? _fromVal : Math.round(_fromVal * obj.amount);
   }
@@ -6177,10 +6045,10 @@ function contrast(obj) {
 
 function tint(obj) {
   obj = _convert(obj);
-  var returnColors = {};
+  let returnColors = {};
 
-  for (var val in obj.from) {
-    var _fromVal = parseInt(obj.from[val]);
+  for (let val in obj.from) {
+    let _fromVal = parseInt(obj.from[val]);
 
     returnColors[val] = val === 'a' ? _fromVal : Math.round(_fromVal + (parseInt(obj.to[val]) - _fromVal) * obj.amount);
   }
@@ -6232,10 +6100,10 @@ function tint(obj) {
 
 function transform(obj) {
   obj = _convert(obj);
-  var returnColors = {};
+  let returnColors = {};
 
-  for (var val in obj.from) {
-    var _fromVal = parseInt(obj.from[val]);
+  for (let val in obj.from) {
+    let _fromVal = parseInt(obj.from[val]);
 
     returnColors[val] = val === 'a' ? _fromVal : Math.round(_fromVal - (255 - parseInt(obj.to[val])) * obj.amount);
   }
@@ -6277,10 +6145,10 @@ function invert(obj) {
   delete obj.to;
   delete obj.amount;
   obj = _convert(obj);
-  var returnColors = {};
+  let returnColors = {};
 
-  for (var val in obj.from) {
-    var _fromVal = parseInt(obj.from[val]);
+  for (let val in obj.from) {
+    let _fromVal = parseInt(obj.from[val]);
 
     returnColors[val] = val === 'a' ? _fromVal : 255 - _fromVal;
   }
@@ -6300,15 +6168,15 @@ function _convert(obj) {
 }
 
 function rgbToHSL(rgb) {
-  var r = rgb.r / 255;
-  var g = rgb.g / 255;
-  var b = rgb.b / 255;
-  var cMax = Math.max(r, g, b);
-  var cMin = Math.min(r, g, b);
-  var delta = cMax - cMin;
-  var l = (cMax + cMin) / 2;
-  var h = 0;
-  var s = 0;
+  let r = rgb.r / 255;
+  let g = rgb.g / 255;
+  let b = rgb.b / 255;
+  let cMax = Math.max(r, g, b);
+  let cMin = Math.min(r, g, b);
+  let delta = cMax - cMin;
+  let l = (cMax + cMin) / 2;
+  let h = 0;
+  let s = 0;
 
   if (delta == 0) {
     h = 0;
@@ -6329,15 +6197,15 @@ function rgbToHSL(rgb) {
 }
 
 function _hslToRGB(hsl) {
-  var h = hsl.h / 60;
-  var s = hsl.s;
-  var l = hsl.l;
-  var c = (1 - Math.abs(2 * l - 1)) * s;
-  var x = c * (1 - Math.abs(h % 2 - 1));
-  var m = l - c / 2;
-  var r;
-  var g;
-  var b;
+  let h = hsl.h / 60;
+  let s = hsl.s;
+  let l = hsl.l;
+  let c = (1 - Math.abs(2 * l - 1)) * s;
+  let x = c * (1 - Math.abs(h % 2 - 1));
+  let m = l - c / 2;
+  let r;
+  let g;
+  let b;
   h = Math.floor(h);
 
   switch (h) {
@@ -6599,17 +6467,17 @@ function fitImageAtCoordinate(target, originX, originY, source) {
  */
 
 function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, imgSourceHeight) {
-  console.log("%c FIT CANVAS IMAGE, SON", 'color: black; background-color: cyan; font-style: italic; padding: 10px;'); // is the image wider than it is tall
+  console.log(`%c FIT CANVAS IMAGE, SON`, 'color: black; background-color: cyan; font-style: italic; padding: 10px;'); // is the image wider than it is tall
 
-  var _widerSource = imgSourceWidth > imgSourceHeight; // is the target dimension - the fitParams - wider than it is tall
+  let _widerSource = imgSourceWidth > imgSourceHeight; // is the target dimension - the fitParams - wider than it is tall
 
 
-  var _widerSpace = fitParams.width > fitParams.height; // this function takes in an array of arguments to get the ratio dimension
+  let _widerSpace = fitParams.width > fitParams.height; // this function takes in an array of arguments to get the ratio dimension
   // for example - if we know the width we want, we have to get the proportional height
 
 
   function _makeRatios() {
-    var _args = arguments; // example using paramsW: target['width'] = imgSourceWidth * (fitParams['width'] / imgSourceHeight)
+    let _args = arguments; // example using paramsW: target['width'] = imgSourceWidth * (fitParams['width'] / imgSourceHeight)
 
     target[_args[2]] = _args[5] * (fitParams[_args[3]] / _args[4]);
     params['source' + _args[0]] = _args[4];
@@ -6618,9 +6486,9 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
   // array for proportional width, fitting the image to fitParams.height
 
 
-  var paramsW = ['H', 'W', 'width', 'height', imgSourceHeight, imgSourceWidth]; // array for proportional height, fitting the image to fitParams.width
+  let paramsW = ['H', 'W', 'width', 'height', imgSourceHeight, imgSourceWidth]; // array for proportional height, fitting the image to fitParams.width
 
-  var paramsH = ['W', 'H', 'height', 'width', imgSourceWidth, imgSourceHeight]; // is the image wider than it is tall
+  let paramsH = ['W', 'H', 'height', 'width', imgSourceWidth, imgSourceHeight]; // is the image wider than it is tall
 
   if (_widerSource) {
     _makeRatios.apply(target, paramsW); // if, after getting new image size rations, the image isn't actually as wide as the fitParams...
@@ -6641,16 +6509,29 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
   target.height = fitParams.height; // this if check changes the transformOrigin, sourceW, sourceH, sourceX, and sourceH based on a target origin point
 
   if (fitParams.origin) {
-    //	this function runs ALL of the calculations to determine:
+    // set some defaults for our origin point - if none defined, make TOP-LEFT
+    let _fitOrigin = {
+      x: fitParams.origin.x || 0,
+      y: fitParams.origin.y || 0
+    }; // is the area we want to fit into - the fitParams - a square?
+
+    let _fitSquare = fitParams.width === fitParams.height; // ensure our sourceX and sourceY values are at least defined - they will get overwritten below
+
+
+    params.sourceX = params.sourceY = 0; // redefining parameters from our earlier paramsW / paramsH arrays so as to reuse arguments below
+
+    paramsW[0] = 'x';
+    paramsH[0] = 'y'; //	this function runs ALL of the calculations to determine:
     //
     //		* how the image should be positioned within th fitParams based on the ratio of
     //			fitParams.width/fitParams.height and imgSourceWidth/imgSourceHeight
     //		* the origin, and its location within the bounds of the image
-    var _setupOrientation = function _setupOrientation(checkParam) {
+
+    function _setupOrientation(checkParam) {
       // is the image wider than it is tall
       // arguments via paramsW = ['x', 'W', 'width', 'height', imgSourceHeight, imgSourceWidth]
       function fitParamsSquare() {
-        var _args = arguments; // example using paramsW: _fitOrigin.x *= ((target.height * imgSourceWidth) / imgSourceHeight) / imgSourceWidth;
+        let _args = arguments; // example using paramsW: _fitOrigin.x *= ((target.height * imgSourceWidth) / imgSourceHeight) / imgSourceWidth;
 
         _fitOrigin[_args[0]] *= target[_args[3]] * _args[5] / _args[4] / _args[5]; // scale the _fitOrigin position property to the scale of the image
         // example using paramsW: _fitOrigin.x *= target.height / imgSourceHeight;
@@ -6662,16 +6543,16 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
 
 
       function _orientToOrigin() {
-        var _args = arguments; // this scenario only exists if the fitParams is NOT a square
+        let _args = arguments; // this scenario only exists if the fitParams is NOT a square
 
         if (_args.length) {
           // this is the scale of the fitted image compared to its default size
           // example using paramsW: _scale = target.width / imgSourceWidth;
-          var _scale = target[_args[3]] / _args[4]; // the source property for positioning - either sourceX or sourceY
+          let _scale = target[_args[3]] / _args[4]; // the source property for positioning - either sourceX or sourceY
           // example using paramsW: _sourcePropPos = 'source' + 'x'.toUpperCase(); returns 'sourceX';
 
 
-          var _sourcePropPos = 'source' + _args[0].toUpperCase(); // changing the sourceX/Y property for positioning
+          let _sourcePropPos = 'source' + _args[0].toUpperCase(); // changing the sourceX/Y property for positioning
           // example using paramsW: params.sourceX = (_fitOrigin.x / target.stage.qualityScale) - ((fitParams.width] * 0.5) / _scale);
 
 
@@ -6682,9 +6563,7 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
           if (params[_sourcePropPos] >= 0 && params[_sourcePropPos] <= _args[5] - params['source' + _args[1]]) {
             // find out what the origin is in relation to its fitParams and _fitOrigin
             // a loop to set _fitOrigin.x/y equal to (_fitOrigin.x/y - params.sourceX/sourceY) * _scale;
-            for (var item in _fitOrigin) {
-              _fitOrigin[item] = (_fitOrigin[item] - params['source' + item.toUpperCase()]) * _scale;
-            }
+            for (let item in _fitOrigin) _fitOrigin[item] = (_fitOrigin[item] - params['source' + item.toUpperCase()]) * _scale;
           }
         }
       } // this keeps every value of _fitOrigin, as well as sourceX/Y, within the bounds of the image
@@ -6693,9 +6572,9 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
 
 
       function _modifyOutOfBounds() {
-        var _subArgs = arguments;
-        var _arg1 = _subArgs[0];
-        var _arg2 = _subArgs[2]; // if the image dimensions actually match the source dimensions
+        let _subArgs = arguments;
+        let _arg1 = _subArgs[0];
+        let _arg2 = _subArgs[2]; // if the image dimensions actually match the source dimensions
         // then just scale the origin accordingly
         // example using paramsW:
         // if (params['sourceW'] == imgSourceWidth) {
@@ -6727,28 +6606,14 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
       _modifyOutOfBounds.apply(target, paramsH); // this checks to make sure the _fitOrigin.x/y and sourceX/Y are within the bounds of the bitmap data
 
 
-      for (var item in _fitOrigin) {
+      for (let item in _fitOrigin) {
         // this keeps every value in _fitOrigin above or equal to 0
-        var _sourcePropSize = 'source' + item.toUpperCase();
+        let _sourcePropSize = 'source' + item.toUpperCase();
 
         if (_fitOrigin[item] < 0 || params[_sourcePropSize] < 0) _fitOrigin[item] = params[_sourcePropSize] = 0;
       }
-    }; // calling the function we just set up
+    } // calling the function we just set up
 
-
-    // set some defaults for our origin point - if none defined, make TOP-LEFT
-    var _fitOrigin = {
-      x: fitParams.origin.x || 0,
-      y: fitParams.origin.y || 0
-    }; // is the area we want to fit into - the fitParams - a square?
-
-    var _fitSquare = fitParams.width === fitParams.height; // ensure our sourceX and sourceY values are at least defined - they will get overwritten below
-
-
-    params.sourceX = params.sourceY = 0; // redefining parameters from our earlier paramsW / paramsH arrays so as to reuse arguments below
-
-    paramsW[0] = 'x';
-    paramsH[0] = 'y';
 
     if (_fitSquare) {
       // call _setupOrientation() with no parameters - that function will recognize _fitSquare
@@ -6771,7 +6636,7 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
 
     if (fitParams.debugClass) {
       // common args for the tall and wide lines
-      var _args = {
+      let _args = {
         target: target.stage,
         fill: 'yellow',
         params: {
@@ -6780,16 +6645,16 @@ function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceWidth, i
         }
       }; // the tall line
 
-      var _tall = new fitParams.debugClass(_args); // the wide line
+      let _tall = new fitParams.debugClass(_args); // the wide line
 
 
-      var _wide = new fitParams.debugClass(_args); // targetrcle surrounding the origin point
+      let _wide = new fitParams.debugClass(_args); // targetrcle surrounding the origin point
 
 
       _fitOrigin.width = _fitOrigin.height = 10;
       console.error(_fitOrigin);
 
-      var _targetrc = new fitParams.debugClass({
+      let _targetrc = new fitParams.debugClass({
         target: target.stage,
         params: _fitOrigin,
         stroke: {
@@ -7151,10 +7016,10 @@ __webpack_require__.r(__webpack_exports__);
  * import { MonetUtils } from 'ad-utils'
  * </codeblock>
  */
-var _data; // prettier-ignore
+let _data; // prettier-ignore
 
 
-var _monetTypes = {
+let _monetTypes = {
   'text': 'text',
   'number': 'value',
   'image': 'url',
@@ -7391,7 +7256,7 @@ __webpack_require__.r(__webpack_exports__);
  * @desc
  * 	This object is parent to a number of utility funcitons
  */
-var objectifier = {};
+const objectifier = {};
 /**
  * @memberOf ObjectUtils
  * @method get
@@ -7425,12 +7290,8 @@ var objectifier = {};
  * // your val should be 'I am prop2'
  */
 
-objectifier.get = function (str, ctxObj) {
-  if (ctxObj === void 0) {
-    ctxObj = window;
-  }
-
-  var splits = objectifier._getSplits(str).splits;
+objectifier.get = function (str, ctxObj = window) {
+  const splits = objectifier._getSplits(str).splits;
 
   return objectifier._getProperty(splits, ctxObj);
 };
@@ -7466,37 +7327,29 @@ objectifier.get = function (str, ctxObj) {
 */
 
 
-objectifier.set = function (str, val, ctxObj) {
-  if (ctxObj === void 0) {
-    ctxObj = window;
-  }
+objectifier.set = function (str, val, ctxObj = window) {
+  const splitData = objectifier._getSplits(str, true);
 
-  var splitData = objectifier._getSplits(str, true);
-
-  var result = objectifier._getProperty(splitData.splits, ctxObj);
+  const result = objectifier._getProperty(splitData.splits, ctxObj);
 
   result[splitData.lastKey] = val;
 }; // objectifier._getSplits and objectifier._getProperty  are used internally for objectifier.get and objectifier.set
 
 
 objectifier._getSplits = function (str, popLast) {
-  var splits = str.split('.');
-  var lastKey = popLast ? splits.pop() : null;
+  const splits = str.split('.');
+  const lastKey = popLast ? splits.pop() : null;
   return {
     splits: splits,
     lastKey: lastKey
   };
 };
 
-objectifier._getProperty = function (splits, obj) {
-  if (obj === void 0) {
-    obj = {};
-  }
+objectifier._getProperty = function (splits, obj = {}) {
+  let result = obj;
+  let s;
 
-  var result = obj;
-  var s;
-
-  for (var i = 0; result && (s = splits[i]); i++) {
+  for (let i = 0; result && (s = splits[i]); i++) {
     result = s in result ? result[s] : undefined;
   }
 
@@ -7529,9 +7382,9 @@ function clone(obj) {
     return obj;
   }
 
-  var result = obj.constructor();
+  let result = obj.constructor();
 
-  for (var key in obj) {
+  for (let key in obj) {
     result[key] = clone(obj[key]);
   }
 
@@ -7606,15 +7459,11 @@ function clone(obj) {
  * }
  */
 
-function defaults(obj, defaultObj, recursive) {
-  if (obj === void 0) {
-    obj = {};
-  }
+function defaults(obj = {}, defaultObj, recursive) {
+  let result = clone(obj);
 
-  var result = clone(obj);
-
-  for (var key in defaultObj) {
-    var item = defaultObj[key];
+  for (let key in defaultObj) {
+    let item = defaultObj[key];
 
     if (result[key] === undefined) {
       result[key] = defaultObj[key];
@@ -7665,9 +7514,9 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {string} Returns the specified number of '&nbsp;' strings.
  */
 function addSpaces(numberOfSpaces) {
-  var spacingString = '';
+  let spacingString = '';
 
-  for (var i = 0; i < numberOfSpaces; i++) {
+  for (let i = 0; i < numberOfSpaces; i++) {
     spacingString += '&nbsp;';
   }
 
@@ -7686,14 +7535,14 @@ function addSpaces(numberOfSpaces) {
 function getSpecialCharacter(requestedCharacter, isCapital) {
   requestedCharacter = global.proxyStringToLowerCase.apply(requestedCharacter);
 
-  for (var i = 0; i < specialCharacters.length; i++) {
-    var currentLabel = global.proxyStringToLowerCase.apply(specialCharacters[i].label);
+  for (let i = 0; i < specialCharacters.length; i++) {
+    let currentLabel = global.proxyStringToLowerCase.apply(specialCharacters[i].label);
     if (currentLabel === requestedCharacter) return isCapital ? specialCharacters[i].upperCase : specialCharacters[i].lowerCase;
   }
 
   return false;
 }
-var specialCharacters = [{
+const specialCharacters = [{
   label: 'iexcl',
   upperCase: '&#161;',
   lowerCase: '&#161;'
@@ -7767,13 +7616,11 @@ function removeSpaces(str) {
  */
 
 function pad(_target, _count) {
-  var _sign = '';
+  let _sign = '';
   if (_target < 0) _sign = '-';
   _target = _target.toString().replace(/\-/, '', _target);
 
-  while (_target.length < _count) {
-    _target = '0' + _target;
-  }
+  while (_target.length < _count) _target = '0' + _target;
 
   return _sign + _target;
 }
@@ -7790,13 +7637,11 @@ function pad(_target, _count) {
  */
 
 function injectBreakTags(str, indexes) {
-  var split = str.split(/\s/g);
-  indexes.sort(function (a, b) {
-    return b - a;
-  }).forEach(function (val) {
-    var before = split.slice(0, val);
-    var median = split.slice(val, val + 2).join('<br>');
-    var after = split.slice(val + 2);
+  let split = str.split(/\s/g);
+  indexes.sort((a, b) => b - a).forEach(val => {
+    const before = split.slice(0, val);
+    const median = split.slice(val, val + 2).join('<br>');
+    const after = split.slice(val + 2);
     split = before.concat(median, after);
   });
   return split.join(' ');
@@ -7865,12 +7710,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calculate", function() { return calculate; });
 /* harmony import */ var _Markup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Markup */ "./1-build/node_modules/@ff0000-ad-tech/ad-view/lib/Markup.js");
 /* harmony import */ var _Styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Styles */ "./1-build/node_modules/@ff0000-ad-tech/ad-view/lib/Styles.js");
-function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 /**
  * @npmpackage
  * @class Align
@@ -8026,63 +7865,63 @@ var _rect = [{
  * 	Synonymous with "alignBottom"
  */
 
-var BOTTOM = 'alignBottom';
+const BOTTOM = 'alignBottom';
 /**
  * @memberof Align
  * @const {string} CENTER
  * 	Synonymous with "alignCenter"
  */
 
-var CENTER = 'alignCenter';
+const CENTER = 'alignCenter';
 /**
  * @memberof Align
  * @const {string} LEFT
  * 	Synonymous with "alignLeft"
  */
 
-var LEFT = 'alignLeft';
+const LEFT = 'alignLeft';
 /**
  * @memberof Align
  * @const {string} RIGHT
  * 	Synonymous with "alignRight"
  */
 
-var RIGHT = 'alignRight';
+const RIGHT = 'alignRight';
 /**
  * @memberof Align
  * @const {string} TOP
  * 	Synonymous with "alignTop"
  */
 
-var TOP = 'alignTop';
+const TOP = 'alignTop';
 /**
  * @memberof Align
  * @const {string} BOTTOM_LEFT
  * 	Synonymous with "alignBottomLeft", used for {@link UITextField.alignText}
  */
 
-var BOTTOM_LEFT = 'alignBottomLeft';
+const BOTTOM_LEFT = 'alignBottomLeft';
 /**
  * @memberof Align
  * @const {string} BOTTOM_RIGHT
  * 	Synonymous with "alignBottomRight" used for {@link UITextField.alignText}
  */
 
-var BOTTOM_RIGHT = 'alignBottomRight';
+const BOTTOM_RIGHT = 'alignBottomRight';
 /**
  * @memberof Align
  * @const {string} TOP_LEFT
  * 	Synonymous with "alignTopLeft" used for {@link UITextField.alignText}
  */
 
-var TOP_LEFT = 'alignTopLeft';
+const TOP_LEFT = 'alignTopLeft';
 /**
  * @memberof Align
  * @const {string} TOP_RIGHT
  * 	Synonymous with "alignTopRight" used for {@link UITextField.alignText}
  */
 
-var TOP_RIGHT = 'alignTopRight';
+const TOP_RIGHT = 'alignTopRight';
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 // PUBLIC METHODS
 
@@ -8105,21 +7944,21 @@ function get(source, arg) {
   } // check for top level against
 
 
-  var topAgainst = arg.against;
+  const topAgainst = arg.against;
 
   if (arg.type) {
-    var typeToObj = calculate(arg.type);
+    const typeToObj = calculate(arg.type);
 
-    for (var key in typeToObj) {
+    for (let key in typeToObj) {
       if (!arg.hasOwnProperty(key)) {
         arg[key] = typeToObj[key];
       }
     }
   }
 
-  for (var xy in arg) {
+  for (let xy in arg) {
     if (xy == 'x' || xy == 'y') {
-      var params = arg[xy]; // the x or y is null or undefined, so skip this pass of the loop
+      let params = arg[xy]; // the x or y is null or undefined, so skip this pass of the loop
 
       if (!params) continue;
 
@@ -8129,11 +7968,11 @@ function get(source, arg) {
         };
       }
 
-      var against = void 0;
-      var againstDimension = void 0;
-      var againstX = 0;
-      var againstNumber = false;
-      var offset = params.offset || arg.offset || 0; // check the outer vs top
+      let against;
+      let againstDimension;
+      let againstX = 0;
+      let againstNumber = false;
+      let offset = params.offset || arg.offset || 0; // check the outer vs top
 
       params.outer = params.outer || arg.outer;
 
@@ -8211,21 +8050,18 @@ function get(source, arg) {
  */
 
 function set(source, arg) {
-  var _sources = Array.isArray(source) ? source : [source];
+  let _sources = Array.isArray(source) ? source : [source];
 
-  var first;
+  let first;
 
-  for (var _iterator = _createForOfIteratorHelperLoose(_sources), _step; !(_step = _iterator()).done;) {
-    var item = _step.value;
+  for (let item of _sources) {
     var obj = get(item, arg);
 
     if (isDomElement(item)) {
       var elem = item.canvas || _Markup__WEBPACK_IMPORTED_MODULE_0__["get"](item);
       _Styles__WEBPACK_IMPORTED_MODULE_1__["setCss"](elem, obj);
     } else {
-      for (var prop in obj) {
-        item[prop] = obj[prop];
-      }
+      for (var prop in obj) item[prop] = obj[prop];
     }
 
     if (first == undefined) {
@@ -8345,21 +8181,21 @@ var _rect = {
  * 	Synonymous with "clampX" - clamp on the horizontal direction only
  */
 
-var X = 'clampX';
+const X = 'clampX';
 /**
  * @memberof Clamp
  * @const {string} Y
  * 	Synonymous with "clampY" - clamp on the vertical direction only
  */
 
-var Y = 'clampY';
+const Y = 'clampY';
 /**
  * @memberof Clamp
  * @const {string} XY
  * 	Synonymous with "clampXY" - clamp on all sides
  */
 
-var XY = 'clampXY';
+const XY = 'clampXY';
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 // PUBLIC METHODS
 
@@ -8997,28 +8833,28 @@ __webpack_require__.r(__webpack_exports__);
  * @const {string} EXACT
  * 	'auto' ~ Images display at the exact height and width of the source
  */
-var EXACT = 'auto';
+const EXACT = 'auto';
 /**
  * @memberof Ratio
  * @const {string} FILL
  * 	'cover' ~ Scales the image to fill the target without distortion while maintaining aspect ratio, may cause a crop.
  */
 
-var FILL = 'cover';
+const FILL = 'cover';
 /**
  * @memberof Ratio
  * @const {string} FIT
  * 	'contain' ~ Scales to fit the full image without distortion while maintaining aspect ratio, may cause negative borders.
  */
 
-var FIT = 'contain';
+const FIT = 'contain';
 /**
  * @memberof Ratio
  * @const {string} STRETCH
  * 	'100% 100%' ~ Images stretches to fill the target, may cause aspect ratio distortion.
  */
 
-var STRETCH = '100% 100%';
+const STRETCH = '100% 100%';
 function resize(mode, source, target, returnObj) {
   mode = mode || EXACT;
   returnObj || (returnObj = {
@@ -9135,11 +8971,11 @@ function getCss(element, key) {
   var cssValue;
 
   if (key === 'x' || key === 'y') {
-    var existingTransform = element.style[ad_control__WEBPACK_IMPORTED_MODULE_1__["CssManager"].getDeviceKey('transform')];
-    var matrix = new ad_geom__WEBPACK_IMPORTED_MODULE_2__["Matrix2D"]();
+    const existingTransform = element.style[ad_control__WEBPACK_IMPORTED_MODULE_1__["CssManager"].getDeviceKey('transform')];
+    let matrix = new ad_geom__WEBPACK_IMPORTED_MODULE_2__["Matrix2D"]();
 
     if (existingTransform) {
-      var matrixArray = Object(ad_geom__WEBPACK_IMPORTED_MODULE_2__["cssToData"])(existingTransform); // 2d matrix length = 6
+      const matrixArray = Object(ad_geom__WEBPACK_IMPORTED_MODULE_2__["cssToData"])(existingTransform); // 2d matrix length = 6
       // 3d matrix length = 16
       // translate3d length = 3
 
@@ -9289,9 +9125,7 @@ var n,
     c = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 
 function s(n, l) {
-  for (var u in l) {
-    n[u] = l[u];
-  }
+  for (var u in l) n[u] = l[u];
 
   return n;
 }
@@ -9308,16 +9142,10 @@ function v(n, l, u) {
       r = arguments,
       f = {};
 
-  for (o in l) {
-    "key" == o ? i = l[o] : "ref" == o ? t = l[o] : f[o] = l[o];
-  }
+  for (o in l) "key" == o ? i = l[o] : "ref" == o ? t = l[o] : f[o] = l[o];
 
-  if (arguments.length > 3) for (u = [u], o = 3; o < arguments.length; o++) {
-    u.push(r[o]);
-  }
-  if (null != u && (f.children = u), "function" == typeof n && null != n.defaultProps) for (o in n.defaultProps) {
-    void 0 === f[o] && (f[o] = n.defaultProps[o]);
-  }
+  if (arguments.length > 3) for (u = [u], o = 3; o < arguments.length; o++) u.push(r[o]);
+  if (null != u && (f.children = u), "function" == typeof n && null != n.defaultProps) for (o in n.defaultProps) void 0 === f[o] && (f[o] = n.defaultProps[o]);
   return h(n, f, i, t, null);
 }
 
@@ -9357,9 +9185,7 @@ function d(n, l) {
 function _(n, l) {
   if (null == l) return n.__ ? _(n.__, n.__.__k.indexOf(n) + 1) : null;
 
-  for (var u; l < n.__k.length; l++) {
-    if (null != (u = n.__k[l]) && null != u.__e) return u.__e;
-  }
+  for (var u; l < n.__k.length; l++) if (null != (u = n.__k[l]) && null != u.__e) return u.__e;
 
   return "function" == typeof n.type ? _(n) : null;
 }
@@ -9368,11 +9194,9 @@ function w(n) {
   var l, u;
 
   if (null != (n = n.__) && null != n.__c) {
-    for (n.__e = n.__c.base = null, l = 0; l < n.__k.length; l++) {
-      if (null != (u = n.__k[l]) && null != u.__e) {
-        n.__e = n.__c.base = u.__e;
-        break;
-      }
+    for (n.__e = n.__c.base = null, l = 0; l < n.__k.length; l++) if (null != (u = n.__k[l]) && null != u.__e) {
+      n.__e = n.__c.base = u.__e;
+      break;
     }
 
     return w(n);
@@ -9384,14 +9208,12 @@ function k(l) {
 }
 
 function g() {
-  for (var n; g.__r = u.length;) {
-    n = u.sort(function (n, l) {
-      return n.__v.__b - l.__v.__b;
-    }), u = [], n.some(function (n) {
-      var l, u, i, t, o, r, f;
-      n.__d && (r = (o = (l = n).__v).__e, (f = l.__P) && (u = [], (i = s({}, o)).__v = o.__v + 1, t = $(f, o, i, l.__n, void 0 !== f.ownerSVGElement, null != o.__h ? [r] : null, u, null == r ? _(o) : r, o.__h), j(u, o), t != r && w(o)));
-    });
-  }
+  for (var n; g.__r = u.length;) n = u.sort(function (n, l) {
+    return n.__v.__b - l.__v.__b;
+  }), u = [], n.some(function (n) {
+    var l, u, i, t, o, r, f;
+    n.__d && (r = (o = (l = n).__v).__e, (f = l.__P) && (u = [], (i = s({}, o)).__v = o.__v + 1, t = $(f, o, i, l.__n, void 0 !== f.ownerSVGElement, null != o.__h ? [r] : null, u, null == r ? _(o) : r, o.__h), j(u, o), t != r && w(o)));
+  });
 }
 
 function m(n, l, u, i, t, o, r, c, s, v) {
@@ -9405,33 +9227,25 @@ function m(n, l, u, i, t, o, r, c, s, v) {
       A = i && i.__k || e,
       P = A.length;
 
-  for (s == f && (s = null != r ? r[0] : P ? _(i, 0) : null), u.__k = [], y = 0; y < l.length; y++) {
-    if (null != (k = u.__k[y] = null == (k = l[y]) || "boolean" == typeof k ? null : "string" == typeof k || "number" == typeof k ? h(null, k, null, null, k) : Array.isArray(k) ? h(p, {
-      children: k
-    }, null, null, null) : null != k.__e || null != k.__c ? h(k.type, k.props, k.key, null, k.__v) : k)) {
-      if (k.__ = u, k.__b = u.__b + 1, null === (w = A[y]) || w && k.key == w.key && k.type === w.type) A[y] = void 0;else for (d = 0; d < P; d++) {
-        if ((w = A[d]) && k.key == w.key && k.type === w.type) {
-          A[d] = void 0;
-          break;
-        }
-
-        w = null;
+  for (s == f && (s = null != r ? r[0] : P ? _(i, 0) : null), u.__k = [], y = 0; y < l.length; y++) if (null != (k = u.__k[y] = null == (k = l[y]) || "boolean" == typeof k ? null : "string" == typeof k || "number" == typeof k ? h(null, k, null, null, k) : Array.isArray(k) ? h(p, {
+    children: k
+  }, null, null, null) : null != k.__e || null != k.__c ? h(k.type, k.props, k.key, null, k.__v) : k)) {
+    if (k.__ = u, k.__b = u.__b + 1, null === (w = A[y]) || w && k.key == w.key && k.type === w.type) A[y] = void 0;else for (d = 0; d < P; d++) {
+      if ((w = A[d]) && k.key == w.key && k.type === w.type) {
+        A[d] = void 0;
+        break;
       }
-      g = $(n, k, w = w || f, t, o, r, c, s, v), (d = k.ref) && w.ref != d && (b || (b = []), w.ref && b.push(w.ref, null, k), b.push(d, k.__c || g, k)), null != g ? (null == m && (m = g), s = x(n, k, w, A, r, g, s), v || "option" != u.type ? "function" == typeof u.type && (u.__d = s) : n.value = "") : s && w.__e == s && s.parentNode != n && (s = _(w));
+
+      w = null;
     }
+    g = $(n, k, w = w || f, t, o, r, c, s, v), (d = k.ref) && w.ref != d && (b || (b = []), w.ref && b.push(w.ref, null, k), b.push(d, k.__c || g, k)), null != g ? (null == m && (m = g), s = x(n, k, w, A, r, g, s), v || "option" != u.type ? "function" == typeof u.type && (u.__d = s) : n.value = "") : s && w.__e == s && s.parentNode != n && (s = _(w));
   }
 
-  if (u.__e = m, null != r && "function" != typeof u.type) for (y = r.length; y--;) {
-    null != r[y] && a(r[y]);
-  }
+  if (u.__e = m, null != r && "function" != typeof u.type) for (y = r.length; y--;) null != r[y] && a(r[y]);
 
-  for (y = P; y--;) {
-    null != A[y] && L(A[y], A[y]);
-  }
+  for (y = P; y--;) null != A[y] && L(A[y], A[y]);
 
-  if (b) for (y = 0; y < b.length; y++) {
-    I(b[y], b[++y], b[++y]);
-  }
+  if (b) for (y = 0; y < b.length; y++) I(b[y], b[++y], b[++y]);
 }
 
 function b(n, l) {
@@ -9443,9 +9257,7 @@ function b(n, l) {
 function x(n, l, u, i, t, o, r) {
   var f, e, c;
   if (void 0 !== l.__d) f = l.__d, l.__d = void 0;else if (t == u || o != r || null == o.parentNode) n: if (null == r || r.parentNode !== n) n.appendChild(o), f = null;else {
-    for (e = r, c = 0; (e = e.nextSibling) && c < i.length; c += 2) {
-      if (e == o) break n;
-    }
+    for (e = r, c = 0; (e = e.nextSibling) && c < i.length; c += 2) if (e == o) break n;
 
     n.insertBefore(o, r), f = r;
   }
@@ -9455,13 +9267,9 @@ function x(n, l, u, i, t, o, r) {
 function A(n, l, u, i, t) {
   var o;
 
-  for (o in u) {
-    "children" === o || "key" === o || o in l || C(n, o, null, u[o], i);
-  }
+  for (o in u) "children" === o || "key" === o || o in l || C(n, o, null, u[o], i);
 
-  for (o in l) {
-    t && "function" != typeof l[o] || "children" === o || "key" === o || "value" === o || "checked" === o || u[o] === l[o] || C(n, o, l[o], u[o], i);
-  }
+  for (o in l) t && "function" != typeof l[o] || "children" === o || "key" === o || "value" === o || "checked" === o || u[o] === l[o] || C(n, o, l[o], u[o], i);
 }
 
 function P(n, l, u) {
@@ -9472,12 +9280,8 @@ function C(n, l, u, i, t) {
   var o, r, f;
   if (t && "className" == l && (l = "class"), "style" === l) {
     if ("string" == typeof u) n.style.cssText = u;else {
-      if ("string" == typeof i && (n.style.cssText = i = ""), i) for (l in i) {
-        u && l in u || P(n.style, l, "");
-      }
-      if (u) for (l in u) {
-        i && u[l] === i[l] || P(n.style, l, u[l]);
-      }
+      if ("string" == typeof i && (n.style.cssText = i = ""), i) for (l in i) u && l in u || P(n.style, l, "");
+      if (u) for (l in u) i && u[l] === i[l] || P(n.style, l, u[l]);
     }
   } else "o" === l[0] && "n" === l[1] ? (o = l !== (l = l.replace(/Capture$/, "")), (r = l.toLowerCase()) in n && (l = r), l = l.slice(2), n.l || (n.l = {}), n.l[l + o] = u, f = o ? N : z, u ? i || n.addEventListener(l, f, o) : n.removeEventListener(l, f, o)) : "list" !== l && "tagName" !== l && "form" !== l && "type" !== l && "size" !== l && "download" !== l && "href" !== l && !t && l in n ? n[l] = null == u ? "" : u : "function" != typeof u && "dangerouslySetInnerHTML" !== l && (l !== (l = l.replace(/xlink:?/, "")) ? null == u || !1 === u ? n.removeAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase()) : n.setAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase(), u) : null == u || !1 === u && !/^ar/.test(l) ? n.removeAttribute(l) : n.setAttribute(l, u));
 }
@@ -9493,9 +9297,7 @@ function N(l) {
 function T(n, l, u) {
   var i, t;
 
-  for (i = 0; i < n.__k.length; i++) {
-    (t = n.__k[i]) && (t.__ = n, t.__e && ("function" == typeof t.type && t.__k.length > 1 && T(t, l, u), l = x(u, t, t, n.__k, null, t.__e, l), "function" == typeof n.type && (n.__d = l)));
-  }
+  for (i = 0; i < n.__k.length; i++) (t = n.__k[i]) && (t.__ = n, t.__e && ("function" == typeof t.type && t.__k.length > 1 && T(t, l, u), l = x(u, t, t, n.__k, null, t.__e, l), "function" == typeof n.type && (n.__d = l)));
 }
 
 function $(l, u, i, t, o, r, f, e, c) {
@@ -9558,11 +9360,9 @@ function H(n, l, u, i, t, o, r, c) {
       y,
       p = u.props,
       d = l.props;
-  if (t = "svg" === l.type || t, null != o) for (s = 0; s < o.length; s++) {
-    if (null != (a = o[s]) && ((null === l.type ? 3 === a.nodeType : a.localName === l.type) || n == a)) {
-      n = a, o[s] = null;
-      break;
-    }
+  if (t = "svg" === l.type || t, null != o) for (s = 0; s < o.length; s++) if (null != (a = o[s]) && ((null === l.type ? 3 === a.nodeType : a.localName === l.type) || n == a)) {
+    n = a, o[s] = null;
+    break;
   }
 
   if (null == n) {
@@ -9574,9 +9374,7 @@ function H(n, l, u, i, t, o, r, c) {
 
   if (null === l.type) p === d || c && n.data === d || (n.data = d);else {
     if (null != o && (o = e.slice.call(n.childNodes)), v = (p = u.props || f).dangerouslySetInnerHTML, h = d.dangerouslySetInnerHTML, !c) {
-      if (null != o) for (p = {}, y = 0; y < n.attributes.length; y++) {
-        p[n.attributes[y].name] = n.attributes[y].value;
-      }
+      if (null != o) for (p = {}, y = 0; y < n.attributes.length; y++) p[n.attributes[y].name] = n.attributes[y].value;
       (h || v) && (h && (v && h.__html == v.__html || h.__html === n.innerHTML) || (n.innerHTML = h && h.__html || ""));
     }
 
@@ -9605,9 +9403,7 @@ function L(l, u, i) {
     t.base = t.__P = null;
   }
 
-  if (t = l.__k) for (r = 0; r < t.length; r++) {
-    t[r] && L(t[r], u, i);
-  }
+  if (t = l.__k) for (r = 0; r < t.length; r++) t[r] && L(t[r], u, i);
   null != o && a(o);
 }
 
@@ -9631,13 +9427,9 @@ function q(n, l, u) {
       r = arguments,
       f = s({}, n.props);
 
-  for (o in l) {
-    "key" == o ? i = l[o] : "ref" == o ? t = l[o] : f[o] = l[o];
-  }
+  for (o in l) "key" == o ? i = l[o] : "ref" == o ? t = l[o] : f[o] = l[o];
 
-  if (arguments.length > 3) for (u = [u], o = 3; o < arguments.length; o++) {
-    u.push(r[o]);
-  }
+  if (arguments.length > 3) for (u = [u], o = 3; o < arguments.length; o++) u.push(r[o]);
   return null != u && (f.children = u), h(n.type, f, i || n.key, t || n.ref, null);
 }
 
@@ -9645,10 +9437,10 @@ function B(n, l) {
   var u = {
     __c: l = "__cC" + r++,
     __: n,
-    Consumer: function Consumer(n, l) {
+    Consumer: function (n, l) {
       return n.children(l);
     },
-    Provider: function Provider(n, u, i) {
+    Provider: function (n, u, i) {
       return this.getChildContext || (u = [], (i = {})[l] = this, this.getChildContext = function () {
         return i;
       }, this.shouldComponentUpdate = function (n) {
@@ -9667,19 +9459,17 @@ function B(n, l) {
 }
 
 n = {
-  __e: function __e(n, l) {
-    for (var u, i, t, o = l.__h; l = l.__;) {
-      if ((u = l.__c) && !u.__) try {
-        if ((i = u.constructor) && null != i.getDerivedStateFromError && (u.setState(i.getDerivedStateFromError(n)), t = u.__d), null != u.componentDidCatch && (u.componentDidCatch(n), t = u.__d), t) return l.__h = o, u.__E = u;
-      } catch (l) {
-        n = l;
-      }
+  __e: function (n, l) {
+    for (var u, i, t, o = l.__h; l = l.__;) if ((u = l.__c) && !u.__) try {
+      if ((i = u.constructor) && null != i.getDerivedStateFromError && (u.setState(i.getDerivedStateFromError(n)), t = u.__d), null != u.componentDidCatch && (u.componentDidCatch(n), t = u.__d), t) return l.__h = o, u.__E = u;
+    } catch (l) {
+      n = l;
     }
 
     throw n;
   },
   __v: 0
-}, l = function l(n) {
+}, l = function (n) {
   return null != n && void 0 === n.constructor;
 }, d.prototype.setState = function (n, l) {
   var u;
@@ -9688,6 +9478,385 @@ n = {
   this.__v && (this.__e = !0, n && this.__h.push(n), k(this));
 }, d.prototype.render = p, u = [], i = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, g.__r = 0, o = f, r = 0;
 
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./1-build/300x250/components/Build/styles.scss":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js!./1-build/300x250/components/Build/styles.scss ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".b {\n  width: 100%;\n  height: 100%;\n  border: 1px solid #303030;\n}\n.b__brand {\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n.b__cta {\n  font-family: \"template_font\";\n  margin-top: 20px;\n  padding: 5px 10px;\n  border-radius: 4px;\n  background-color: #ccc;\n  color: #303030;\n}\n.b__cta:hover {\n  background-color: #303030;\n  color: #fff;\n  cursor: pointer;\n}", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : undefined;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
 
 /***/ }),
 
