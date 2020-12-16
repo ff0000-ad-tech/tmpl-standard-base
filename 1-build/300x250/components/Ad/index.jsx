@@ -1,26 +1,19 @@
 import { h, render, Component } from 'preact'
-import Build from '../Build'
+import { ImageManager } from 'ad-control'
+
+import './styles.scss'
+
+import '@common/fonts/template_font.ttf'
+import '@size/images/160over90-logo.png'
 
 class Ad extends Component {
-	componentDidMount = () => {
-		window.removePreloader()
-	}
-	handleClick = () => {
-		Network.exit(window.clickTag)
-	}
-
 	render() {
-		const bid = `build-${adParams.adWidth}x${adParams.adHeight}`
 		return (
-			<div
-				id={bid}
-				style={{
-					width: `${adParams.adWidth}px`,
-					height: `${adParams.adHeight}px`
-				}}
-				onClick={this.handleClick}
-			>
-				<Build />
+			<div className="ad">
+				<div className="ad__brand">
+					<img src={ImageManager.get('160over90-logo').src} width={150} height={150} />
+					<div className="ad__cta">CLICK ME</div>
+				</div>
 			</div>
 		)
 	}
