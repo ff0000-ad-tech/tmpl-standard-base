@@ -2,13 +2,17 @@ import { h } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
 
 import './Box.scss'
-import { TweenMax } from 'gsap'
+// import { gsap } from 'gsap'
 
 const Box = () => {
 	const mybox = useRef()
 
+	const start = () => {
+		alert('START')
+	}
+
 	useEffect(() => {
-		TweenMax.fromTo(mybox.current, 5, { x: 100 }, { x: 0 })
+		gsap.fromTo(mybox.current, { x: 300 }, { duration: 5, x: 0 })
 	}, [])
 
 	return (

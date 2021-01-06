@@ -17,7 +17,7 @@ class Control extends Component {
 					width: `${adParams.adWidth}px`,
 					height: `${adParams.adHeight}px`
 				}}
-				onClick={this.handleClick}
+				// onClick={this.handleClick}
 			>
 				<Ad />
 			</div>

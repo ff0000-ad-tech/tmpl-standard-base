@@ -5,7 +5,7 @@ import './Square.scss'
 
 class Square extends Component {
 	render() {
-		return <div className="square">AQUARE</div>
+		return <div className="square">SQUARE</div>
 	}
 }
 export default Square
