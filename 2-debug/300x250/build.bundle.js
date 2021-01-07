@@ -132,11 +132,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Box_Box_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Box/Box.jsx */ "./1-build/300x250/components/Box/Box.jsx");
 /* harmony import */ var _Square_Square_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Square/Square.jsx */ "./1-build/300x250/components/Square/Square.jsx");
 /* harmony import */ var _Circle_Circle_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Circle/Circle.jsx */ "./1-build/300x250/components/Circle/Circle.jsx");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles.scss */ "./1-build/300x250/components/Ad/styles.scss");
-/* harmony import */ var _common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @common/fonts/template_font.ttf */ "./1-build/common/fonts/template_font.ttf");
-/* harmony import */ var _common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @size/images/160over90-logo.png */ "./1-build/300x250/images/160over90-logo.png");
-/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _ClassBox_ClassBox_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../ClassBox/ClassBox.jsx */ "./1-build/300x250/components/ClassBox/ClassBox.jsx");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles.scss */ "./1-build/300x250/components/Ad/styles.scss");
+/* harmony import */ var _common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @common/fonts/template_font.ttf */ "./1-build/common/fonts/template_font.ttf");
+/* harmony import */ var _common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_template_font_ttf__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @size/images/160over90-logo.png */ "./1-build/300x250/images/160over90-logo.png");
+/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_9__);
 
 
  // import { gsap } from 'gsap'
@@ -148,74 +149,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Ad = () => {
-  // We need to memoize the gsap timelapse because it will get reset everytime the component renders
-  // which will break our animation setup
-  const timeline = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useMemo"])(() => gsap.timeline({
-    paused: true
-  }), []);
-  let squareRef = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
-  const circleRef = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
-  const [play, setPlay] = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
-  Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
-    // We need to use .base instead of .current to access the root dom element of the component
-    timeline.to(squareRef.base, {
+
+class Ad extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+    this.cbref = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
+  }
+
+  componentDidMount() {// this.cbref.current.start()
+  }
+
+  start() {
+    // console.warn(this.cbref.current)
+    gsap.to(this.cbref.current.base, {
       duration: 5,
-      css: {
-        x: 100
-      }
+      y: 150
     });
-    timeline.to('#imgRefID', {
-      duration: 2,
-      css: {
-        x: 100
+  }
+
+  render() {
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+      className: "ad"
+    }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
+      onClick: () => {
+        this.cbref.current.start();
       }
-    });
-    timeline.to('.imgRefClass', {
-      duration: 2,
-      css: {
-        x: 100
+    }, "START INTERNAL"), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
+      onClick: () => {
+        this.start();
       }
-    }); // Without timeline stuff
-    // gsap.to(squareRef.base, { duration: 5, css: { x: 100 } })
-    // gsap.to('#imgRefID', { duration: 5, css: { x: 100 } })
-    // gsap.to('.imgRefClass', { duration: 5, css: { x: 100 } })
-    // Animation()
-  }, []);
-  Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
-    if (play) {
-      timeline.play();
-    } else {
-      timeline.reverse();
-    }
-  }, [play]);
-  return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-    className: "ad"
-  }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
-    onClick: () => {
-      circleRef.current.start();
-      setPlay(!play);
-    }
-  }, "Click to ", play ? 'reverse' : 'play'), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_Circle_Circle_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    ref: circleRef
-  }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_Box_Box_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    className: "yap"
-  }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_Square_Square_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    ref: el => {
-      squareRef = el;
-    }
-  }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
-    id: "imgRefID",
-    src: ad_control__WEBPACK_IMPORTED_MODULE_2__["ImageManager"].get('160over90-logo').src,
-    width: 40,
-    height: 40
-  }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
-    className: "imgRefClass",
-    src: ad_control__WEBPACK_IMPORTED_MODULE_2__["ImageManager"].get('160over90-logo').src,
-    width: 40,
-    height: 40
-  }));
-};
+    }, "START EXTERNAL"), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_ClassBox_ClassBox_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      ref: this.cbref
+    }));
+  }
+
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Ad);
 
@@ -267,11 +235,6 @@ __webpack_require__.r(__webpack_exports__);
 
 const Box = () => {
   const mybox = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
-
-  const start = () => {
-    alert('START');
-  };
-
   Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
     gsap.fromTo(mybox.current, {
       x: 300
@@ -387,6 +350,76 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_Circle_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./1-build/300x250/components/ClassBox/ClassBox.jsx":
+/*!**********************************************************!*\
+  !*** ./1-build/300x250/components/ClassBox/ClassBox.jsx ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
+/* harmony import */ var preact_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/hooks */ "./1-build/node_modules/preact/hooks/dist/hooks.module.js");
+/* harmony import */ var _ClassBox_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ClassBox.scss */ "./1-build/300x250/components/ClassBox/ClassBox.scss");
+
+
+ // import { gsap } from 'gsap'
+
+class ClassBox extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+    this.mybox = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
+  }
+
+  start() {
+    gsap.to(this.mybox.current, {
+      duration: 5,
+      rotation: 360
+    });
+  }
+
+  render() {
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+      ref: this.mybox,
+      className: "classbox"
+    }, "CLASS BOX");
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ClassBox);
+
+/***/ }),
+
+/***/ "./1-build/300x250/components/ClassBox/ClassBox.scss":
+/*!***********************************************************!*\
+  !*** ./1-build/300x250/components/ClassBox/ClassBox.scss ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_ClassBox_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../../node_modules/sass-loader/dist/cjs.js!./ClassBox.scss */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./1-build/300x250/components/ClassBox/ClassBox.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_ClassBox_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_ClassBox_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -11527,6 +11560,28 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.i, ".circle {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  background: red;\n}", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./1-build/300x250/components/ClassBox/ClassBox.scss":
+/*!**************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js!./1-build/300x250/components/ClassBox/ClassBox.scss ***!
+  \**************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".classbox {\n  width: 100px;\n  height: 50px;\n  background: orange;\n}", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 

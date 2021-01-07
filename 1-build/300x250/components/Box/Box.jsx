@@ -7,10 +7,6 @@ import './Box.scss'
 const Box = () => {
 	const mybox = useRef()
 
-	const start = () => {
-		alert('START')
-	}
-
 	useEffect(() => {
 		gsap.fromTo(mybox.current, { x: 300 }, { duration: 5, x: 0 })
 	}, [])

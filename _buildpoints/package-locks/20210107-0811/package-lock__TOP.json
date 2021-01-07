@@ -4463,14 +4463,6 @@
 			"integrity": "sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=",
 			"dev": true
 		},
-		"gasp": {
-			"version": "0.0.2",
-			"resolved": "https://registry.npmjs.org/gasp/-/gasp-0.0.2.tgz",
-			"integrity": "sha1-ukinFUaqrXX+EWLddML8Fb7f+xE=",
-			"requires": {
-				"q": "^1.0.0"
-			}
-		},
 		"gensync": {
 			"version": "1.0.0-beta.2",
 			"resolved": "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz",
@@ -4642,11 +4634,6 @@
 			"version": "4.2.4",
 			"resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.4.tgz",
 			"integrity": "sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw=="
-		},
-		"gsap": {
-			"version": "3.5.1",
-			"resolved": "https://registry.npmjs.org/gsap/-/gsap-3.5.1.tgz",
-			"integrity": "sha512-EMV0RSUKZNeTUzLKAizGlwxVOUyif3/g8I3S1aA/hf3gbqwBvmQ02x1RdTBQNQMOpHCVBv9y/vaHwfctoAg8zw=="
 		},
 		"har-schema": {
 			"version": "2.0.0",
@@ -7156,11 +7143,6 @@
 			"requires": {
 				"long": "^4.0.0"
 			}
-		},
-		"q": {
-			"version": "1.5.1",
-			"resolved": "https://registry.npmjs.org/q/-/q-1.5.1.tgz",
-			"integrity": "sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc="
 		},
 		"qs": {
 			"version": "6.5.2",
