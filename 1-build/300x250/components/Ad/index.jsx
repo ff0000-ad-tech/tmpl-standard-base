@@ -1,11 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
-import { useRef, useEffect, useMemo, useState } from 'preact/hooks'
-import { ImageManager } from 'ad-control'
-// import { gsap } from 'gsap'
 
-import Box from './../Box/Box.jsx'
-import Square from './../Square/Square.jsx'
-import Circle, { start } from './../Circle/Circle.jsx'
 import ClassBox from './../ClassBox/ClassBox.jsx'
 import './styles.scss'
 
