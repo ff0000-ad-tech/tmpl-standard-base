@@ -11,7 +11,7 @@ const Circle = forwardRef((props, ref) => {
 
 	useEffect(() => {
 		if (play) {
-			gsap.fromTo(mycircle.current, { x: 300 }, { duration: 5, x: 0 })
+			gsap.to(mycircle.current, { duration: 5, x: 200 })
 		}
 	}, [play])
 

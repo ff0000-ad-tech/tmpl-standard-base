@@ -341,11 +341,9 @@ const Circle = Object(preact_compat__WEBPACK_IMPORTED_MODULE_2__["forwardRef"])(
   const [play, setPlay] = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
   Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
     if (play) {
-      gsap.fromTo(mycircle.current, {
-        x: 300
-      }, {
+      gsap.to(mycircle.current, {
         duration: 5,
-        x: 0
+        x: 200
       });
     }
   }, [play]);
