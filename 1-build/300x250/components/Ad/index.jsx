@@ -1,44 +1,43 @@
 import { h, render, Component, createRef } from 'preact'
+import { ImageManager } from 'ad-control'
 
-import ClassBox from './../ClassBox/ClassBox.jsx'
+import Slideshow from './../Slideshow/Slideshow.jsx'
+import CopyBlock from './../CopyBlock/CopyBlock.jsx'
 import './styles.scss'
 
-import '@common/fonts/template_font.ttf'
+import '@common/fonts/JosefinSans-Bold.woff'
+import '@common/fonts/JosefinSans-Medium.woff'
+import '@common/images/logo.svg'
 import '@size/images/160over90-logo.png'
+import '@size/images/curve.svg'
 
 class Ad extends Component {
 	constructor(props) {
 		super(props)
-		this.cbref = createRef()
+		this.slideshow = createRef()
+		this.copyblock = createRef()
+		this.cta = createRef()
+		this.logo = createRef()
 	}
 
-	componentDidMount() {
-		// this.cbref.current.start()
-	}
-
-	start() {
-		// console.warn(this.cbref.current)
-		gsap.to(this.cbref.current.base, { duration: 5, y: 150 })
+	getImage = name => {
+		return ImageManager.get(name).src
 	}
 
 	render() {
 		return (
 			<div className="ad">
-				<button
-					onClick={() => {
-						this.cbref.current.start()
-					}}
-				>
-					START INTERNAL
-				</button>
-				<button
-					onClick={() => {
-						this.start()
-					}}
-				>
-					START EXTERNAL
-				</button>
-				<ClassBox ref={this.cbref} />
+				{/* <img id="imgRefID" src={this.getImage('160over90-logo')} width={40} height={40} /> */}
+				<Slideshow ref={this.slideshow} />
+				<div className="main-curve">
+					<img className="main-curve__curve" src={this.getImage('curve')} />
+					<div className="main-curve__fill" />
+				</div>
+				<img ref={this.logo} className="logo" src={this.getImage('logo')} />
+				<div ref={this.cta} className="ad__cta">
+					Learn More
+				</div>
+				<CopyBlock ref={this.copyblock} copy={adData.copy} />
 			</div>
 		)
 	}

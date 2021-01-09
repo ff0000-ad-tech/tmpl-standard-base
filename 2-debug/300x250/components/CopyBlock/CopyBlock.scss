@@ -1,0 +1,18 @@
+.copyblock {
+	width: 100%;
+	position: relative;
+	height: 30px;
+	overflow: hidden;
+	top: 117px;
+	display: flex;
+	justify-content: center;
+
+	&__copyline {
+		width: 100%;
+		position: absolute;
+		text-align: center;
+		color: white;
+		font-family: 'JosefinSans-Bold';
+		font-size: 16px;
+	}
+}

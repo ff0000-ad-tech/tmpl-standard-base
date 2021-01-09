@@ -1,0 +1,10 @@
+.slideshow {
+	width: 100px;
+	height: 50px;
+	background: green;
+	position: relative;
+
+	img {
+		position: absolute;
+	}
+}

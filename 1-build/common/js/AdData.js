@@ -1,4 +1,3 @@
-import '@common/fonts/template_font.woff'
 import { ImageManager } from 'ad-control'
 
 export default function AdData() {
@@ -18,7 +17,7 @@ export default function AdData() {
 
 		self.theImageName = ImageManager.addToLoad(adParams.imagesPath + 'sample.jpg');
 	 */
-
+	self.copy = ['WHY PAY MORE\nFOR ELECTRICITY?', 'MAKE THE MOST OF YOUR\nENERGY AND MONEY', 'CHOOSE SMART SAVINGS\nWITH DISCOUNT POWER.']
 	self.fonts = {
 		primary: 'template_font'
 	}
