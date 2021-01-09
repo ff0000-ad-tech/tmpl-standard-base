@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/build-source-assembler: 3.6.7 / Created: 02/21/20 09:50am -->
-
+	
 	<head>
 		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta content="utf-8" http-equiv="encoding" />
 		<meta name="ad.size" content="width=300,height=250" />
-		<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.5.1_min.js"></script>
 		<!-- Red.Network.meta.start -->
 		<!-- Red.Network.meta.end -->
-
+		
 		<title>**CLIENT NAME** **PROJECT NAME** 300x250</title>
-
+		
+		<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.5.1_min.js"></script>
 		<script type="text/javascript">
 			/*-- Red.Network.clicktags.start --*/
 			var clickTag = 'http://www.changeme.com/'
@@ -77,12 +77,14 @@ var environments = [
 ];
 
 			/*-- Red.Settings.external_includes.start --*/
-			var externalIncludes = []
+			var externalIncludes = [
+
+			]
 			/*-- Red.Settings.external_includes.end --*/
 
 			function onImpression(binaryAssets) {
 				console.log('Index.onImpression()')
-				Bundle.launch(binaryAssets)
+				Build.launch(binaryAssets)
 			}
 
 			function isDevEnvironment() {
@@ -96,30 +98,20 @@ var environments = [
 			#view {
 				width: 100%;
 				height: 100%;
-			}
-
-			#view {
 				overflow: hidden;
 			}
-
-			body {
-				margin: 0px;
-				outline: none;
-				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-			}
-		</style>
-		<style type="text/css" id="RED_uiBorder">
-			.ui-border {
+			#preloader {
 				position: absolute;
-				top: 0px;
-				left: 0px;
 				width: 100%;
 				height: 100%;
 				border-width: 0px;
 				border-style: solid;
 				box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				-webkit-box-sizing: border-box;
+			}
+			#backup {
+				position: absolute;
+				width: 100%;
+				height: 100%;
 			}
 		</style>
 
@@ -131,8 +123,8 @@ var environments = [
 		<div id="view">
 			<div id="main"></div>
 			<div id="aux">
-				<div id="preloader" class="ui-border"></div>
-				<div id="fail"></div>
+				<div id="preloader"></div>
+				<div id="backup"></div>
 			</div>
 		</div>
 
@@ -141,41 +133,21 @@ var environments = [
 
 		</script>
 
-		<!-- preload inline scripts...if not needed until the build, use externalIncludes  -->
-
 		<script type="text/javascript">
-			function useStatic() {
-				console.log('Index.useStatic()')
-				removePreloader()
+			function loadBackup() {
+				console.log('Index.loadBackup()')
+				document.getElementById('backup').style.cssText =
+					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
 				document.getElementById('main').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
-				document.body.style = 'width: ' + adParams.failoverWidth + 'px; height: ' + adParams.failoverHeight + 'px; overflow: hidden;'
-				document.getElementById('fail').style.cssText =
-					'position: absolute; ' +
-					'width: ' +
-					adParams.failoverWidth +
-					'px; height: ' +
-					adParams.failoverHeight +
-					'px; ' +
-					'left:' +
-					adParams.failoverX +
-					'px; top:' +
-					adParams.failoverY +
-					'px; ' +
-					'background-image: url(' +
-					adParams.adPath +
-					assets.failover.images[0].source +
-					'); background-size: contain; overflow: hidden; '
 			}
-			function failAd() {
-				console.log('Index.failAd()')
+			function useBackup() {
+				console.log('Index.useBackup()')
 				useStatic()
 			}
 		</script>
 
 		<script type="text/javascript">
-			var global = this
-			var View = {}
 			var Network, queryParams, adData
 
 			/* -- LAUNCH --------------------------------------------
@@ -186,13 +158,13 @@ var environments = [
 			function prepareIndex() {
 				console.log('Index.prepareIndex()')
 				return new Promise(
-					function(resolve) {
+					function (resolve) {
 						/*-- Red.Network.onload.start --*/
 						resolve()
 						/*-- Red.Network.onload.end --*/
 					},
-					function(error) {
-						global.failAd()
+					function (error) {
+						useBackup()
 					}
 				)
 			}
@@ -201,11 +173,11 @@ var environments = [
 			function prepareAdParamsMisc() {
 				console.log('Index.prepareAdParamsMisc()')
 				return new Promise(
-					function(resolve) {
+					function (resolve) {
 						resolve()
 					},
-					function(error) {
-						global.failAd()
+					function (error) {
+						useBackup()
 					}
 				)
 			}
@@ -214,36 +186,32 @@ var environments = [
 			function preparePreloadMisc() {
 				console.log('Index.preparePreloadMisc()')
 				return new Promise(
-					function(resolve) {
+					function (resolve) {
 						makeAuxClickable()
 						resolve()
 					},
-					function(error) {
-						global.failAd()
+					function (error) {
+						useBackup()
 					}
 				)
 			}
-			function removePreloader() {
-				console.log('Index.removePreloader()')
-				var preloader = document.getElementById('preloader')
-				if (preloader) {
-					var aux = document.getElementById('aux')
-					aux.style.display = 'none'
-				}
+			function hidePreloader() {
+				console.log('Index.hidePreloader()')
+				document.getElementById('preloader').style.display = 'none'
 			}
 
 			// exits
 			function prepareNetworkExit() {
 				console.log('Index.prepareNetworkExit()')
-				Network = new (function() {
+				Network = new (function () {
 					/*-- Red.Network.exit.start --*/
-					this.exit = function(clickTag) {
+					this.exit = function (clickTag) {
 						console.log('Network -> STANDARD EXIT')
 						window.open(clickTag, '_blank')
 					}
 					/*-- Red.Network.exit.end --*/
 
-					this.appendMacro = function(_macro, _clickTag) {
+					this.appendMacro = function (_macro, _clickTag) {
 						if (_macro.search(/^%%/) > -1) return _clickTag
 						else return _macro + _clickTag
 					}
@@ -263,12 +231,6 @@ var environments = [
 			// ad-global bundle
 !function(){"use strict";var r=Object.freeze({__proto__:null,getDeployProfile:function(r){for(var a=0;a<environments.length;a++)if(environments[a].id===r)return environments[a];return!1},getQueryParams:function(){var r={},a=window.location.href.split("?");if(a.length>1){var e=a[1].split("&");for(var n in e){var t=e[n].split("=");2==t.length&&(r[t[0]]=decodeURIComponent(t[1]))}}return r},matchProtocolTo:function(r){var a=r.search(/^\/\//)>-1;if(r.search(/^http/)>-1||a){var e=window.location.href.search(/^https/)>-1||window.adParams&&adParams.forceHttps,n=e?"https://":"http://";if(a&&(r=r.replace(/^\/\//,n)),r.search(/.*edgecastcdn/)>-1){var t=e?"ne1."+r.match(/w(a|p)c/i)[0]+".":r.match(/w(a|p)c\.[a-z0-9]*\./i)[0];r=n+t+"edgecastcdn"+r.replace(/.*edgecastcdn/,"")}else if(r.search(/.*paramount\.com/)>-1){r=n+(e?"paramountdlds-a.akamaihd.net":"downloads.paramount.com")+r.replace(/.*paramount\.com/,"")}else r=r.search(/espn\.go\.com/)>-1||r.search(/secure\.espncdn\.com/)>-1?"https://secure.espncdn.com"+r.replace(/^.*\.com/,""):r.replace(/^https?\:\/\//i,n)}return r},isVersionOrNewer:function(r){var a=r.split(".").map((function(r){return parseInt(r)}));if(adParams.version.major>a[0])return!0;if(adParams.version.major===a[0]){if(adParams.version.minor>a[1])return!0;if(adParams.version.minor>a[1]&&adParams.version.patch>=a[2])return!0}return!1},fbaDataToBlobs:function(r){var a=new Uint8Array(4),e=new Uint32Array(a.buffer),n=44,t=new Uint8Array(r,n,1)[0];n+=5;for(var o=[],i=0;i<t;i++){for(var c=new Uint8Array(r,n,4),s=4,p=0;p<4;p++)a[--s]=c[p];var f=e[0];n+=7;var m=String.fromCharCode.apply(String,new Uint8Array(r,n++,1)),l=new Uint8Array(r,n+3,1)[0]||0,d=new Uint8Array(r,n+4,l),v=String.fromCharCode.apply(String,d);l+=4;var u=new Uint8Array(r,n+l,f-l);n+=f+4;var h=v.split("."),w=h[0],g=h[1],y=void 0;y="f"===m?"application/"+("ttf"===h[1]?"x-font-ttf":"font-".concat(h[1])):"image/"+("svg"==h[1]?"svg+xml":h[1]);var U=new Blob([u],{type:y}),P=URL.createObjectURL(U);o.push({path:w,src:P,fileType:g})}return o}});Object.keys(r).forEach((function(a){var e=r[a];window[a]=e}))}();
 
-		</script>
-
-		<!-- ad-load bundle -->
-		<script type="text/javascript">
-			/*-- Red.Inject.commons.start --*/
-			/*-- Red.Inject.commons.end --*/
 		</script>
 
 		<!-- inline bundle -->
@@ -370,13 +332,13 @@ var environments = [
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var ad_assets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ad-assets */ "./1-build/node_modules/@ff0000-ad-tech/ad-assets/index.js");
+/* harmony import */ var _ff0000_ad_tech_ad_assets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ff0000-ad-tech/ad-assets */ "./1-build/node_modules/@ff0000-ad-tech/ad-assets/index.js");
 /* harmony import */ var _images_preloader_white_gif_inline_true__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/preloader_white.gif?inline=true */ "./1-build/300x250/images/preloader_white.gif?inline=true");
 /* harmony import */ var _images_preloader_white_gif_inline_true__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_preloader_white_gif_inline_true__WEBPACK_IMPORTED_MODULE_1__);
 
-window.InlineSrc = ad_assets__WEBPACK_IMPORTED_MODULE_0__["InlineSrc"];
+window.InlineSrc = _ff0000_ad_tech_ad_assets__WEBPACK_IMPORTED_MODULE_0__["InlineSrc"];
 
-ad_assets__WEBPACK_IMPORTED_MODULE_0__["InlineSrc"].add('images/preloader_white.gif', _images_preloader_white_gif_inline_true__WEBPACK_IMPORTED_MODULE_1___default.a, true);
+_ff0000_ad_tech_ad_assets__WEBPACK_IMPORTED_MODULE_0__["InlineSrc"].add('images/preloader_white.gif', _images_preloader_white_gif_inline_true__WEBPACK_IMPORTED_MODULE_1___default.a, true);
 
 /***/ }),
 
@@ -587,13 +549,11 @@ class InlineSrc {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var ad_polyfills__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ad-polyfills */ "./1-build/node_modules/@ff0000-ad-tech/ad-polyfills/index.js");
-/* harmony import */ var _lib_scope_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/scope.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/scope.js");
-/* harmony import */ var _lib_polite_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/polite.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/polite.js");
-/* harmony import */ var _lib_preloader_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/preloader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/preloader.js");
-/* harmony import */ var _lib_payloader_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/payloader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/payloader.js");
-/* harmony import */ var _lib_inline_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/inline.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/inline.js");
-
+/* harmony import */ var _lib_scope_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/scope.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/scope.js");
+/* harmony import */ var _lib_polite_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/polite.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/polite.js");
+/* harmony import */ var _lib_preloader_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/preloader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/preloader.js");
+/* harmony import */ var _lib_payloader_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/payloader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/payloader.js");
+/* harmony import */ var _lib_inline_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/inline.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/inline.js");
 
 
 
@@ -606,26 +566,26 @@ __webpack_require__.r(__webpack_exports__);
  *
  */
 
-_lib_polite_js__WEBPACK_IMPORTED_MODULE_2__["prepare"](window.adParams.politeLoadAfter) // prepare vendor onload (Network.js)
+_lib_polite_js__WEBPACK_IMPORTED_MODULE_1__["prepare"](window.adParams.politeLoadAfter) // prepare vendor onload (Network.js)
 .then(() => window.prepareIndex()) // prepare scope
-.then(() => _lib_scope_js__WEBPACK_IMPORTED_MODULE_1__["prepare"]()) // misc index control
+.then(() => _lib_scope_js__WEBPACK_IMPORTED_MODULE_0__["prepare"]()) // misc index control
 .then(() => window.prepareAdParamsMisc()) // prepare network
 .then(() => window.prepareNetworkExit()) // prepare preloader
-.then(() => _lib_preloader_js__WEBPACK_IMPORTED_MODULE_3__["prepare"]()).then(() => window.preparePreloadMisc()) // finish polite timeout
-.then(() => _lib_polite_js__WEBPACK_IMPORTED_MODULE_2__["resolveDelay"]()) // prepare payload
-.then(() => _lib_payloader_js__WEBPACK_IMPORTED_MODULE_4__["execute"]()) // load any inlined base64 assets
+.then(() => _lib_preloader_js__WEBPACK_IMPORTED_MODULE_2__["prepare"]()).then(() => window.preparePreloadMisc()) // finish polite timeout
+.then(() => _lib_polite_js__WEBPACK_IMPORTED_MODULE_1__["resolveDelay"]()) // prepare payload
+.then(() => _lib_payloader_js__WEBPACK_IMPORTED_MODULE_3__["execute"]()) // load any inlined base64 assets
 .then(fbaImages => {
-  return _lib_inline_js__WEBPACK_IMPORTED_MODULE_5__["loadAssets"]().then((base64Images = []) => {
+  return _lib_inline_js__WEBPACK_IMPORTED_MODULE_4__["loadAssets"]().then((base64Images = []) => {
     // get dataRaw from loaders
     const binaryAssets = base64Images.concat(fbaImages || []);
     return binaryAssets;
   });
 }) // launch polite
 .then(binaryAssets => {
-  _lib_preloader_js__WEBPACK_IMPORTED_MODULE_3__["isComplete"].then(() => window.onImpression(binaryAssets));
+  _lib_preloader_js__WEBPACK_IMPORTED_MODULE_2__["isComplete"].then(() => window.onImpression(binaryAssets));
 }).catch(err => {
   console.error(err);
-  window.failAd();
+  window.useBackup();
 });
 
 /***/ }),
@@ -642,8 +602,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prepare", function() { return prepare; });
 /* -- ENVIRONMENT --------------------------------------------
  *
- *	Nominated Deprecation: 11/28/18
- *	 - depends on FAT-403, which would extend @common, @size, @index paradigm to runtime
  *
  */
 function prepare(environmentId) {
@@ -655,13 +613,6 @@ function prepare(environmentId) {
   // ad-path and subpaths
 
   adParams.adPath = adParams.runPath + environment.adPath; // must be defined in environment
-
-  adParams.imagesPath = adParams.adPath + ('imagesPath' in environment ? environment.imagesPath : 'images/');
-  adParams.videosPath = adParams.adPath + ('videosPath' in environment ? environment.videosPath : 'videos/'); // common paths
-
-  adParams.commonPath = adParams.adPath + ('commonPath' in environment ? environment.commonPath : 'common/');
-  adParams.jsPath = adParams.commonPath + ('jsPath' in environment ? environment.jsPath : 'js/');
-  adParams.fontsPath = adParams.commonPath + ('fontsPath' in environment ? environment.fontsPath : 'fonts/');
 }
 
 /***/ }),
@@ -712,8 +663,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadFba", function() { return loadFba; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadFont", function() { return loadFont; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadImg", function() { return loadImg; });
-/* harmony import */ var ad_global__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ad-global */ "ad-global");
-/* harmony import */ var ad_global__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ad_global__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ff0000_ad_tech_ad_global__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ff0000-ad-tech/ad-global */ "./1-build/node_modules/@ff0000-ad-tech/ad-global/src/ad-global.js");
 
 function loadJs() {
   const jsLoadPromises = window.adParams.dependencies.map(dep => {
@@ -752,7 +702,7 @@ function loadFba() {
       req.responseType = 'arraybuffer';
       req.send();
     }).then(dataRaw => {
-      const blobAssets = Object(ad_global__WEBPACK_IMPORTED_MODULE_0__["fbaDataToBlobs"])(dataRaw);
+      const blobAssets = Object(_ff0000_ad_tech_ad_global__WEBPACK_IMPORTED_MODULE_0__["fbaDataToBlobs"])(dataRaw);
       const assetLoadPromises = blobAssets.map(blobAsset => {
         const isFont = /(ttf|woff)/.test(blobAsset.fileType);
         const assetLoader = isFont ? loadFont : loadImg;
@@ -1117,10 +1067,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./environment.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-entry/lib/environment.js");
 
 function prepare() {
-  prepareAdParams(); // NOTE: `getQueryParams()` is missing from global scope, so these do nothing
-  // prepareQueryParams()
-  // checkForAdTagParams()
-
+  prepareAdParams();
+  prepareQueryParams();
+  checkForAdTagParams();
   prepareEnvironment();
   prepareOnError();
 }
@@ -1128,25 +1077,25 @@ function prepare() {
 function prepareAdParams() {
   console.log('Scope.prepareAdParams()');
   adParams.adSize = adParams.adWidth + 'x' + adParams.adHeight;
-  adParams.failoverWidth = adParams.preloaderWidth = adParams.adWidth;
-  adParams.failoverHeight = adParams.preloaderHeight = adParams.adHeight;
-  adParams.failoverX = adParams.preloaderX = 0;
-  adParams.failoverY = adParams.preloaderY = 0;
-} // function prepareQueryParams() {
-// 	console.log('Scope.prepareQueryParams()')
-// 	queryParams = getQueryParams()
-// }
-// function checkForAdTagParams() {
-// 	console.log('Scope.checkForAdTagParams()')
-// 	for (var key in queryParams) {
-// 		var value = queryParams[key].replace(/^\{/, '').replace(/\}$/, '')
-// 		if (value != '') {
-// 			console.log(' - applying to global.' + key + ': ' + value)
-// 			window[key] = value
-// 		}
-// 	}
-// }
+}
 
+function prepareQueryParams() {
+  console.log('Scope.prepareQueryParams()');
+  queryParams = getQueryParams();
+}
+
+function checkForAdTagParams() {
+  console.log('Scope.checkForAdTagParams()');
+
+  for (var key in queryParams) {
+    var value = queryParams[key].replace(/^\{/, '').replace(/\}$/, '');
+
+    if (value != '') {
+      console.log(' - applying to global.' + key + ': ' + value);
+      window[key] = value;
+    }
+  }
+}
 
 function prepareEnvironment() {
   console.log('Scope.prepareEnvironment()');
@@ -1155,85 +1104,191 @@ function prepareEnvironment() {
 
 function prepareOnError() {
   console.log('Scope.prepareOnError()');
-  if (adParams.failoverOnError) onerror = handleError;
+
+  if (adParams.failoverOnError) {
+    window.onerror = handleError;
+  }
 }
 
 function handleError() {
-  console.log('Scope.handleError() - JAVASCRIPT ERROR!'); // ignore known errors. Currently only a DC analytic error happens when tapping on video player in iOS
+  console.log('Scope.handleError() - JAVASCRIPT ERROR!');
 
-  const surpressedErrorList = ["TypeError: b.some is not a function. (In 'b.some(function(b){return a.j.includes(b.identifier)})', 'b.some' is undefined)"];
-  const error = arguments[0];
+  window.onerror = () => {// after the first error, disable the event listening
+  };
 
-  if (surpressedErrorList.indexOf(error) > -1) {
-    console.log('surpressing known error');
-    return;
-  }
-
-  onerror = function () {}; // after the first error, disable the event listening
-
-
-  window.failAd();
+  window.useBackup();
 }
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-polyfills/index.js":
-/*!********************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-polyfills/index.js ***!
-  \********************************************************************/
-/*! no exports provided */
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-global/src/ad-global.js":
+/*!*************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-global/src/ad-global.js ***!
+  \*************************************************************************/
+/*! exports provided: getDeployProfile, getQueryParams, matchProtocolTo, isVersionOrNewer, fbaDataToBlobs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lib_custom_event__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/custom-event */ "./1-build/node_modules/@ff0000-ad-tech/ad-polyfills/lib/custom-event.js");
-/* harmony import */ var _lib_custom_event__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lib_custom_event__WEBPACK_IMPORTED_MODULE_0__);
- // expose the lib packages as modules
-// TODO: Is there a better way to do this ????
-// export {
-// 	customEvent
-// }
-
-/***/ }),
-
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-polyfills/lib/custom-event.js":
-/*!*******************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-polyfills/lib/custom-event.js ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* Method: CustomEvent() */
-try {
-  new CustomEvent('test');
-} catch (e) {
-  console.log(' -> CustomEvent');
-
-  function CustomEvent2(event, params) {
-    params = params || {
-      bubbles: false,
-      cancelable: false,
-      detail: undefined
-    };
-    var evt = document.createEvent('CustomEvent');
-    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-    return evt;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDeployProfile", function() { return getDeployProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getQueryParams", function() { return getQueryParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "matchProtocolTo", function() { return matchProtocolTo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isVersionOrNewer", function() { return isVersionOrNewer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbaDataToBlobs", function() { return fbaDataToBlobs; });
+/* -- GLOBAL UTILITIES --------------------------------------------
+ *
+ *		These methods are tightly coupled to FAT index:
+ *			- window.environments
+ *			- window.adParams
+ *
+ */
+function getDeployProfile(id) {
+  // console.log('ad-global > getDeployProfile()')
+  for (var i = 0; i < environments.length; i++) {
+    if (environments[i].id === id) return environments[i];
   }
 
-  CustomEvent2.prototype = window.Event.prototype;
-  window.CustomEvent = CustomEvent2;
+  return false;
 }
+function getQueryParams() {
+  // console.log('ad-global > getQueryParams()')
+  var queryParams = {};
+  var query = window.location.href.split('?');
 
-/***/ }),
+  if (query.length > 1) {
+    var params = query[1].split('&');
 
-/***/ "ad-global":
-/*!*************************!*\
-  !*** external "window" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+    for (var i in params) {
+      var keyValue = params[i].split('=');
+      if (keyValue.length == 2) queryParams[keyValue[0]] = decodeURIComponent(keyValue[1]);
+    }
+  }
 
-module.exports = window;
+  return queryParams;
+}
+function matchProtocolTo(_url) {
+  // console.log('ad-global > matchProtocolTo()')
+  var noProtocol = _url.search(/^\/\//) > -1;
+
+  if (_url.search(/^http/) > -1 || noProtocol) {
+    var _secure = window.location.href.search(/^https/) > -1 || window.adParams && adParams.forceHttps;
+
+    var _httpProtocol = _secure ? 'https://' : 'http://';
+
+    if (noProtocol) {
+      _url = _url.replace(/^\/\//, _httpProtocol);
+    }
+
+    if (_url.search(/.*edgecastcdn/) > -1) {
+      var _edgecastContext = _secure ? 'ne1.' + _url.match(/w(a|p)c/i)[0] + '.' : _url.match(/w(a|p)c\.[a-z0-9]*\./i)[0];
+
+      _url = _httpProtocol + _edgecastContext + 'edgecastcdn' + _url.replace(/.*edgecastcdn/, '');
+    } else if (_url.search(/.*paramount\.com/) > -1) {
+      var _paramountContext = _secure ? 'paramountdlds-a.akamaihd.net' : 'downloads.paramount.com';
+
+      _url = _httpProtocol + _paramountContext + _url.replace(/.*paramount\.com/, '');
+    } else if (_url.search(/espn\.go\.com/) > -1 || _url.search(/secure\.espncdn\.com/) > -1) {
+      _url = 'https://secure.espncdn.com' + _url.replace(/^.*\.com/, '');
+    } else {
+      _url = _url.replace(/^https?\:\/\//i, _httpProtocol);
+    }
+  }
+
+  return _url;
+} // check version against
+
+function isVersionOrNewer(version) {
+  // console.log('ad-global > isVersionOrNewer()')
+  const semver = version.split('.').map(function (v) {
+    return parseInt(v);
+  });
+
+  if (adParams.version.major > semver[0]) {
+    return true;
+  } else if (adParams.version.major === semver[0]) {
+    if (adParams.version.minor > semver[1]) {
+      return true;
+    } else if (adParams.version.minor > semver[1]) {
+      if (adParams.version.patch >= semver[2]) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+function fbaDataToBlobs(dataRaw) {
+  // console.log("_addFbaSubLoads()", loader)
+  // Conversion between uint8s and uint32s.
+  let uint8 = new Uint8Array(4);
+  let uint32 = new Uint32Array(uint8.buffer); // start after = signature(8 bytes) + IHDR(25 bytes) + fbAc(16 bytes total, but only 11: size,type,content-1 )
+
+  let idx = 44;
+  const chunkTotal = new Uint8Array(dataRaw, idx, 1)[0]; //console.log( 'number of images as chunks:', chunkTotal )
+  // skip over rest of fbAc chunk: count value byte + CRC 4 bytes
+
+  idx += 5;
+  const blobs = [];
+
+  for (let i = 0; i < chunkTotal; i++) {
+    // size, type, content, crc
+    // get the size of next chunk as on UintArray
+    let sizeOfChunk = new Uint8Array(dataRaw, idx, 4); // Read the length of the current chunk, which is stored as a Uint32.
+    // this one has to be a loop, as values get assigned to uint8, that changes buffer of uint32
+    // also, the values must be set reversed, henced the count down loop
+
+    let up = 4;
+
+    for (var k = 0; k < 4; k++) {
+      //console.log( k, up, sizeOfChunk[k] )
+      uint8[--up] = sizeOfChunk[k];
+    } // all chunk data NOT including the type
+
+
+    let length = uint32[0];
+    idx += 7; // Get the chunk type in ASCII, only last character really matters
+
+    let type = String.fromCharCode.apply(String, new Uint8Array(dataRaw, idx++, 1)); // console.log('\ttype:', type, '\tlength:', length)
+
+    let fileNameLengthArray = new Uint8Array(dataRaw, idx + 3, 1);
+    let fileNameLength = fileNameLengthArray[0] || 0; // default to zero incase array fails? maybe unnecessary
+
+    let nameBuffer = new Uint8Array(dataRaw, idx + 4, fileNameLength);
+    let fileName = String.fromCharCode.apply(String, nameBuffer); // first add to the file name length 4 bytes: file name length byte count
+
+    fileNameLength += 4; // offset the array start and length by the file name length
+
+    let chunkData = new Uint8Array(dataRaw, idx + fileNameLength, length - fileNameLength); // NOTE: ArrayBuffer.slice() does not exist in IE10, so have to do it manually inline
+    //var chunkData = new Uint8Array(chunk.buffer.slice(4))
+    // skip over the content AND skip over the CRC value by incrementing by 4 bytes
+
+    idx += length + 4;
+    let fileNameSplit = fileName.split('.');
+    const assetName = fileNameSplit[0];
+    const fileType = fileNameSplit[1]; //var blobFileType = '';// 'application/octet-stream';
+
+    let blobFileType;
+
+    if (type === 'f') {
+      blobFileType = 'application/' + (fileNameSplit[1] === 'ttf' ? 'x-font-ttf' : `font-${fileNameSplit[1]}`);
+    } else {
+      blobFileType = 'image/' + (fileNameSplit[1] == 'svg' ? 'svg+xml' : fileNameSplit[1]);
+    }
+
+    let blob = new Blob([chunkData], {
+      type: blobFileType
+    });
+    let url = URL.createObjectURL(blob); // url will be ~ blob:32c3c7af-ef04-414f-a073-685602fe8a28
+
+    blobs.push({
+      path: assetName,
+      src: url,
+      fileType
+    });
+  }
+
+  return blobs;
+}
 
 /***/ })
 

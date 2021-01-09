@@ -1,5 +1,5 @@
 import AdData from '@common/js/AdData.js'
-import { ImageManager } from 'ad-control'
+import { ImageManager } from '@ff0000-ad-tech/ad-control'
 /*-- Red.Imports.head.start --*/
 /*-- Red.Imports.head.end --*/
 
@@ -27,7 +27,7 @@ export class Preflight {
 				.then(() => {
 					resolve()
 				})
-				.catch(err => {
+				.catch((err) => {
 					reject(err)
 				})
 		})

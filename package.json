@@ -26,13 +26,12 @@
 		"eslint": "^4.16.0",
 		"eslint-config-prettier": "^2.9.0",
 		"eslint-plugin-prettier": "^2.5.0",
-		"prettier": "^1.10.2"
+		"prettier": "^2.2.1"
 	},
 	"dependencies": {
 		"@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
 		"@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.0.1",
 		"@ff0000-ad-tech/cs-plugin-vendor-indexes": "^1.1.0",
-		"gasp": "0.0.2",
-		"gsap": "^3.5.1"
+		"sass": "^1.30.0"
 	}
 }

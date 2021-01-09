@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<!-- BUILD SOURCE: Standard - Base / OPTIONS: Sample UIComponents / @ff0000-ad-tech/build-source-assembler: 3.6.7 / Created: 02/21/20 09:50am -->
-
+	
 	<head>
 		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta content="utf-8" http-equiv="encoding" />
 		<meta name="ad.size" content="width=300,height=250" />
-		<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.5.1_min.js"></script>
 		<!-- Red.Network.meta.start -->
 		<!-- Red.Network.meta.end -->
-
+		
 		<title>**CLIENT NAME** **PROJECT NAME** 300x250</title>
-
+		
+		<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.5.1_min.js"></script>
 		<script type="text/javascript">
 			/*-- Red.Network.clicktags.start --*/
 			var clickTag = 'http://www.changeme.com/'
@@ -39,8 +39,8 @@
 				version: {
 					major: 3,
 					minor: 6,
-					patch: 7
-				}
+					patch: 7,
+				},
 			}
 			/*-- Red.Settings.ad_params.end --*/
 
@@ -50,21 +50,21 @@
 					backgroundColor: '#000000',
 					images: [
 						{
-							source: 'preloader_white.gif'
-						}
-					]
+							source: 'preloader_white.gif',
+						},
+					],
 				},
 				failover: {
 					images: [
 						{
-							source: 'backup.jpg'
-						}
-					]
+							source: 'backup.jpg',
+						},
+					],
 				},
 				payload: {
 					text: ['build.bundle.js'],
-					binary: []
-				}
+					binary: [],
+				},
 			}
 			/*-- Red.Settings.assets.end --*/
 
@@ -73,12 +73,14 @@
 			/*-- Red.Settings.environments.end --*/
 
 			/*-- Red.Settings.external_includes.start --*/
-			var externalIncludes = []
+			var externalIncludes = [
+
+			]
 			/*-- Red.Settings.external_includes.end --*/
 
 			function onImpression(binaryAssets) {
 				console.log('Index.onImpression()')
-				Bundle.launch(binaryAssets)
+				Build.launch(binaryAssets)
 			}
 
 			function isDevEnvironment() {
@@ -92,30 +94,20 @@
 			#view {
 				width: 100%;
 				height: 100%;
-			}
-
-			#view {
 				overflow: hidden;
 			}
-
-			body {
-				margin: 0px;
-				outline: none;
-				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-			}
-		</style>
-		<style type="text/css" id="RED_uiBorder">
-			.ui-border {
+			#preloader {
 				position: absolute;
-				top: 0px;
-				left: 0px;
 				width: 100%;
 				height: 100%;
 				border-width: 0px;
 				border-style: solid;
 				box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				-webkit-box-sizing: border-box;
+			}
+			#backup {
+				position: absolute;
+				width: 100%;
+				height: 100%;
 			}
 		</style>
 
@@ -127,51 +119,32 @@
 		<div id="view">
 			<div id="main"></div>
 			<div id="aux">
-				<div id="preloader" class="ui-border"></div>
-				<div id="fail"></div>
+				<div id="preloader"></div>
+				<div id="backup"></div>
 			</div>
 		</div>
 
 		<script type="text/javascript">
-			/*-- Red.Inject.promise_polyfill.start --*/
-			/*-- Red.Inject.promise_polyfill.end --*/
+			/*-- Red.Require.promise_polyfill.start --*/
+			require('./node_modules/promise-polyfill/dist/polyfill.min.js')
+			/*-- Red.Require.promise_polyfill.end --*/
 		</script>
 
-		<!-- preload inline scripts...if not needed until the build, use externalIncludes  -->
-
 		<script type="text/javascript">
-			function useStatic() {
-				console.log('Index.useStatic()')
-				removePreloader()
+			function loadBackup() {
+				console.log('Index.loadBackup()')
+				document.getElementById('backup').style.cssText =
+					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
 				document.getElementById('main').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
-				document.body.style = 'width: ' + adParams.failoverWidth + 'px; height: ' + adParams.failoverHeight + 'px; overflow: hidden;'
-				document.getElementById('fail').style.cssText =
-					'position: absolute; ' +
-					'width: ' +
-					adParams.failoverWidth +
-					'px; height: ' +
-					adParams.failoverHeight +
-					'px; ' +
-					'left:' +
-					adParams.failoverX +
-					'px; top:' +
-					adParams.failoverY +
-					'px; ' +
-					'background-image: url(' +
-					adParams.adPath +
-					assets.failover.images[0].source +
-					'); background-size: contain; overflow: hidden; '
 			}
-			function failAd() {
-				console.log('Index.failAd()')
+			function useBackup() {
+				console.log('Index.useBackup()')
 				useStatic()
 			}
 		</script>
 
 		<script type="text/javascript">
-			var global = this
-			var View = {}
 			var Network, queryParams, adData
 
 			/* -- LAUNCH --------------------------------------------
@@ -182,13 +155,13 @@
 			function prepareIndex() {
 				console.log('Index.prepareIndex()')
 				return new Promise(
-					function(resolve) {
+					function (resolve) {
 						/*-- Red.Network.onload.start --*/
 						resolve()
 						/*-- Red.Network.onload.end --*/
 					},
-					function(error) {
-						global.failAd()
+					function (error) {
+						useBackup()
 					}
 				)
 			}
@@ -197,11 +170,11 @@
 			function prepareAdParamsMisc() {
 				console.log('Index.prepareAdParamsMisc()')
 				return new Promise(
-					function(resolve) {
+					function (resolve) {
 						resolve()
 					},
-					function(error) {
-						global.failAd()
+					function (error) {
+						useBackup()
 					}
 				)
 			}
@@ -210,36 +183,32 @@
 			function preparePreloadMisc() {
 				console.log('Index.preparePreloadMisc()')
 				return new Promise(
-					function(resolve) {
+					function (resolve) {
 						makeAuxClickable()
 						resolve()
 					},
-					function(error) {
-						global.failAd()
+					function (error) {
+						useBackup()
 					}
 				)
 			}
-			function removePreloader() {
-				console.log('Index.removePreloader()')
-				var preloader = document.getElementById('preloader')
-				if (preloader) {
-					var aux = document.getElementById('aux')
-					aux.style.display = 'none'
-				}
+			function hidePreloader() {
+				console.log('Index.hidePreloader()')
+				document.getElementById('preloader').style.display = 'none'
 			}
 
 			// exits
 			function prepareNetworkExit() {
 				console.log('Index.prepareNetworkExit()')
-				Network = new (function() {
+				Network = new (function () {
 					/*-- Red.Network.exit.start --*/
-					this.exit = function(clickTag) {
+					this.exit = function (clickTag) {
 						console.log('Network -> STANDARD EXIT')
 						window.open(clickTag, '_blank')
 					}
 					/*-- Red.Network.exit.end --*/
 
-					this.appendMacro = function(_macro, _clickTag) {
+					this.appendMacro = function (_macro, _clickTag) {
 						if (_macro.search(/^%%/) > -1) return _clickTag
 						else return _macro + _clickTag
 					}
@@ -257,26 +226,21 @@
 			}
 
 			// ad-global bundle
-			/*-- Red.Inject.ad-global.start --*/
-			/*-- Red.Inject.ad-global.end --*/
-		</script>
-
-		<!-- ad-load bundle -->
-		<script type="text/javascript">
-			/*-- Red.Inject.commons.start --*/
-			/*-- Red.Inject.commons.end --*/
+			/*-- Red.Require.ad-global.start --*/
+			require('./1-build/node_modules/@ff0000-ad-tech/ad-global/dist/ad-global.inline.js')
+			/*-- Red.Require.ad-global.end --*/
 		</script>
 
 		<!-- inline bundle -->
 		<script type="text/javascript">
-			/*-- Red.Inject.inline_entry.start --*/
-			/*-- Red.Inject.inline_entry.end --*/
+			/*-- Red.Bundle.inline.start --*/
+			/*-- Red.Bundle.inline.end --*/
 		</script>
 
 		<!-- initial bundle -->
 		<script type="text/javascript">
-			/*-- Red.Inject.initial_entry.start --*/
-			/*-- Red.Inject.initial_entry.end --*/
+			/*-- Red.Bundle.initial.start --*/
+			/*-- Red.Bundle.initial.end --*/
 		</script>
 	</body>
 </html>

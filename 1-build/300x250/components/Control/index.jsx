@@ -10,7 +10,7 @@ class Control extends Component {
 	}
 
 	componentDidMount = () => {
-		window.removePreloader()
+		window.hidePreloader()
 		this.startAnimation()
 	}
 

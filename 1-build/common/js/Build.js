@@ -13,7 +13,7 @@ export function Main() {
 		left: '0px',
 		top: '0px',
 		overflow: 'hidden',
-		userSelect: 'none'
+		userSelect: 'none',
 	})
 	T.logoContainer = new UIImage({
 		id: 'logo-container',
@@ -21,8 +21,8 @@ export function Main() {
 		source: 'template_image',
 		css: {
 			x: 9,
-			y: 60
-		}
+			y: 60,
+		},
 	})
 
 	T.txtGreeting = new UITextField({
@@ -31,7 +31,7 @@ export function Main() {
 		css: {
 			width: 200,
 			height: 30,
-			color: '#ff1414'
+			color: '#ff1414',
 		},
 		align: Align.CENTER,
 		fontSize: 40,
@@ -40,10 +40,10 @@ export function Main() {
 		alignText: Align.CENTER,
 		bufferText: {
 			left: 5,
-			right: 5
+			right: 5,
 		},
 		leading: 1,
-		text: 'MOBILE ADS'
+		text: 'MOBILE ADS',
 	})
 
 	Effects.textDropShadow({
@@ -52,7 +52,7 @@ export function Main() {
 		distance: 2,
 		size: 2,
 		color: '#000000',
-		alpha: 0.5
+		alpha: 0.5,
 	})
 
 	T.buttonCta = new UIButton({
@@ -62,29 +62,29 @@ export function Main() {
 			width: 150,
 			height: 40,
 			backgroundColor: 'grey',
-			borderRadius: 10
+			borderRadius: 10,
 		},
 		align: {
 			x: Align.CENTER,
 			y: {
 				type: Align.BOTTOM,
-				offset: -30
-			}
+				offset: -30,
+			},
 		},
 		icon: [
 			new UITextField({
 				css: {
 					width: 150,
 					height: 40,
-					color: '#ffffff'
+					color: '#ffffff',
 				},
 				fontSize: 12,
 				fontFamily: 'template_font',
 				format: TextFormat.INLINE_FIT,
 				alignText: Align.CENTER,
-				text: 'CLICK FOR MORE'
-			})
-		]
+				text: 'CLICK FOR MORE',
+			}),
+		],
 	})
 
 	// add background color to ad if needed
@@ -97,6 +97,6 @@ export function MainBorder() {
 	new UIBorder({
 		target: View.main,
 		size: 1,
-		color: '#000000'
+		color: '#000000',
 	})
 }

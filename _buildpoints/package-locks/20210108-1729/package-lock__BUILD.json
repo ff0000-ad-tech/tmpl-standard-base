@@ -94,7 +94,7 @@
 			}
 		},
 		"@ff0000-ad-tech/ad-control": {
-			"version": "git+ssh://git@github.com/ff0000-ad-tech/ad-control.git#7dbb340622bdde0072d78095290bb124b5dee48d",
+			"version": "git+ssh://git@github.com/ff0000-ad-tech/ad-control.git#dd1028297848afeb1397ae0f01de1c54b0adb76d",
 			"from": "git+ssh://git@github.com/ff0000-ad-tech/ad-control.git#preact",
 			"requires": {
 				"@ff0000-ad-tech/ad-events": "^1.1.3",
@@ -180,7 +180,7 @@
 			}
 		},
 		"@ff0000-ad-tech/ad-entry": {
-			"version": "git+ssh://git@github.com/ff0000-ad-tech/ad-entry.git#cf7e0a124a4888557ae5199a1c50b8ebd7236144",
+			"version": "git+ssh://git@github.com/ff0000-ad-tech/ad-entry.git#712ce3dd5f23da3e63df10b9700f363d7de4175b",
 			"from": "git+ssh://git@github.com/ff0000-ad-tech/ad-entry.git#preact"
 		},
 		"@ff0000-ad-tech/ad-events": {
@@ -1060,9 +1060,9 @@
 			"integrity": "sha1-F0uSaHNVNP+8es5r9TpanhtcX18="
 		},
 		"preact": {
-			"version": "10.5.9",
-			"resolved": "https://registry.npmjs.org/preact/-/preact-10.5.9.tgz",
-			"integrity": "sha512-X4m+4VMVINl/JFQKALOCwa3p8vhMAhBvle0hJ/W44w/WWfNb2TA7RNicDV3K2dNVs57f61GviEnVLiwN+fxiIg==",
+			"version": "10.5.7",
+			"resolved": "https://registry.npmjs.org/preact/-/preact-10.5.7.tgz",
+			"integrity": "sha512-4oEpz75t/0UNcwmcsjk+BIcDdk68oao+7kxcpc1hQPNs2Oo3ZL9xFz8UBf350mxk/VEdD41L5b4l2dE3Ug3RYg==",
 			"dev": true
 		},
 		"reduce-extract": {
@@ -1227,9 +1227,9 @@
 			"integrity": "sha1-XAgOXWYcu+OCWdLnCjxyU+hziB0="
 		},
 		"uglify-js": {
-			"version": "3.12.4",
-			"resolved": "https://registry.npmjs.org/uglify-js/-/uglify-js-3.12.4.tgz",
-			"integrity": "sha512-L5i5jg/SHkEqzN18gQMTWsZk3KelRsfD1wUVNqtq0kzqWQqcJjyL8yc1o8hJgRrWqrAl2mUFbhfznEIoi7zi2A==",
+			"version": "3.12.1",
+			"resolved": "https://registry.npmjs.org/uglify-js/-/uglify-js-3.12.1.tgz",
+			"integrity": "sha512-o8lHP20KjIiQe5b/67Rh68xEGRrc2SRsCuuoYclXXoC74AfSRGblU1HKzJWH3HxPZ+Ort85fWHpSX7KwBUC9CQ==",
 			"optional": true
 		},
 		"underscore": {

@@ -1,6 +1,6 @@
 import { h, render } from 'preact'
 
-import { Core } from 'ad-control'
+import { Core } from '@ff0000-ad-tech/ad-control'
 import { Preflight } from '@common/js/Preflight.js'
 
 import Control from './components/Control'
@@ -12,11 +12,11 @@ const launch = (binaryAssets) => {
 		.then(() => Preflight.init())
 		.then(() => Core.loadDynamic())
 		.then(() => render(<Control />, document.getElementById('main')))
-		.catch(err => {
+		.catch((err) => {
 			throw err
 		})
 }
 
-window.Bundle = {
-	launch
+window.Build = {
+	launch,
 }

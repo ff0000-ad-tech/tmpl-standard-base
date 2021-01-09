@@ -1,6 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
 import { useRef, useEffect } from 'preact/hooks'
-import { ImageManager } from 'ad-control'
 
 import './CopyBlock.scss'
 import '@size/images/160over90-logo.png'

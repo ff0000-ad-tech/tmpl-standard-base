@@ -1,5 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
-import { ImageManager } from 'ad-control'
+import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
 import Slideshow from './../Slideshow/Slideshow.jsx'
 import CopyBlock from './../CopyBlock/CopyBlock.jsx'
