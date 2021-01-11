@@ -12,27 +12,25 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		// Destructure out all the elements from the reference to the Ad component
-		const { slideshow, copyblock, cta, logo } = this.adRef
+		const { brandlogo, cta, logo } = this.adRef
 
-		slideshow.start()
-		copyblock.start()
+		brandlogo.start()
 
 		gsap.set(cta, { y: '-=20' })
 
-		const del = 6
-		gsap.to(logo, { delay: del, duration: 1, x: '-=40' })
+		const del = 2
+		gsap.to(logo, { delay: del, duration: 1, x: '-=60' })
 		gsap.to(cta, { delay: del, duration: 1, y: '+=20', opacity: 1 })
 	}
 
 	handleClick = () => {
-		// Network.exit(window.clickTag)
+		Network.exit(window.clickTag)
 	}
 	handleRollOver = () => {
-		this.adRef.slideshow.over()
+		this.adRef.brandlogo.over()
 	}
 	handleRollOut = () => {
-		this.adRef.slideshow.out()
+		this.adRef.brandlogo.out()
 	}
 
 	render() {
