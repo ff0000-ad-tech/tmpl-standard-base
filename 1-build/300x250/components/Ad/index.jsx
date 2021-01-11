@@ -1,8 +1,8 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
-import Slideshow from './../Slideshow/Slideshow.jsx'
-import CopyBlock from './../CopyBlock/CopyBlock.jsx'
+import Slideshow from './../Slideshow'
+import CopyBlock from './../CopyBlock'
 import './styles.scss'
 
 import '@common/fonts/JosefinSans-Bold.woff'

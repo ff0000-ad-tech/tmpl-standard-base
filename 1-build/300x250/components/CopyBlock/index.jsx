@@ -1,7 +1,6 @@
 import { h, render, Component, createRef } from 'preact'
-import { useRef, useEffect } from 'preact/hooks'
 
-import './CopyBlock.scss'
+import './index.scss'
 import '@size/images/160over90-logo.png'
 import '@size/images/frame1photo.jpg'
 import '@size/images/frame2photo.jpg'
