@@ -158,19 +158,19 @@ class Ad extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   render() {
     return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-      className: "ad"
+      className: "a"
     }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_BrandLogo__WEBPACK_IMPORTED_MODULE_2__["default"], {
       ref: el => this.brandlogo = el
     }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       ref: el => this.footer = el,
-      className: "ad__footer"
+      className: "a__footer"
     }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
       ref: el => this.logo = el,
-      className: "ad__logo",
+      className: "a__logo",
       src: this.getImage('160over90-logo-small')
     }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       ref: el => this.cta = el,
-      className: "ad__cta"
+      className: "a__cta"
     }, "LEARN MORE")));
   }
 
@@ -242,28 +242,32 @@ class BrandLogo extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     gsap.fromTo('#logo', {
       scale: 0
     }, {
-      duration: 1,
-      scale: 1
+      delay: .3,
+      duration: .5,
+      scale: 1.2,
+      ease: "expo.out"
     });
   }
 
   over() {
     gsap.to('#logo', {
-      duration: 0.5,
-      scale: 1.1
+      duration: 0.3,
+      scale: 1.4,
+      ease: "expo.out"
     });
   }
 
   out() {
     gsap.to('#logo', {
-      duration: 0.5,
-      scale: 1
+      duration: 0.3,
+      scale: 1.2,
+      ease: "expo.out"
     });
   }
 
   render() {
     return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-      className: "slideshow"
+      className: "bl"
     }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
       id: "logo",
       src: this.getImage('160over90-logo'),
@@ -340,17 +344,19 @@ class Control extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       gsap.set(cta, {
         y: '-=20'
       });
-      const del = 2;
+      const del = 1;
       gsap.to(logo, {
         delay: del,
-        duration: 1,
-        x: '-=60'
+        duration: .5,
+        x: '-=60',
+        ease: "expo.out"
       });
       gsap.to(cta, {
         delay: del,
-        duration: 1,
+        duration: .5,
         y: '+=20',
-        opacity: 1
+        opacity: 1,
+        ease: "expo.out"
       });
     });
 
@@ -2486,7 +2492,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0;\n}\n\n.ad {\n  position: relative;\n  width: 300px;\n  height: 250px;\n  border: 1px solid #303030;\n  overflow: hidden;\n  background: #f6f2ee;\n  cursor: pointer;\n}\n.ad__cta {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  left: 146px;\n  opacity: 0;\n  height: 23px;\n  border-radius: 50em;\n  background: #f6f2ee;\n  padding: 2px 10px;\n  color: #004c97;\n  font-family: \"template_font\";\n  font-size: 11px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: 0.3s;\n}\n.ad__cta:hover {\n  background-color: #74dbdd;\n  color: #f6f2ee;\n  cursor: pointer;\n}\n.ad__logo {\n  position: absolute;\n  width: 60px;\n  height: 31px;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n}\n.ad__footer {\n  position: absolute;\n  bottom: 0;\n  height: 60px;\n  width: 100%;\n  background: #2a2a68;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0;\n}\n\n.a {\n  position: relative;\n  width: 300px;\n  height: 250px;\n  border: 1px solid #303030;\n  overflow: hidden;\n  background: #f6f2ee;\n  cursor: pointer;\n}\n.a__cta {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  left: 146px;\n  opacity: 0;\n  height: 23px;\n  border-radius: 50em;\n  background: #f6f2ee;\n  padding: 2px 10px;\n  color: #4d4d4d;\n  font-family: \"template_font\";\n  font-size: 11px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: 0.1s;\n}\n.a__cta:hover {\n  background-color: #999999;\n  color: #f6f2ee;\n  cursor: pointer;\n}\n.a__logo {\n  position: absolute;\n  height: 25px;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n}\n.a__footer {\n  position: absolute;\n  bottom: 0;\n  height: 60px;\n  width: 100%;\n  background: #2a2a2a;\n}", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
@@ -2508,7 +2514,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".slideshow {\n  width: 100%;\n  height: 100%;\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.slideshow img {\n  position: relative;\n  height: 75px;\n  top: -30px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".bl {\n  width: 100%;\n  height: 100%;\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.bl img {\n  position: relative;\n  height: 75px;\n  top: -30px;\n}", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 

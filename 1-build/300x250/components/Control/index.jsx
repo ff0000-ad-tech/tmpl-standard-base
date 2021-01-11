@@ -18,9 +18,9 @@ class Control extends Component {
 
 		gsap.set(cta, { y: '-=20' })
 
-		const del = 2
-		gsap.to(logo, { delay: del, duration: 1, x: '-=60' })
-		gsap.to(cta, { delay: del, duration: 1, y: '+=20', opacity: 1 })
+		const del = 1
+		gsap.to(logo, { delay: del, duration: .5, x: '-=60',  ease: "expo.out" })
+		gsap.to(cta, { delay: del, duration: .5, y: '+=20', opacity: 1,  ease: "expo.out" })
 	}
 
 	handleClick = () => {

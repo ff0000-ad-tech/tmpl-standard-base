@@ -20,11 +20,11 @@ class Ad extends Component {
 
 	render() {
 		return (
-			<div className="ad">
+			<div className="a">
 				<BrandLogo ref={el => this.brandlogo = el} />
-				<div ref={el => this.footer = el} className="ad__footer">
-					<img ref={el => this.logo = el} className="ad__logo" src={this.getImage('160over90-logo-small')} />
-					<div ref={el => this.cta = el} className="ad__cta">
+				<div ref={el => this.footer = el} className="a__footer">
+					<img ref={el => this.logo = el} className="a__logo" src={this.getImage('160over90-logo-small')} />
+					<div ref={el => this.cta = el} className="a__cta">
 						LEARN MORE
 					</div>
 				</div>

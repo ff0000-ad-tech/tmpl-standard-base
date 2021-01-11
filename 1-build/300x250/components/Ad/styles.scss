@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	margin: 0;
 }
-.ad {
+.a {
 	position: relative;
 	width: 300px;
 	height: 250px;
@@ -21,16 +21,16 @@
 		border-radius: 50em;
 		background: #f6f2ee;
 		padding: 2px 10px;
-		color: #004c97;
+		color: #4d4d4d;
 		font-family: 'template_font';
 		font-size: 11px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		transition: 0.3s;
+		transition: 0.1s;
 
 		&:hover {
-			background-color: #74dbdd;
+			background-color: #999999;
 			color: #f6f2ee;
 			cursor: pointer;
 		}
@@ -38,8 +38,7 @@
 
 	&__logo {
 		position: absolute;
-		width: 60px;
-		height: 31px;
+		height: 25px;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
@@ -50,6 +49,6 @@
 		bottom: 0;
 		height: 60px;
 		width: 100%;
-		background: #2a2a68;
+		background: #2a2a2a;
 	}
 }

@@ -14,19 +14,19 @@ class BrandLogo extends Component {
 	}
 
 	start() {
-		gsap.fromTo('#logo', {scale: 0}, { duration: 1, scale: 1 })
+		gsap.fromTo('#logo', {scale: 0}, { delay: .3, duration: .5, scale: 1.2,  ease: "expo.out" })
 	}
 
 	over() {
-		gsap.to('#logo', { duration: 0.5, scale: 1.1 })
+		gsap.to('#logo', { duration: 0.3, scale: 1.4, ease: "expo.out" })
 	}
 	out() {
-		gsap.to('#logo', { duration: 0.5, scale: 1 })
+		gsap.to('#logo', { duration: 0.3, scale: 1.2, ease: "expo.out" })
 	}
 
 	render() {
 		return (
-			<div className="slideshow">
+			<div className="bl">
 				<img id="logo" src={this.getImage('160over90-logo')} alt="logo" />
 			</div>
 		)
