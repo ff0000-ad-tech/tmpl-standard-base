@@ -10,7 +10,7 @@ import '@size/images/frame3photo.jpg'
 class CopyBlock extends Component {
 	constructor(props) {
 		super(props)
-		this.copyblock = createRef()
+
 		for (let i = 0; i < props.copy.length; i++) {
 			this[`line_${i}_ref`] = createRef()
 		}
@@ -35,7 +35,7 @@ class CopyBlock extends Component {
 
 	render() {
 		return (
-			<div ref={this.copyblock} className="copyblock">
+			<div ref={el => this.copyblock = el} className="copyblock">
 				{this.props.copy.map((line, i) => (
 					<div ref={this[`line_${i}_ref`]} className="copyblock__copyline" style={{ opacity: 0 }}>
 						{this.generateCopyLine(line)}

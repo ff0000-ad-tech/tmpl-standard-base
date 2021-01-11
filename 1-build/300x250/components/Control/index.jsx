@@ -4,9 +4,6 @@ import Ad from '../Ad'
 class Control extends Component {
 	constructor(props) {
 		super(props)
-		this.adRef = createRef()
-		this.slideshowRef = createRef()
-		this.ctaRef = createRef()
 	}
 
 	componentDidMount = () => {
@@ -15,43 +12,27 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		// Reference to the Ad component ref
-		const ad = this.adRef.current
-		// Get reference to the slideshow ref from the ad
-		this.slideshowRef = ad.slideshow.current
-		this.copyblockRef = ad.copyblock.current
-		this.ctaRef = ad.cta.current
-		this.logoRef = ad.logo.current
+		// Destructure out all the elements from the reference to the Ad component
+		const { slideshow, copyblock, cta, logo } = this.adRef
 
-		this.slideshowRef.start()
-		this.copyblockRef.start()
+		slideshow.start()
+		copyblock.start()
 
-		gsap.set(this.ctaRef, { y: '-=20' })
+		gsap.set(cta, { y: '-=20' })
 
 		const del = 6
-		gsap.to(this.logoRef, { delay: del, duration: 1, x: '-=40' })
-		gsap.to(this.ctaRef, { delay: del, duration: 1, y: '+=20', opacity: 1 })
-		// Get reference to the classbox ref from the ad
-		// const classBox = ad.cbref.current
-
-		// Animate the Classbox externally.
-		// We need to use .base here
-		// gsap.to(classBox.base, { duration: 5, y: 150 })
-
-		// Run the internal Classbox start method
-		// .base is not needed when calling a method
-		// classBox.start()
-		// gsap.to('#imgRefID', { duration: 2, css: { x: 100 } })
+		gsap.to(logo, { delay: del, duration: 1, x: '-=40' })
+		gsap.to(cta, { delay: del, duration: 1, y: '+=20', opacity: 1 })
 	}
 
 	handleClick = () => {
 		// Network.exit(window.clickTag)
 	}
 	handleRollOver = () => {
-		this.slideshowRef.over()
+		this.adRef.slideshow.over()
 	}
 	handleRollOut = () => {
-		this.slideshowRef.out()
+		this.adRef.slideshow.out()
 	}
 
 	render() {
@@ -66,7 +47,7 @@ class Control extends Component {
 				onMouseOver={this.handleRollOver}
 				onMouseLeave={this.handleRollOut}
 			>
-				<Ad ref={this.adRef} />
+				<Ad ref={el => this.adRef = el} />
 			</div>
 		)
 	}

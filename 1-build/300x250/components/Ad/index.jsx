@@ -14,10 +14,6 @@ import '@size/images/curve.svg'
 class Ad extends Component {
 	constructor(props) {
 		super(props)
-		this.slideshow = createRef()
-		this.copyblock = createRef()
-		this.cta = createRef()
-		this.logo = createRef()
 	}
 
 	getImage = name => {
@@ -28,16 +24,16 @@ class Ad extends Component {
 		return (
 			<div className="ad">
 				{/* <img id="imgRefID" src={this.getImage('160over90-logo')} width={40} height={40} /> */}
-				<Slideshow ref={this.slideshow} />
+				<Slideshow ref={el => this.slideshow = el} />
 				<div className="main-curve">
 					<img className="main-curve__curve" src={this.getImage('curve')} />
 					<div className="main-curve__fill" />
 				</div>
-				<img ref={this.logo} className="logo" src={this.getImage('logo')} />
-				<div ref={this.cta} className="ad__cta">
+				<img ref={el => this.logo = el} className="logo" src={this.getImage('logo')} />
+				<div ref={el => this.cta = el} className="ad__cta">
 					Learn More
 				</div>
-				<CopyBlock ref={this.copyblock} copy={adData.copy} />
+				<CopyBlock ref={el => this.copyblock = el} copy={adData.copy} />
 			</div>
 		)
 	}

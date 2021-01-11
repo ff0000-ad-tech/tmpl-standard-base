@@ -161,18 +161,13 @@ class Ad extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     _defineProperty(this, "getImage", name => {
       return _ff0000_ad_tech_ad_control__WEBPACK_IMPORTED_MODULE_1__["ImageManager"].get(name).src;
     });
-
-    this.slideshow = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
-    this.copyblock = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
-    this.cta = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
-    this.logo = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
   }
 
   render() {
     return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       className: "ad"
     }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_Slideshow_Slideshow_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      ref: this.slideshow
+      ref: el => this.slideshow = el
     }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       className: "main-curve"
     }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
@@ -181,14 +176,14 @@ class Ad extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       className: "main-curve__fill"
     })), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
-      ref: this.logo,
+      ref: el => this.logo = el,
       className: "logo",
       src: this.getImage('logo')
     }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-      ref: this.cta,
+      ref: el => this.cta = el,
       className: "ad__cta"
     }, "Learn More"), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_CopyBlock_CopyBlock_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      ref: this.copyblock,
+      ref: el => this.copyblock = el,
       copy: adData.copy
     }));
   }
@@ -253,54 +248,42 @@ class Control extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     });
 
     _defineProperty(this, "startAnimation", () => {
-      // Reference to the Ad component ref
-      const ad = this.adRef.current; // Get reference to the slideshow ref from the ad
-
-      this.slideshowRef = ad.slideshow.current;
-      this.copyblockRef = ad.copyblock.current;
-      this.ctaRef = ad.cta.current;
-      this.logoRef = ad.logo.current;
-      this.slideshowRef.start();
-      this.copyblockRef.start();
-      gsap.set(this.ctaRef, {
+      // Destructure out all the elements from the reference to the Ad component
+      const {
+        slideshow,
+        copyblock,
+        cta,
+        logo
+      } = this.adRef;
+      slideshow.start();
+      copyblock.start();
+      gsap.set(cta, {
         y: '-=20'
       });
       const del = 6;
-      gsap.to(this.logoRef, {
+      gsap.to(logo, {
         delay: del,
         duration: 1,
         x: '-=40'
       });
-      gsap.to(this.ctaRef, {
+      gsap.to(cta, {
         delay: del,
         duration: 1,
         y: '+=20',
         opacity: 1
-      }); // Get reference to the classbox ref from the ad
-      // const classBox = ad.cbref.current
-      // Animate the Classbox externally.
-      // We need to use .base here
-      // gsap.to(classBox.base, { duration: 5, y: 150 })
-      // Run the internal Classbox start method
-      // .base is not needed when calling a method
-      // classBox.start()
-      // gsap.to('#imgRefID', { duration: 2, css: { x: 100 } })
+      });
     });
 
     _defineProperty(this, "handleClick", () => {// Network.exit(window.clickTag)
     });
 
     _defineProperty(this, "handleRollOver", () => {
-      this.slideshowRef.over();
+      this.adRef.slideshow.over();
     });
 
     _defineProperty(this, "handleRollOut", () => {
-      this.slideshowRef.out();
+      this.adRef.slideshow.out();
     });
-
-    this.adRef = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
-    this.slideshowRef = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
-    this.ctaRef = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
   }
 
   render() {
@@ -314,7 +297,7 @@ class Control extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       onMouseOver: this.handleRollOver,
       onMouseLeave: this.handleRollOut
     }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_Ad__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      ref: this.adRef
+      ref: el => this.adRef = el
     }));
   }
 
@@ -362,8 +345,6 @@ class CopyBlock extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       return line.split('\n').map(line => Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("p", null, line));
     });
 
-    this.copyblock = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
-
     for (let i = 0; i < props.copy.length; i++) {
       this[`line_${i}_ref`] = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
     }
@@ -391,7 +372,7 @@ class CopyBlock extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   render() {
     return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-      ref: this.copyblock,
+      ref: el => this.copyblock = el,
       className: "copyblock"
     }, this.props.copy.map((line, i) => Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       ref: this[`line_${i}_ref`],
@@ -475,8 +456,6 @@ class Slideshow extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     _defineProperty(this, "getImage", name => {
       return _ff0000_ad_tech_ad_control__WEBPACK_IMPORTED_MODULE_2__["ImageManager"].get(name).src;
     });
-
-    this.slideshow = Object(preact__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
   }
 
   start() {
@@ -507,7 +486,6 @@ class Slideshow extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   render() {
     return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-      ref: this.slideshow,
       className: "slideshow"
     }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
       id: "photo1",

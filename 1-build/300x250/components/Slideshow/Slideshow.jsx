@@ -11,7 +11,6 @@ import '@size/images/frame3photo.jpg'
 class Slideshow extends Component {
 	constructor(props) {
 		super(props)
-		this.slideshow = createRef()
 	}
 
 	getImage = name => {
@@ -32,7 +31,7 @@ class Slideshow extends Component {
 
 	render() {
 		return (
-			<div ref={this.slideshow} className="slideshow">
+			<div className="slideshow">
 				<img id="photo1" src={this.getImage('frame1photo')} alt="1" />
 				<img id="photo2" src={this.getImage('frame2photo')} alt="2" />
 				<img id="photo3" src={this.getImage('frame3photo')} alt="3" />
