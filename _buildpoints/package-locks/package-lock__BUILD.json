@@ -737,12 +737,6 @@
 				}
 			}
 		},
-		"core-js": {
-			"version": "2.6.12",
-			"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz",
-			"integrity": "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==",
-			"dev": true
-		},
 		"deep-extend": {
 			"version": "0.6.0",
 			"resolved": "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz",
@@ -1062,8 +1056,7 @@
 		"preact": {
 			"version": "10.5.9",
 			"resolved": "https://registry.npmjs.org/preact/-/preact-10.5.9.tgz",
-			"integrity": "sha512-X4m+4VMVINl/JFQKALOCwa3p8vhMAhBvle0hJ/W44w/WWfNb2TA7RNicDV3K2dNVs57f61GviEnVLiwN+fxiIg==",
-			"dev": true
+			"integrity": "sha512-X4m+4VMVINl/JFQKALOCwa3p8vhMAhBvle0hJ/W44w/WWfNb2TA7RNicDV3K2dNVs57f61GviEnVLiwN+fxiIg=="
 		},
 		"reduce-extract": {
 			"version": "1.0.0",
