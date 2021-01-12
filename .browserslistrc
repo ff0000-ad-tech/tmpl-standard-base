@@ -1,0 +1,6 @@
+# Browsers that we support
+# see, https://github.com/browserslist/browserslist#browserslistrc
+
+defaults
+not IE 11
+maintained node versions

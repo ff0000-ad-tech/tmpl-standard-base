@@ -1,6 +1,4 @@
-import '@common/fonts/template_font.woff'
-import { ImageManager } from 'ad-control'
-
+import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
 export default function AdData() {
 	var self = this
@@ -19,22 +17,13 @@ export default function AdData() {
 
 		self.theImageName = ImageManager.addToLoad(adParams.imagesPath + 'sample.jpg');
 	 */
-
-
+	self.copy = ['WHY PAY MORE\nFOR ELECTRICITY?', 'MAKE THE MOST OF YOUR\nENERGY AND MONEY', 'CHOOSE SMART SAVINGS\nWITH DISCOUNT POWER.']
 	self.fonts = {
-		primary: 'template_font'
-
-
+		primary: 'template_font',
 	}
 
-	self.colors = {
-
-	}
+	self.colors = {}
 
 	// Store svg markup for use in all UISvg instances, reduces duplicate code across builds.  See UISvg.
-	self.svg = {
-
-	}
-
-
+	self.svg = {}
 }
