@@ -438,17 +438,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const CanvasHook = () => {
-  const cref = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
+  const canvasRef = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
+  let [angle, setAngle] = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useState"])(0);
 
   const draw = ctx => {
+    setAngle(angle++);
     const width = 300;
     const height = 250;
+    ctx.save();
     ctx.beginPath();
-    ctx.rect(20, 20, 150, 100);
-    ctx.stroke();
+    ctx.clearRect(0, 0, width, height);
+    ctx.translate(width / 2, height / 2);
+    ctx.rotate(angle++ * Math.PI / 180);
+    ctx.fillStyle = '#4397AC';
+    ctx.fillRect(-width / 4, -height / 4, width / 2, height / 2);
+    ctx.restore();
   };
 
-  Object(_Hooks_useCanvas_js__WEBPACK_IMPORTED_MODULE_2__["default"])(draw, cref, '2d');
+  Object(_Hooks_useCanvas_js__WEBPACK_IMPORTED_MODULE_2__["default"])(draw, canvasRef, '2d');
   return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("canvas", {
     id: "CANVAS_THING",
     style: {
@@ -456,7 +463,7 @@ const CanvasHook = () => {
       top: '0',
       left: '0'
     },
-    ref: cref,
+    ref: canvasRef,
     width: "300",
     height: "250"
   });
@@ -564,21 +571,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const useCanvas = (draw, canvasRef, context = '2d') => {
-  Object(preact_hooks__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+  const dostuff = () => {
     const ctx = canvasRef.current.getContext(context);
-    let animationFrameId = requestAnimationFrame(renderFrame);
+    draw(ctx);
+  };
 
-    function renderFrame() {
-      animationFrameId = requestAnimationFrame(renderFrame);
-      draw(ctx);
-    }
-
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [draw, context]);
+  Object(preact_hooks__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    gsap.ticker.add(dostuff);
+    gsap.ticker.fps(30);
+  }, []);
   return canvasRef;
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (useCanvas);
+/* harmony default export */ __webpack_exports__["default"] = (useCanvas); // import { useRef, useEffect } from 'preact/hooks'
+// const useCanvas = (draw, canvasRef, context = '2d') => {
+// 	useEffect(() => {
+// 		const ctx = canvasRef.current.getContext(context)
+// 		let animationFrameId = requestAnimationFrame(renderFrame)
+// 		function renderFrame() {
+// 			animationFrameId = requestAnimationFrame(renderFrame)
+// 			draw(ctx)
+// 		}
+// 		return () => cancelAnimationFrame(animationFrameId)
+// 	}, [draw, context])
+// 	return canvasRef
+// }
+// export default useCanvas
 
 /***/ }),
 
