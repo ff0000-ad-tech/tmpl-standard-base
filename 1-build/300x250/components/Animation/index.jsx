@@ -48,6 +48,9 @@ class Canvas extends Component {
 		this.ctx.rotate((angle * Math.PI) / 180)
 		this.ctx.fillStyle = '#4397AC'
 		this.ctx.fillRect(-width / 4, -height / 4, width / 2, height / 2)
+		this.ctx.globalCompositeOperation = 'destination-in'
+		this.ctx.fillStyle = '#ff0000'
+		this.ctx.fillRect(-width / 5, -height / 5, width / 3, height / 3)
 		this.ctx.restore()
 	}
 
