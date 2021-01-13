@@ -129,14 +129,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
 /* harmony import */ var _ff0000_ad_tech_ad_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ff0000-ad-tech/ad-control */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/index.js");
 /* harmony import */ var _BrandLogo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../BrandLogo */ "./1-build/300x250/components/BrandLogo/index.jsx");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles.scss */ "./1-build/300x250/components/Ad/styles.scss");
-/* harmony import */ var _common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @common/fonts/template_font.woff */ "./1-build/common/fonts/template_font.woff");
-/* harmony import */ var _common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @size/images/160over90-logo.png */ "./1-build/300x250/images/160over90-logo.png");
-/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _size_images_160over90_logo_small_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @size/images/160over90-logo-small.png */ "./1-build/300x250/images/160over90-logo-small.png");
-/* harmony import */ var _size_images_160over90_logo_small_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_size_images_160over90_logo_small_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Animation */ "./1-build/300x250/components/Animation/index.jsx");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles.scss */ "./1-build/300x250/components/Ad/styles.scss");
+/* harmony import */ var _common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @common/fonts/template_font.woff */ "./1-build/common/fonts/template_font.woff");
+/* harmony import */ var _common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @size/images/160over90-logo.png */ "./1-build/300x250/images/160over90-logo.png");
+/* harmony import */ var _size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_size_images_160over90_logo_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _size_images_160over90_logo_small_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @size/images/160over90-logo-small.png */ "./1-build/300x250/images/160over90-logo-small.png");
+/* harmony import */ var _size_images_160over90_logo_small_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_size_images_160over90_logo_small_png__WEBPACK_IMPORTED_MODULE_7__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -171,7 +173,7 @@ class Ad extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       ref: el => this.cta = el,
       className: "a__cta"
-    }, "LEARN MORE")));
+    }, "LEARN MORE")), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_Animation__WEBPACK_IMPORTED_MODULE_3__["default"], null));
   }
 
 }
@@ -205,6 +207,111 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_5_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./1-build/300x250/components/Animation/index.jsx":
+/*!********************************************************!*\
+  !*** ./1-build/300x250/components/Animation/index.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Animation; });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./1-build/node_modules/preact/dist/preact.module.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+class Animation extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+
+    _defineProperty(this, "updateAnimationState", () => {
+      this.setState(prevState => ({
+        angle: prevState.angle + 1
+      }));
+      this.rAF = requestAnimationFrame(this.updateAnimationState);
+    });
+
+    this.state = {
+      angle: 0
+    };
+  }
+
+  componentDidMount() {
+    this.rAF = requestAnimationFrame(this.updateAnimationState);
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.rAF);
+  }
+
+  render() {
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(Canvas, {
+      angle: this.state.angle
+    });
+  }
+
+}
+
+class Canvas extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+
+    _defineProperty(this, "saveContext", ctx => {
+      this.ctx = ctx;
+    });
+  }
+
+  componentDidUpdate() {
+    this.drawCanvasElements();
+  }
+
+  drawCanvasElements() {
+    const {
+      angle
+    } = this.props;
+    const width = this.ctx.canvas.width;
+    const height = this.ctx.canvas.height;
+    this.ctx.save();
+    this.ctx.beginPath();
+    this.ctx.clearRect(0, 0, width, height);
+    this.ctx.translate(width / 2, height / 2);
+    this.ctx.rotate(angle * Math.PI / 180);
+    this.ctx.fillStyle = '#4397AC';
+    this.ctx.fillRect(-width / 4, -height / 4, width / 2, height / 2);
+    this.ctx.restore();
+  }
+
+  render() {
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(PureCanvas, {
+      contextRef: this.saveContext
+    });
+  }
+
+}
+
+class PureCanvas extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  render() {
+    return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("canvas", {
+      width: "300",
+      height: "250",
+      style: {
+        position: 'absolute',
+        top: '0',
+        left: '0'
+      },
+      ref: el => el ? this.props.contextRef(el.getContext('2d')) : null
+    });
+  }
+
+}
 
 /***/ }),
 
