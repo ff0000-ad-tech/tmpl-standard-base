@@ -3,6 +3,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
 import BrandLogo from '../BrandLogo'
 import Animation from '../Animation'
+import CanvasHook from '../CanvasHook'
 import './styles.scss'
 
 import '@common/fonts/template_font.woff'
@@ -29,7 +30,8 @@ class Ad extends Component {
 						LEARN MORE
 					</div>
 				</div>
-				<Animation></Animation>
+				{/* <Animation></Animation> */}
+				<CanvasHook />
 			</div>
 		)
 	}
