@@ -438,20 +438,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const CanvasHook = () => {
-  const canvasRef = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
+  const canvasRef = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])(); // Get ref to canvas
+
+  let ctx; // Var to store canvas context
+  // Object values that we will tween with gsap
+
   let tweenObj = {
     x: 0,
     y: 0,
     width: 20,
     height: 20
   };
+  Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
+    ctx = canvasRef.current.getContext('2d'); // Set the context var
 
-  const draw = ctx => {
+    gsap.ticker.add(draw); // Start a gsap ticker and call the draw method on every tick
+  }, []); // Draw the canvas elements
+
+  const draw = () => {
+    console.warn('drawing');
     const width = 20;
     const height = 250;
     ctx.clearRect(0, 0, 300, 250);
     ctx.fillRect(tweenObj.x, tweenObj.y, tweenObj.width, tweenObj.height);
-  };
+  }; // Tween the tweenObject
+
 
   gsap.to(tweenObj, {
     duration: 1,
@@ -459,11 +470,11 @@ const CanvasHook = () => {
     y: '+=100',
     width: '+=50',
     height: '+=20',
-    onUpdate: () => {
-      console.warn(tweenObj.angle);
+    onComplete: () => {
+      // Remove the ticker when the tween is complete
+      gsap.ticker.remove(draw);
     }
   });
-  Object(_Hooks_useCanvas_js__WEBPACK_IMPORTED_MODULE_2__["default"])(draw, canvasRef, '2d');
   return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("canvas", {
     id: "CANVAS_THING",
     style: {
