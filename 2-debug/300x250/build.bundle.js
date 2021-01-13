@@ -439,22 +439,30 @@ __webpack_require__.r(__webpack_exports__);
 
 const CanvasHook = () => {
   const canvasRef = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
-  let [angle, setAngle] = Object(preact_hooks__WEBPACK_IMPORTED_MODULE_1__["useState"])(0);
-
-  const draw = ctx => {
-    setAngle(angle++);
-    const width = 300;
-    const height = 250;
-    ctx.save();
-    ctx.beginPath();
-    ctx.clearRect(0, 0, width, height);
-    ctx.translate(width / 2, height / 2);
-    ctx.rotate(angle++ * Math.PI / 180);
-    ctx.fillStyle = '#4397AC';
-    ctx.fillRect(-width / 4, -height / 4, width / 2, height / 2);
-    ctx.restore();
+  let tweenObj = {
+    x: 0,
+    y: 0,
+    width: 20,
+    height: 20
   };
 
+  const draw = ctx => {
+    const width = 20;
+    const height = 250;
+    ctx.clearRect(0, 0, 300, 250);
+    ctx.fillRect(tweenObj.x, tweenObj.y, tweenObj.width, tweenObj.height);
+  };
+
+  gsap.to(tweenObj, {
+    duration: 1,
+    x: '+=100',
+    y: '+=100',
+    width: '+=50',
+    height: '+=20',
+    onUpdate: () => {
+      console.warn(tweenObj.angle);
+    }
+  });
   Object(_Hooks_useCanvas_js__WEBPACK_IMPORTED_MODULE_2__["default"])(draw, canvasRef, '2d');
   return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("canvas", {
     id: "CANVAS_THING",
