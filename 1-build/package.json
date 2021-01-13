@@ -2,14 +2,11 @@
 	"name": "ff0000-ad-tech-builder",
 	"version": "1.0.0",
 	"description": "FF0000 Ad Tech - Builder: Provides frontend modules for building banner creative.",
-	"main": "",
-	"scripts": {},
 	"engines": {
 		"node": ">=9.8.0",
 		"npm": ">=6.0.0"
 	},
-	"repository": "https://greg.connell@stash.ff0000.com/scm/at/ad-es6.git",
-	"author": "RED Interactive Agency",
+	"author": "160over90",
 	"license": "MIT",
 	"dependencies": {
 		"@ff0000-ad-tech/ad-animation": "^1.3.2",
