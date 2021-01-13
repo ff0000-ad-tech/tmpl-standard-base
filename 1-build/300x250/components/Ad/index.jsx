@@ -3,7 +3,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
 import BrandLogo from '../BrandLogo'
 import Animation from '../Animation'
-import CanvasHook from '../CanvasHook'
+import CanvasElement from '../CanvasElement'
 import './styles.scss'
 
 import '@common/fonts/template_font.woff'
@@ -31,7 +31,7 @@ class Ad extends Component {
 					</div>
 				</div>
 				{/* <Animation></Animation> */}
-				<CanvasHook />
+				<CanvasElement ref={(el) => (this.canvas = el)} />
 			</div>
 		)
 	}
