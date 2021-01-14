@@ -4,7 +4,7 @@
     "template": "Base",
     "option": "",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base#master",
-    "version": "2.0.7"
+    "version": "2.0.5"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base",
   "publishConfig": {
