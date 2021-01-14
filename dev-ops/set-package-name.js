@@ -17,6 +17,9 @@ const sanitize = (label) => {
 const platform = sanitize(pkg.buildSource.platform) || 'standard'
 const template = sanitize(pkg.buildSource.template) || 'base'
 const option = sanitize(pkg.buildSource.option) || ''
+const branch = argv.branch || 'master'
 // update package name
 pkg.name = `@ff0000-ad-tech/tmpl-${platform}-${template}${option ? `-${option}` : ``}`
+// update branch
+pkg.repository.branch = branch
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))

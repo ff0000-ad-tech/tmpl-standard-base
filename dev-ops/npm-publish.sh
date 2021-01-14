@@ -1,5 +1,6 @@
 # update package name
-node set-package-name.js --package ../package.json
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+node set-package-name.js --package ../package.json --branch ${BRANCH}
 
 # prompt version and publich to npm
 echo Publishing to NPM
