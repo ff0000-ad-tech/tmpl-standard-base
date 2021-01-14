@@ -22,12 +22,10 @@ git add package.json
 git commit -m 'updates build-source info'
 git push
 
-# prompt next version and publish to npm
-echo Publishing to NPM
-np $RELEASE_VERSION --any-branch --no-release-draft || exit $?
-
 # get release name
 PKG_NAME=`node -pe "require('./package.json').name"`
+# prompt next version and publish to npm
+np "$RELEASE_VERSION-$BRANCH" --tag=$BRANCH --any-branch --no-release-draft || exit $?
 
 # note
 echo
