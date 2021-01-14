@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ff0000_ad_tech_ad_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ff0000-ad-tech/ad-control */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/index.js");
 /* harmony import */ var _BrandLogo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../BrandLogo */ "./1-build/300x250/components/BrandLogo/index.jsx");
 /* harmony import */ var _Animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Animation */ "./1-build/300x250/components/Animation/index.jsx");
-/* harmony import */ var _CanvasElement__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../CanvasElement */ "./1-build/300x250/components/CanvasElement/index.jsx");
+/* harmony import */ var _CanvasElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CanvasElement */ "./1-build/300x250/components/CanvasElement/index.jsx");
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles.scss */ "./1-build/300x250/components/Ad/styles.scss");
 /* harmony import */ var _common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @common/fonts/template_font.woff */ "./1-build/common/fonts/template_font.woff");
 /* harmony import */ var _common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_template_font_woff__WEBPACK_IMPORTED_MODULE_6__);
@@ -175,7 +175,7 @@ class Ad extends preact__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
       ref: el => this.cta = el,
       className: "a__cta"
-    }, "LEARN MORE")), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_CanvasElement__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }, "LEARN MORE")), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(_CanvasElement__WEBPACK_IMPORTED_MODULE_4__["default"], {
       ref: el => this.canvas = el
     }));
   }
@@ -884,7 +884,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "load", function() { return load; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addFbaImages", function() { return addFbaImages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addToDictionary", function() { return addToDictionary; });
-/* harmony import */ var _ff0000_ad_tech_ad_load__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ff0000-ad-tech/ad-load */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/index.js");
+/* harmony import */ var _ff0000_ad_tech_ad_load__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ff0000-ad-tech/ad-load */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/index.js");
 /**
  * @class ImageManager
  * @desc
@@ -1117,30 +1117,30 @@ function addToDictionary(content) {
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/index.js":
-/*!*******************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/index.js ***!
-  \*******************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/index.js":
+/*!***************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/index.js ***!
+  \***************************************************************/
 /*! exports provided: LoaderUtils, ImageLoader, InlineLoader, DataLoader, FontLoader, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Loader; });
-/* harmony import */ var _lib_mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
-/* harmony import */ var _lib_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
-/* harmony import */ var _lib_mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/mixin/LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
+/* harmony import */ var _lib_mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
+/* harmony import */ var _lib_mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
+/* harmony import */ var _lib_mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/mixin/LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "LoaderUtils", function() { return _lib_mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_2__; });
-/* harmony import */ var _lib_single_ImageLoader_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/single/ImageLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/ImageLoader.js");
+/* harmony import */ var _lib_single_ImageLoader_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/single/ImageLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/ImageLoader.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ImageLoader", function() { return _lib_single_ImageLoader_js__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _lib_single_InlineLoader_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/single/InlineLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/InlineLoader.js");
+/* harmony import */ var _lib_single_InlineLoader_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/single/InlineLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/InlineLoader.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InlineLoader", function() { return _lib_single_InlineLoader_js__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
-/* harmony import */ var _lib_single_DataLoader_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/single/DataLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/DataLoader.js");
+/* harmony import */ var _lib_single_DataLoader_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/single/DataLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/DataLoader.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataLoader", function() { return _lib_single_DataLoader_js__WEBPACK_IMPORTED_MODULE_5__["default"]; });
 
-/* harmony import */ var _lib_single_FontLoader_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/single/FontLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/FontLoader.js");
+/* harmony import */ var _lib_single_FontLoader_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/single/FontLoader.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/FontLoader.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FontLoader", function() { return _lib_single_FontLoader_js__WEBPACK_IMPORTED_MODULE_6__["default"]; });
 
 /** 
@@ -1711,10 +1711,10 @@ class Loader extends Object(_lib_mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js":
-/*!**********************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js ***!
-  \**********************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js":
+/*!******************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js ***!
+  \******************************************************************************/
 /*! exports provided: LoaderBase */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1754,17 +1754,17 @@ const LoaderBase = superclass => class extends superclass {
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js":
-/*!************************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js ***!
-  \************************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js":
+/*!********************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js ***!
+  \********************************************************************************/
 /*! exports provided: LoaderSource */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoaderSource", function() { return LoaderSource; });
-/* harmony import */ var _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
+/* harmony import */ var _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
 /* harmony import */ var ad_global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ad-global */ "ad-global");
 /* harmony import */ var ad_global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(ad_global__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -1789,17 +1789,17 @@ const LoaderSource = superclass => class extends superclass {
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js":
-/*!************************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js ***!
-  \************************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js":
+/*!********************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js ***!
+  \********************************************************************************/
 /*! exports provided: LoaderTicker */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoaderTicker", function() { return LoaderTicker; });
-/* harmony import */ var _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
+/* harmony import */ var _LoaderUtils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
 
 const LoaderTicker = superclass => class extends superclass {
   constructor(...args) {
@@ -1839,10 +1839,10 @@ const LoaderTicker = superclass => class extends superclass {
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js":
-/*!***********************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js ***!
-  \***********************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js":
+/*!*******************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js ***!
+  \*******************************************************************************/
 /*! exports provided: createXMLHttpRequest, getFileName, getFontName, getFileType, getFullUrl, getUrlPrepend, getParamsFromData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1930,10 +1930,10 @@ function getParamsFromData(query) {
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js":
-/*!************************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js ***!
-  \************************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js":
+/*!********************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js ***!
+  \********************************************************************************/
 /*! exports provided: mix */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1955,20 +1955,20 @@ class MixinBuilder {
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/DataLoader.js":
-/*!***********************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/DataLoader.js ***!
-  \***********************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/DataLoader.js":
+/*!*******************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/DataLoader.js ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DataLoader; });
-/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
-/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
-/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
-/* harmony import */ var _mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixin/LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
+/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
+/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
+/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
+/* harmony import */ var _mixin_LoaderUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixin/LoaderUtils.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderUtils.js");
 
 
 
@@ -2081,20 +2081,20 @@ class DataLoader extends Object(_mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/FontLoader.js":
-/*!***********************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/FontLoader.js ***!
-  \***********************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/FontLoader.js":
+/*!*******************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/FontLoader.js ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FontLoader; });
-/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
-/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
-/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
-/* harmony import */ var _mixin_LoaderTicker_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixin/LoaderTicker.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js");
+/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
+/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
+/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
+/* harmony import */ var _mixin_LoaderTicker_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixin/LoaderTicker.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js");
 
 
 
@@ -2162,20 +2162,20 @@ class FontLoader extends Object(_mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/ImageLoader.js":
-/*!************************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/ImageLoader.js ***!
-  \************************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/ImageLoader.js":
+/*!********************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/ImageLoader.js ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ImageLoader; });
-/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
-/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
-/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
-/* harmony import */ var _mixin_LoaderTicker_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixin/LoaderTicker.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js");
+/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
+/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
+/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
+/* harmony import */ var _mixin_LoaderTicker_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixin/LoaderTicker.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderTicker.js");
 
 
 
@@ -2221,19 +2221,19 @@ class ImageLoader extends Object(_mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE
 
 /***/ }),
 
-/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/InlineLoader.js":
-/*!*************************************************************************************************************************!*\
-  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/single/InlineLoader.js ***!
-  \*************************************************************************************************************************/
+/***/ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/InlineLoader.js":
+/*!*********************************************************************************!*\
+  !*** ./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/single/InlineLoader.js ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return InlineLoader; });
-/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
-/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
-/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-control/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
+/* harmony import */ var _mixin_MixinBuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/MixinBuilder.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/MixinBuilder.js");
+/* harmony import */ var _mixin_LoaderBase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixin/LoaderBase.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderBase.js");
+/* harmony import */ var _mixin_LoaderSource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixin/LoaderSource.js */ "./1-build/node_modules/@ff0000-ad-tech/ad-load/lib/mixin/LoaderSource.js");
 
 
 
