@@ -25,7 +25,8 @@ git push
 # get release name
 PKG_NAME=`node -pe "require('./package.json').name"`
 # prompt next version and publish to npm
-np "$RELEASE_VERSION-$BRANCH" --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
+NPM_RELEASE="$RELEASE_VERSION-$BRANCH"
+np $NPM_RELEASE --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
 
 # note
 echo
@@ -33,6 +34,6 @@ echo "Done.\033[1;31m Be sure to update BSA's version reference! \033[0m"
 echo " https://github.com/ff0000-tech/build-source-assembler/blob/master/package.json"
 echo "  \"buildSources\": {"
 echo "    ..."
-echo "    \033[1;32m\"$PKG_NAME\": \"$RELEASE_VERSION\" \033[0m"
+echo "    \033[1;32m\"$PKG_NAME\": \"$NPM_RELEASE\" \033[0m"
 echo "    ..."
 echo "  }"
