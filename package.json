@@ -4,13 +4,13 @@
     "template": "Base",
     "option": "Canvas Refactor",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base#canvas-refactor",
-    "version": "2.0.5"
+    "version": "2.0.6"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-canvas-refactor",
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.0.5-canvas-refactor",
+  "version": "2.0.5",
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
