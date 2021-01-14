@@ -2,16 +2,16 @@ cd ..
 
 # ensure branch build-source version is package version
 node ./dev-ops/version-sync.js --package package.json --bsToPkg
+CURRENT_VERSION=`node -pe "require('./package.json').version"`
 
 # prompt next version
 npx bump package.json
-
-# propagate next version back to build-source :o
-node ./dev-ops/version-sync.js --package package.json
-
-# get release version & name
 RELEASE_VERSION=`node -pe "require('./package.json').version"`
-PKG_NAME=`node -pe "require('./package.json').name"`
+
+# propagate next version back to build-source
+# but restore the package-version to current,
+# so the NP package doesn't insist on a new version :o
+node ./dev-ops/version-sync.js --package package.json --pkgToBs --setPkg $CURRENT_VERSION
 
 # update package name
 BRANCH=`git rev-parse --abbrev-ref HEAD`
@@ -25,6 +25,9 @@ git push
 # prompt next version and publish to npm
 echo Publishing to NPM
 np $RELEASE_VERSION --any-branch --no-release-draft || exit $?
+
+# get release name
+PKG_NAME=`node -pe "require('./package.json').name"`
 
 # note
 echo

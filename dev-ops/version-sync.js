@@ -15,8 +15,12 @@ if (argv.bsToPkg) {
 	pkg.version = pkg.buildSource.version
 }
 // package to build-source
-else {
+if (argv.pkgToBs) {
 	pkg.buildSource.version = pkg.version
+}
+// override package
+if (argv.setPkg) {
+	pkg.version = argv.setPkg
 }
 // write updated package
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
