@@ -42,7 +42,8 @@
     "eslint-plugin-prettier": "^2.5.0",
     "minimist": "^1.2.5",
     "np": "^7.2.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "version-bump-prompt": "^6.1.0"
   },
   "dependencies": {
     "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
