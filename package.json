@@ -2,7 +2,8 @@
   "buildSource": {
     "platform": "Standard",
     "template": "Base",
-    "option": ""
+    "option": "",
+    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base#master"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base",
   "publishConfig": {
