@@ -1,18 +1,30 @@
+cd ..
+
+# ensure branch build-source version is package version
+node ./dev-ops/version-sync.js --package ../package.json --bsToPkg
+
+# prompt next version
+npx bump package.json
+
+# propagate next version back to build-source :o
+node ./dev-ops/version-sync.js --package ../package.json
+
+# get release version & name
+RELEASE_VERSION=`node -pe "require('./package.json').version"`
+PKG_NAME=`node -pe "require('./package.json').name"`
+
 # update package name
 BRANCH=`git rev-parse --abbrev-ref HEAD`
-node set-package-name.js --package ../package.json --branch ${BRANCH}
-cd ..
+node ./dev-ops/set-package-name.js --package ../package.json --branch $BRANCH --version $RELEASE_VERSION
+
+# commit updates to package
 git add package.json
 git commit -m 'updates build-source info'
 git push
 
-# prompt version and publich to npm
+# prompt next version and publish to npm
 echo Publishing to NPM
-np --any-branch --no-release-draft
-
-# get release version
-PKG_NAME=`node -pe "require('./package.json').name"`
-RELEASE_VERSION=`node -pe "require('./package.json').version"`
+np $RELEASE_VERSION --any-branch --no-release-draft
 
 # note
 echo
