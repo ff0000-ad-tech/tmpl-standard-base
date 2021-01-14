@@ -7,8 +7,8 @@ cd ..
 np --any-branch --no-release-draft
 
 # get release version
-PKG_NAME=`node -pe "require('../package.json').name"`
-RELEASE_VERSION=`node -pe "require('../package.json').version"`
+PKG_NAME=`node -pe "require('./package.json').name"`
+RELEASE_VERSION=`node -pe "require('./package.json').version"`
 
 # note
 echo
