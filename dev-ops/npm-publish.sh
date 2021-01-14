@@ -24,7 +24,7 @@ git push
 
 # prompt next version and publish to npm
 echo Publishing to NPM
-np $RELEASE_VERSION --any-branch --no-release-draft
+np $RELEASE_VERSION --any-branch --no-release-draft || exit $?
 
 # note
 echo
