@@ -1,13 +1,13 @@
 cd ..
 
 # ensure branch build-source version is package version
-node ./dev-ops/version-sync.js --package ../package.json --bsToPkg
+node ./dev-ops/version-sync.js --package package.json --bsToPkg
 
 # prompt next version
 npx bump package.json
 
 # propagate next version back to build-source :o
-node ./dev-ops/version-sync.js --package ../package.json
+node ./dev-ops/version-sync.js --package package.json
 
 # get release version & name
 RELEASE_VERSION=`node -pe "require('./package.json').version"`
@@ -15,7 +15,7 @@ PKG_NAME=`node -pe "require('./package.json').name"`
 
 # update package name
 BRANCH=`git rev-parse --abbrev-ref HEAD`
-node ./dev-ops/set-package-name.js --package ../package.json --branch $BRANCH --version $RELEASE_VERSION
+node ./dev-ops/set-package-name.js --package package.json --branch $BRANCH --version $RELEASE_VERSION
 
 # commit updates to package
 git add package.json
