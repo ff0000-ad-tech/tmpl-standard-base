@@ -24,10 +24,8 @@ git push
 
 # get release name
 PKG_NAME=`node -pe "require('./package.json').name"`
-# prompt next version and publish to npm
-echo
-echo Tagging release: $TAG
-np "$RELEASE_VERSION-$BRANCH" --tag=$BRANCH --any-branch --no-release-draft || exit $?
+# publish to npm
+np "$RELEASE_VERSION-$BRANCH" --any-branch --no-release-draft || exit $?
 
 # note
 echo
