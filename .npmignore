@@ -1,3 +1,4 @@
 package-lock.json
 node_modules
-1-build/node_modules
+./1-build/node_modules
+
