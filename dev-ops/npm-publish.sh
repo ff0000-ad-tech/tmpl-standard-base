@@ -1,13 +1,13 @@
 # update package name
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 node set-package-name.js --package ../package.json --branch ${BRANCH}
+cd ..
 git add package.json
 git commit -m 'updates build-source info'
 git push
 
 # prompt version and publich to npm
 echo Publishing to NPM
-cd ..
 np --any-branch --no-release-draft
 
 # get release version
