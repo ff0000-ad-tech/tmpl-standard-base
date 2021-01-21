@@ -132,7 +132,7 @@
 			}
 		},
 		"@ff0000-ad-tech/ad-entry": {
-			"version": "git+ssh://git@github.com/ff0000-ad-tech/ad-entry.git#b0c57aa88df61409f9b668526cf14294cd723d00",
+			"version": "git+ssh://git@github.com/ff0000-ad-tech/ad-entry.git#cc0745456d590a93f53550001d84b5033068eac3",
 			"from": "git+ssh://git@github.com/ff0000-ad-tech/ad-entry.git#new-preloader"
 		},
 		"@ff0000-ad-tech/ad-events": {
