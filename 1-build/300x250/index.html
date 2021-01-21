@@ -46,35 +46,15 @@
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloader: {
-					backgroundColor: '#000000',
-					images: [
-						{
-							source: 'preloader_white.gif',
-						},
-					],
-				},
-				failover: {
-					images: [
-						{
-							source: 'backup.jpg',
-						},
-					],
-				},
+				preloader: ['../common/images/dp-preloader.gif'],
+				failover: ['./backup.jpg'],
 				payload: {
-					text: ['build.bundle.js'],
+					text: ['./build.bundle.js'],
 					binary: [],
 				},
+				external: [],
 			}
 			/*-- Red.Settings.assets.end --*/
-
-			/*-- Red.Settings.environments.start --*/
-			var environments = []
-			/*-- Red.Settings.environments.end --*/
-
-			/*-- Red.Settings.external_includes.start --*/
-			var externalIncludes = []
-			/*-- Red.Settings.external_includes.end --*/
 
 			function onImpression(binaryAssets) {
 				console.log('Index.onImpression()')
@@ -88,24 +68,35 @@
 
 		<style type="text/css">
 			html,
-			body,
+			body {
+				margin: 0;
+				padding: 0;
+			}
 			#view {
-				width: 100%;
-				height: 100%;
+				position: absolute;
+				width: 300px;
+				height: 250px;
+				box-sizing: border-box;
 				overflow: hidden;
+			}
+			#aux {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				left: 0px;
 			}
 			#preloader {
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				border-width: 0px;
-				border-style: solid;
-				box-sizing: border-box;
+				border: 1px solid #000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			#backup {
 				position: absolute;
-				width: 100%;
-				height: 100%;
 			}
 		</style>
 
@@ -152,43 +143,33 @@
 			// immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
 			function prepareIndex() {
 				console.log('Index.prepareIndex()')
-				return new Promise(
-					function (resolve) {
-						/*-- Red.Network.onload.start --*/
-						resolve()
-						/*-- Red.Network.onload.end --*/
-					},
-					function (error) {
-						useBackup()
-					}
-				)
+				return new Promise((resolve) => {
+					/*-- Red.Network.onload.start --*/
+					resolve()
+					/*-- Red.Network.onload.end --*/
+				})
 			}
-
 			// ad-params
 			function prepareAdParamsMisc() {
 				console.log('Index.prepareAdParamsMisc()')
-				return new Promise(
-					function (resolve) {
-						resolve()
-					},
-					function (error) {
-						useBackup()
-					}
-				)
+				return new Promise((resolve) => {
+					resolve()
+				})
 			}
-
 			// preloader
-			function preparePreloadMisc() {
-				console.log('Index.preparePreloadMisc()')
-				return new Promise(
-					function (resolve) {
-						makeAuxClickable()
+			function preparePreloader(images) {
+				console.log('Index.preparePreloader()')
+				images.map((image) => {
+					document.getElementById('preloader').appendChild(image)
+				})
+				// resolve this function when
+				// preloader animation is complete
+				return new Promise((resolve) => {
+					setTimeout(() => {
 						resolve()
-					},
-					function (error) {
-						useBackup()
-					}
-				)
+					}, 1000)
+					// resolve()
+				})
 			}
 			function hidePreloader() {
 				console.log('Index.hidePreloader()')

@@ -1231,9 +1231,8 @@
 			}
 		},
 		"@ff0000-ad-tech/wp-deploy-manager": {
-			"version": "9.1.0",
-			"resolved": "https://registry.npmjs.org/@ff0000-ad-tech/wp-deploy-manager/-/wp-deploy-manager-9.1.0.tgz",
-			"integrity": "sha512-Z0NTuvdiMDrBRILLpyi4fTLsmGhQPS3dCswMnR9RZAUvWbMy8FDnOAdmhJhLDBrmdZfzFVNlOhTj4c3Pt/GMMA==",
+			"version": "git+ssh://git@github.com/ff0000-ad-tech/wp-deploy-manager.git#2e8a9c764449aa9d85bde1caf197186d18481291",
+			"from": "git+ssh://git@github.com/ff0000-ad-tech/wp-deploy-manager.git#new-preloader",
 			"dev": true,
 			"requires": {
 				"@babel/core": "^7.0.0",
@@ -1248,7 +1247,7 @@
 				"@ff0000-ad-tech/hooks-regex": "^1.0.2",
 				"@ff0000-ad-tech/wp-plugin-assets": "^4.0.0",
 				"@ff0000-ad-tech/wp-plugin-index": "^4.0.0",
-				"@ff0000-ad-tech/wp-plugin-payload": "^4.1.0",
+				"@ff0000-ad-tech/wp-plugin-payload": "^4.0.0",
 				"@ff0000-ad-tech/wp-plugin-watch-offset": "^2.0.0",
 				"@ff0000-ad-tech/wp-process-manager": "^1.0.4",
 				"@ff0000-ad-tech/wp-resolve-plugin-index-variation": "^1.0.2",
@@ -1311,9 +1310,9 @@
 			}
 		},
 		"@ff0000-ad-tech/wp-plugin-payload": {
-			"version": "4.1.0",
-			"resolved": "https://registry.npmjs.org/@ff0000-ad-tech/wp-plugin-payload/-/wp-plugin-payload-4.1.0.tgz",
-			"integrity": "sha512-HTgG8ABkPi2r+fgSt/lghclVHVTtFmlxiO+RxBfIhh8bLCdGdLIEu+9I94phCwNEgRpUdUg2tJEu+j+9GdMa/w==",
+			"version": "4.0.0",
+			"resolved": "https://registry.npmjs.org/@ff0000-ad-tech/wp-plugin-payload/-/wp-plugin-payload-4.0.0.tgz",
+			"integrity": "sha512-Dw7+JELOSv7IsVt9/XbdKSSodWIn/LnMCXbJQ9iHc9LiebdTzxd/J7dQgwQD1LJAtpgg3jOwysK1wHalEDuI0w==",
 			"dev": true,
 			"requires": {
 				"@ff0000-ad-tech/debug": "^4.1.0",
