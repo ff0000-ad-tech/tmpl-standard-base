@@ -46,35 +46,15 @@
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloader: {
-					backgroundColor: '#000000',
-					images: [
-						{
-							source: 'preloader_white.gif',
-						},
-					],
-				},
-				failover: {
-					images: [
-						{
-							source: 'backup.jpg',
-						},
-					],
-				},
+				preloader: ['./images/preloader_white.gif'],
+				failover: ['./backup.jpg'],
 				payload: {
-					text: ['build.bundle.js'],
+					text: ['./build.bundle.js'],
 					binary: [],
 				},
+				external: [],
 			}
 			/*-- Red.Settings.assets.end --*/
-
-			/*-- Red.Settings.environments.start --*/
-			var environments = []
-			/*-- Red.Settings.environments.end --*/
-
-			/*-- Red.Settings.external_includes.start --*/
-			var externalIncludes = []
-			/*-- Red.Settings.external_includes.end --*/
 
 			function onImpression(binaryAssets) {
 				console.log('Index.onImpression()')
@@ -101,6 +81,9 @@
 				border-width: 0px;
 				border-style: solid;
 				box-sizing: border-box;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			#backup {
 				position: absolute;
@@ -152,43 +135,30 @@
 			// immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
 			function prepareIndex() {
 				console.log('Index.prepareIndex()')
-				return new Promise(
-					function (resolve) {
-						/*-- Red.Network.onload.start --*/
-						resolve()
-						/*-- Red.Network.onload.end --*/
-					},
-					function (error) {
-						useBackup()
-					}
-				)
+				return new Promise((resolve) => {
+					/*-- Red.Network.onload.start --*/
+					resolve()
+					/*-- Red.Network.onload.end --*/
+				})
 			}
-
 			// ad-params
 			function prepareAdParamsMisc() {
 				console.log('Index.prepareAdParamsMisc()')
-				return new Promise(
-					function (resolve) {
-						resolve()
-					},
-					function (error) {
-						useBackup()
-					}
-				)
+				return new Promise((resolve) => {
+					resolve()
+				})
 			}
-
 			// preloader
-			function preparePreloadMisc() {
-				console.log('Index.preparePreloadMisc()')
-				return new Promise(
-					function (resolve) {
-						makeAuxClickable()
-						resolve()
-					},
-					function (error) {
-						useBackup()
-					}
-				)
+			function preparePreloader(images) {
+				console.log('Index.preparePreloader()')
+				images.map((image) => {
+					document.getElementById('preloader').appendChild(image)
+				})
+				// resolve this function when
+				// preloader animation is complete
+				return new Promise((resolve) => {
+					resolve()
+				})
 			}
 			function hidePreloader() {
 				console.log('Index.hidePreloader()')
