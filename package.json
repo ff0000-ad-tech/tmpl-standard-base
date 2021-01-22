@@ -3,23 +3,14 @@
     "platform": "Velvet-DPS",
     "template": "Base",
     "option": "",
-<<<<<<< HEAD
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/velvet-dps",
     "version": "2.0.17"
-=======
-    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
-    "version": "2.1.5"
->>>>>>> 5b8bfa7de341d36115c2eb4246521fcd9670b146
   },
   "name": "@ff0000-ad-tech/tmpl-velvet-dps-base",
   "publishConfig": {
     "access": "public"
   },
-<<<<<<< HEAD
   "version": "2.0.17-velvet-dps",
-=======
-  "version": "2.1.5-master",
->>>>>>> 5b8bfa7de341d36115c2eb4246521fcd9670b146
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
