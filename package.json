@@ -3,14 +3,23 @@
     "platform": "Velvet-DPS",
     "template": "Base",
     "option": "",
+<<<<<<< HEAD
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/velvet-dps",
     "version": "2.0.17"
+=======
+    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
+    "version": "2.1.5"
+>>>>>>> 5b8bfa7de341d36115c2eb4246521fcd9670b146
   },
   "name": "@ff0000-ad-tech/tmpl-velvet-dps-base",
   "publishConfig": {
     "access": "public"
   },
+<<<<<<< HEAD
   "version": "2.0.17-velvet-dps",
+=======
+  "version": "2.1.5-master",
+>>>>>>> 5b8bfa7de341d36115c2eb4246521fcd9670b146
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
@@ -25,7 +34,7 @@
   "license": "MIT",
   "scripts": {
     "pub": "cd ./dev-ops && sh npm-publish.sh",
-    "postinstall": "npm run install-build && npm run prettier",
+    "prepare": "npm run install-build && npm run prettier",
     "install-build": "cd ./1-build && npm install && cd ../",
     "reinstall": "rm -rf ./node_modules && rm ./package-lock.json && npm i",
     "prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
@@ -35,8 +44,10 @@
   },
   "devDependencies": {
     "@ff0000-ad-tech/debug": "^4.1.0",
-    "@ff0000-ad-tech/wp-creative-server": "^2.0.1",
-    "@ff0000-ad-tech/wp-deploy-manager": "^9.0.1",
+    "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
+    "@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.0.1",
+    "@ff0000-ad-tech/wp-creative-server": "^2.1.0",
+    "@ff0000-ad-tech/wp-deploy-manager": "^9.1.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.16.0",
     "eslint-config-prettier": "^2.9.0",
@@ -45,10 +56,5 @@
     "np": "^7.2.0",
     "prettier": "^2.2.1",
     "version-bump-prompt": "^6.1.0"
-  },
-  "dependencies": {
-    "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
-    "@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.0.1",
-    "@ff0000-ad-tech/cs-plugin-vendor-indexes": "^1.1.0"
   }
 }
