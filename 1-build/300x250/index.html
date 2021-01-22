@@ -151,6 +151,7 @@
 			// immediatelly invoked in inline_entry (node_modules/ad-entry/index.js)
 			function prepareIndex() {
 				console.log('Index.prepareIndex()')
+				makeAuxClickable()
 				return new Promise((resolve) => {
 					/*-- Red.Network.onload.start --*/
 					resolve()
