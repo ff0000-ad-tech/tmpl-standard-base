@@ -1,7 +1,7 @@
 import { h, render, Component, Fragment } from 'preact'
 
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
-import '@size/images/160over90-logo-small.png'
+import '@size/images/160over90-logo.png'
 
 class CanvasElementImage extends Component {
 	constructor(props) {
@@ -21,15 +21,14 @@ class CanvasElementImage extends Component {
 		ctx.clearRect(0, 0, this.props.width, this.props.height)
 
 		// Draw image
-		const logoImage = ImageManager.get('160over90-logo-small')
-		ctx.drawImage(logoImage, 0, 0, logoImage.width, logoImage.height)
+		const puppyImage = ImageManager.get('160over90-logo')
+		ctx.drawImage(puppyImage, 0, 0, puppyImage.width, puppyImage.height)
 	}
 
 	render() {
 		return (
 			<>
 				<canvas
-					id="canvas_element"
 					style={{ position: 'absolute', top: '0', left: '0' }}
 					ref={(el) => (this.canvasRef = el)}
 					width={this.props.width}

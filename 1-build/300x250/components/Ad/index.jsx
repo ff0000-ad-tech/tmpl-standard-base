@@ -28,7 +28,6 @@ class Ad extends Component {
 		console.warn(this.result)
 	}
 	render() {
-		console.warn('PARENT RENDER HAPPENED')
 		return (
 			<div className="a">
 				{/* <TextFit minFontSize={1} maxFontSize={50} className="tf__box">
