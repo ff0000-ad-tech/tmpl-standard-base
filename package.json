@@ -10,7 +10,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.0.2",
+  "version": "3.0.3-master",
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
