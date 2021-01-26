@@ -4,13 +4,13 @@
     "template": "Base",
     "option": "",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
-    "version": "3.0.0"
+    "version": "3.0.1"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base",
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
