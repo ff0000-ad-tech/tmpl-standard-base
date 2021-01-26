@@ -9,6 +9,7 @@ import CanvasElementMask from '../CanvasElementMask'
 import CanvasElementText from '../CanvasElementText'
 import CanvasElementTween from '../CanvasElementTween'
 import TextFit from '../TextFit'
+import SplitText from '../SplitText'
 
 import './styles.scss'
 import '@common/fonts/template_font.woff'
@@ -37,6 +38,7 @@ class Ad extends Component {
 				{/* <CanvasElementTween ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <CanvasElementImage ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <CanvasElementMask ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
+				<SplitText>This is some cool text</SplitText>
 			</div>
 		)
 	}
