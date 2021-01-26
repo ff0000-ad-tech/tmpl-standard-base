@@ -1,5 +1,5 @@
 import { h, render, Component, createRef, Fragment } from 'preact'
-import useCanvasAlign from '../Hooks/useCanvasAlign'
+import useCanvasAlign from '@common/js/hooks/useCanvasAlign'
 
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 

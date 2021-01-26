@@ -1,4 +1,6 @@
-import { h, render, Component, createRef } from 'preact'
+import { h, render, Component } from 'preact'
+
+import './styles.scss'
 
 class TextFit extends Component {
 	constructor(props) {
@@ -10,19 +12,16 @@ class TextFit extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		console.warn('COMPONENT DID UPDATE CALLED')
 		if (prevState.fontSizeNum !== this.state.fontSizeNum) {
 			this.resize()
 		}
 	}
 
 	componentDidMount() {
-		console.warn('COMPONENT DID MOUNT CALLED')
 		this.resize()
 	}
 
 	resize() {
-		console.warn('RESIZE CALLED')
 		const props = this.props
 
 		if (this.element.scrollHeight > this.element.offsetHeight) {
@@ -43,7 +42,6 @@ class TextFit extends Component {
 	}
 
 	render() {
-		console.warn('RENDER HAPPENED')
 		return (
 			<div
 				ref={(el) => (this.element = el)}
