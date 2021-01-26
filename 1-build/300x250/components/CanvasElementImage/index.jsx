@@ -1,6 +1,8 @@
 import { h, render, Component, Fragment } from 'preact'
 
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import useCanvasScale from '@common/js/hooks/useCanvasScale'
+
 import '@size/images/160over90-logo.png'
 
 class CanvasElementImage extends Component {
@@ -10,6 +12,7 @@ class CanvasElementImage extends Component {
 
 	componentDidMount() {
 		this.ctx = this.canvasRef.getContext('2d') // Set the context var
+		useCanvasScale(this.canvasRef, this.ctx, this.props.width, this.props.height)
 		this.draw() // Do the inital draw of the canvas
 	}
 
@@ -21,8 +24,8 @@ class CanvasElementImage extends Component {
 		ctx.clearRect(0, 0, this.props.width, this.props.height)
 
 		// Draw image
-		const puppyImage = ImageManager.get('160over90-logo')
-		ctx.drawImage(puppyImage, 0, 0, puppyImage.width, puppyImage.height)
+		const logoImage = ImageManager.get('160over90-logo')
+		ctx.drawImage(logoImage, 0, 0, logoImage.width, logoImage.height)
 	}
 
 	render() {
