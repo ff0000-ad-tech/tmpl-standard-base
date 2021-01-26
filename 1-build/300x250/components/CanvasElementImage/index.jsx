@@ -2,6 +2,7 @@ import { h, render, Component, Fragment } from 'preact'
 
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 import useCanvasScale from '@common/js/hooks/useCanvasScale'
+import * as Align from '@common/js/utils/Align.js'
 
 import '@size/images/160over90-logo.png'
 
@@ -25,7 +26,12 @@ class CanvasElementImage extends Component {
 
 		// Draw image
 		const logoImage = ImageManager.get('160over90-logo')
-		ctx.drawImage(logoImage, 0, 0, logoImage.width, logoImage.height)
+
+		// Use Align to get x,y for centering
+		const x = Align.center(0, this.props.width, logoImage.width)
+		const y = Align.center(0, this.props.height, logoImage.height)
+
+		ctx.drawImage(logoImage, x, y, logoImage.width, logoImage.height)
 	}
 
 	render() {
