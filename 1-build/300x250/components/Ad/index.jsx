@@ -1,14 +1,11 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
-import BrandLogo from '../BrandLogo'
 import CanvasElement from '../CanvasElement'
 import CanvasElementImage from '../CanvasElementImage'
 import CanvasElementMask from '../CanvasElementMask'
 import CanvasElementText from '../CanvasElementText'
 import CanvasElementTween from '../CanvasElementTween'
-import TextFit from '../TextFit'
-import SplitText from '../SplitText'
 
 import './styles.scss'
 import '@common/fonts/template_font.woff'
@@ -36,12 +33,12 @@ class Ad extends Component {
 				{/* <CanvasElementMask ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <CanvasElementText ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <SplitText>This is some cool text</SplitText> */}
-				<BrandLogo ref={(el) => (this.brandlogo = el)} />
-				<div ref={(el) => (this.footer = el)} className="a__footer">
-					<img ref={(el) => (this.logo = el)} className="a__logo" src={this.getImage('160over90-logo-small')} />
-					<div ref={(el) => (this.cta = el)} className="a__cta">
-						LEARN MORE
-					</div>
+				<div className="buttons">
+					<button>Element</button>
+					<button>Image</button>
+					<button>Mask</button>
+					<button>Text</button>
+					<button>Tween</button>
 				</div>
 			</div>
 		)
