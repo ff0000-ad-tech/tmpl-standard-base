@@ -34,18 +34,17 @@ class Ad extends Component {
 				{/* <CanvasElementTween ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <CanvasElementImage ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <CanvasElementMask ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
-				<CanvasElementText ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} />
+				{/* <CanvasElementText ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <SplitText>This is some cool text</SplitText> */}
+				<BrandLogo ref={(el) => (this.brandlogo = el)} />
+				<div ref={(el) => (this.footer = el)} className="a__footer">
+					<img ref={(el) => (this.logo = el)} className="a__logo" src={this.getImage('160over90-logo-small')} />
+					<div ref={(el) => (this.cta = el)} className="a__cta">
+						LEARN MORE
+					</div>
+				</div>
 			</div>
 		)
 	}
 }
 export default Ad
-
-// <BrandLogo ref={(el) => (this.brandlogo = el)} />
-// <div ref={(el) => (this.footer = el)} className="a__footer">
-// 	<img ref={(el) => (this.logo = el)} className="a__logo" src={this.getImage('160over90-logo-small')} />
-// 	<div ref={(el) => (this.cta = el)} className="a__cta">
-// 		LEARN MORE
-// 	</div>
-// </div>
