@@ -15,6 +15,9 @@ import '@size/images/160over90-logo-small.png'
 class Ad extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			activeItem: 'element',
+		}
 	}
 
 	getImage = (name) => {
@@ -24,21 +27,58 @@ class Ad extends Component {
 	render() {
 		return (
 			<div className="a">
-				{/* <TextFit minFontSize={1} maxFontSize={50} className="tf__box">
-					The quick brown fox jumps over the lazy dog. This is some more good stuff sdfg sdfgsd dsfg sfgh dgdfh fdgh
-				</TextFit> */}
-				{/* <CanvasElement ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} /> */}
-				{/* <CanvasElementTween ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} /> */}
-				{/* <CanvasElementImage ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
-				{/* <CanvasElementMask ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
-				{/* <CanvasElementText ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
-				{/* <SplitText>This is some cool text</SplitText> */}
-				<div className="buttons">
-					<button>Element</button>
-					<button>Image</button>
-					<button>Mask</button>
-					<button>Text</button>
-					<button>Tween</button>
+				{this.state.activeItem == 'element' ? (
+					<CanvasElement ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} />
+				) : null}
+				{this.state.activeItem == 'tween' ? (
+					<CanvasElementTween ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} />
+				) : null}
+				{this.state.activeItem == 'image' ? (
+					<CanvasElementImage ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} />
+				) : null}
+				{this.state.activeItem == 'mask' ? (
+					<CanvasElementMask ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} />
+				) : null}
+				{this.state.activeItem == 'text' ? (
+					<CanvasElementText ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} />
+				) : null}
+
+				<div className="a__nav">
+					<button
+						onClick={() => {
+							this.setState({ activeItem: 'element' })
+						}}
+					>
+						Element
+					</button>
+					<button
+						onClick={() => {
+							this.setState({ activeItem: 'image' })
+						}}
+					>
+						Image
+					</button>
+					<button
+						onClick={() => {
+							this.setState({ activeItem: 'mask' })
+						}}
+					>
+						Mask
+					</button>
+					<button
+						onClick={() => {
+							this.setState({ activeItem: 'text' })
+						}}
+					>
+						Text
+					</button>
+					<button
+						onClick={() => {
+							this.setState({ activeItem: 'tween' })
+						}}
+					>
+						Tween
+					</button>
 				</div>
 			</div>
 		)

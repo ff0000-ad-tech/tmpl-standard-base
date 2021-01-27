@@ -8,26 +8,6 @@ class Control extends Component {
 
 	componentDidMount = () => {
 		window.hidePreloader()
-		this.startAnimation()
-	}
-
-	startAnimation = () => {
-		// const { brandlogo, cta, logo, canvas } = this.adRef
-		// brandlogo.start()
-		// gsap.set(cta, { y: '-=20' })
-		// const del = 1
-		// gsap.to(logo, { delay: del, duration: 0.5, x: '-=60', ease: 'expo.out' })
-		// gsap.to(cta, { delay: del, duration: 0.5, y: '+=20', opacity: 1, ease: 'expo.out' })
-	}
-
-	handleClick = () => {
-		Network.exit(window.clickTag)
-	}
-	handleRollOver = () => {
-		// Do rollover animation
-	}
-	handleRollOut = () => {
-		// Do rollout animation
 	}
 
 	render() {
@@ -38,9 +18,6 @@ class Control extends Component {
 					width: `${adParams.adWidth}px`,
 					height: `${adParams.adHeight}px`,
 				}}
-				onClick={this.handleClick}
-				onMouseOver={this.handleRollOver}
-				onMouseLeave={this.handleRollOut}
 			>
 				<Ad ref={(el) => (this.adRef = el)} />
 			</div>
