@@ -17,6 +17,9 @@ node ./dev-ops/version-sync.js --package package.json --pkgToBs --setPkg $CURREN
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 node ./dev-ops/set-package-name.js --package package.json --branch $BRANCH --version $RELEASE_VERSION
 
+# update index settings with this version
+node ./dev-ops/index-settings.js --version $RELEASE_VERSION
+
 # commit updates to package
 git add package.json
 git commit -m 'updates build-source info'
