@@ -34,9 +34,5 @@ np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || ex
 # note
 echo
 echo "Done.\033[1;31m Be sure to update BSA's version reference! \033[0m"
-echo " https://github.com/ff0000-tech/build-source-assembler/blob/master/package.json"
-echo "  \"buildSources\": {"
-echo "    ..."
-echo "    \033[1;32m\"$PKG_NAME\": \"$NPM_RELEASE\" \033[0m"
-echo "    ..."
-echo "  }"
+echo " https://review.160over90.com/bsa"
+echo "  \033[1;32m$PKG_NAME#$BRANCH: $RELEASE_VERSION \033[0m"
