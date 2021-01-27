@@ -4,13 +4,13 @@
     "template": "Base",
     "option": "Text Fit Example",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/text-fit",
-    "version": "3.0.4"
+    "version": "3.0.5"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-text-fit-example",
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
