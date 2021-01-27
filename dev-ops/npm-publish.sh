@@ -19,6 +19,7 @@ node ./dev-ops/set-package-name.js --package package.json --branch $BRANCH --ver
 
 # update index settings with this version
 node ./dev-ops/index-settings.js --version $RELEASE_VERSION
+npx prettier --write ./1-build/300x250/index.html
 
 # commit updates to package
 git add -A
