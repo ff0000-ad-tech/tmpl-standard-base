@@ -32,7 +32,11 @@ PKG_NAME=`node -pe "require('./package.json').name"`
 np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
 
 # note
+PLATFORM=`node -pe "require('./package.json').buildSource.platform"`
+TEMPLATE=`node -pe "require('./package.json').buildSource.template"`
+OPTION=`node -pe "require('./package.json').buildSource.option"`
 echo
 echo "Done.\033[1;31m Be sure to update BSA's version reference! \033[0m"
 echo " https://review.160over90.com/bsa"
-echo "  \033[1;32m$PKG_NAME#$BRANCH: $RELEASE_VERSION \033[0m"
+echo "    \033[1;32m\"$PKG_NAME\": \"$NPM_RELEASE\" \033[0m"
+echo "  	$PLATFORM : $TEMPLATE : $OPTION -> $RELEASE_VERSION "

@@ -4,7 +4,7 @@
     "template": "Base",
     "option": "Text Fit Example",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/text-fit",
-    "version": "3.0.16-beta.3"
+    "version": "3.0.16-beta.4"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-text-fit-example",
   "publishConfig": {
