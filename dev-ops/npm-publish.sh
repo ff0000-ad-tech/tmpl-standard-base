@@ -29,15 +29,19 @@ git push
 # get release name
 PKG_NAME=`node -pe "require('./package.json').name"`
 # prompt next version and publish to npm
-NPM_RELEASE="$RELEASE_VERSION-$BRANCH"
-np $NPM_RELEASE --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
+np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
 
 # note
+PLATFORM=`node -pe "require('./package.json').buildSource.platform"`
+TEMPLATE=`node -pe "require('./package.json').buildSource.template"`
+OPTION=`node -pe "require('./package.json').buildSource.option"`
 echo
 echo "Done.\033[1;31m Be sure to update BSA's version reference! \033[0m"
-echo " https://github.com/ff0000-tech/build-source-assembler/blob/master/package.json"
-echo "  \"buildSources\": {"
-echo "    ..."
-echo "    \033[1;32m\"$PKG_NAME\": \"$NPM_RELEASE\" \033[0m"
-echo "    ..."
-echo "  }"
+echo ""
+echo " https://review.160over90.com/bsa"
+echo "  Add New:"
+echo "   \033[1;32m$PKG_NAME: $RELEASE_VERSION \033[0m"
+echo ""
+echo "  Update Existing:"
+echo "   $PLATFORM : $TEMPLATE : $OPTION -> \033[1;32m$RELEASE_VERSION \033[0m"
+echo ""
