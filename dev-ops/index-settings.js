@@ -33,6 +33,7 @@ try {
 		`\t\t\t/*-- ${adParamsHook}.start --*/\n` + `\t\t\t${adParamsStr.replace(/\n/g, '\n\t\t\t')}\n` + `\t\t\t/*-- ${adParamsHook}.end --*/`
 	const updateIndex = index.replace(adParamsRegex, formatted)
 	// write updated index
+	log(`Updating settings at ${indexPath}`)
 	fs.writeFileSync(indexPath, updateIndex)
 } catch (err) {
 	log(`Unable to set version in ${indexPath}`)

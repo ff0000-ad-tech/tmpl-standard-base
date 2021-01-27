@@ -25,11 +25,11 @@ git add -A
 git commit -m 'updates build-source info'
 git push
 
-# get release name
-PKG_NAME=`node -pe "require('./package.json').name"`
-# prompt next version and publish to npm
-NPM_RELEASE="$RELEASE_VERSION-$BRANCH"
-np $NPM_RELEASE --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
+# # get release name
+# PKG_NAME=`node -pe "require('./package.json').name"`
+# # prompt next version and publish to npm
+# NPM_RELEASE="$RELEASE_VERSION-$BRANCH"
+# np $NPM_RELEASE --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
 
 # note
 echo
