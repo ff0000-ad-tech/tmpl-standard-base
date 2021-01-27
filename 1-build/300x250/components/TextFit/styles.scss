@@ -1,8 +1,8 @@
 .tf {
 	&__box {
-		border: 2px solid black;
 		width: 200px;
 		height: 100px;
+		background-color: rgb(211, 211, 211);
 		display: flex;
 		justify-content: center;
 		align-items: center;

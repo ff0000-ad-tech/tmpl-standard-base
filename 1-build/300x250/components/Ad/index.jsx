@@ -19,7 +19,7 @@ class Ad extends Component {
 		return (
 			<div className="a">
 				<TextFit minFontSize={1} maxFontSize={50} className="tf__box">
-					The quick brown fox jumps over the lazy dog. This is some more good stuff sdfg sdfgsd dsfg sfgh dgdfh fdgh
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				</TextFit>
 			</div>
 		)
