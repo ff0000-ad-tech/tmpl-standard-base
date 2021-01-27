@@ -1,7 +1,6 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
-import * as Align from '@common/js/utils/Align.js'
 import BrandLogo from '../BrandLogo'
 import CanvasElement from '../CanvasElement'
 import CanvasElementImage from '../CanvasElementImage'
@@ -38,7 +37,8 @@ class Ad extends Component {
 				{/* <CanvasElementTween ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <CanvasElementImage ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
 				{/* <CanvasElementMask ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} /> */}
-				<SplitText>This is some cool text</SplitText>
+				<CanvasElementText ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} />
+				{/* <SplitText>This is some cool text</SplitText> */}
 			</div>
 		)
 	}
