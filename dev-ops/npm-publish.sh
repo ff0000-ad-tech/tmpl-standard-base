@@ -21,7 +21,7 @@ node ./dev-ops/set-package-name.js --package package.json --branch $BRANCH --ver
 node ./dev-ops/index-settings.js --version $RELEASE_VERSION
 
 # commit updates to package
-git add package.json
+git add -A
 git commit -m 'updates build-source info'
 git push
 
