@@ -1,7 +1,7 @@
 import { h, render, Component, createRef, Fragment } from 'preact'
-import useCanvasAlign from '@common/js/hooks/useCanvasAlign'
 
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import useCanvasScale from '@common/js/hooks/useCanvasScale'
 
 import '@size/images/canvas_mask.png'
 import '@size/images/puppy.jpg'
@@ -25,6 +25,10 @@ class CanvasElementMask extends Component {
 	componentDidMount() {
 		console.warn(adParams)
 		this.ctx = this.canvasRef.getContext('2d') // Set the context var
+
+		// Adjust canvas for retina
+		useCanvasScale(this.canvasRef, this.ctx, this.props.width, this.props.height)
+
 		this.draw() // Do the inital draw of the canvas
 		this.start()
 	}

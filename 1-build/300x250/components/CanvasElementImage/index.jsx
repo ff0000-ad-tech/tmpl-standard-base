@@ -13,7 +13,10 @@ class CanvasElementImage extends Component {
 
 	componentDidMount() {
 		this.ctx = this.canvasRef.getContext('2d') // Set the context var
+
+		// Adjust canvas for retina
 		useCanvasScale(this.canvasRef, this.ctx, this.props.width, this.props.height)
+
 		this.draw() // Do the inital draw of the canvas
 	}
 

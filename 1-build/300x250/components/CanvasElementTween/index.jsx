@@ -1,6 +1,6 @@
 import { h, render, Component, Fragment } from 'preact'
 
-import * as Align from '@common/js/utils/Align.js'
+import useCanvasScale from '@common/js/hooks/useCanvasScale'
 
 class CanvasElementTween extends Component {
 	constructor(props) {
@@ -17,6 +17,10 @@ class CanvasElementTween extends Component {
 	componentDidMount() {
 		console.warn(adParams)
 		this.ctx = this.canvasRef.getContext('2d') // Set the context var
+
+		// Adjust canvas for retina
+		useCanvasScale(this.canvasRef, this.ctx, this.props.width, this.props.height)
+
 		this.draw() // Do the inital draw of the canvas
 		this.start() // Start the animation
 	}

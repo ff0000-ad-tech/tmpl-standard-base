@@ -24,9 +24,6 @@ class Ad extends Component {
 		return ImageManager.get(name).src
 	}
 
-	componentDidMount() {
-		console.warn(this.result)
-	}
 	render() {
 		return (
 			<div className="a">
