@@ -9,8 +9,6 @@ import CanvasElementTween from '../CanvasElementTween'
 
 import './styles.scss'
 import '@common/fonts/template_font.woff'
-import '@size/images/160over90-logo.png'
-import '@size/images/160over90-logo-small.png'
 
 class Ad extends Component {
 	constructor(props) {
