@@ -23,7 +23,6 @@ class CanvasElementMask extends Component {
 	}
 
 	componentDidMount() {
-		console.warn(adParams)
 		this.ctx = this.canvasRef.getContext('2d') // Set the context var
 
 		// Adjust canvas for retina
