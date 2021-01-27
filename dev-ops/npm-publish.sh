@@ -38,5 +38,7 @@ OPTION=`node -pe "require('./package.json').buildSource.option"`
 echo
 echo "Done.\033[1;31m Be sure to update BSA's version reference! \033[0m"
 echo " https://review.160over90.com/bsa"
-echo "    \033[1;32m\"$PKG_NAME\": \"$NPM_RELEASE\" \033[0m"
-echo "  	$PLATFORM : $TEMPLATE : $OPTION -> $RELEASE_VERSION "
+echo ""
+echo "  \033[1;32m\"$PKG_NAME\": \"$RELEASE_VERSION\" \033[0m"
+echo ""
+echo "  $PLATFORM : $TEMPLATE : $OPTION -> $RELEASE_VERSION "
