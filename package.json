@@ -3,8 +3,8 @@
     "platform": "Velvet-DPS",
     "template": "Base",
     "option": "",
-    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
-    "version": "3.1.0-beta.0"
+    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/velvet-dps",
+    "version": "3.1.0-beta.1"
   },
   "name": "@ff0000-ad-tech/tmpl-velvet-dps-base",
   "publishConfig": {
