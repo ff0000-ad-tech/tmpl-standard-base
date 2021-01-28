@@ -4,13 +4,13 @@
     "template": "Base",
     "option": "Canvas Examples",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/split-text",
-    "version": "3.0.8"
+    "version": "3.0.9"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-canvas-examples",
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
