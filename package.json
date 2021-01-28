@@ -3,8 +3,8 @@
     "platform": "Standard",
     "template": "Base",
     "option": "Text-fit Example",
-    "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
-    "release": "beta.2"
+    "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/text-fit",
+    "release": "beta.3"
   },
   "scripts": {
     "pub": "cd ./dev-ops && sh npm-publish.sh",
@@ -16,8 +16,8 @@
     "server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
     "browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser"
   },
-  "name": "@ff0000-ad-tech/tmpl-standard-base-master",
-  "version": "3.1.0-beta.2",
+  "name": "@ff0000-ad-tech/tmpl-standard-base-text-fit-example",
+  "version": "3.1.0-beta.3",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
