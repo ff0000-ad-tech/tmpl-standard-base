@@ -2,15 +2,15 @@
   "buildSource": {
     "platform": "Standard",
     "template": "Base",
-    "option": "",
+    "option": "Canvas Examples",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/canvas",
-    "version": "3.1.0-beta.2"
+    "version": "3.1.0-beta.1"
   },
-  "name": "@ff0000-ad-tech/tmpl-standard-base",
+  "version": "3.1.0-beta.1",
+  "name": "@ff0000-ad-tech/tmpl-standard-base-canvas-examples",
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.1.0-beta.2",
   "description": "Open-source HTML banner-authoring framework.",
   "engines": {
     "node": ">=9.8.0",
