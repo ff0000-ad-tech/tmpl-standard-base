@@ -21,6 +21,7 @@ const option = sanitize(pkg.buildSource.option) || ''
 pkg.name = `@ff0000-ad-tech/tmpl-${platform}-${template}${option ? `-${option}` : ``}`
 // update url
 const branch = argv.branch || 'master'
-pkg.buildSource.url = `${pkg.repository.url.replace(/^git\+/, '')}/tree/${branch}`
+pkg.buildSource.repo = `${pkg.repository.url.replace(/^git\+/, '')}/tree/${branch}`
 // write updated package
+log(`Updating package name: ${pkg.name}`)
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))

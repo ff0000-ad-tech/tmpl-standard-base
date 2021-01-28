@@ -12,11 +12,17 @@ if (!pkg.buildSource) {
 }
 // build-source to package
 if (argv.bsToPkg) {
-	pkg.version = pkg.buildSource.version
+	const pkgAlpha = pkg.version.replace(/-.*$/, '')
+	pkg.version = `${pkgAlpha}-${pkg.buildSource.release}`
 }
 // package to build-source
 if (argv.pkgToBs) {
-	pkg.buildSource.version = pkg.version
+	const bsBetaMatch = pkg.version.match(/-(.*)$/)
+	if (!bsBetaMatch) {
+		log(`package version must be released as a beta`)
+		process.exit(1)
+	}
+	pkg.buildSource.release = bsBetaMatch[1]
 }
 // override package
 if (argv.setPkg) {
