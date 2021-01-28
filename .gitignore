@@ -1,4 +1,5 @@
 .DS_Store
+.package-lock
 node_modules/
 1-build/node_modules/
 2-debug/
