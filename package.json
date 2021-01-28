@@ -4,7 +4,7 @@
     "template": "Base",
     "option": "Master",
     "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
-    "release": "beta.2"
+    "release": "beta.1"
   },
   "scripts": {
     "pub": "cd ./dev-ops && sh npm-publish.sh",
@@ -17,7 +17,7 @@
     "browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-master",
-  "version": "3.1.0-beta.2",
+  "version": "3.2.0-beta.1",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
