@@ -9,16 +9,16 @@ npx bump package.json
 RELEASE_VERSION=`node -pe "require('./package.json').version"`
 
 # propagate next version back to build-source
-# but restore the package-version to current,
-# so the NP package doesn't insist on a new version :o
-node ./dev-ops/version-sync.js --package package.json --pkgToBs --setPkg $CURRENT_VERSION
+node ./dev-ops/version-sync.js --package package.json --pkgToBs 
 
 # update package name
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 node ./dev-ops/set-package-name.js --package package.json --branch $BRANCH --version $RELEASE_VERSION
+# get package name
+PKG_NAME=`node -pe "require('./package.json').name"`
 
 # update index settings with this version
-node ./dev-ops/index-settings.js --version $RELEASE_VERSION
+node ./dev-ops/index-settings.js --pkgName $PKG_NAME --version $RELEASE_VERSION
 npx prettier --write ./1-build/300x250/index.html
 
 # commit updates to package
@@ -26,10 +26,9 @@ git add -A
 git commit -m 'updates build-source info'
 git push
 
-# get release name
-PKG_NAME=`node -pe "require('./package.json').name"`
 # prompt next version and publish to npm
-np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
+# np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
+npm publish --tag $BRANCH --access public 
 
 # note
 PLATFORM=`node -pe "require('./package.json').buildSource.platform"`
