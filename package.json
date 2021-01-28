@@ -2,27 +2,10 @@
   "buildSource": {
     "platform": "Standard",
     "template": "Base",
-    "option": "",
-    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
-    "version": "3.0.16-beta.1"
+    "option": "Text-fit Example",
+    "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
+    "release": "beta.2"
   },
-  "name": "@ff0000-ad-tech/tmpl-standard-base-text-fit-example",
-  "publishConfig": {
-    "access": "public"
-  },
-  "version": "3.0.16-beta.1",
-  "description": "Open-source HTML banner-authoring framework.",
-  "engines": {
-    "node": ">=9.8.0",
-    "npm": ">=6.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
-    "branch": "master"
-  },
-  "author": "160over90",
-  "license": "MIT",
   "scripts": {
     "pub": "cd ./dev-ops && sh npm-publish.sh",
     "prepare": "npm run install-build && npm run prettier",
@@ -33,8 +16,24 @@
     "server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
     "browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser"
   },
+  "name": "@ff0000-ad-tech/tmpl-standard-base-master",
+  "version": "3.1.0-beta.2",
+  "description": "Open-source HTML banner-authoring framework.",
+  "author": "160over90",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14.3.0",
+    "npm": ">=6.14.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
+    "branch": "master"
+  },
   "devDependencies": {
-    "@ff0000-ad-tech/comment-hooks": "^1.1.0",
     "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
     "@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.1.0",
     "@ff0000-ad-tech/debug": "^4.1.0",
@@ -47,7 +46,6 @@
     "minimist": "^1.2.5",
     "np": "^7.2.0",
     "prettier": "^2.2.1",
-    "require-from-string": "^2.0.2",
     "version-bump-prompt": "^6.1.0"
   }
 }
