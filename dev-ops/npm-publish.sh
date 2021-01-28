@@ -9,9 +9,7 @@ npx bump package.json
 RELEASE_VERSION=`node -pe "require('./package.json').version"`
 
 # propagate next version back to build-source
-# but restore the package-version to current,
-# so the NP package doesn't insist on a new version :o
-node ./dev-ops/version-sync.js --package package.json --pkgToBs --setPkg $CURRENT_VERSION
+node ./dev-ops/version-sync.js --package package.json --pkgToBs 
 
 # update package name
 BRANCH=`git rev-parse --abbrev-ref HEAD`
@@ -31,6 +29,7 @@ git push
 # prompt next version and publish to npm
 # np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
 npm publish --tag $BRANCH --access public 
+
 # note
 PLATFORM=`node -pe "require('./package.json').buildSource.platform"`
 TEMPLATE=`node -pe "require('./package.json').buildSource.template"`
