@@ -3,8 +3,8 @@
     "platform": "Standard",
     "template": "Base",
     "option": "Canvas Examples",
-    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/canvas",
-    "version": "3.0.7"
+    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/split-text",
+    "version": "3.0.8"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-canvas-examples",
   "publishConfig": {
