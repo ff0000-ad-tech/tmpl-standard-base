@@ -24,7 +24,7 @@ class TextFit extends Component {
 	resize() {
 		const props = this.props
 
-		if (this.element.scrollHeight > this.element.offsetHeight) {
+		if (this.element.scrollHeight > this.element.clientHeight) {
 			if (this.state.fontSizeNum >= props.minFontSize) {
 				this.setState((prevState, props) => ({
 					fontSizeNum: prevState.fontSizeNum - 1,
@@ -32,7 +32,7 @@ class TextFit extends Component {
 			}
 		}
 
-		if (this.element.scrollWidth > this.element.offsetWidth) {
+		if (this.element.scrollWidth > this.element.clientWidth) {
 			if (this.state.fontSizeNum >= props.minFontSize) {
 				this.setState((prevState, props) => ({
 					fontSizeNum: prevState.fontSizeNum - 1,
@@ -44,13 +44,21 @@ class TextFit extends Component {
 	render() {
 		return (
 			<div
-				ref={(el) => (this.element = el)}
 				className={this.props.className}
 				style={{
+					boxSizing: 'border-box',
 					fontSize: `${this.state.fontSizeNum}px`,
 				}}
 			>
-				{this.props.children}
+				<div
+					ref={(el) => (this.element = el)}
+					style={{
+						width: '100%',
+						height: '100%',
+					}}
+				>
+					{this.props.children}
+				</div>
 			</div>
 		)
 	}
