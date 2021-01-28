@@ -1,8 +1,8 @@
 .DS_Store
-.package-lock
-node_modules/
-1-build/node_modules/
-2-debug/
+package-lock.json
+node_modules
+1-build/node_modules
+2-debug
+dev-ops
+!.gitignore
 !.gitkeep
-
-`
