@@ -3,11 +3,11 @@
     "platform": "Standard",
     "template": "Base",
     "option": "Canvas Examples",
-    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/canvas",
-    "version": "3.1.0-beta.1"
+    "github": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/canvas",
+    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/examples/canvas"
   },
-  "version": "3.1.0-beta.1",
   "name": "@ff0000-ad-tech/tmpl-standard-base-canvas-examples",
+  "version": "3.1.0-beta.2",
   "publishConfig": {
     "access": "public"
   },
