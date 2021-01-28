@@ -29,8 +29,8 @@ git commit -m 'updates build-source info'
 git push
 
 # prompt next version and publish to npm
-np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
-
+# np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
+npm publish --tag $RELEASE_VERSION --access public 
 # note
 PLATFORM=`node -pe "require('./package.json').buildSource.platform"`
 TEMPLATE=`node -pe "require('./package.json').buildSource.template"`
