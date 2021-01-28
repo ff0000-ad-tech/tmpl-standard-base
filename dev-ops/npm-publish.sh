@@ -1,8 +1,12 @@
 cd ..
 
+# ensure branch build-source version is package version
+node ./dev-ops/version-sync.js --package package.json --bsToPkg
 # prompt next version
 npx bump package.json
 RELEASE_VERSION=`node -pe "require('./package.json').version"`
+# propagate next version back to build-source
+node ./dev-ops/version-sync.js --package package.json --pkgToBs 
 
 # update package name
 BRANCH=`git rev-parse --abbrev-ref HEAD`
@@ -15,8 +19,7 @@ git add -A
 git commit -m 'updates build-source info'
 git push
 
-# prompt next version and publish to npm
-# np $RELEASE_VERSION --tag=$BRANCH --any-branch --no-release-draft --no-2fa || exit $?
+# publish to npm
 npm publish --tag $BRANCH --access public 
 
 # note
