@@ -12,15 +12,14 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { brandlogo, cta, logo } = this.adRef
+		const { brandlogo } = this.adRef
 
 		brandlogo.start()
 
-		gsap.set(cta, { y: '-=20' })
+		gsap.set('ad__cta', { y: '-=20' })
 
-		const del = 1
-		gsap.to(logo, { delay: del, duration: .5, x: '-=60',  ease: "expo.out" })
-		gsap.to(cta, { delay: del, duration: .5, y: '+=20', opacity: 1,  ease: "expo.out" })
+		gsap.to('.ad__logo', { delay: 1, duration: 0.5, x: '-=60', ease: 'expo.out' })
+		gsap.to('.ad__cta', { delay: 1, duration: 0.5, y: '+=20', opacity: 1, ease: 'expo.out' })
 	}
 
 	handleClick = () => {
@@ -39,13 +38,13 @@ class Control extends Component {
 				id={`control-${adParams.adWidth}x${adParams.adHeight}`}
 				style={{
 					width: `${adParams.adWidth}px`,
-					height: `${adParams.adHeight}px`
+					height: `${adParams.adHeight}px`,
 				}}
 				onClick={this.handleClick}
 				onMouseOver={this.handleRollOver}
 				onMouseLeave={this.handleRollOut}
 			>
-				<Ad ref={el => this.adRef = el} />
+				<Ad ref={(el) => (this.adRef = el)} />
 			</div>
 		)
 	}
