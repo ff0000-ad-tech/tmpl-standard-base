@@ -142,23 +142,24 @@ The `index.html`'s global `adParams.adWidth` and `adParams.adHeight` object shou
 
 An Index contains:
 
-- Settings
-- Click Tag Definitions
+- Click Tag
+- Settings (`window.adParams`)
+- Backup JPG
 - Exit Mechanics
 - Preload DOM
 - Failover
 
-Each size folder can have one or many indexes. Additional indexes are used to switch the dynamic state to different demographics. These are known as "Dynamic Targets".
+A build can have many sizes. A size can have many indexes. See [Variation](#variation) for more detail.
 
-Dynamic Targets are defined by duplicating `1-build/[size]/index.html`. The new targets should be formatted like `index_target1.html`, `index_target2.html`, etc... Using this method, you can create lots of variation without loads of build redundancy.
+Add any build-specific data you need to `window.adParams`. This will be available throughout your build.
 
-![Index Targets](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/index-targets.png)
+DOM the preloader in `<div id="preloader">...</div>` and add to the top `<style>...</style>` block as needed.
 
 <a name="build"></a>
 
 ##### 1-build/[size]/build.js
 
-- `build.js` - _Size specific_ preflight & top Preact render function of the ad.
+- `build.js` - Preflight & top Preact render function of the ad.
 
 <a name="components"></a>
 
@@ -168,16 +169,7 @@ Components are where the creative authoring starts! This is straight-forward JSX
 
 Importing fonts & image assets will cause them to be bundled into the [fba-payload.png](#binary-assets). Importing components (javascript) or CSS will be bundled into the `build.bundle.js`.
 
-```javascript
-// import a font shared by all sizes
-import '@common/fonts/template_font.woff'
-
-// import an image for a specific size
-import '@size/images/160over90-logo.png'
-
-// import a shared component
-import { MySharedModule } from '@common/components/MySharedModule'
-```
+See the [Assets](#assets) section for examples.
 
 See [Alias](#aliases) for more information on resolving imports to different locations in the build.
 
@@ -202,7 +194,7 @@ Images and fonts are [Binary Assets](#binary-assets). To get them compiled into 
 
 ```javascript
 import { ImageManager } from 'ad-control'
-import './images/my_asset.png'
+import '@size/images/my_asset.png'
 
 var image = new Image()
 image.src = ImageManager.get('my_asset') // id is the filename of the image-asset
@@ -212,8 +204,18 @@ image.src = ImageManager.get('my_asset') // id is the filename of the image-asse
 
 ```javascript
 // Usually done once per font in `./1-build/common/js/AdData.js`.
-import './fonts/template_font.ttf'
+import '@common/fonts/template_font.ttf'
 // "template_font" will get unpacked at runtime and declared via CSS
+```
+
+#### Components
+
+```javascript
+// import size-specific component, from `1-build/[@size]/components` folder
+import '@size/components/MyComponent'
+
+// import shared component, from `1-build/common/components` folder
+import '@common/components/MySharedComponent'
 ```
 
 <a name="variation"></a>
@@ -229,6 +231,8 @@ To make this process go smoothly, make sure to import build-assets with the `@si
 #### Indexes
 
 To generate variations of an existing size, duplicate an existing `1-build/[@size]/[@index]`. This index will load the same `build.js`. Use the `window.adParams` as defined in the `index.html` to add variation data or control.
+
+![Index Targets](https://github.com/ff0000-ad-tech/ad-docs/blob/master/assets/tmpl-standard-base/index-targets.png)
 
 The `@index` alias can be used when an index variation of the same size needs to import assets specific to itself. In this case `@size` would not work without appending an index-key from the `window.adParams`.
 
