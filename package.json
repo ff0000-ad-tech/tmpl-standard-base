@@ -17,7 +17,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-velvet-dps-base-master",
-  "version": "3.2.1-beta.4",
+  "version": "3.3.0",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",

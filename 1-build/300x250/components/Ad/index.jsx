@@ -1,13 +1,16 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
+// Components
 import BrandLogo from '../BrandLogo'
-import './styles.scss'
 
+// Assets
 import '@common/fonts/template_font.woff'
-import '../BrandLogo'
 import '@size/images/160over90-logo.png'
 import '@size/images/160over90-logo-small.png'
+
+// Styles
+import './styles.scss'
 
 class Ad extends Component {
 	constructor(props) {
@@ -20,13 +23,11 @@ class Ad extends Component {
 
 	render() {
 		return (
-			<div className="a">
+			<div className="ad">
 				<BrandLogo ref={(el) => (this.brandlogo = el)} />
-				<div ref={(el) => (this.footer = el)} className="a__footer">
-					<img ref={(el) => (this.logo = el)} className="a__logo" src={this.getImage('160over90-logo-small')} />
-					<div ref={(el) => (this.cta = el)} className="a__cta">
-						LEARN MORE
-					</div>
+				<div className="ad__footer">
+					<img className="ad__logo" src={this.getImage('160over90-logo-small')} />
+					<div className="ad__cta">LEARN MORE</div>
 				</div>
 			</div>
 		)
