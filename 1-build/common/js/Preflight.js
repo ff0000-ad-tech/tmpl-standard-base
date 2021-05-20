@@ -1,6 +1,6 @@
 import AdData from '@common/js/AdData.js'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
-import dps from '@ff0000-ad-tech/ad-dps'
+import * as dps from '@ff0000-ad-tech/ad-dps'
 /*-- Red.Imports.head.start --*/
 /*-- Red.Imports.head.end --*/
 
@@ -17,7 +17,7 @@ export class Preflight {
 		console.log('Preflight.init()')
 		await Promise.all([
 			// loadDynamicJS('define-your-case-id')
-			loadDpsData()
+			loadDpsData(),
 		])
 		addPreloadedImages()
 		prepareAdData()
@@ -26,7 +26,7 @@ export class Preflight {
 
 const loadDpsData = async () => {
 	console.log('Preflight.loadDpsData()')
-	const data = await dps.loadFeed(adParams.dps)
+	const data = await dps.load(adParams.dps)
 	console.log(data)
 }
 
@@ -61,7 +61,5 @@ const loadDynamicJS = async (id) => {
 		*/
 		default:
 			console.log(`Common.loadDynamicJS() has no import case for: ${id}`)
-
 	}
 }
-
