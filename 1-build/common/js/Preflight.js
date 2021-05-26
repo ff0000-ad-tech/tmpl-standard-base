@@ -15,10 +15,8 @@ import * as dps from '@ff0000-ad-tech/ad-dps'
 export class Preflight {
 	static init = async () => {
 		console.log('Preflight.init()')
-		await Promise.all([
-			// loadDynamicJS('define-your-case-id')
-			loadDpsData(),
-		])
+		// await loadDynamicJS('define-your-case-id')
+		await loadDpsData()
 		addPreloadedImages()
 		prepareAdData()
 	}
@@ -26,8 +24,8 @@ export class Preflight {
 
 const loadDpsData = async () => {
 	console.log('Preflight.loadDpsData()')
-	const data = await dps.load(adParams.dps)
-	console.log(data)
+	global.dpsData = await dps.load(adParams.dpsConfig)
+	console.log(global.dpsData)
 }
 
 const addPreloadedImages = () => {
@@ -37,7 +35,6 @@ const addPreloadedImages = () => {
 
 const prepareAdData = () => {
 	console.log('Preflight.prepareAdData()')
-
 	global.adData = new AdData()
 }
 
