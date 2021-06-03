@@ -8,7 +8,7 @@ import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 export const requestDynamicImages = () => {
 	console.log(window.dpsData)
 	const bg = DpsManager.getImageRequest(window.dpsData, 'bg')
-	ImageManager.request(bg)
+	ImageManager.addImageRequest(bg)
 }
 
 /**
