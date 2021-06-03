@@ -193,7 +193,7 @@ Images and fonts are [Binary Assets](#binary-assets). To get them compiled into 
 #### Images
 
 ```javascript
-import { ImageManager } from 'ad-control'
+import { ImageManager } from 'ad-assets'
 import '@size/images/my_asset.png'
 
 var image = new Image()

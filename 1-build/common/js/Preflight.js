@@ -1,62 +1,44 @@
-import AdData from '@common/js/AdData.js'
-import { ImageManager } from '@ff0000-ad-tech/ad-control'
-import * as dps from '@ff0000-ad-tech/ad-dps'
-/*-- Red.Imports.head.start --*/
-/*-- Red.Imports.head.end --*/
+import * as AdData from '@common/js/AdData.js'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
+import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 
 /**
-	PRE-FLIGHT		
-
-	Resources that are shared by all the sizes should be loaded here. Boilerplate components 
-	like {@link Velvet} & {@link DateManager} can be configured. Runtime JS loads. Etc.
-
-	Once resolved, control moves to AdData.
-*/
+ * PRE-FLIGHT		
+ * 
+ * Resources that are shared by all the sizes should be loaded here. 
+ * 
+ */
 export class Preflight {
-	static init = async () => {
-		console.log('Preflight.init()')
-		// await loadDynamicJS('define-your-case-id')
-		await loadDpsData()
-		addPreloadedImages()
-		prepareAdData()
+	static init = async (binaryAssets) => {
+		// instantiate global ad-data
+		window.adData = AdData
+		// add binary payload
+		await addFbaImages(binaryAssets)
+		// add preloader images to build
+		await addPreloadedImages()
+		// load dps-data and add to ad-data
+		window.dpsData = await DpsManager.load(adParams.dpsConfig)
+		// author adds necessary requests to queue
+		window.adData.requestDynamicImages()
+		// preload dynamic images
+		await loadDynamicImages()
 	}
 }
 
-const loadDpsData = async () => {
-	console.log('Preflight.loadDpsData()')
-	global.dpsData = await dps.load(adParams.dpsConfig)
-	console.log(global.dpsData)
+const addFbaImages = async (binaryAssets) => {
+	console.log('Preflight.addFbaImages()')
+	ImageManager.add(binaryAssets)
 }
 
-const addPreloadedImages = () => {
+const addPreloadedImages = async () => {
 	console.log('Preflight.addPreloadedImages()')
-	ImageManager.addToDictionary(assets.preloadedImages)
+	ImageManager.add(assets.preloadedImages)
 }
 
-const prepareAdData = () => {
-	console.log('Preflight.prepareAdData()')
-	global.adData = new AdData()
+const loadDynamicImages = async () => {
+	console.log('Preflight.loadDynamicImages()')
+	await ImageManager.load()
 }
 
-/**
-	Method for loading dynamic, compiled ES6 modules at runtime. This should be threaded into 
-	Preflight.init()'s promise chain, as needed.
 
-	You must:
-		- define THIS_CASE__ID
-		- replace THIS_CASE__ASSET_PATH with a string
-		- handle the implementation of the loaded module.
-*/
-const loadDynamicJS = async (id) => {
-	switch (id) {
-		/*
-		case THIS_CASE__ID: // ex: '300x250_Endframe'
-			await import('THIS_CASE__ASSET_PATH') // ex: '@common/dynamic_js/300x250_Endframe.js'
-			// example implementation of loaded ES6 module
-			global[module.default.name] = module.default
-			break
-		*/
-		default:
-			console.log(`Common.loadDynamicJS() has no import case for: ${id}`)
-	}
-}
+
