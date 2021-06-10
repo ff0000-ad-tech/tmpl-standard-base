@@ -18,7 +18,7 @@ export const init = async (binaryAssets) => {
 	// load dps-data and add to ad-data
 	window.dpsData = await DpsManager.load(adParams.dpsConfig)
 	// author adds necessary requests to queue
-	window.adData.requestDynamicImages()
+	await window.adData.requestDynamicImages()
 	// preload dynamic images
 	await loadDynamicImages()
 }
