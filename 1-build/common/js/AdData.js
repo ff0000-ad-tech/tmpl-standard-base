@@ -15,29 +15,23 @@ import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 	Prepare dynamic data here.
  */
 export const requestDynamicImages = async () => {
-	// make additional dps load for "networks" tab
-	const networksData = await DpsManager.load({
-		env: window.adParams.dpsConfig.env,
-		ssid: window.adParams.dpsConfig.ssid,
-		sid: '2079020722'
-	})
 	// preload network images for matchup
-	const matchupNetworks = window.dpsData.Matchup.Networks.split(',')
+	const matchupNetworks = DpsManager.getData('main', 'Matchup.Networks').split(',')
 	console.log(matchupNetworks)
 	matchupNetworks.forEach(label => {
 		console.log(`Requesting network image for ${label}`)
-		const networkRow = findNetwork(networksData, label)
+		const networkRow = DpsManager.getData('networks', 'Label', label)
 		const networkImageReq = DpsManager.getImageRequest(networkRow.Sources, label)
 		ImageManager.addImageRequest(networkImageReq)
 	})
 
 	// preload images
-	const bg = DpsManager.getImageRequest(window.dpsData.Sources, 'bg')
+	const mainSource = DpsManager.getData('main', 'Sources')
+	console.log({ mainSource })
+	const bg = DpsManager.getImageRequest(mainSource, 'bg')
 	ImageManager.addImageRequest(bg)
 }
-const findNetwork = (networksData, label) => {
-	return Object.values(networksData).find(rowData => rowData.Label === label)
-}
+
 
 export const copy = [
 	'WHY PAY MORE\nFOR ELECTRICITY?',

@@ -38,11 +38,21 @@
 				failoverOnError: true,
 				version: '3.1.0-beta.1',
 				dpsConfig: {
-					// data: { ... }
 					env: 'local', // 'staging', 'prod'
-					ssid: '1djK1EwWV-k2bdSm5H4HFMoI2mz36g0rvGbKV0fx0d94',
-					sid: '795713',
-					rid: '0a4d4272-9d05-4e4e-8f55-45be208f1aec',
+					feeds: [
+						{
+							label: 'main',
+							// data: { ... }
+							ssid: '1djK1EwWV-k2bdSm5H4HFMoI2mz36g0rvGbKV0fx0d94',
+							sid: '795713',
+							rid: '0a4d4272-9d05-4e4e-8f55-45be208f1aec', // optional row-id
+						},
+						{
+							label: 'networks',
+							ssid: '1djK1EwWV-k2bdSm5H4HFMoI2mz36g0rvGbKV0fx0d94',
+							sid: '2079020722',
+						},
+					],
 				},
 			}
 			/*-- Red.Settings.ad_params.end --*/
