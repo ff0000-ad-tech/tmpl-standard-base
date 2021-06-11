@@ -21,6 +21,8 @@ export const init = async (binaryAssets) => {
 	await window.adData.requestDynamicImages()
 	// preload dynamic images
 	await loadDynamicImages()
+	// let creative-server know dps-preflight is complete
+	await DpsManager.preflightComplete()
 }
 
 
