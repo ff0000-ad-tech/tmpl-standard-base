@@ -6,18 +6,25 @@
 		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta content="utf-8" http-equiv="encoding" />
-		<meta name="ad.size" content="width=300,height=250" />
+		<meta name="ad.size" content="width=970,height=418" />
 		<!-- Red.Network.meta.start -->
 		<!-- Red.Network.meta.end -->
 
-		<title>**CLIENT NAME** **PROJECT NAME** 300x250</title>
-
+		<title>**CLIENT NAME** **PROJECT NAME** 970x418</title>
+		<script id="doubleclick" src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
 		<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.5.1_min.js"></script>
 		<script type="text/javascript">
 			/*-- Red.Network.clicktags.start --*/
-			var clickTag = 'http://www.changeme.com/'
-			var collapsedExit = 'http://www.changeme.com/'
-			var expandedExit = 'http://www.changeme.com/'
+			var clickTag = function () {
+				Enabler.exit('clickTag')
+			}
+
+			var collapsedExit = function () {
+				Enabler.exit('USER_EXITED_WHILE_COLLAPSED')
+			}
+			var expandedExit = function () {
+				Enabler.exit('USER_EXITED_WHILE_EXPANDED')
+			}
 			/*-- Red.Network.clicktags.end --*/
 
 			/* -- INDEX SETTINGS ---------------------------------------------------------------------------
@@ -31,18 +38,28 @@
 			/*-- Red.Settings.ad_params.start --*/
 			var adParams = {
 				networkId: 'STANDARD',
-				adWidth: 300,
-				adHeight: 250,
+				adWidth: 970,
+				adHeight: 418,
 				environmentId: 'debug',
 				politeLoadAfter: 1,
 				failoverOnError: true,
-				version: '3.1.0-beta.5',
+				version: '3.1.0-beta.1',
+				expandable: {
+					collapsedWidth: 970,
+					collapsedHeight: 66,
+					startExpanded: true, // <-- changed!!
+					collapseOnExit: true,
+					hasIntroVideo: true,
+					hasMainVideo: true,
+					introVideoID: 'QohH89Eu5iM',
+					mainVideoID: '2g811Eo7K8U',
+				},
 			}
 			/*-- Red.Settings.ad_params.end --*/
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloader: [], // Default generic preloader animation
+				preloader: ['./images/preloader-img.gif'], // Default generic preloader animation
 				// preloader: ['../common/images/dp-preloader.gif'], // Custom preloader image or animation
 				failover: ['./backup.jpg'],
 				payload: {
@@ -64,10 +81,6 @@
 		</script>
 
 		<style type="text/css">
-			:root {
-				--ad-width: 300px;
-				--ad-height: 250px;
-			}
 			* {
 				margin: 0;
 				padding: 0;
@@ -76,8 +89,8 @@
 			#view {
 				position: relative;
 				overflow: hidden;
-				width: 300px;
-				height: 250px;
+				width: 970px;
+				height: 418px;
 			}
 			#main {
 				position: absolute;
@@ -97,47 +110,17 @@
 
 			#preloader {
 				position: absolute;
-				width: 100%;
-				height: 100%;
-				border: 1px solid #000;
+				width: 970px;
+				height: 66px;
+				border: 1px solid #775236;
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				background: #937353;
 			}
-			#preloader-ring {
-				display: inline-block;
-				position: relative;
-				width: 50px;
-				height: 50px;
-			}
-			#preloader-ring div {
-				box-sizing: border-box;
+
+			#preloader-img {
 				display: block;
-				position: absolute;
-				width: 34px;
-				height: 34px;
-				margin: 4px;
-				border: 4px solid black;
-				border-radius: 50%;
-				animation: preloader-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-				border-color: black transparent transparent transparent;
-			}
-			#preloader-ring div:nth-child(1) {
-				animation-delay: -0.45s;
-			}
-			#preloader-ring div:nth-child(2) {
-				animation-delay: -0.3s;
-			}
-			#preloader-ring div:nth-child(3) {
-				animation-delay: -0.15s;
-			}
-			@keyframes preloader-ring {
-				0% {
-					transform: rotate(0deg);
-				}
-				100% {
-					transform: rotate(360deg);
-				}
 			}
 
 			#backup {
@@ -153,14 +136,7 @@
 		<div id="view">
 			<div id="main"></div>
 			<div id="aux">
-				<div id="preloader">
-					<div id="preloader-ring">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</div>
+				<div id="preloader"></div>
 				<div id="backup"></div>
 			</div>
 		</div>
@@ -198,7 +174,21 @@
 				makeAuxClickable()
 				return new Promise((resolve) => {
 					/*-- Red.Network.onload.start --*/
-					resolve()
+					initDCS()
+					//
+					function initDCS() {
+						if (!Enabler.isInitialized()) Enabler.addEventListener(studio.events.StudioEvent.INIT, onDoubleClickInitialized)
+						else onDoubleClickInitialized()
+					}
+					function onDoubleClickInitialized() {
+						console.log('Index.onDoubleClickInitialized()')
+
+						if (!Enabler.isVisible()) Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, initDCSComplete)
+						else initDCSComplete()
+					}
+					function initDCSComplete() {
+						resolve()
+					}
 					/*-- Red.Network.onload.end --*/
 				})
 			}
@@ -235,11 +225,18 @@
 				console.log('Index.prepareNetworkExit()')
 				Network = new (function () {
 					/*-- Red.Network.exit.start --*/
-					this.exit = function (clickTag) {
-						console.log('Network -> STANDARD EXIT')
-						window.open(clickTag, '_blank')
+					this.exit = function (clickTag, url) {
+						console.log('Network -> DC_STUDIO EXIT')
+						if (typeof clickTag == 'function') clickTag.call(this, url)
+						else throw new Error('ERROR: clickTag for this platform needs to be a callable function. See <Network> docs.')
 					}
 					/*-- Red.Network.exit.end --*/
+					// /*-- Red.Network.exit.start --*/
+					// this.exit = function (clickTag) {
+					// 	console.log('Network -> STANDARD EXIT')
+					// 	window.open(clickTag, '_blank')
+					// }
+					// /*-- Red.Network.exit.end --*/
 
 					this.appendMacro = function (_macro, _clickTag) {
 						if (_macro.search(/^%%/) > -1) return _clickTag
@@ -257,7 +254,18 @@
 				Network.exit(clickTag)
 				/*-- Red.Network.exit_aux.end --*/
 			}
-
+			var trackVideoPlay = function () {
+				Enabler.counter('YTP Video Play', true)
+			}
+			var trackVideoReplay = function () {
+				Enabler.counter('YTP Video Replay', true)
+			}
+			var trackVideoPause = function () {
+				Enabler.counter('YTP Video Pause', true)
+			}
+			var trackVideoComplete = function () {
+				Enabler.counter('YTP Video Complete', true)
+			}
 			// ad-global bundle
 			/*-- Red.Require.ad-global.start --*/
 			require('./1-build/node_modules/@ff0000-ad-tech/ad-global/dist/ad-global.inline.js')

@@ -1,0 +1,22 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+.expandcollapsebtn {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	width: 25px;
+	height: 25px;
+	transition: 0.1s;
+	cursor: pointer;
+
+	&__expand &__collapse {
+		position: absolute;
+		cursor: pointer;
+		width: 17px;
+		height: 9px;
+		top: 0;
+		right: 0;
+	}
+}

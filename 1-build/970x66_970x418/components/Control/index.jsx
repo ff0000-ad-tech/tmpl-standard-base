@@ -12,24 +12,40 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { brandlogo } = this.adRef
+		const { brandlogo, cta, logo } = this.adRef
 
-		brandlogo.start()
+		// brandlogo.start()
 
-		gsap.set('ad__cta', { y: '-=20' })
+		// gsap.set(cta, { y: '-=20' })
 
-		gsap.to('.ad__logo', { delay: 1, duration: 0.5, x: '-=60', ease: 'expo.out' })
-		gsap.to('.ad__cta', { delay: 1, duration: 0.5, y: '+=20', opacity: 1, ease: 'expo.out' })
+		const del = 1
+		// gsap.to(logo, { delay: del, duration: .5, x: '-=60',  ease: "expo.out" })
+		// gsap.to(cta, { delay: del, duration: 0.5, y: '+=20', opacity: 1, ease: 'expo.out' })
+	}
+
+	handleCollapsedClick = () => {
+		console.log('EXIT on Collapsed Container')
+
+		Network.exit(collapsedExit)
+	}
+
+	handleExpandedClick = () => {
+		console.log('EXIT on Expanded Container')
+
+		Network.exit(expandedExit)
+		if (adParams.expandable.collapseOnExit) {
+			Expandable.collapse()
+		}
 	}
 
 	handleClick = () => {
 		Network.exit(window.clickTag)
 	}
 	handleRollOver = () => {
-		this.adRef.brandlogo.over()
+		// this.adRef.brandlogo.over()
 	}
 	handleRollOut = () => {
-		this.adRef.brandlogo.out()
+		// this.adRef.brandlogo.out()
 	}
 
 	render() {
@@ -40,7 +56,7 @@ class Control extends Component {
 					width: `${adParams.adWidth}px`,
 					height: `${adParams.adHeight}px`,
 				}}
-				onClick={this.handleClick}
+				// onClick={this.handleClick}
 				onMouseOver={this.handleRollOver}
 				onMouseLeave={this.handleRollOut}
 			>

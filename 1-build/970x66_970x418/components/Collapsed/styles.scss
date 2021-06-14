@@ -1,0 +1,53 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+.collapsed {
+	position: relative;
+	border: 1px solid #303030;
+	width: 970px;
+	height: 66px;
+	border: 1px solid #303030;
+	overflow: hidden;
+	background: #bb6611;
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+
+	&_cta-hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+	}
+
+	&__clickthrough {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 66px;
+	}
+	&__container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 970px;
+		height: 66px;
+	}
+	&__expand-btn {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		right: 8px;
+		top: 6px;
+		cursor: pointer;
+
+		&-img {
+			position: absolute;
+			width: 17px;
+			top: 0;
+			right: 0;
+		}
+	}
+}
