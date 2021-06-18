@@ -15,6 +15,8 @@ export const init = async (binaryAssets) => {
 	addFbaImages(binaryAssets)
 	// add preloader images to build
 	addPreloadedImages()
+	// init dps-manager environment, based on adParams.environmentId
+	DpsManager.init(adParams)
 	// load dps-data and add to ad-data
 	await DpsManager.loadFeeds(adParams.dpsConfig)
 	// author adds necessary requests to queue

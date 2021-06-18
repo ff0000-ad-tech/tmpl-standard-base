@@ -4,8 +4,10 @@ import * as Preflight from '@common/js/Preflight.js'
 
 import Control from './components/Control'
 
-// if rendering dps, creative server will add dps asset imports here 
-import './dps-assets.js'
+// if rendering dps inline, creative server will add dps asset imports here 
+/*-- DPS.Assets.import.start --*/
+import './dps-assets-index'
+/*-- DPS.Assets.import.end --*/
 
 // called from index.html onImpression()
 const launch = async (binaryAssets) => {

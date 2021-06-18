@@ -1,4 +1,3 @@
-import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 
 /**
@@ -21,15 +20,13 @@ export const requestDynamicImages = async () => {
 	matchupNetworks.forEach(label => {
 		console.log(`Requesting network image for ${label}`)
 		const networkRow = DpsManager.getData('networks', 'Label', label)
-		const networkImageReq = DpsManager.getImageRequest(networkRow.Sources, label)
-		ImageManager.addImageRequest(networkImageReq)
+		DpsManager.addImageRequest(networkRow.Sources, label)
 	})
 
 	// preload images
 	const mainSource = DpsManager.getData('main', 'Sources')
 	console.log({ mainSource })
-	const bg = DpsManager.getImageRequest(mainSource, 'bg')
-	ImageManager.addImageRequest(bg)
+	DpsManager.addImageRequest(mainSource, 'bg')
 }
 
 
