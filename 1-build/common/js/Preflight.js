@@ -1,5 +1,6 @@
 import AdData from '@common/js/AdData.js'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import { DateManager } from '@common/js/ad-dates'
 /*-- Red.Imports.head.start --*/
 /*-- Red.Imports.head.end --*/
 
@@ -19,6 +20,9 @@ export class Preflight {
 				// this.loadDynamicJS('define-your-case-id')
 			]
 
+			// date settings
+			this.prepareDateManagement()
+
 			Promise.all(promises)
 				.then(() => {
 					this.addPreloadedImages()
@@ -31,6 +35,13 @@ export class Preflight {
 					reject(err)
 				})
 		})
+	}
+
+	// prepare date utils
+	static prepareDateManagement() {
+		console.log('Common.prepareDateManagement()')
+		adParams.dateSettings.inDev = adParams.environmentId == 'staging' || adParams.environmentId == 'debug'
+		DateManager.init(adParams.dateSettings)
 	}
 
 	static addPreloadedImages() {
