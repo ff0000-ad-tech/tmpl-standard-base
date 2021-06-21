@@ -29,23 +29,15 @@ export default function AdData() {
 	self.svg = {}
 
 	// Dates
+	// Standard Schedule
 	self.schedule = new DateSchedule({
 		target: new TzDate({
 			datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
 			outputTimezone: 'local',
 		}),
-		eventDuration: 120,
 		isStandard: true,
-		standardOverrides: {
-			DATE: (date) => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
-			TOMORROW: 'NOPE', // Tomorrow 8 PM
-			WEEK: 'WEEK', // SATURDAY 8 PM
-			NOW: 'Watch Live Now',
-			PAST: 'OKM',
-			TONIGHT: 'TONIGHT',
-			TODAY: 'TODAY',
-		},
 	})
 	self.schedule.print()
 	self.dateMessage = self.schedule.currentLabel
+	self.dateHour = self.schedule.target.toDateTime()
 }
