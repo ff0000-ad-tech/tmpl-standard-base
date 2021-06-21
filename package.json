@@ -36,9 +36,9 @@
 	"devDependencies": {
 		"@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
 		"@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.1.0",
-		"@ff0000-ad-tech/cs-plugin-dps-renderer": "ssh+git@github.com:ff0000-ad-tech/cs-plugin-dps-renderer.git#master",
+		"@ff0000-ad-tech/cs-plugin-dps-renderer": "^1.0.1",
 		"@ff0000-ad-tech/debug": "^4.1.0",
-		"@ff0000-ad-tech/wp-creative-server": "^3.1.0",
+		"@ff0000-ad-tech/wp-creative-server": "^3.2.0",
 		"@ff0000-ad-tech/wp-deploy-manager": "^10.1.0",
 		"babel-eslint": "^8.2.1",
 		"eslint": "^4.16.0",
