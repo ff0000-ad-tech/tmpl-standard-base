@@ -41,9 +41,9 @@
 					feeds: [
 						{
 							label: 'main',
-							ssid: '1djK1EwWV-k2bdSm5H4HFMoI2mz36g0rvGbKV0fx0d94',
-							sid: '795713',
-							rid: '0a4d4272-9d05-4e4e-8f55-45be208f1aec', // optional row-id
+							ssid: '1nvCwO28NXc_y6pGYubz8L3exgsatfqDV7z9_uJ7b-wY',
+							sid: '0',
+							rid: 'bf0625fe-b063-45c0-a326-8c2a2fd092e9', // optional row-id
 						},
 						{
 							label: 'networks',
@@ -187,16 +187,16 @@
 		</script>
 
 		<script type="text/javascript">
+			function useBackup() {
+				console.log('Index.useBackup()')
+				loadBackup()
+			}
 			function loadBackup() {
 				console.log('Index.loadBackup()')
 				document.getElementById('backup').style.cssText =
 					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
 				document.getElementById('main').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
-			}
-			function useBackup() {
-				console.log('Index.useBackup()')
-				useStatic()
 			}
 		</script>
 

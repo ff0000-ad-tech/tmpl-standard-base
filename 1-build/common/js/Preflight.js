@@ -3,10 +3,10 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 
 /**
- * PRE-FLIGHT		
- * 
- * Resources that are shared by all the sizes should be loaded here. 
- * 
+ * PRE-FLIGHT
+ *
+ * Resources that are shared by all the sizes should be loaded here.
+ *
  */
 export const init = async (binaryAssets) => {
 	// instantiate global ad-data
@@ -27,7 +27,6 @@ export const init = async (binaryAssets) => {
 	await DpsManager.preflightComplete()
 }
 
-
 const addFbaImages = async (binaryAssets) => {
 	console.log('Preflight.addFbaImages()')
 	ImageManager.add(binaryAssets)
@@ -42,6 +41,3 @@ const loadDynamicImages = async () => {
 	console.log('Preflight.loadDynamicImages()')
 	await ImageManager.load()
 }
-
-
-

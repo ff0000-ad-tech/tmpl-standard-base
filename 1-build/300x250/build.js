@@ -4,7 +4,7 @@ import * as Preflight from '@common/js/Preflight.js'
 
 import Control from './components/Control'
 
-// if rendering dps inline, creative server will add dps asset imports here 
+// if rendering dps inline, creative server will add dps asset imports here
 /*-- DPS.Assets.import.start --*/
 import './dps-assets-index'
 /*-- DPS.Assets.import.end --*/
