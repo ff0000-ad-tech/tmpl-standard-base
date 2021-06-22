@@ -3,6 +3,24 @@ import { DateSchedule, TzDate } from './ad-dates'
 
 export default function AdData() {
 	var self = this
+	self.dpsdata = {
+		matchups: [
+			{
+				player1: 'V. WILLIAMS',
+				player1ranking: '',
+				player2: 'GAUFF',
+				player2ranking: '',
+				vs: 'VS',
+			},
+			{
+				player1: 'DJOKOVIC',
+				player1ranking: '1',
+				player2: 'FEDERER',
+				player2ranking: '2',
+				vs: 'VS',
+			},
+		],
+	}
 
 	/**
 		EXTRACT JSON DATA

@@ -38,7 +38,10 @@ class Ad extends Component {
 				<DoubleHeader ref={(el) => (this.doubleheader = el)} />
 				<NetworkLogos networks={this.networklogos} ref={(el) => (this.networklogos = el)} />
 				*/}
-				<Matchup />
+				{adData.dpsdata.matchups.map((matchup, idx) => {
+					console.error('IDX=', idx)
+					return <Matchup key={`matchup${idx}`} data={matchup} style={{ position: 'absolute', left: '0px', top: idx * 40 + 'px' }} />
+				})}
 			</div>
 		)
 	}

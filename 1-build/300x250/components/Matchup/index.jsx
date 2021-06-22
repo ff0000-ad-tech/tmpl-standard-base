@@ -13,11 +13,14 @@ class Matchup extends Component {
 	}
 
 	componentDidMount = () => {
-		const c = this.container
-		const w = c.getBoundingClientRect().width
+		this.autoSizeMatchup(this.matchup)
+	}
 
-		while (this.getTheWidth() > 300) {
-			this.checkFontSize()
+	autoSizeMatchup = (el) => {
+		const w = el.getBoundingClientRect().width
+
+		while (this.getTheWidth(el) > 300) {
+			this.checkFontSize(el)
 		}
 	}
 
@@ -25,20 +28,15 @@ class Matchup extends Component {
 		return getComputedStyle(el).getPropertyValue(style)
 	}
 
-	getTheWidth = () => {
-		const c = this.container
-		const w = c.getBoundingClientRect().width
-		console.warn('GET THE WIDTH() ', w)
-		return w
+	getTheWidth = (el) => {
+		return el.getBoundingClientRect().width
 	}
 
-	checkFontSize = () => {
-		const c = this.container
-		const fsString = this.getStyle(c, 'font-size')
+	checkFontSize = (el) => {
+		const fsString = this.getStyle(el, 'font-size')
 		const fs = Number(fsString.substring(0, fsString.length - 2))
 		const newFs = fs - 1
-		c.style.fontSize = `${newFs}px`
-		console.warn('CheckFontSizeStyle===', this.getStyle(c, 'font-size'))
+		el.style.fontSize = `${newFs}px`
 	}
 
 	getCurrentFontSize = () => {
@@ -48,14 +46,16 @@ class Matchup extends Component {
 	}
 
 	render() {
+		const { player1, player1ranking, player2, player2ranking, vs } = this.props.data
+
 		return (
-			<div className="matchup">
-				<div className="matchup__container" ref={(el) => (this.container = el)} styles={{ fontSize: '33px' }}>
-					<span className="ranking">1</span>
-					<span>Player 1 Here</span>
-					<span className="vs">VS</span>
-					<span className="ranking">5</span>
-					<span>Player 2 OK YAP</span>
+			<div className="matchup" style={this.props.style}>
+				<div className="matchup__container" ref={(el) => (this.matchup = el)} styles={{ fontSize: '33px' }}>
+					<span className="ranking">{player1ranking}</span>
+					<span>{player1}</span>
+					<span className="vs">{vs}</span>
+					<span className="ranking">{player2ranking}</span>
+					<span>{player2}</span>
 				</div>
 			</div>
 		)
