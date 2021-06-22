@@ -6,9 +6,6 @@ import './styles.scss'
 class Matchup extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			styles: { color: 'red' },
-		}
 	}
 
 	getImage = (name) => {
@@ -54,11 +51,11 @@ class Matchup extends Component {
 		return (
 			<div className="matchup">
 				<div className="matchup__container" ref={(el) => (this.container = el)} styles={{ fontSize: '33px' }}>
-					<div style={this.state.styles}>Player 1</div>
-					<div id="vs" style={this.state.styles}>
-						vs
-					</div>
-					<div style={this.state.styles}>Player 2</div>
+					<span className="ranking">1</span>
+					<span>Player 1 Here</span>
+					<span className="vs">VS</span>
+					<span className="ranking">5</span>
+					<span>Player 2 OK YAP</span>
 				</div>
 			</div>
 		)
