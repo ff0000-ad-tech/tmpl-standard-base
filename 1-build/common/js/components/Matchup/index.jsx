@@ -6,6 +6,7 @@ import './styles.scss'
 class Matchup extends Component {
 	constructor(props) {
 		super(props)
+		this.finalFontSize = 10
 	}
 
 	getImage = (name) => {
@@ -22,6 +23,8 @@ class Matchup extends Component {
 		while (this.getTheWidth(el) > 300) {
 			this.checkFontSize(el)
 		}
+
+		this.props.resizeComplete(this.finalFontSize)
 	}
 
 	getStyle = (el, style) => {
@@ -37,6 +40,16 @@ class Matchup extends Component {
 		const fs = Number(fsString.substring(0, fsString.length - 2))
 		const newFs = fs - 1
 		el.style.fontSize = `${newFs}px`
+		this.finalFontSize = newFs
+	}
+
+	setFontSize = (fs) => {
+		this.matchup.style.fontSize = `${fs}px`
+		this.finalFontSize = fs
+	}
+
+	getFontSize = (fs) => {
+		return this.finalFontSize
 	}
 
 	getCurrentFontSize = () => {
@@ -49,15 +62,16 @@ class Matchup extends Component {
 		const { player1, player1ranking, player2, player2ranking, vs } = this.props.data
 
 		return (
-			<div className="matchup" style={this.props.style}>
-				<div className="matchup__container" ref={(el) => (this.matchup = el)} styles={{ fontSize: '33px' }}>
-					<span className="ranking">{player1ranking}</span>
-					<span>{player1}</span>
-					<span className="vs">{vs}</span>
-					<span className="ranking">{player2ranking}</span>
-					<span>{player2}</span>
-				</div>
+			// <div className="matchup" style={this.props.style}>
+			//<div className="matchup__container" ref={(el) => (this.matchup = el)} styles={{ fontSize: '33px' }}>
+			<div className={this.props.className} ref={(el) => (this.matchup = el)} styles={{ fontSize: '33px' }}>
+				<span className="ranking">{player1ranking}</span>
+				<span>{player1}</span>
+				<span className="vs">{vs}</span>
+				<span className="ranking">{player2ranking}</span>
+				<span>{player2}</span>
 			</div>
+			// </div>
 		)
 	}
 }

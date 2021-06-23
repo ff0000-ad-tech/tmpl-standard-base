@@ -14,11 +14,20 @@ class DoubleHeader extends Component {
 		return ImageManager.get(name).src
 	}
 
+	resizeComplete = (finalFontSize) => {
+		alert('Final Font Sizze==', finalFontSize)
+	}
+
 	render() {
 		return (
 			<div className="doubleheader">
 				<div style={{ position: 'relative' }}>THIS IS A DOUBLE HEADER</div>
-				<MatchupLockup matchups={adData.dpsdata.matchups} />
+				<MatchupLockup
+					className="matchuplockup__double"
+					matchupClassName="matchup__container"
+					matchups={adData.dpsdata.matchups}
+					resizeComplete={this.resizeComplete}
+				/>
 			</div>
 		)
 	}
