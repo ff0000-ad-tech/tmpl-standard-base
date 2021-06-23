@@ -50,4 +50,19 @@ $ad-height: var(--ad-height);
 		width: 100%;
 		background: $color-secondary;
 	}
+
+	&__matchuplockup {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__networklogos {
+		position: absolute;
+		top: 150px;
+		left: 0;
+		width: 100%;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+	}
 }

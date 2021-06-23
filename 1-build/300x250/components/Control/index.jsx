@@ -12,9 +12,9 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { brandlogo } = this.adRef
+		// const { brandlogo } = this.adRef
 
-		brandlogo.start()
+		// brandlogo.start()
 
 		gsap.set('ad__cta', { y: '-=20' })
 
@@ -25,12 +25,12 @@ class Control extends Component {
 	handleClick = () => {
 		Network.exit(window.clickTag)
 	}
-	handleRollOver = () => {
-		this.adRef.brandlogo.over()
-	}
-	handleRollOut = () => {
-		this.adRef.brandlogo.out()
-	}
+	// handleRollOver = () => {
+	// 	this.adRef.brandlogo.over()
+	// }
+	// handleRollOut = () => {
+	// 	this.adRef.brandlogo.out()
+	// }
 
 	render() {
 		return (

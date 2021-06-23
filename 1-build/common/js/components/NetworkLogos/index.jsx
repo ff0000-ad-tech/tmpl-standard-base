@@ -15,14 +15,16 @@ class NetworkLogos extends Component {
 
 	render() {
 		return (
-			<div className="networklogos">
-				{this.networks.map((network) => {
-					return (
-						<div key={network} className="networklogos__logo">
-							{network}
-						</div>
-					)
-				})}
+			<div className="networklogos" className={this.props.className}>
+				<div className="networklogos">
+					{this.networks.map((network) => {
+						return (
+							<div key={network} className="networklogos__logo">
+								{network}
+							</div>
+						)
+					})}
+				</div>
 			</div>
 		)
 	}
