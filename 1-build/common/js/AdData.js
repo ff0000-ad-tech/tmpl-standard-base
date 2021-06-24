@@ -14,17 +14,8 @@ import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 	Prepare dynamic data here.
  */
 export const requestDynamicImages = async () => {
-	// preload network images for matchup
-	const matchupNetworks = DpsManager.getData('main', 'Matchup.Networks').split(',')
-	console.log(matchupNetworks)
-	matchupNetworks.forEach((label) => {
-		console.log(`Requesting network image for ${label}`)
-		const networkRow = DpsManager.getData('networks', 'Label', label)
-		DpsManager.addImageRequest(networkRow.Sources, label)
-	})
-
 	// preload images
-	const mainSource = DpsManager.getData('main', 'Sources')
+	const mainSource = DpsManager.getData('main', 'bg.Sources')
 	console.log({ mainSource })
 	DpsManager.addImageRequest(mainSource, 'bg')
 }
