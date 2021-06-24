@@ -62,16 +62,13 @@ class Matchup extends Component {
 		const { player1, player1ranking, player2, player2ranking, vs } = this.props.data
 
 		return (
-			// <div className="matchup" style={this.props.style}>
-			//<div className="matchup__container" ref={(el) => (this.matchup = el)} styles={{ fontSize: '33px' }}>
-			<div className={this.props.className} ref={(el) => (this.matchup = el)} styles={{ fontSize: '33px' }}>
+			<div className={this.props.className} ref={(el) => (this.matchup = el)}>
 				<span className="ranking">{player1ranking}</span>
 				<span>{player1}</span>
 				<span className="vs">{vs}</span>
 				<span className="ranking">{player2ranking}</span>
 				<span>{player2}</span>
 			</div>
-			// </div>
 		)
 	}
 }

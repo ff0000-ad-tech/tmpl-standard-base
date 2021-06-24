@@ -2,9 +2,9 @@ import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 
 // Components
-import SingleHeader from '@common/js/components/SingleHeader'
-import DoubleHeader from '@common/js/components/DoubleHeader'
-import NetworkLogos from '@common/js/components/NetworkLogos'
+import SingleHeader from '@size/components/SingleHeader'
+import DoubleHeader from '@size/components/DoubleHeader'
+import NetworkLogos from '@size/components/NetworkLogos'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -41,9 +41,9 @@ class Ad extends Component {
 				})}
 				*/}
 				{isDoubleHeader ? (
-					<DoubleHeader matchups={adData.dpsdata.matchups} className="ad__matchuplockup" />
+					<DoubleHeader matchups={adData.dpsdata.matchups} className="ad__doubleheader" />
 				) : (
-					<SingleHeader matchups={adData.dpsdata.matchups} className="ad__matchuplockup" />
+					<SingleHeader matchups={adData.dpsdata.matchups} className="ad__singleheader" />
 				)}
 			</div>
 		)

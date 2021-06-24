@@ -1,0 +1,9 @@
+.matchuplockup {
+	&__double {
+		&:nth-child(2) {
+			margin-bottom: 0;
+		}
+	}
+	&__single {
+	}
+}

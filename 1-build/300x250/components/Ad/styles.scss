@@ -51,7 +51,12 @@ $ad-height: var(--ad-height);
 		background: $color-secondary;
 	}
 
-	&__matchuplockup {
+	&__doubleheader {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__singleheader {
 		position: absolute;
 		top: 0;
 		left: 0;

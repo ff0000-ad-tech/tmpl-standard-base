@@ -12,13 +12,13 @@ export default function AdData() {
 				player2ranking: '',
 				vs: 'VS',
 			},
-			{
-				player1: 'DJOKOVIC',
-				player1ranking: '1',
-				player2: 'FEDERER',
-				player2ranking: '2',
-				vs: 'VS',
-			},
+			// {
+			// 	player1: 'DJOKOVIC',
+			// 	player1ranking: '1',
+			// 	player2: 'FEDERER',
+			// 	player2ranking: '2',
+			// 	vs: 'VS',
+			// },
 		],
 	}
 

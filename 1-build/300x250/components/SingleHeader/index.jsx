@@ -18,7 +18,12 @@ class SingleHeader extends Component {
 		return (
 			<div className="singleheader">
 				THIS IS A SINGLE HEADER
-				<MatchupLockup matchups={adData.dpsdata.matchups} />
+				<MatchupLockup
+					className="singleheader__matchuplockup"
+					matchupClassName="matchup__single"
+					matchups={adData.dpsdata.matchups}
+					resizeComplete={this.resizeComplete}
+				/>
 			</div>
 		)
 	}

@@ -23,8 +23,8 @@ class DoubleHeader extends Component {
 			<div className="doubleheader">
 				<div style={{ position: 'relative' }}>THIS IS A DOUBLE HEADER</div>
 				<MatchupLockup
-					className="matchuplockup__double"
-					matchupClassName="matchup__container"
+					className="doubleheader__matchuplockup"
+					matchupClassName="matchup__double"
 					matchups={adData.dpsdata.matchups}
 					resizeComplete={this.resizeComplete}
 				/>
