@@ -1,5 +1,4 @@
 import { h, render } from 'preact'
-
 import * as Preflight from '@common/js/Preflight.js'
 
 import Control from './components/Control'
@@ -14,7 +13,6 @@ const launch = async (binaryAssets) => {
 	console.log('Bundle.launch()')
 	// prepare env and assets
 	await Preflight.init(binaryAssets)
-	console.log(' >>>> Preflight DONE!')
 	// render jsx
 	render(<Control />, document.getElementById('main'))
 }
