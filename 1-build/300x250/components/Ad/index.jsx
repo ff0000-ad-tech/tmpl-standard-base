@@ -20,7 +20,7 @@ class Ad extends Component {
 	render() {
 		return (
 			<div className="ad">
-				<img className="ad__bg" src={this.getImage('bg')} />
+				<img className="ad__bg" src={ImageManager.get('bg').src} />
 				<BrandLogo ref={(el) => (this.brandlogo = el)} />
 				<div className="ad__footer">
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
