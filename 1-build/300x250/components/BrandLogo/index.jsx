@@ -1,5 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
-import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 import './styles.scss'
 import '@size/images/160over90-logo.png'
@@ -9,14 +9,9 @@ class BrandLogo extends Component {
 		super(props)
 	}
 
-	getImage = (name) => {
-		return ImageManager.get(name).src
-	}
-
 	start() {
 		gsap.fromTo('#logo', { scale: 0 }, { delay: 0.3, duration: 0.5, scale: 1.2, ease: 'expo.out' })
 	}
-
 	over() {
 		gsap.to('#logo', { duration: 0.3, scale: 1.4, ease: 'expo.out' })
 	}
@@ -27,7 +22,7 @@ class BrandLogo extends Component {
 	render() {
 		return (
 			<div className="bl">
-				<img id="logo" src={this.getImage('160over90-logo')} alt="logo" />
+				<img id="logo" src={ImageManager.get('160over90-logo').src} alt="logo" />
 			</div>
 		)
 	}

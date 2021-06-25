@@ -11,7 +11,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 	Prepare dynamic data here.
  */
 export const requestDynamicImages = async () => {
-	ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
+	// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
 }
 
 /**
