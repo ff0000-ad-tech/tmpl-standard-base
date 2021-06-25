@@ -14,7 +14,7 @@ import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 	Prepare dynamic data here.
  */
 export const requestDynamicImages = async () => {
-	// preload images
+	// preload dynamic images, will be available on ImageManager
 	const mainSource = DpsManager.getData('main', 'bg.Sources')
 	console.log({ mainSource })
 	DpsManager.addImageRequest(mainSource, 'bg')
