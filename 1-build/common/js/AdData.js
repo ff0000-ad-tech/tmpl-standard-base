@@ -1,4 +1,5 @@
 import { DpsManager } from '@ff0000-ad-tech/ad-dps'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 /**
  * TODO:
@@ -13,7 +14,6 @@ import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 export const requestDynamicImages = async () => {
 	// preload dynamic images, will be available on ImageManager
 	const mainSource = DpsManager.getData('main', 'bg.Sources')
-	console.log({ mainSource })
 	DpsManager.addImageRequest(mainSource, 'bg')
 }
 

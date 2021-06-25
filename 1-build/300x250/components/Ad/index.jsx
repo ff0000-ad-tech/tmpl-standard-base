@@ -17,17 +17,13 @@ class Ad extends Component {
 		super(props)
 	}
 
-	getImage = (name) => {
-		return ImageManager.get(name).src
-	}
-
 	render() {
 		return (
 			<div className="ad">
 				<img className="ad__bg" src={this.getImage('bg')} />
 				<BrandLogo ref={(el) => (this.brandlogo = el)} />
 				<div className="ad__footer">
-					<img className="ad__logo" src={this.getImage('160over90-logo-small')} />
+					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
 					<div className="ad__cta">{DpsManager.getData('main', 'cta')}</div>
 				</div>
 			</div>
