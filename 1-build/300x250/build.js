@@ -1,5 +1,4 @@
 import { h, render } from 'preact'
-
 import * as Preflight from '@common/js/Preflight.js'
 
 import Control from './components/Control'
