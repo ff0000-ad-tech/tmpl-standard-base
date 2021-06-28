@@ -18,6 +18,7 @@
 		"@ff0000-ad-tech/ad-particles": "^2.0.0",
 		"@ff0000-ad-tech/ad-utils": "^2.1.1",
 		"preact": "^10.5.7",
-		"promise-polyfill": "^8.2.0"
+		"promise-polyfill": "^8.2.0",
+		"youtube-player": "^5.5.2"
 	}
 }

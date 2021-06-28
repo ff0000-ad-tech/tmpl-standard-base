@@ -1,23 +1,3 @@
-/**
- * @class ExpandableDcs
- * @description
- * This is and extension of {@link Expandable} when units are used in DoubleClick. The only difference in the
- * init() method is to pass in this class to the Expandable.init()
- * <codeblock>
- * import { ExpandableDcs } from 'ad-control'
- *
- * Expandable.init ({
- * 	target : View.expanded,
- * 	expandStart: Control.handleExpandStart,
- * 	expandComplete: Control.handleExpandComplete,
- * 	collapseStart: Control.handleCollapseStart,
- * 	collapseComplete: Control.handleCollapseFinish,
- *
- * 	extend: ExpandableDcs
- * })
- * </codeblock>
- */
-
 export default {
 	init: (handle) => {
 		Enabler.addEventListener(studio.events.StudioEvent.EXPAND_START, handle.expandStart)
@@ -29,12 +9,14 @@ export default {
 			Enabler.setStartExpanded(true)
 		}
 	},
-	collapse: (gestureEvent) => {
+	collapse: (event) => {
 		console.log('DCS > collapse()')
 		Enabler.requestCollapse()
-		if (gestureEvent) Enabler.reportManualClose()
+		if (event) {
+			Enabler.reportManualClose()
+		}
 	},
-	expand: (gestureEvent) => {
+	expand: () => {
 		console.log('DCS > expand()')
 		Enabler.requestExpand()
 	},
@@ -45,5 +27,5 @@ export default {
 	expandComplete: () => {
 		console.log('DCS > expandComplete()')
 		Enabler.finishExpand()
-	},
+	}
 }
