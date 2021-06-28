@@ -12,13 +12,13 @@ export default function AdData() {
 				player2ranking: '',
 				vs: 'VS',
 			},
-			// {
-			// 	player1: 'DJOKOVIC',
-			// 	player1ranking: '1',
-			// 	player2: 'FEDERER',
-			// 	player2ranking: '2',
-			// 	vs: 'VS',
-			// },
+			{
+				player1: 'DJOKOVIC',
+				player1ranking: '1',
+				player2: 'FEDERER',
+				player2ranking: '2',
+				vs: 'VS',
+			},
 		],
 	}
 
@@ -50,10 +50,16 @@ export default function AdData() {
 	// Standard Schedule
 	self.schedule = new DateSchedule({
 		target: new TzDate({
-			datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
+			datetime: ['2021-06-29 20:00:00', 'US/Eastern'],
 			outputTimezone: 'local',
 		}),
 		isStandard: true,
+		standardOverrides: {
+			DATE: (date) => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
+			TOMORROW: (date, label) => label + date.format(' ${t}<br>${a^}'), // Tomorrow 8 PM
+			WEEK: (date, label) => label + date.format('${DDDD^} ${t} ${a^}'), // SATURDAY 8 PM
+			NOW: 'Watch Live Now',
+		},
 	})
 	self.schedule.print()
 	self.dateMessage = self.schedule.currentLabel

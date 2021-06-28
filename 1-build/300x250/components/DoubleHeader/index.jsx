@@ -1,9 +1,8 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-control'
 import MatchupLockup from '../MatchupLockup'
-
+import useConvertLineBreaks from '@common/hooks/useConvertLineBreaks'
 import './styles.scss'
-import '@size/images/160over90-logo.png'
 
 class DoubleHeader extends Component {
 	constructor(props) {
@@ -28,6 +27,7 @@ class DoubleHeader extends Component {
 					matchups={adData.dpsdata.matchups}
 					resizeComplete={this.resizeComplete}
 				/>
+				<div className="doubleheader__tunein">{useConvertLineBreaks(adData.dateMessage)}</div>
 			</div>
 		)
 	}
