@@ -3,7 +3,7 @@ let _afterInitExpanded = true
 let _hasUserInteracted = false
 
 let extend = {
-	init: () => { },
+	init: () => {},
 	collapse: () => {
 		handle.collapseStart()
 	},
@@ -15,7 +15,7 @@ let extend = {
 	},
 	expandComplete: () => {
 		handle.expandComplete()
-	}
+	},
 }
 
 const handle = {
@@ -36,7 +36,7 @@ const handle = {
 	collapseComplete: () => {
 		fireCallback('collapseComplete')
 		_hasUserInteracted = true
-	}
+	},
 }
 
 export function init(arg) {
@@ -80,7 +80,7 @@ function animateExpand() {
 		y: param.expandedY,
 		width: adParams.adWidth,
 		height: adParams.adHeight,
-		onComplete: extend.expandComplete
+		onComplete: extend.expandComplete,
 	})
 }
 
@@ -92,10 +92,10 @@ function animateCollapse(isInit) {
 		y: param.collapsedY,
 		width: param.collapsedWidth,
 		height: param.collapsedHeight,
-		onComplete: isInit ? undefined : extend.collapseComplete
+		onComplete: isInit ? undefined : extend.collapseComplete,
 	})
 }
 
 function fireCallback(name) {
-	; (_arg[name] || function () { }).call()
+	;(_arg[name] || function () {}).call()
 }

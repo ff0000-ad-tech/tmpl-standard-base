@@ -27,5 +27,5 @@ export default {
 	expandComplete: () => {
 		console.log('DCS > expandComplete()')
 		Enabler.finishExpand()
-	}
+	},
 }
