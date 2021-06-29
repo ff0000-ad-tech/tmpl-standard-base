@@ -47,8 +47,5 @@
 		"np": "^7.2.0",
 		"prettier": "^2.2.1",
 		"version-bump-prompt": "^6.1.0"
-	},
-	"dependencies": {
-		"@ff0000-ad-tech/wp-process-manager": "^2.1.0"
 	}
 }
