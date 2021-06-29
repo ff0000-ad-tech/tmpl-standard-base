@@ -84,7 +84,7 @@ export function init(args) {
 	if (_currentDate) {
 		// grab now, extract output timezone
 		let now = new TzDate({
-			datetime: _currentDate
+			datetime: _currentDate,
 		})
 
 		tz = now.outputTimezone
@@ -175,6 +175,6 @@ export function getNow() {
 
 	return new TzDate({
 		datetime: date,
-		outputTimezone: Timezone.get('local')
+		outputTimezone: Timezone.get('local'),
 	})
 }

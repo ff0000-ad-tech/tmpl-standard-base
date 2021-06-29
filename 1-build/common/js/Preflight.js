@@ -2,6 +2,9 @@ import * as AdData from '@common/js/AdData.js'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 
+// TODO:
+import { DateManager } from '@common/js/ad-dates'
+
 /**
  * PRE-FLIGHT
  *
@@ -15,6 +18,8 @@ export const init = async (binaryAssets) => {
 	addFbaImages(binaryAssets)
 	// add preloader images to build
 	addPreloadedImages()
+	// prepare date-management
+	await prepareDateManagement()
 	// init dps-manager environment, based on adParams.environmentId
 	DpsManager.init(adParams)
 	// load dps-data and add to ad-data
@@ -40,4 +45,12 @@ const addPreloadedImages = async () => {
 const loadDynamicImages = async () => {
 	console.log('Preflight.loadDynamicImages()')
 	await ImageManager.load()
+}
+
+// prepare date utils
+const prepareDateManagement = async () => {
+	console.log('Preflight.prepareDateManagement()')
+	adParams.dateSettings.inDev = adParams.environmentId == 'staging' || adParams.environmentId == 'debug'
+	DateManager.init(adParams.dateSettings)
+	AdData.prepareDateSchedule()
 }

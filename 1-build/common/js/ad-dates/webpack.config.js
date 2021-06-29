@@ -18,7 +18,7 @@ const babelOptions = {
 	"plugins": [ "transform-class-properties" ]
 }
 
-module.exports = config => {
+module.exports = (config) => {
 	// if (config) {
 	// 	config = JSON.parse(config)
 	// } else {
@@ -33,24 +33,24 @@ module.exports = config => {
 		entry: path.resolve(__dirname, `./dist-entry.js`),
 		output: {
 			path: path.resolve(__dirname, 'dist'),
-			filename: 'ad-dates.' + config.environment + '.js'
+			filename: 'ad-dates.' + config.environment + '.js',
 			// libraryTarget: 'umd'
 		},
 		resolve: {
-			alias: DM.aliases.getTopLevel(path.resolve(__dirname, 'node_modules/@ff0000-ad-tech'))
+			alias: DM.aliases.getTopLevel(path.resolve(__dirname, 'node_modules/@ff0000-ad-tech')),
 		},
 		plugins: [
 			new UglifyJsPlugin({
 				compress: {
 					drop_console: removeConsole,
-					warnings: removeConsole
-				}
-			})
+					warnings: removeConsole,
+				},
+			}),
 		],
 		module: {
 			rules: [
 				{
-					test: request => {
+					test: (request) => {
 						log('test()', request.includes('ad-dates'), request.endsWith('index.js'), '|', request)
 						return request.includes('ad-dates') && request.endsWith('index.js')
 					},
@@ -59,11 +59,11 @@ module.exports = config => {
 							loader: '@ff0000-ad-tech/webpack-rollup-babel-loader',
 							options: {
 								babelOptions: {
-									presets: babelOptions.presets
-								}
-							}
-						}
-					]
+									presets: babelOptions.presets,
+								},
+							},
+						},
+					],
 				},
 				{
 					test: /\.js$/,
@@ -71,12 +71,12 @@ module.exports = config => {
 						{
 							loader: 'babel-loader',
 							options: {
-								plugins: babelOptions.plugins
-							}
-						}
-					]
-				}
-			]
-		}
+								plugins: babelOptions.plugins,
+							},
+						},
+					],
+				},
+			],
+		},
 	}
 }

@@ -64,7 +64,7 @@ import * as DateUtils from './DateUtils.js'
 import TzDate from './TzDate.js'
 import DateSchedule from './DateSchedule.js'
 
-var RecurringSchedule = function(dateModel) {
+var RecurringSchedule = function (dateModel) {
 	var R = this
 
 	var _schedule
@@ -80,13 +80,13 @@ var RecurringSchedule = function(dateModel) {
 				mySchedule.currentSchedule.print()
 		*/
 		currentSchedule: {
-			get: function() {
+			get: function () {
 				var curStart = _schedule.current.date
 				var current = new DateSchedule({
 					target: curStart,
 					isStandard: true,
 					eventDuration: curStart.eventDuration,
-					callback: curStart.callback
+					callback: curStart.callback,
 				})
 
 				if (current.isComplete) {
@@ -96,12 +96,12 @@ var RecurringSchedule = function(dateModel) {
 						target: nextStart,
 						isStandard: true,
 						eventDuration: nextStart.eventDuration,
-						callback: nextStart.callback
+						callback: nextStart.callback,
 					})
 				}
 
 				return current
-			}
+			},
 		},
 
 		/**
@@ -114,9 +114,9 @@ var RecurringSchedule = function(dateModel) {
 				mySchedule.current.callback()
 		*/
 		current: {
-			get: function() {
+			get: function () {
 				return R.currentSchedule.current
-			}
+			},
 		},
 
 		/**
@@ -127,9 +127,9 @@ var RecurringSchedule = function(dateModel) {
 				mySchedule.currentDate
 		*/
 		currentDate: {
-			get: function() {
+			get: function () {
 				return R.current.date
-			}
+			},
 		},
 
 		/**
@@ -140,10 +140,10 @@ var RecurringSchedule = function(dateModel) {
 				mySchedule.currentLabel
 		*/
 		currentLabel: {
-			get: function() {
+			get: function () {
 				return R.current.label
-			}
-		}
+			},
+		},
 	})
 
 	// ---------------------------------------------------------------------------------------------------------------
@@ -170,7 +170,7 @@ var RecurringSchedule = function(dateModel) {
 			//  - 7 Wed Jun 07 2017 18:00:00 US/Eastern label: undefined
 		</codeblock>
 	*/
-	R.print = function() {
+	R.print = function () {
 		_schedule.print()
 	}
 
@@ -200,7 +200,7 @@ var RecurringSchedule = function(dateModel) {
 				var dayShift = labelIndex - dayOfWeek
 
 				var date = new TzDate({
-					datetime: [now.toDateTimeISO().split('T')[0] + 'T' + tuneinObj.startTime + ':00', tuneinObj.timezone]
+					datetime: [now.toDateTimeISO().split('T')[0] + 'T' + tuneinObj.startTime + ':00', tuneinObj.timezone],
 				})
 
 				date = DateUtils.adjust(date, { day: dayShift })
