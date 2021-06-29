@@ -18,6 +18,11 @@
         "size": "300x250",
         "index": "index.html",
         "deployAt": 1624660455770
+      },
+      {
+        "size": "970x66_970x418",
+        "index": "index.html",
+        "deployAt": 1624925766095
       }
     ],
     "updateAt": 1611214155700
