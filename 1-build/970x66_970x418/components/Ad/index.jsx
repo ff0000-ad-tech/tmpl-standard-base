@@ -7,12 +7,14 @@ import Expanded from '../Expanded'
 
 import './styles.scss'
 
-import ExpandableDcs from '../../../common/js/lib/ad-control/ExpandableDcs'
-import * as Expandable from '../../../common/js/lib/ad-control/Expandable'
+import { ExpandableDcs } from '@ff0000-ad-tech/ad-control'
+import { Expandable } from '@ff0000-ad-tech/ad-control'
 
 class Ad extends Component {
 	constructor(props) {
 		super(props)
+
+		console.warn(ExpandableDcs, Expandable)
 		this.state = {
 			isExpanded: adParams.expandable.startExpanded, // If the ad is currently expanded or not
 			startExpanded: adParams.expandable.startExpanded, // Should the ad start in the expanded state

@@ -10,6 +10,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"@ff0000-ad-tech/ad-assets": "^3.0.0",
+		"@ff0000-ad-tech/ad-control": "^6.0.2",
 		"@ff0000-ad-tech/ad-dates": "^4.1.2",
 		"@ff0000-ad-tech/ad-entry": "^3.1.0",
 		"@ff0000-ad-tech/ad-external": "^3.0.1",
@@ -18,7 +19,6 @@
 		"@ff0000-ad-tech/ad-particles": "^2.0.0",
 		"@ff0000-ad-tech/ad-utils": "^2.1.1",
 		"preact": "^10.5.7",
-		"promise-polyfill": "^8.2.0",
-		"youtube-player": "^5.5.2"
+		"promise-polyfill": "^8.2.0"
 	}
 }
