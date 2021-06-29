@@ -23,12 +23,12 @@ class Ad extends Component {
 
 	render() {
 		return (
-			<div className="a">
+			<div className="ad">
 				{this.state.activeItem == 'element' ? (
-					<CanvasElement ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} />
+					<CanvasElement ref={(el) => (this.canvas = el)} className="ad__canvas" width={adParams.adWidth} height={adParams.adHeight} />
 				) : null}
 				{this.state.activeItem == 'tween' ? (
-					<CanvasElementTween ref={(el) => (this.canvas = el)} className="a__canvas" width={adParams.adWidth} height={adParams.adHeight} />
+					<CanvasElementTween ref={(el) => (this.canvas = el)} className="ad__canvas" width={adParams.adWidth} height={adParams.adHeight} />
 				) : null}
 				{this.state.activeItem == 'image' ? (
 					<CanvasElementImage ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} />
@@ -40,7 +40,7 @@ class Ad extends Component {
 					<CanvasElementText ref={(el) => (this.canvas = el)} width={adParams.adWidth} height={adParams.adHeight} />
 				) : null}
 
-				<div className="a__nav">
+				<div className="ad__nav">
 					<button
 						onClick={() => {
 							this.setState({ activeItem: 'element' })
