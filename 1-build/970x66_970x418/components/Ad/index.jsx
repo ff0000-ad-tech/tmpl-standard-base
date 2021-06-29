@@ -1,4 +1,3 @@
-import 'preact/debug'
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
