@@ -1,3 +1,4 @@
+import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import { DateSchedule, TzDate } from './ad-dates'
 /**
@@ -11,7 +12,9 @@ import { DateSchedule, TzDate } from './ad-dates'
 	Prepare dynamic data here.
  */
 export const requestDynamicImages = async () => {
-	// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
+	// preload dynamic images, will be available on ImageManager
+	const mainSource = DpsManager.getData('main', 'bg.Sources')
+	DpsManager.addImageRequest(mainSource, 'bg')
 }
 
 export const dpsdata = {

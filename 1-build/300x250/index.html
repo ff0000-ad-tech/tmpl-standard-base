@@ -21,10 +21,20 @@
 				networkId: 'STANDARD',
 				adWidth: 300,
 				adHeight: 250,
-				environmentId: 'debug',
+				environmentId: 'dps-local', // 'dps-inlined', 'dps-staging', 'dps-prod',
 				politeLoadAfter: 1,
 				failoverOnError: true,
-				version: '3.1.0-beta.5',
+				version: '3.1.0-beta.1',
+				dpsConfig: {
+					feeds: [
+						{
+							label: 'main',
+							ssid: '1FIO9fLeSPJJFeeMpTQKO-4qbtttQeem8CxgJWYGDvjA',
+							sid: '0',
+							rid: 'cc953f35-7457-4f01-bbe9-3326c8b9c6da', // optional row-id
+						},
+					],
+				},
 				dateSettings: {
 					// dateOverride: ['2020-07-13 00:00:01', 'local'],
 					// dateOverride: null, // ['2017-06-11 09:30:01', 'local'],
@@ -52,7 +62,7 @@
 			}
 
 			function isDevEnvironment() {
-				return adParams.environmentId == 'debug' || window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
+				return window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
 			}
 		</script>
 
@@ -165,16 +175,16 @@
 		</script>
 
 		<script type="text/javascript">
+			function useBackup() {
+				console.log('Index.useBackup()')
+				loadBackup()
+			}
 			function loadBackup() {
 				console.log('Index.loadBackup()')
 				document.getElementById('backup').style.cssText =
 					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
 				document.getElementById('main').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
-			}
-			function useBackup() {
-				console.log('Index.useBackup()')
-				useStatic()
 			}
 		</script>
 

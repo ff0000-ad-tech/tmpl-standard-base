@@ -1,5 +1,6 @@
 import * as AdData from '@common/js/AdData.js'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
+import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 
 /**
  * PRE-FLIGHT
@@ -14,10 +15,16 @@ export const init = async (binaryAssets) => {
 	addFbaImages(binaryAssets)
 	// add preloader images to build
 	addPreloadedImages()
+	// init dps-manager environment, based on adParams.environmentId
+	DpsManager.init(adParams)
+	// load dps-data and add to ad-data
+	await DpsManager.loadFeeds(adParams.dpsConfig)
 	// author adds necessary requests to queue
 	await window.adData.requestDynamicImages()
 	// preload dynamic images
 	await loadDynamicImages()
+	// let creative-server know dps-preflight is complete
+	await DpsManager.preflightComplete()
 }
 
 const addFbaImages = async (binaryAssets) => {

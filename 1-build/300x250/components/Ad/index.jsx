@@ -1,5 +1,6 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
+import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 
 // Components
 import SingleHeader from '@size/components/SingleHeader'
@@ -8,7 +9,6 @@ import NetworkLogos from '@size/components/NetworkLogos'
 
 // Assets
 import '@common/fonts/template_font.woff'
-import '@size/images/160over90-logo.png'
 import '@size/images/160over90-logo-small.png'
 
 // Styles
@@ -26,7 +26,7 @@ class Ad extends Component {
 			<div className="ad">
 				<div className="ad__footer">
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
-					<div className="ad__cta">LEARN MORE</div>
+					<div className="ad__cta">{DpsManager.getData('main', 'cta')}</div>
 				</div>
 				<NetworkLogos networks={this.networklogos} ref={(el) => (this.networklogos = el)} className="ad__networklogos" />
 				{/*<SingleHeader ref={(el) => (this.singleheader = el)} />
