@@ -1,5 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
-import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 // Components
 import SingleHeader from '@size/components/SingleHeader'
@@ -20,16 +20,12 @@ class Ad extends Component {
 		this.networklogos = ['espn', 'espn app', 'espn go']
 	}
 
-	getImage = (name) => {
-		return ImageManager.get(name).src
-	}
-
 	render() {
 		const isDoubleHeader = adData.dpsdata.matchups.length > 1
 		return (
 			<div className="ad">
 				<div className="ad__footer">
-					<img className="ad__logo" src={this.getImage('160over90-logo-small')} />
+					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
 					<div className="ad__cta">LEARN MORE</div>
 				</div>
 				<NetworkLogos networks={this.networklogos} ref={(el) => (this.networklogos = el)} className="ad__networklogos" />

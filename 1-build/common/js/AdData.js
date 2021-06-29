@@ -1,67 +1,55 @@
-import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import { DateSchedule, TzDate } from './ad-dates'
+/**
+ * TODO:
+ *	Dynamic HTML:
+ *		a. DPS needs to publish feeds/assets to a CDN
+ */
 
-export default function AdData() {
-	var self = this
-	self.dpsdata = {
-		matchups: [
-			{
-				player1: 'V. WILLIAMS sdfgsd sdfgdfs',
-				player1ranking: '',
-				player2: 'GAUFF',
-				player2ranking: '',
-				vs: 'VS',
-			},
-			{
-				player1: 'DJOKOVIC',
-				player1ranking: '1',
-				player2: 'FEDERER',
-				player2ranking: '2',
-				vs: 'VS',
-			},
-		],
-	}
-
-	/**
-		EXTRACT JSON DATA
-		Prepare dynamic data here.
-	 */
-
-	/**
-		DYNAMIC IMAGES
-		Dynamically loaded images need to be in their own directory, like "dynamic_images/".
-
-		Then, you need to add your dynamic image-paths to the load-queue, so that when
-		the secondary preload happens, these assets will get loaded. For example:
-
-		self.theImageName = ImageManager.addToLoad(adParams.imagesPath + 'sample.jpg');
-	 */
-	self.copy = ['WHY PAY MORE\nFOR ELECTRICITY?', 'MAKE THE MOST OF YOUR\nENERGY AND MONEY', 'CHOOSE SMART SAVINGS\nWITH DISCOUNT POWER.']
-	self.fonts = {
-		primary: 'template_font',
-	}
-
-	self.colors = {}
-
-	// Store svg markup for use in all UISvg instances, reduces duplicate code across builds.  See UISvg.
-	self.svg = {}
-
-	// Dates
-	// Standard Schedule
-	self.schedule = new DateSchedule({
-		target: new TzDate({
-			datetime: ['2021-06-29 20:00:00', 'US/Eastern'],
-			outputTimezone: 'local',
-		}),
-		isStandard: true,
-		standardOverrides: {
-			DATE: (date) => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
-			TOMORROW: (date, label) => label + date.format(' ${t}<br>${a^}'), // Tomorrow 8 PM
-			WEEK: (date, label) => label + date.format('${DDDD^} ${t} ${a^}'), // SATURDAY 8 PM
-			NOW: 'Watch Live Now',
-		},
-	})
-	self.schedule.print()
-	self.dateMessage = self.schedule.currentLabel
-	self.dateHour = self.schedule.target.toDateTime()
+/**
+	EXTRACT JSON DATA
+	Prepare dynamic data here.
+ */
+export const requestDynamicImages = async () => {
+	// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
 }
+
+export const dpsdata = {
+	matchups: [
+		{
+			player1: 'V. WILLIAMS sdfgsd sdfgdfs',
+			player1ranking: '',
+			player2: 'GAUFF',
+			player2ranking: '',
+			vs: 'VS',
+		},
+		{
+			player1: 'DJOKOVIC',
+			player1ranking: '1',
+			player2: 'FEDERER',
+			player2ranking: '2',
+			vs: 'VS',
+		},
+	],
+}
+
+// Dates
+// Standard Schedule
+export const schedule = new DateSchedule({
+	target: new TzDate({
+		datetime: ['2021-06-29 20:00:00', 'US/Eastern'],
+		outputTimezone: 'local',
+	}),
+	isStandard: true,
+	standardOverrides: {
+		DATE: (date) => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
+		TOMORROW: (date, label) => label + date.format(' ${t}<br>${a^}'), // Tomorrow 8 PM
+		WEEK: (date, label) => label + date.format('${DDDD^} ${t} ${a^}'), // SATURDAY 8 PM
+		NOW: 'Watch Live Now',
+	},
+})
+schedule.print()
+
+export const dateMessage = self.schedule.currentLabel
+export const dateHour = self.schedule.target.toDateTime()
+
