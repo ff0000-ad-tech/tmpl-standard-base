@@ -1,0 +1,13 @@
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin primary-font {
+	font-family: 'template_font';
+}
+
+@mixin ad-border {
+	border: 1px solid #303030;
+}

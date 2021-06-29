@@ -1,5 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
-import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 import CanvasElement from '../CanvasElement'
 import CanvasElementImage from '../CanvasElementImage'
@@ -10,16 +10,15 @@ import CanvasElementTween from '../CanvasElementTween'
 import './styles.scss'
 import '@common/fonts/template_font.woff'
 
+// Styles
+import './styles.scss'
+
 class Ad extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			activeItem: 'element',
 		}
-	}
-
-	getImage = (name) => {
-		return ImageManager.get(name).src
 	}
 
 	render() {
