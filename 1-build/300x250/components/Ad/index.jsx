@@ -17,6 +17,11 @@ class Ad extends Component {
 		super(props)
 	}
 
+	componentDidMount() {
+		// const playerImgs = Velvet.get('networks')
+		// console.warn(playerImgs)
+	}
+
 	render() {
 		return (
 			<div className="ad">

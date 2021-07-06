@@ -27,8 +27,8 @@ export const init = async (binaryAssets) => {
 // prepare ad manager
 const prepareVelvet = () => {
 	console.log('Preflight.prepareVelvet()')
-	Velvet.addEventListener(Velvet.events.FAIL, global.failAd)
-	Velvet.addEventListener(Velvet.events.STATIC, global.useStatic)
+	Velvet.addEventListener(Velvet.events.FAIL, global.useBackup)
+	Velvet.addEventListener(Velvet.events.STATIC, global.useBackup)
 	adParams.dateSettings.inDev = adParams.environmentId == 'staging' || adParams.environmentId == 'debug'
 	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize, document.getElementById('main')))
 }
