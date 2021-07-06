@@ -1,4 +1,4 @@
-import * as AdData from '@common/js/AdData.js'
+import AdData from '@common/js/AdData.js'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import * as Velvet from '@common/js/ad-velvet'
 /**
@@ -12,8 +12,8 @@ export const init = async (binaryAssets) => {
 	await prepareVelvet()
 
 	// instantiate global ad-data
-	// window.adData = new AdData()
-	window.adData = AdData
+	window.adData = new AdData()
+	// window.adData = AdData
 
 	// add binary payload
 	addFbaImages(binaryAssets)
@@ -22,7 +22,7 @@ export const init = async (binaryAssets) => {
 	addPreloadedImages()
 
 	// author adds necessary requests to queue
-	// await AdData.requestDynamicImages()
+	await window.adData.requestDynamicImages()
 
 	// preload dynamic images
 	await loadDynamicImages()
@@ -31,8 +31,8 @@ export const init = async (binaryAssets) => {
 // prepare ad manager
 const prepareVelvet = async () => {
 	console.log('Preflight.prepareVelvet()')
-	Velvet.addEventListener(Velvet.events.FAIL, window.useBackup)
-	Velvet.addEventListener(Velvet.events.STATIC, window.useBackup)
+	Velvet.addEventListener(Velvet.events.FAIL, global.useBackup)
+	Velvet.addEventListener(Velvet.events.STATIC, global.useBackup)
 	adParams.dateSettings.inDev = adParams.environmentId == 'staging' || adParams.environmentId == 'debug'
 	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize, document.getElementById('main')))
 }
