@@ -22,7 +22,7 @@ export const init = async (binaryAssets) => {
 	addPreloadedImages()
 
 	// author adds necessary requests to queue
-	await window.adData.requestDynamicImages()
+	// await window.adData.requestDynamicImages()
 
 	// preload dynamic images
 	await loadDynamicImages()

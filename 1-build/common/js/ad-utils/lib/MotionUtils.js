@@ -8,7 +8,7 @@
  * import { MotionUtils } from 'ad-utils'
  * </codeblock>
  */
-var MotionUtils = (function() {
+var MotionUtils = (function () {
 	var ax = 0,
 		ay = 0
 
@@ -38,7 +38,7 @@ var MotionUtils = (function() {
 	 * 	maximum value returned when tilting forward ( will be a positive number )
 	 * @desc
 	 * 	Set the minimum and maximum values that can be returned
-	*/
+	 */
 	function setSpeedLimits(negX, posX, negY, posY) {
 		_negX = negX
 		_posX = posX
@@ -53,7 +53,7 @@ var MotionUtils = (function() {
 	 * 	a number to multiply the returned value by. Defaults to 1.
 	 * @desc
 	 * 	Set a percentage multiplier to amplify or minimize the returned value.
-	*/
+	 */
 	function setSpeedMultiplier(multi) {
 		_multi = multi <= 0 ? 1 : multi
 	}
@@ -65,7 +65,7 @@ var MotionUtils = (function() {
 	 * 	a passed in method that will be called every time a device movement is detected.
 	 * @desc
 	 * 	Starts the listening for a move of the device
-	*/
+	 */
 	function activate(callback) {
 		_callback = callback
 		window.addEventListener('deviceorientation', onOrientation, false)
@@ -145,7 +145,7 @@ var MotionUtils = (function() {
 		setSpeedLimits: setSpeedLimits,
 		setSpeedMultiplier: setSpeedMultiplier,
 		activate: activate,
-		deactivate: deactivate
+		deactivate: deactivate,
 	}
 })()
 

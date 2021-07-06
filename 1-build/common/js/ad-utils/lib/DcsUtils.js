@@ -28,7 +28,7 @@ export function counterWithVars(str, impression) {
  * DcsUtils.addVideoMetrics(View.main.videoPlayer, 'Intro Video')
  */
 export function addVideoMetrics(player, message) {
-	Enabler.loadModule(studio.module.ModuleId.VIDEO, function() {
+	Enabler.loadModule(studio.module.ModuleId.VIDEO, function () {
 		studio.video.Reporter.attach(message || 'Video Report 1', player.screen != undefined ? player.screen : player)
 	})
 }
@@ -62,17 +62,17 @@ export function addVideoMetrics(player, message) {
 export function addYouTubeVideoMetrics(player) {
 	var p = player.screen
 
-	p.addEventListener('play', function() {
+	p.addEventListener('play', function () {
 		player.isReplay ? trackVideoReplay.call() : trackVideoPlay.call()
 	})
 
-	p.addEventListener('pause', function() {
+	p.addEventListener('pause', function () {
 		if (!player.complete) {
 			trackVideoPause.call()
 		}
 	})
 
-	p.addEventListener('complete', function() {
+	p.addEventListener('complete', function () {
 		trackVideoComplete.call()
 	})
 }

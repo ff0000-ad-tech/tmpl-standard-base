@@ -12,7 +12,7 @@ export default {
 			'septiembre',
 			'octubre',
 			'noviembre',
-			'diciembre'
+			'diciembre',
 		],
 		MONTHS_ABRV: ['enero', 'feb', 'marzo', 'abr', 'mayo', 'jun', 'jul', 'agosto', 'sept', 'oct', 'nov', 'dic'],
 		MONTHS_EXCP: ['', '', '', '', '', '', '', '', 'sep', '', '', ''],
@@ -32,6 +32,6 @@ export default {
 		TODAY: 'hoy',
 		TONIGHT: 'esta noche',
 		NOW: 'en vivo',
-		PAST: 'pasado'
-	}
+		PAST: 'pasado',
+	},
 }

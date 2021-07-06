@@ -37,8 +37,7 @@ export function getSpecialCharacter(requestedCharacter, isCapital) {
 	for (let i = 0; i < specialCharacters.length; i++) {
 		let currentLabel = global.proxyStringToLowerCase.apply(specialCharacters[i].label)
 
-		if (currentLabel === requestedCharacter)
-			return isCapital ? specialCharacters[i].upperCase : specialCharacters[i].lowerCase
+		if (currentLabel === requestedCharacter) return isCapital ? specialCharacters[i].upperCase : specialCharacters[i].lowerCase
 	}
 	return false
 }
@@ -47,53 +46,53 @@ const specialCharacters = [
 	{
 		label: 'iexcl',
 		upperCase: '&#161;',
-		lowerCase: '&#161;'
+		lowerCase: '&#161;',
 	},
 	{
 		label: 'trademark',
 		upperCase: '&#153;',
-		lowerCase: '&#153;'
+		lowerCase: '&#153;',
 	},
 	{
 		label: 'copyright',
 		upperCase: '&#169;',
-		lowerCase: '&#169;'
+		lowerCase: '&#169;',
 	},
 	{
 		label: 'registered',
 		upperCase: '&#174;',
-		lowerCase: '&#174;'
+		lowerCase: '&#174;',
 	},
 	{
 		label: 'nTilde',
 		upperCase: '&#209;',
-		lowerCase: '&#241;'
+		lowerCase: '&#241;',
 	},
 	{
 		label: 'aAccent',
 		upperCase: '&#193;',
-		lowerCase: '&#225;'
+		lowerCase: '&#225;',
 	},
 	{
 		label: 'eAccent',
 		upperCase: '&#201;',
-		lowerCase: '&#233;'
+		lowerCase: '&#233;',
 	},
 	{
 		label: 'iAccent',
 		upperCase: '&#205;',
-		lowerCase: '&#237;'
+		lowerCase: '&#237;',
 	},
 	{
 		label: 'oAccent',
 		upperCase: '&#211;',
-		lowerCase: '&#243;'
+		lowerCase: '&#243;',
 	},
 	{
 		label: 'uAccent',
 		upperCase: '&#218;',
-		lowerCase: '&#250;'
-	}
+		lowerCase: '&#250;',
+	},
 ]
 
 /**
@@ -148,11 +147,13 @@ export function pad(_target, _count) {
  */
 export function injectBreakTags(str, indexes) {
 	let split = str.split(/\s/g)
-	indexes.sort((a, b) => b - a).forEach(val => {
-		const before = split.slice(0, val)
-		const median = split.slice(val, val + 2).join('<br>')
-		const after = split.slice(val + 2)
-		split = before.concat(median, after)
-	})
+	indexes
+		.sort((a, b) => b - a)
+		.forEach((val) => {
+			const before = split.slice(0, val)
+			const median = split.slice(val, val + 2).join('<br>')
+			const after = split.slice(val + 2)
+			split = before.concat(median, after)
+		})
 	return split.join(' ')
 }

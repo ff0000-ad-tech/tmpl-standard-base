@@ -19,6 +19,6 @@ export default {
 		TODAY: 'Today',
 		TONIGHT: 'Tonight',
 		NOW: 'Live Now',
-		PAST: 'Past'
-	}
+		PAST: 'Past',
+	},
 }

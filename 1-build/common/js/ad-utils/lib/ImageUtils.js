@@ -210,14 +210,10 @@ export function fitCanvasImageAtCoordinate(target, params, fitParams, imgSourceW
 					// if the _fitOrigin data all exists within the bounds of the available bitmap data
 					// BUG: THIS ONLY CHECKS AGAINST ONE PARAMETER - sourceX or sourceY - BUT THEN AFFECTS BOTH _fitOrigin.x and _fitOrigin.y
 					// NEED TO CHECK AGAINST BOTH AND AFFECT BOTH
-					if (
-						params[_sourcePropPos] >= 0 &&
-						params[_sourcePropPos] <= _args[5] - params['source' + _args[1]]
-					) {
+					if (params[_sourcePropPos] >= 0 && params[_sourcePropPos] <= _args[5] - params['source' + _args[1]]) {
 						// find out what the origin is in relation to its fitParams and _fitOrigin
 						// a loop to set _fitOrigin.x/y equal to (_fitOrigin.x/y - params.sourceX/sourceY) * _scale;
-						for (let item in _fitOrigin)
-							_fitOrigin[item] = (_fitOrigin[item] - params['source' + item.toUpperCase()]) * _scale
+						for (let item in _fitOrigin) _fitOrigin[item] = (_fitOrigin[item] - params['source' + item.toUpperCase()]) * _scale
 					}
 				}
 			}

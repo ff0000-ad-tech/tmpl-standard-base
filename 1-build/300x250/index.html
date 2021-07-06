@@ -43,13 +43,7 @@
 			var assets = {
 				preloader: [], // Default generic preloader animation
 				// preloader: ['../common/images/dp-preloader.gif'], // Custom preloader image or animation
-				failover: {
-					images: [
-						{
-							source: 'backup.jpg',
-						},
-					],
-				},
+				failover: 'backup.jpg',
 				payload: {
 					text: ['./build.bundle.js'],
 					binary: [],
@@ -181,7 +175,7 @@
 		<script type="text/javascript">
 			function loadBackup() {
 				console.log('Index.loadBackup()')
-				// document.getElementById('backup').style.cssText = 'background-image: url(' + assets.failover.images[0].source + ');'
+				document.getElementById('backup').style.cssText = 'background-image: url(' + assets.failover + ');'
 				document.getElementById('main').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
 			}

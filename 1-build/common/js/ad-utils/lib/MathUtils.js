@@ -27,7 +27,7 @@ export function toRadians(degree) {
  * 		An angle value as a radian
  * @desc
  * 		Converts an angle value from Radians to Degrees.
-*/
+ */
 export function toDegrees(radian) {
 	return (180.0 / Math.PI) * radian
 }
@@ -38,14 +38,14 @@ export function toDegrees(radian) {
  * @param {number} a
  * 		the first value to find between
  * @param {number} b
- * 		the second value to find between 
+ * 		the second value to find between
  * @param {number} increment
  * 		optionaly set the increment of the random number. Defaults to 1
  * @desc
  * 		Get a random number between a range of two values, with an option to return to a decimal place. ( Note that
- * 		 due to the inprecision of decimal number calculation in Javascript, you may not get a perfect result when 
- * 		 your increment value is decimal, but the value will be close. A classic Javascript inpreciosn calculation example: 
- * 		 0.1 + 0.2 = 0.30000000000000004 ) 
+ * 		 due to the inprecision of decimal number calculation in Javascript, you may not get a perfect result when
+ * 		 your increment value is decimal, but the value will be close. A classic Javascript inpreciosn calculation example:
+ * 		 0.1 + 0.2 = 0.30000000000000004 )
  * @example
  * MathUtils.random(1, 3, 1)   // returns 1 or 2 or 3
  * MathUtils.random(1, 3, 0.5)  // returns 1, 1.5, 2, 2.5 or 3
@@ -182,7 +182,7 @@ export function restrict(num, min, max) {
  * @memberOf MathUtils
  * @method getAnglePoint
  * @returns {array}
- * 		containing an [xValue, yValue] given x1, y1, distance from that starting coordinate, 
+ * 		containing an [xValue, yValue] given x1, y1, distance from that starting coordinate,
  * 		and angle (in *radians*) which the new point should be from the starting coordinate
  * @desc
  * 		Assumes original coordinate rotation is 0 radians
@@ -199,7 +199,7 @@ export function getAnglePoint(x, y, distance, angle) {
  * @method getAngle
  * @retuns {number}
  * 		The angle (in *radians*) between two points given x1, y1, x2, y2
-*/
+ */
 export function getAngle(x1, y1, x2, y2) {
 	x2 = x2 || 0
 	y2 = y2 || 0
@@ -211,7 +211,7 @@ export function getAngle(x1, y1, x2, y2) {
  * @method getDistance
  * @returns {number}
  * 		The distance between two points given x1, y1, x2, y2
-*/
+ */
 export function getDistance(x1, y1, x2, y2) {
 	x2 = x2 || 0
 	y2 = y2 || 0

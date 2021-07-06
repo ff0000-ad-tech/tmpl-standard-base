@@ -12,7 +12,7 @@
 		
 		This object contains utilities for interfacing with the device's GPS.
 */
-var LocationUtils = new function() {
+var LocationUtils = new (function () {
 	this.gpsSuccessCallback
 	this.gpsFailCallback
 
@@ -28,7 +28,7 @@ var LocationUtils = new function() {
 			so callback functions must be used.
 	*/
 
-	this.getGPSData = function(callbackSuccess, callbackFail) {
+	this.getGPSData = function (callbackSuccess, callbackFail) {
 		if (navigator.geolocation) {
 			LocationUtils.gpsSuccessCallback = callbackSuccess
 			LocationUtils.gpsFailCallback = callbackFail
@@ -36,11 +36,11 @@ var LocationUtils = new function() {
 		} else console.log('geolocation not available')
 	}
 
-	this.onLocationRetrieved = function(position) {
+	this.onLocationRetrieved = function (position) {
 		LocationUtils.gpsSuccessCallback(position.coords)
 	}
 
-	this.onLocationFailed = function(error) {
+	this.onLocationFailed = function (error) {
 		console.log('Error retrieving location data')
 
 		switch (error.code) {
@@ -63,6 +63,6 @@ var LocationUtils = new function() {
 
 		if (LocationUtils.gpsFailCallback) LocationUtils.gpsFailCallback(error)
 	}
-}()
+})()
 
 export default LocationUtils

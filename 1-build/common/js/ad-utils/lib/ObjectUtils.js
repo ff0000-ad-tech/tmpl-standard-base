@@ -53,7 +53,7 @@ const objectifier = {}
  * val = ObjectUtils.objectifier.get( 'prop2.string', myObj );
  * // your val should be 'I am prop2'
  */
-objectifier.get = function(str, ctxObj = window) {
+objectifier.get = function (str, ctxObj = window) {
 	const splits = objectifier._getSplits(str).splits
 	return objectifier._getProperty(splits, ctxObj)
 }
@@ -74,7 +74,7 @@ objectifier.get = function(str, ctxObj = window) {
  * 	<br><br>
  * 	<b>NOTE!!!</b>
  * 	This method is on the {@link ObjectUtils.objectifier} object!
- * 	
+ *
  * @example
  * //
  * let myObj = {
@@ -87,25 +87,25 @@ objectifier.get = function(str, ctxObj = window) {
  * // myObj.prop1[0] is now 123
  * ObjectUtils.objectifier.set( 'prop2.string', 'hello', myObj );
  * // myObj.prop2.string is now 'hello'
-*/
-objectifier.set = function(str, val, ctxObj = window) {
+ */
+objectifier.set = function (str, val, ctxObj = window) {
 	const splitData = objectifier._getSplits(str, true)
 	const result = objectifier._getProperty(splitData.splits, ctxObj)
 	result[splitData.lastKey] = val
 }
 
 // objectifier._getSplits and objectifier._getProperty  are used internally for objectifier.get and objectifier.set
-objectifier._getSplits = function(str, popLast) {
+objectifier._getSplits = function (str, popLast) {
 	const splits = str.split('.')
 	const lastKey = popLast ? splits.pop() : null
 
 	return {
 		splits: splits,
-		lastKey: lastKey
+		lastKey: lastKey,
 	}
 }
 
-objectifier._getProperty = function(splits, obj = {}) {
+objectifier._getProperty = function (splits, obj = {}) {
 	let result = obj
 	let s
 	for (let i = 0; result && (s = splits[i]); i++) {
@@ -130,10 +130,10 @@ objectifier._getProperty = function(splits, obj = {}) {
  * };
  *
  * let newObj = ObjectUtils.clone( oldObj );
- * 
+ *
  * newObj.a = 'xyz';
  * // oldObj.a is still 1
-*/
+ */
 export function clone(obj) {
 	if (Object.prototype.toString.call(obj) !== '[object Object]') {
 		return obj
@@ -159,8 +159,8 @@ export function clone(obj) {
  * 	otherwise it will just be one level
  * @desc
  * 	Get an object using an object as a default, when a property doesn't in the object,
- * 	it takes it from the default object if it exists. It also checks nested objects. 
- * 	It is useful for setting up an object to store default values. 
+ * 	it takes it from the default object if it exists. It also checks nested objects.
+ * 	It is useful for setting up an object to store default values.
  * @example
  * // our default object as a base set up
  * let defaultObj = {
@@ -173,7 +173,7 @@ export function clone(obj) {
  *         city: 'Los Angeles'
  *     }
  * };
- * 
+ *
  * // the custom object
  * let customObj = {
  *     name: 'Bob',
@@ -184,9 +184,9 @@ export function clone(obj) {
  *         street: 'Ocean Park'
  *     }
  * };
- * 
+ *
  * let result = ObjectUtils.defaults( customObj, defaultObj, true );
- * 
+ *
  * // your result object should look like
  * {
  * 	name: 'Bob',
@@ -199,10 +199,10 @@ export function clone(obj) {
  *         street: 'Ocean Park'
  *     }
  * }
- * 
+ *
  * //if not recursive
  * let result = ObjectUtils.defaults( customObj, defaultObj, false );
- * 
+ *
  * // your result object should look like ( notice that it takes the whole locationDetail object )
  * {
  * 	name: 'Bob',

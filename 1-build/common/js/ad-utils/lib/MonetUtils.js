@@ -22,7 +22,7 @@ let _monetTypes = {
 
 export function setData(integrator) {
 	var promise = integrator.getMonetData()
-	promise.then(function(data) {
+	promise.then(function (data) {
 		_data = data
 	})
 	return promise

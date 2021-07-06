@@ -9,19 +9,19 @@
  * </codeblock>
  */
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method toRgba
  * @param {string|object} color
- * 	the color to convert, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the color to convert, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @param {number} alpha
- * 	the optional alpha value for the return string: overrides the alpha value of an RGBA color. 
+ * 	the optional alpha value for the return string: overrides the alpha value of an RGBA color.
  * 	If undefined, will default to the alpha value of the color.
  * @desc
- * 	Returns an object containing r, g, b, a properties 
-*/
+ * 	Returns an object containing r, g, b, a properties
+ */
 export function toRgba(color, alpha) {
 	switch (typeof color) {
 		case 'object':
@@ -29,7 +29,7 @@ export function toRgba(color, alpha) {
 				r: 0,
 				g: 0,
 				b: 0,
-				a: 1
+				a: 1,
 			}
 			break
 		default:
@@ -40,7 +40,7 @@ export function toRgba(color, alpha) {
 					r: parseInt(color[0]),
 					g: parseInt(color[1]),
 					b: parseInt(color[2]),
-					a: Number(color[3])
+					a: Number(color[3]),
 				}
 			} else if (color.indexOf('#') >= 0) {
 				// convert from HEX
@@ -50,7 +50,7 @@ export function toRgba(color, alpha) {
 							r: parseInt(result[1], 16),
 							g: parseInt(result[2], 16),
 							b: parseInt(result[3], 16),
-							a: result[4] ? Number(result[4], 16) : 1
+							a: result[4] ? Number(result[4], 16) : 1,
 					  }
 					: null
 			} else {
@@ -73,38 +73,38 @@ export function toRgba(color, alpha) {
 	return color
 }
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method toRgbaString
  * @param {string|object} color
- * 	the color to convert, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the color to convert, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @param {number} alpha
  * 	the optional alpha value for the return string: overrides the alpha value of an RGBA color. If undefined, will default to the alpha value of the color.
  * @desc
  * 	Returns the rgba() string representing a given color and optional alpha
-*/
+ */
 export function toRgbaString(color, alpha) {
 	var color = toRgba(color, alpha)
 	return 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',' + color.a + ')'
 }
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method hue
  * @param {object} obj
  * 	an object with paramaters for overall hue shift, see Properties for more info
  * @property {string|object} from
- * 	the source color to hue shift, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the source color to hue shift, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @property {string|object} color
  * 	synonymous with the from parameter
  * @property {number} amount
  * 	amount to shift the colors in a range of 0-360
  * @property {string} format
- * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or 
+ * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or
  * 	an {r:, g:, b:, a:} object. If undefined, defaults to 'string'.
  * @desc
  * 	Apply a hue shift to a given color; returns either an 'rgba()' string or an rgba{} object
@@ -116,7 +116,7 @@ export function toRgbaString(color, alpha) {
  * 	format: 'object'
  * })
  * // returns {r: 51, g: 170, b: 79, a: 1}
-*/
+ */
 export function hue(obj) {
 	obj = _convert(obj)
 	let hsl = rgbToHSL(obj.from)
@@ -128,21 +128,21 @@ export function hue(obj) {
 	return obj.format === 'object' ? returnColors : toRgbaString(returnColors)
 }
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method saturation
  * @param {object} obj
  * 	an object with paramaters for overall saturation, see Properties for more info
  * @property {string|object} from
- * 	the source color to saturate, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the source color to saturate, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @property {string|object} color
  * 	synonymous with the from parameter
  * @property {number} amount
  * 	the total saturation of the from. 0 = grayscale, 1 = full, original color
  * @property {string} format
- * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or 
+ * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or
  * 	an {r:, g:, b:, a:} object. If undefined, defaults to 'string'.
  * @desc
  * 	Change the color saturation of a given color; returns either an 'rgba()' string or an rgba{} object
@@ -154,7 +154,7 @@ export function hue(obj) {
  * 	format: 'object'
  * });
  * // returns {r: 86, g: 86, b: 86, a: 1}
-*/
+ */
 export function saturation(obj) {
 	delete obj.to
 	obj = _convert(obj)
@@ -182,7 +182,7 @@ export function saturation(obj) {
 	return obj.format === 'object' ? returnColors : toRgbaString(returnColors)
 }
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method contrast
  * @param {object} obj
@@ -194,7 +194,7 @@ export function saturation(obj) {
  * @property {number} amount
  * 	the contrast of the target. 0 = no contrast, 1 = original contrast, >1 = more and more, to infinity and beyond!
  * @property {string|object} format
- * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or 
+ * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or
  * 	an {r:, g:, b:, a:} object. If undefined, defaults to 'string'.
  * @desc
  * 	Change the contrast of the target; returns either an 'rgba()' string or an rgba{} object
@@ -206,7 +206,7 @@ export function saturation(obj) {
  * 	format: 'object'
  * });
  * // returns {r: 221, g: 0, b: 22, a: 1}
-*/
+ */
 export function contrast(obj) {
 	delete obj.to
 	obj = _convert(obj)
@@ -220,25 +220,25 @@ export function contrast(obj) {
 	return obj.format === 'object' ? returnColors : toRgbaString(returnColors)
 }
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method tint
  * @param {object} obj
  * 	an object with paramaters for overall saturation, see Properties for more info
  * @property {string|object} from
- * 	the source color to begin with, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the source color to begin with, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @property {string|object} color
  * 	synonymous with the from parameter
  * @property {string|object} to
- * 	the target color to tint to, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the target color to tint to, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @property {number} amount
  * 	the percentage of color to apply to the target. Defaults to 1, which is 100% color tinting
  * @property {string|object} format
- * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string, 
+ * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string,
  * 	or an {r:, g:, b:, a:} object. If undefined, defaults to 'string'.
  * @desc
  * 	Tint a color uniformly to a given color; returns either an 'rgba()' string or an rgba{} object
@@ -251,7 +251,7 @@ export function contrast(obj) {
  * 	format: 'object'
  * });
  * // returns {r: 0, g: 255, b: 0, a: 1 };
- * 
+ *
  * // tint 50% to green
  * ColorUtils.tint({
  * 	from: '#ffff00',
@@ -259,7 +259,7 @@ export function contrast(obj) {
  * 	amount: 0.5
  * });
  * // returns 'rgba(128, 128, 0, 1)'
-*/
+ */
 export function tint(obj) {
 	obj = _convert(obj)
 
@@ -272,30 +272,30 @@ export function tint(obj) {
 	return obj.format === 'object' ? returnColors : toRgbaString(returnColors)
 }
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method transform
  * @param {object} obj
  * 	an object with paramaters for overall saturation, see Properties for more info
  * @property {string|object} from
- * 	the source color to begin with, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the source color to begin with, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @property {string|object} color
  * 	synonymous with the from parameter
  * @property {string|object} to
- * 	the target color to transform to, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the target color to transform to, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @property {number} amount
  * 	the percentage of color to apply to the target. Defaults to 1, which is 100% color transform
  * @property {string} format
- * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or 
+ * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or
  * 	an {r:, g:, b:, a:} object. If undefined, defaults to 'string'.
- * @returns {string|object} 
+ * @returns {string|object}
  * 	either an 'rgba()' string or an rgba{} object
  * @desc
- * 	Color Transforms a color to another color by pulling colors out of original source; 
+ * 	Color Transforms a color to another color by pulling colors out of original source;
  * @example
  * // remove all colors but greens
  * ColorUtils.transform({
@@ -313,7 +313,7 @@ export function tint(obj) {
  * 	amount: 1
  * });
  * // returns 'rgba(0, 255, 0, 1)'
-*/
+ */
 export function transform(obj) {
 	obj = _convert(obj)
 
@@ -326,19 +326,19 @@ export function transform(obj) {
 	return obj.format === 'object' ? returnColors : toRgbaString(returnColors)
 }
 
-/**	
+/**
  * @memberOf ColorUtils
  * @method invert
  * @param {object} obj
  * 	an object with parameters for overall inversion, see Properties for more info
  * @property {string|object} from
- * 	the color to invert, represented as a HEX string:"#ff0000", 
- * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+ * 	the color to invert, represented as a HEX string:"#ff0000",
+ * 	an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ),
  * 	or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.
  * @property {string|object} color
  * 	synonymous with the from parameter
  * @property {string} format
- * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or 
+ * 	either 'object' or 'string' - which determines whether to return an 'rgba()' string or
  * 	an {r:, g:, b:, a:} object. If undefined, defaults to 'string'.
  * @desc
  * 	Invert the color; returns either an 'rgba()' string or an rgba{} object
@@ -355,7 +355,7 @@ export function transform(obj) {
  * 	color: '#ff0000'
  * });
  * // returns 'rgba(0, 255, 255, 1)'
-*/
+ */
 export function invert(obj) {
 	delete obj.to
 	delete obj.amount
@@ -409,7 +409,7 @@ function rgbToHSL(rgb) {
 	return {
 		h: h,
 		s: s,
-		l: l
+		l: l,
 	}
 }
 
@@ -461,7 +461,7 @@ function _hslToRGB(hsl) {
 	return {
 		r: _normalizeRgbValue(r, m),
 		g: _normalizeRgbValue(g, m),
-		b: _normalizeRgbValue(b, m)
+		b: _normalizeRgbValue(b, m),
 	}
 }
 

@@ -1,10 +1,10 @@
 /* -- GLOBAL UTILITIES --------------------------------------------
-	*
-	*		These methods are tightly coupled to FAT index:
-	*			- window.environments
-	*			- window.adParams		
-	*
-	*/
+ *
+ *		These methods are tightly coupled to FAT index:
+ *			- window.environments
+ *			- window.adParams
+ *
+ */
 export function getDeployProfile(id) {
 	// console.log('ad-global > getDeployProfile()')
 	for (var i = 0; i < environments.length; i++) {
@@ -54,7 +54,7 @@ export function matchProtocolTo(_url) {
 // check version against
 export function isVersionOrNewer(version) {
 	// console.log('ad-global > isVersionOrNewer()')
-	const semver = version.split('.').map(function(v) {
+	const semver = version.split('.').map(function (v) {
 		return parseInt(v)
 	})
 	if (adParams.version.major > semver[0]) {
