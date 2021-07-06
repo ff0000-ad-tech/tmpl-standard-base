@@ -43,7 +43,13 @@
 			var assets = {
 				preloader: [], // Default generic preloader animation
 				// preloader: ['../common/images/dp-preloader.gif'], // Custom preloader image or animation
-				failover: ['backup.jpg'],
+				failover: {
+					images: [
+						{
+							source: 'backup.jpg',
+						},
+					],
+				},
 				payload: {
 					text: ['./build.bundle.js'],
 					binary: [],

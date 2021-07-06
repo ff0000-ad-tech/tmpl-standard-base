@@ -17,7 +17,7 @@ class Ad extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			img: 'ass',
+			img: '',
 		}
 	}
 
@@ -25,6 +25,7 @@ class Ad extends Component {
 		const networkImages = Velvet.get('networks')
 		this.setState({ img: networkImages[0].value.url })
 		console.warn('THESE ARE NETWORK IMAGES=', this.state.img)
+		console.warn('POOP=', adData.poop)
 	}
 
 	render() {
