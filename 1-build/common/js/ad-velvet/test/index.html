@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Velvet Inline Tester</title>
+</head>
+
+<body>
+    <script id="velvet" src="../dist/velvet-enabler.debug.js"></script>
+    <script type="text/javascript">
+        var slugs = {
+            "client": "zJfUigQUn0",
+            "locale": "DsNDfsjq2z",
+            "segment": "K9kB6jBTYb",
+            "addata": "Yc8FEGKqa5"
+        }
+        var dateSettings = {
+            dateOverride: ['2017-06-11 09:30:01', 'local'],
+            language: 'spanish'
+        }
+
+        function useStatic() {
+            console.log("Index.useStatic()");
+        }
+        function failAd() {
+            console.log("Index.failAd()");
+            useStatic();
+        }
+        function handleVelvetInit() {
+            console.log('Index.handleVelvetInit()')
+            // sample date usage
+            var tunein = Velvet.get('tune_in')
+            var schedule = new DateSchedule({
+                target: new TzDate({
+                    datetime: tunein.datetime,
+                    outputTimezone: tunein.timezone
+                }),
+                isStandard: true
+            })
+            schedule.print()
+        }
+
+        Velvet.addEventListener(Velvet.events.FAIL, failAd)
+        Velvet.addEventListener(Velvet.events.STATIC, useStatic)
+        Velvet.addEventListener(Velvet.events.INIT, handleVelvetInit)
+        Velvet.init(slugs, dateSettings)
+    </script>
+</body>
+
+</html>
