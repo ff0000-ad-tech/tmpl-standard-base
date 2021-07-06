@@ -1,4 +1,4 @@
-import AdData from '@common/js/AdData.js'
+import * as AdData from '@common/js/AdData.js'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import * as Velvet from '@common/js/ad-velvet'
 /**
@@ -12,8 +12,10 @@ export const init = async (binaryAssets) => {
 	await prepareVelvet()
 
 	// instantiate global ad-data
-	window.adData = new AdData()
-	// window.adData = AdData
+	// window.adData = new AdData()
+	window.adData = AdData
+
+	window.adData.prepareAdData()
 
 	// add binary payload
 	addFbaImages(binaryAssets)

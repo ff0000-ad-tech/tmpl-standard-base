@@ -1,6 +1,7 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import * as Velvet from '@common/js/ad-velvet'
+import * as AdData from '@common/js/AdData.js'
 
 // Components
 import BrandLogo from '../BrandLogo'
@@ -25,7 +26,7 @@ class Ad extends Component {
 		const networkImages = Velvet.get('networks')
 		this.setState({ img: networkImages[0].value.url })
 		console.warn('THESE ARE NETWORK IMAGES=', this.state.img)
-		console.warn('POOP=', adData.poop)
+		console.warn('POOP=', window.adData.stuff)
 	}
 
 	render() {
