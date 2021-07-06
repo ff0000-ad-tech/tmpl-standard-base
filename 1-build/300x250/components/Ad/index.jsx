@@ -1,5 +1,6 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
+import * as Velvet from '@common/js/ad-velvet'
 
 // Components
 import BrandLogo from '../BrandLogo'
@@ -19,7 +20,7 @@ class Ad extends Component {
 
 	componentDidMount() {
 		// const playerImgs = Velvet.get('networks')
-		// console.warn(playerImgs)
+		// console.warn('THESE ARE PLAYER IMAGES=', playerImgs)
 	}
 
 	render() {
