@@ -25,7 +25,7 @@ export function remove(type, handler) {
 
 export function dispatch(type) {
 	if (_eventPool[type]) {
-		_eventPool[type].map(handler => {
+		_eventPool[type].map((handler) => {
 			handler()
 		})
 	}

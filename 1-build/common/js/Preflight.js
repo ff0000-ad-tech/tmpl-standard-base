@@ -30,7 +30,7 @@ const prepareVelvet = () => {
 	Velvet.addEventListener(Velvet.events.FAIL, global.failAd)
 	Velvet.addEventListener(Velvet.events.STATIC, global.useStatic)
 	adParams.dateSettings.inDev = adParams.environmentId == 'staging' || adParams.environmentId == 'debug'
-	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize, Markup.get('main')))
+	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize, document.getElementById('main')))
 }
 
 const addFbaImages = async (binaryAssets) => {

@@ -1,0 +1,8 @@
+{{#classes}}
+{{>header}}
+{{#groupBy (option "group-by")~}}
+{{#if ('!==' kind "constructor")}}
+{{>member-index-grouped}}
+{{/if}}
+{{/groupBy~}}
+{{/classes}}

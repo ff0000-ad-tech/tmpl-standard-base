@@ -71,7 +71,7 @@ export function addSchedule(schedule) {
 			date: date.toISO(),
 			tz: date.outputTimezone.abbr[0],
 			ltz: adParams.defaultTimezone,
-			label: item.standardKey
+			label: item.standardKey,
 		}
 		// console.log('\t', date.toFullDateTime(), '\t', item.standardKey, '\t', obj)
 
@@ -168,7 +168,7 @@ function dispatch(event, data) {
 	if (typeof window.callExternal === 'function') {
 		window.callExternal({
 			event: event,
-			data: data
+			data: data,
 		})
 	}
 }

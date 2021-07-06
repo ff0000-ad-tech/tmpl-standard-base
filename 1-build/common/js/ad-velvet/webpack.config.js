@@ -19,7 +19,7 @@ const babelOptions = {
 }
 
 const dirs = DM.aliases.getTopLevel(path.resolve(__dirname, 'node_modules/@ff0000-ad-tech'))
-module.exports = config => {
+module.exports = (config) => {
 	const isDebug = config.environment == 'debug'
 	const removeConsole = !isDebug
 	console.log('config:', config, '| isDebug:', isDebug, '| removeConsole:', removeConsole)
@@ -31,42 +31,39 @@ module.exports = config => {
 			filename: 'Velvet.' + config.environment + '.js',
 			library: 'Velvet',
 			// allows named imports from globally available ad package
-			libraryTarget: 'umd'
+			libraryTarget: 'umd',
 		},
 		resolve: {
-			alias: dirs
+			alias: dirs,
 		},
 
 		externals: {
 			// object values in externals object MUST be valid variable name.
 			// This will scope any export to the module, but since ad-date is re-assigned to window during
 			// dist process, set external scope to window to maintain that
-			'ad-dates': 'window'
+			'ad-dates': 'window',
 		},
 
 		plugins: [
 			new UglifyJsPlugin({
 				compress: {
 					drop_console: removeConsole,
-					warnings: removeConsole
-				}
+					warnings: removeConsole,
+				},
 			}),
 			// new HtmlWebpackPlugin(), // TODO: pass in a template with sample code
 			new IndexPlugin(null, {
 				source: {
-					path: `./tmpl/velvet-enabler.js`
+					path: `./tmpl/velvet-enabler.js`,
 				},
 				inject: {
-					'ad-dates': path.resolve(
-						__dirname,
-						'node_modules/@ff0000-ad-tech/ad-dates/dist/ad-dates.' + config.environment + '.js'
-					),
-					Velvet: './bundles/Velvet.' + config.environment + '.js'
+					'ad-dates': path.resolve(__dirname, 'node_modules/@ff0000-ad-tech/ad-dates/dist/ad-dates.' + config.environment + '.js'),
+					Velvet: './bundles/Velvet.' + config.environment + '.js',
 				},
 				output: {
-					path: './dist/velvet-enabler' + (isDebug ? '.debug' : '') + '.js'
-				}
-			})
+					path: './dist/velvet-enabler' + (isDebug ? '.debug' : '') + '.js',
+				},
+			}),
 		],
 		module: {
 			rules: [
@@ -76,13 +73,13 @@ module.exports = config => {
 						{
 							loader: 'babel-loader',
 							options: {
-								plugins: babelOptions.plugins
-							}
-						}
-					]
+								plugins: babelOptions.plugins,
+							},
+						},
+					],
 				},
 				{
-					test: request => {
+					test: (request) => {
 						// console.log('test()', request.includes('ad-velvet'), request.endsWith('index.js'), '|', request.split('1-build')[1])
 						return request.includes('ad-velvet') && request.endsWith('index.js')
 					},
@@ -91,19 +88,19 @@ module.exports = config => {
 							loader: '@ff0000-ad-tech/webpack-rollup-babel-loader',
 							options: {
 								babelOptions: {
-									presets: babelOptions.presets
+									presets: babelOptions.presets,
 								},
 								// basically a copy of Webpack externals
 								globals: {
-									'ad-dates': 'window' //'adDates'
+									'ad-dates': 'window', //'adDates'
 								},
 								// here, list package names for Rollup to assume have already been loaded externally
-								external: ['ad-dates']
-							}
-						}
-					]
-				}
-			]
-		}
+								external: ['ad-dates'],
+							},
+						},
+					],
+				},
+			],
+		},
 	}
 }

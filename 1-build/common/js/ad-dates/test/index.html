@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>ad-dates Inline Tester</title>
+</head>
+
+<body>
+    <script id="velvet" src="../dist/ad-dates.min.js"></script>
+    <script type="text/javascript">
+
+        DateManager.init({ language: 'spanish' })
+
+        DateManager.defaultTimezone = 'US/Central'
+
+        var schedule = new DateSchedule({
+            target: new TzDate({
+                datetime: ['2018-01-01 00:00:00', 'local'],
+                outputTimezone: 'US/Eastern'
+            }),
+            isStandard: true
+        })
+        schedule.print()
+
+    </script>
+</body>
+
+</html>

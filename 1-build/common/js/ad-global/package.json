@@ -1,0 +1,75 @@
+{
+  "_from": "@ff0000-ad-tech/ad-global@^2.0.1",
+  "_id": "@ff0000-ad-tech/ad-global@2.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-9cadeogw01rP4ptQzHWoLqAn3GRskjS2TxGi0nubrSEhmaZEUQRo2YRuscNb4umuXg0ZCSfFqX9NV08/jZ3Eiw==",
+  "_location": "/@ff0000-ad-tech/ad-global",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@ff0000-ad-tech/ad-global@^2.0.1",
+    "name": "@ff0000-ad-tech/ad-global",
+    "escapedName": "@ff0000-ad-tech%2fad-global",
+    "scope": "@ff0000-ad-tech",
+    "rawSpec": "^2.0.1",
+    "saveSpec": null,
+    "fetchSpec": "^2.0.1"
+  },
+  "_requiredBy": [
+    "/@ff0000-ad-tech/ad-dates",
+    "/@ff0000-ad-tech/ad-load",
+    "/@ff0000-ad-tech/ad-velvet"
+  ],
+  "_resolved": "https://registry.npmjs.org/@ff0000-ad-tech/ad-global/-/ad-global-2.2.0.tgz",
+  "_shasum": "5512ffdd332a67f918e8f2f6cccbeadfcc689f72",
+  "_spec": "@ff0000-ad-tech/ad-global@^2.0.1",
+  "_where": "/Users/joe.capra/Desktop/Projects/TMPL-STANDARD-BASE/tmpl-standard-base/node_modules/@ff0000-ad-tech/ad-velvet",
+  "author": {
+    "name": "RED Interactive Agency"
+  },
+  "bugs": {
+    "url": "https://github.com/ff0000-ad-tech/ad-global/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Ad Load (core/js/net/load) ===============",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@ff0000-ad-tech/debug": "^4.0.2",
+    "@ff0000-ad-tech/wp-plugin-index": "^1.0.8",
+    "babel-loader": "^8.0.4",
+    "eslint": "^4.16.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
+    "np": "^2.19.0",
+    "prettier": "^1.10.2",
+    "uglify-es": "^3.3.9",
+    "webpack": "^3.10.0"
+  },
+  "engines": {
+    "node": ">=9.8.0",
+    "npm": ">=6.0.0"
+  },
+  "homepage": "https://github.com/ff0000-ad-tech/ad-global#readme",
+  "license": "MIT",
+  "main": "./src/ad-global.js",
+  "name": "@ff0000-ad-tech/ad-global",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ff0000-ad-tech/ad-global.git"
+  },
+  "scripts": {
+    "dist": "npx webpack",
+    "localhost": "npx http-server",
+    "pub": "np"
+  },
+  "version": "2.2.0"
+}

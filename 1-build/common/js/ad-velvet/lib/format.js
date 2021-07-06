@@ -11,4 +11,4 @@
  * // convert to html friendly
  * myString = Velvet.convertBreaks(myString)  // "This Is<br>My Sentence"
  */
-export const convertBreaks = str => str.replace(/\r?\n|\r/g, '<br>')
+export const convertBreaks = (str) => str.replace(/\r?\n|\r/g, '<br>')

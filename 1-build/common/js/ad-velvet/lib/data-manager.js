@@ -19,10 +19,10 @@
  * </codeblock>
  */
 
-import { DateManager } from 'ad-dates'
-import { getQueryParams } from 'ad-global'
-import DataLoader from 'ad-load/lib/single/DataLoader.js'
-import { randomWeightedKey } from 'ad-utils/lib/MathUtils.js'
+import { DateManager } from '@common/js/ad-dates'
+import { getQueryParams } from '@common/js/ad-global'
+import DataLoader from '@ff0000-ad-tech/ad-load/lib/single/DataLoader.js'
+import { randomWeightedKey } from '@common/js/ad-utils/lib/MathUtils.js'
 import * as BU from './base-urls.js'
 import * as events from './events.js'
 import * as EC from './event-controller.js'
@@ -171,7 +171,7 @@ function loadSegment() {
 		name: 'segmentLoader',
 		fileType: 'json',
 		onComplete: handleSegmentLoadComplete,
-		onFail: handleFail
+		onFail: handleFail,
 	}).load()
 }
 
@@ -180,7 +180,7 @@ function loadAdData() {
 		name: 'velvetAdDataLoader',
 		fileType: 'json',
 		onComplete: handleAdDataLoadComplete,
-		onFail: handleFail
+		onFail: handleFail,
 	}).load()
 }
 
