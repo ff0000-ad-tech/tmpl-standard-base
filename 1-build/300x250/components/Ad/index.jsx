@@ -16,11 +16,15 @@ import './styles.scss'
 class Ad extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			img: 'ass',
+		}
 	}
 
 	componentDidMount() {
-		// const playerImgs = Velvet.get('networks')
-		// console.warn('THESE ARE PLAYER IMAGES=', playerImgs)
+		const networkImages = Velvet.get('networks')
+		this.setState({ img: networkImages[0].value.url })
+		console.warn('THESE ARE NETWORK IMAGES=', this.state.img)
 	}
 
 	render() {
@@ -31,6 +35,7 @@ class Ad extends Component {
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
 					<div className="ad__cta">LEARN MORE</div>
 				</div>
+				<img style={{ position: 'absolute', top: '0', left: '0', width: '300px', height: '250px' }} src={this.state.img} />
 			</div>
 		)
 	}

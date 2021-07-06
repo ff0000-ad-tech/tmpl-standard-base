@@ -28,6 +28,28 @@ export const fonts = {
 }
 export const colors = {}
 
+// Dates
+// Standard Schedule
+export let schedule, dateMessage, dateHour
+export const prepareDateSchedule = () => {
+	schedule = new DateSchedule({
+		target: new TzDate({
+			datetime: ['2021-06-29 20:00:00', 'US/Eastern'],
+			outputTimezone: 'local',
+		}),
+		isStandard: true,
+		standardOverrides: {
+			DATE: (date) => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
+			TOMORROW: (date, label) => label + date.format(' ${t}<br>${a^}'), // Tomorrow 8 PM
+			WEEK: (date, label) => label + date.format('${DDDD^} ${t} ${a^}'), // SATURDAY 8 PM
+			NOW: 'Watch Live Now',
+		},
+	})
+	schedule.print()
+	dateMessage = schedule.currentLabel
+	dateHour = schedule.target.toDateTime()
+}
+
 // // ATTENTION: Only add this line IF there needs to be spanish language support
 // // DateFormatter.addLanguage(spanish)
 
