@@ -13,6 +13,7 @@ export const init = async (binaryAssets) => {
 
 	// instantiate global ad-data
 	window.adData = AdData
+	console.log('GET SOMETHING===', window.adData.dateMessage)
 	window.adData.prepareAdData()
 
 	// add binary payload
