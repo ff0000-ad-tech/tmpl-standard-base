@@ -26,7 +26,7 @@ class Ad extends Component {
 		const networkImages = Velvet.get('networks')
 		this.setState({ img: networkImages[0].value.url })
 		console.warn('THESE ARE NETWORK IMAGES=', this.state.img)
-		console.warn('POOP=', window.adData.stuff)
+		console.warn('stuff from addata=', window.adData.networks)
 	}
 
 	render() {

@@ -2,18 +2,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import * as Velvet from '@common/js/ad-velvet'
 import { DateFormatter, DateSchedule, spanish, TzDate } from '@common/js/ad-dates'
 
-export let stuff
-
-export const prepareAdData = () => {
-	//ADDATA STUFF HERE
-	console.error('VELVET GET IN ADDATA==', Velvet.get('networks'))
-	stuff = 'okokokok'
-}
-
-export const requestDynamicImages = async () => {
-	// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
-}
-
+// STANDARD STUFF
 export const copy = [
 	'WHY PAY MORE\nFOR ELECTRICITY?',
 	'MAKE THE MOST OF YOUR\nENERGY AND MONEY',
@@ -24,6 +13,26 @@ export const fonts = {
 	primary: 'template_font',
 }
 export const colors = {}
+
+// ESPN STUFF
+export let networks
+
+export const prepareAdData = () => {
+	//ADDATA STUFF HERE
+
+	networks = Velvet.get('networks')
+		.map((network) => Velvet.get(network, 'custom2') || Velvet.get(network, 'brand') || network.value)
+		.map((logoObj) => ({
+			name: logoObj.name,
+			img: ImageManager.addImageRequest({ src: logoObj.url, imageId: logoObj.name }),
+		}))
+
+	console.error('NETWORKS==', networks)
+}
+
+export const requestDynamicImages = async () => {
+	// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
+}
 
 // Dates
 // Standard Schedule
