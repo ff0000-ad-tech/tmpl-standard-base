@@ -20,14 +20,14 @@ export let networks
 export const prepareAdData = () => {
 	//ADDATA STUFF HERE
 
-	networks = Velvet.get('networks')
-		.map((network) => Velvet.get(network, 'custom2') || Velvet.get(network, 'brand') || network.value)
-		.map((logoObj) => ({
-			name: logoObj.name,
-			img: ImageManager.addImageRequest({ src: logoObj.url, imageId: logoObj.name }),
-		}))
-
-	console.error('NETWORKS==', networks)
+	const networksRaw = Velvet.get('networks')
+	networks = networksRaw.map((elem) => {
+		ImageManager.addImageRequest({ src: elem.light.value.url, imageId: elem.name.value })
+		return {
+			name: elem.name.value,
+		}
+	})
+	console.warn('NETWORKS=========', networks)
 }
 
 export const requestDynamicImages = async () => {

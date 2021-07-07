@@ -23,10 +23,7 @@ class Ad extends Component {
 	}
 
 	componentDidMount() {
-		const networkImages = Velvet.get('networks')
-		this.setState({ img: networkImages[0].value.url })
-		console.warn('THESE ARE NETWORK IMAGES=', this.state.img)
-		console.warn('stuff from addata=', window.adData.networks)
+		this.setState({ img: ImageManager.get(window.adData.networks[0].name).src })
 	}
 
 	render() {
