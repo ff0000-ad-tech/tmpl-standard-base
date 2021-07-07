@@ -1,7 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
-import * as Velvet from '@common/js/ad-velvet'
-import * as AdData from '@common/js/AdData.js'
 
 // Components
 import BrandLogo from '../BrandLogo'
@@ -17,13 +15,6 @@ import './styles.scss'
 class Ad extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			img: '',
-		}
-	}
-
-	componentDidMount() {
-		this.setState({ img: ImageManager.get(window.adData.networks[0].name).src })
 	}
 
 	render() {
@@ -34,7 +25,7 @@ class Ad extends Component {
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
 					<div className="ad__cta">LEARN MORE</div>
 				</div>
-				<img style={{ position: 'absolute', top: '0', left: '0', width: '300px', height: '250px' }} src={this.state.img} />
+				<img style={{ position: 'absolute', top: '0', left: '0' }} src={ImageManager.get(window.adData.networks[0].name).src} />
 			</div>
 		)
 	}

@@ -12,9 +12,7 @@ export const init = async (binaryAssets) => {
 	await prepareVelvet()
 
 	// instantiate global ad-data
-	// window.adData = new AdData()
 	window.adData = AdData
-
 	window.adData.prepareAdData()
 
 	// add binary payload
@@ -33,8 +31,8 @@ export const init = async (binaryAssets) => {
 // prepare ad manager
 const prepareVelvet = async () => {
 	console.log('Preflight.prepareVelvet()')
-	Velvet.addEventListener(Velvet.events.FAIL, global.useBackup)
-	Velvet.addEventListener(Velvet.events.STATIC, global.useBackup)
+	Velvet.addEventListener(Velvet.events.FAIL, window.useBackup)
+	Velvet.addEventListener(Velvet.events.STATIC, window.useBackup)
 	adParams.dateSettings.inDev = adParams.environmentId == 'staging' || adParams.environmentId == 'debug'
 	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize, document.getElementById('main')))
 }

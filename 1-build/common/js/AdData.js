@@ -15,28 +15,34 @@ export const fonts = {
 export const colors = {}
 
 // ESPN STUFF
-export let networks
+export let networks = []
 
 export const prepareAdData = () => {
-	//ADDATA STUFF HERE
+	console.warn('AdData.prepareAdData()')
+	//PREPARE AND PROCESS YOUR VELVET DATA HERE
 
+	// Get the networks from the velvet data
 	const networksRaw = Velvet.get('networks')
+
 	networks = networksRaw.map((elem) => {
+		// Add the image request
 		ImageManager.addImageRequest({ src: elem.light.value.url, imageId: elem.name.value })
+
+		// Return object containing the image name for use with ImageManager.get() and the image url
 		return {
 			name: elem.name.value,
+			url: elem.light.value.url,
 		}
 	})
-	console.warn('NETWORKS=========', networks)
 }
 
-export const requestDynamicImages = async () => {
-	// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
-}
+// export const requestDynamicImages = async () => {
+// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
+// }
 
 // Dates
-// Standard Schedule
 export let schedule, dateMessage, dateHour
+
 export const prepareDateSchedule = () => {
 	schedule = new DateSchedule({
 		target: new TzDate({
