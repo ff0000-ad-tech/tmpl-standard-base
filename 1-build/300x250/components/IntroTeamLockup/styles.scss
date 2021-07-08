@@ -6,8 +6,8 @@
 	height: 100%;
 
 	&__logo {
-		transform-origin: left top;
-		transform: scale(0.5);
+		height: 134px;
+		object-fit: contain;
 	}
 
 	&__player {
@@ -16,11 +16,13 @@
 	}
 
 	&__name {
-		position: relative;
+		width: 100%;
 		font-size: 30px;
 		color: white;
 		display: flex;
 		align-items: baseline;
+		justify-content: center;
+		bottom: 20px;
 	}
 
 	&__rank {

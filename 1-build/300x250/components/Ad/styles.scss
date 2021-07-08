@@ -16,6 +16,14 @@ $ad-height: var(--ad-height);
 	background: $color-primary;
 	cursor: pointer;
 
+	&__bubbleimage {
+		position: absolute;
+		left: 50%;
+		top: 60px;
+		transform: translateX(-50%);
+		width: 30px;
+		object-fit: contain;
+	}
 	&__cta {
 		@include flex-center;
 		@include primary-font;

@@ -13,6 +13,7 @@ class IntroTeamLockup extends Component {
 	animateIn() {
 		gsap.fromTo('.introteamlockup__logo', { x: -adParams.adWidth }, { delay: 0.3, duration: 0.5, x: 50, ease: 'expo.out' })
 		gsap.fromTo('.introteamlockup__player', { x: adParams.adWidth }, { delay: 0.3, duration: 0.5, x: 90, ease: 'expo.out' })
+		gsap.from('.introteamlockup__name', { delay: 0.3, duration: 0.5, y: '+=60', ease: 'expo.out' })
 	}
 	animateOut() {
 		gsap.fromTo('#logo', { scale: 0 }, { delay: 0.3, duration: 0.5, scale: 1.2, ease: 'expo.out' })

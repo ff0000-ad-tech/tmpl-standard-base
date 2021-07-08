@@ -16,10 +16,11 @@ class Control extends Component {
 
 		introTeam1.animateIn()
 		gsap.to(introTeam1.base, { duration: 0.5, delay: 3, x: adParams.adWidth })
-
+		gsap.delayedCall(3, introTeam1.animateIn)
 		gsap.from('.footer', { delay: 5, duration: 0.5, y: adParams.adHeight, ease: 'expo.out' })
 		gsap.from('.endframeteam--left', { delay: 5, duration: 0.5, x: '-=150', y: '-=80', ease: 'expo.out' })
 		gsap.from('.endframeteam--right', { delay: 5, duration: 0.5, x: '+=150', y: '-=80', ease: 'expo.out' })
+		gsap.from('.ad__bubbleimage', { delay: 5.5, duration: 0.3, scale: 0, ease: 'expo.out' })
 	}
 
 	handleClick = () => {

@@ -33,6 +33,7 @@ class Ad extends Component {
 				<Footer ref={(el) => (this.footer = el)} />
 				<EndframeTeam team={AdData.teams.team1} side="left" ref={(el) => (this.endframeTeam1 = el)} />
 				<EndframeTeam team={AdData.teams.team2} side="right" ref={(el) => (this.endframeTeam2 = el)} />
+				<img className="ad__bubbleimage" src={ImageManager.get(AdData.bubbleImage.imageId).src} />
 			</div>
 		)
 	}
