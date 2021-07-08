@@ -12,24 +12,24 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { brandlogo } = this.adRef
+		const { introTeam1 } = this.adRef
 
-		brandlogo.start()
+		introTeam1.animateIn()
+		gsap.to(introTeam1.base, { duration: 0.5, delay: 3, x: adParams.adWidth })
 
-		gsap.set('ad__cta', { y: '-=20' })
-
-		gsap.to('.ad__logo', { delay: 1, duration: 0.5, x: '-=60', ease: 'expo.out' })
-		gsap.to('.ad__cta', { delay: 1, duration: 0.5, y: '+=20', opacity: 1, ease: 'expo.out' })
+		gsap.from('.footer', { delay: 5, duration: 0.5, y: adParams.adHeight, ease: 'expo.out' })
+		gsap.from('.endframeteam--left', { delay: 5, duration: 0.5, x: '-=150', y: '-=80', ease: 'expo.out' })
+		gsap.from('.endframeteam--right', { delay: 5, duration: 0.5, x: '+=150', y: '-=80', ease: 'expo.out' })
 	}
 
 	handleClick = () => {
 		Network.exit(window.clickTag)
 	}
 	handleRollOver = () => {
-		this.adRef.brandlogo.over()
+		// this.adRef.brandlogo.over()
 	}
 	handleRollOut = () => {
-		this.adRef.brandlogo.out()
+		// this.adRef.brandlogo.out()
 	}
 
 	render() {

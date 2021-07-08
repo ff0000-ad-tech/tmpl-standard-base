@@ -40,8 +40,8 @@
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloader: [], // Default generic preloader animation
-				// preloader: ['../common/images/dp-preloader.gif'], // Custom preloader image or animation
+				// preloader: [], // Default generic preloader animation
+				preloader: ['./images/cfb_shield_preloader2.gif'], // Custom preloader image or animation
 				failover: ['backup.jpg'], // has to be an array
 				payload: {
 					text: ['./build.bundle.js'],
@@ -101,8 +101,9 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				background-color: #000;
 			}
-			#preloader-ring {
+			/* #preloader-ring {
 				display: inline-block;
 				position: relative;
 				width: 50px;
@@ -128,7 +129,7 @@
 			}
 			#preloader-ring div:nth-child(3) {
 				animation-delay: -0.15s;
-			}
+			} */
 			@keyframes preloader-ring {
 				0% {
 					transform: rotate(0deg);

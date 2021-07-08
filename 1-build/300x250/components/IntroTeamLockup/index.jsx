@@ -10,9 +10,13 @@ class IntroTeamLockup extends Component {
 		console.warn('PROPS======', props)
 	}
 
-	// start() {
-	// 	gsap.fromTo('#logo', { scale: 0 }, { delay: 0.3, duration: 0.5, scale: 1.2, ease: 'expo.out' })
-	// }
+	animateIn() {
+		gsap.fromTo('.introteamlockup__logo', { x: -adParams.adWidth }, { delay: 0.3, duration: 0.5, x: 50, ease: 'expo.out' })
+		gsap.fromTo('.introteamlockup__player', { x: adParams.adWidth }, { delay: 0.3, duration: 0.5, x: 90, ease: 'expo.out' })
+	}
+	animateOut() {
+		gsap.fromTo('#logo', { scale: 0 }, { delay: 0.3, duration: 0.5, scale: 1.2, ease: 'expo.out' })
+	}
 	// over() {
 	// 	gsap.to('#logo', { duration: 0.3, scale: 1.4, ease: 'expo.out' })
 	// }
@@ -21,12 +25,20 @@ class IntroTeamLockup extends Component {
 	// }
 
 	render() {
-		const { logo, player } = this.props.data
+		let { logo, player, name, rank, colorPrimary } = this.props.team
 		return (
 			<div className="introteamlockup">
-				<img className="introteamlockup__bg" src={ImageManager.get('bg_intro').src} alt="bg_intro" />
+				<div className="introteamlockup__bg-container">
+					<img className="introteamlockup__bg" src={ImageManager.get('bg_intro').src} alt="bg_intro" />
+					<div className="endframeteam__bgcover" style={{ background: colorPrimary }} alt="ef_bgcover" />
+				</div>
+
 				<img className="introteamlockup__logo" src={ImageManager.get(logo.imageId).src} alt="logo" />
-				<img className="introteamlockup__player" src={ImageManager.get(AdData.players[0].player.imageId).src} alt="player" />
+				<img className="introteamlockup__player" src={ImageManager.get(player.imageId).src} alt="player" />
+				<div className="introteamlockup__name">
+					<span className="introteamlockup__rank">{rank}</span>
+					{name}
+				</div>
 			</div>
 		)
 	}

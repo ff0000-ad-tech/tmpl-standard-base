@@ -5,15 +5,39 @@
 	width: 100%;
 	height: 100%;
 
-	&::after {
-		content: '';
-		display: block;
+	&__logo {
+		transform-origin: left top;
+		transform: scale(0.5);
+	}
+
+	&__player {
+		transform-origin: left top;
+		transform: scale(0.5);
+	}
+
+	&__name {
+		position: relative;
+		font-size: 30px;
+		color: white;
+		display: flex;
+		align-items: baseline;
+	}
+
+	&__rank {
+		position: relative;
+		font-size: 0.5em;
+		color: white;
+	}
+
+	&__bg-container {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__bgcover {
 		position: absolute;
 		top: 0;
-		bottom: 0;
 		left: 0;
-		right: 0;
-		background: rgba(120, 47, 64, 0.9);
 		mix-blend-mode: multiply;
 	}
 }

@@ -28,7 +28,7 @@ export let sponsorCopy
 export let sponsorImage
 export let bubbleImage
 export let headline
-export let players = []
+export let players = {}
 export let teams = {}
 
 export const prepareAdData = () => {
@@ -163,12 +163,13 @@ export const prepareAdData = () => {
 		const teamStr = `team_${i}`
 		const ogRank = Velvet.get(`${teamStr}.rank_manual`) // switched from "rank", bc Velvet is pulling blanks
 		const rank = ogRank == null ? '' : `${spanStart}${ogRank}${spanEnd}`
-		const space = rank.length ? ' ' : ''
+		// const rank = ogRank == null ? '' : `${spanStart}${ogRank}${spanEnd}`
+		// const space = rank.length ? ' ' : ''
 		const teamName = Velvet.get(`${teamStr}.nickname`)
 
 		teams[`team${i}`] = {
-			// name: self.isWide && i > 1 ? `${teamName}${space}${rank}` : `${rank}${space}${teamName}`,
-			name: `${rank}${space}${teamName}`,
+			name: teamName,
+			// name: `${rank}${space}${teamName}`,
 			logo: ImageManager.addImageRequest({ src: Velvet.get(`${teamStr}.primary_logo.url`), imageId: `${teamStr}_logo` }),
 			rank: ogRank,
 			//
@@ -188,23 +189,23 @@ export const prepareAdData = () => {
 			if (playerUrl) {
 				for (let p = 0, t = playersRaw.length; p < t; p++) {
 					const teamPlayerImage = Velvet.get(playersRaw[p], 'player_image')
-					console.warn(`GET PLAYERS RAW[${p}]`, teamPlayerImage)
 					if (!teamPlayerImage) continue
 					const teamPlayerUrl = Velvet.get(teamPlayerImage, 'url')
 					if (teamPlayerUrl && teamPlayerUrl.split('?')[0] === playerUrl.split('?')[0]) {
-						players[p] = ObjectUtils.defaults(
+						players[`player${i}`] = ObjectUtils.defaults(
 							teams[`team${i}`],
 							{
-								player: ImageManager.addImageRequest({ src: playerUrl, imageId: `player${i}_image` }),
+								playerImage: ImageManager.addImageRequest({ src: playerUrl, imageId: `player${i}_image` }),
 							},
 							true
 						)
-						console.warn('players[p]=====', players[p])
+						teams[`team${i}`].player = ImageManager.addImageRequest({ src: playerUrl, imageId: `player${i}_image` })
 						break
 					}
 				}
 			}
 		}
+		console.warn(`ADDATA TEAM${i}===`, teams[`team${i}`])
 	}
 
 	// players = players.filter((data) => {

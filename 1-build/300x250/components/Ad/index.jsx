@@ -4,6 +4,8 @@ import * as AdData from '@common/js/AdData.js'
 // Components
 import BrandLogo from '../BrandLogo'
 import IntroTeamLockup from '../IntroTeamLockup'
+import EndframeTeam from '../EndframeTeam'
+import Footer from '../Footer'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -19,16 +21,18 @@ class Ad extends Component {
 	}
 
 	render() {
-		console.error('TEAM1=====', AdData.teams.team1)
 		return (
 			<div className="ad">
-				<BrandLogo ref={(el) => (this.brandlogo = el)} />
 				<div className="ad__footer">
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
 					<div className="ad__cta">{AdData.teams.team1.name}</div>
 				</div>
 				<img style={{ position: 'absolute', top: '0', left: '0' }} src={ImageManager.get(AdData.networks[0].name).src} />
-				<IntroTeamLockup data={AdData.teams.team1} />
+				<IntroTeamLockup team={AdData.teams.team2} ref={(el) => (this.introTeam2 = el)} />
+				<IntroTeamLockup team={AdData.teams.team1} ref={(el) => (this.introTeam1 = el)} />
+				<Footer ref={(el) => (this.footer = el)} />
+				<EndframeTeam team={AdData.teams.team1} side="left" ref={(el) => (this.endframeTeam1 = el)} />
+				<EndframeTeam team={AdData.teams.team2} side="right" ref={(el) => (this.endframeTeam2 = el)} />
 			</div>
 		)
 	}

@@ -1,0 +1,62 @@
+.footer {
+	bottom: 0;
+	left: 0;
+	height: 86px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+
+	&__sponsor {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 15px;
+		&-copy {
+			position: relative;
+			font-size: 10px;
+			color: white;
+		}
+		&-logo {
+			height: 15px;
+			position: relative;
+			object-fit: contain;
+		}
+	}
+
+	&__mainlogo {
+		height: 50px;
+		width: 50px;
+		position: relative;
+		object-fit: contain;
+	}
+	&__tunein {
+		position: relative;
+		font-size: 15px;
+		color: white;
+	}
+
+	&__networklogos {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		padding: 5px 0;
+		&-logo {
+			position: relative;
+			height: 30px;
+			object-fit: contain;
+		}
+	}
+
+	&__lockup {
+		position: relative;
+		height: 86px;
+		width: 75%;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
