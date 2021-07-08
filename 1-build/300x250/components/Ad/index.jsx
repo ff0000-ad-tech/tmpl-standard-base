@@ -21,12 +21,11 @@ class Ad extends Component {
 	}
 
 	render() {
-		const isDoubleHeader = adData.dpsdata.matchups.length > 1
 		return (
 			<div className="ad">
 				<div className="ad__footer">
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
-					<div className="ad__cta">{DpsManager.getData('main', 'cta')}</div>
+					<div className="ad__cta">TODO: CTA</div>
 				</div>
 				<NetworkLogos networks={this.networklogos} ref={(el) => (this.networklogos = el)} className="ad__networklogos" />
 				{/*<SingleHeader ref={(el) => (this.singleheader = el)} />
@@ -36,11 +35,7 @@ class Ad extends Component {
 					return <Matchup key={`matchup${idx}`} data={matchup} style={{ position: 'absolute', left: '0px', top: idx * 40 + 'px' }} />
 				})}
 				*/}
-				{isDoubleHeader ? (
-					<DoubleHeader matchups={adData.dpsdata.matchups} className="ad__doubleheader" />
-				) : (
-					<SingleHeader matchups={adData.dpsdata.matchups} className="ad__singleheader" />
-				)}
+				{adData.hasDoubleHeader ? <DoubleHeader className="ad__doubleheader" /> : <SingleHeader className="ad__singleheader" />}
 			</div>
 		)
 	}

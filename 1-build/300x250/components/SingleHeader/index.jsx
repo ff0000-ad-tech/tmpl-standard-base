@@ -14,6 +14,10 @@ class SingleHeader extends Component {
 		return ImageManager.get(name).src
 	}
 
+	resizeComplete = (finalFontSize) => {
+		alert('Final Font Sizze==', finalFontSize)
+	}
+
 	render() {
 		return (
 			<div className="singleheader">
@@ -21,8 +25,8 @@ class SingleHeader extends Component {
 				<MatchupLockup
 					className="singleheader__matchuplockup"
 					matchupClassName="matchup__single"
-					matchups={adData.dpsdata.matchups}
 					resizeComplete={this.resizeComplete}
+					matchups={[adData.timeblock['Matchup 1']]}
 				/>
 				<div className="singleheader__tunein">{useConvertLineBreaks(adData.dateMessage)}</div>
 			</div>

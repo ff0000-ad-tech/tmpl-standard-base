@@ -52,5 +52,6 @@ const prepareDateManagement = async () => {
 	console.log('Preflight.prepareDateManagement()')
 	adParams.dateSettings.inDev = adParams.environmentId == 'staging' || adParams.environmentId == 'debug'
 	DateManager.init(adParams.dateSettings)
+	DateManager.setDefaultTimezone('US/Eastern') // NOTE: ESPN-specific!
 	AdData.prepareDateSchedule()
 }

@@ -1,4 +1,8 @@
 .matchuplockup {
+	&__players {
+		position: relative;
+	}
+
 	&__double {
 		&:nth-child(2) {
 			margin-bottom: 0;

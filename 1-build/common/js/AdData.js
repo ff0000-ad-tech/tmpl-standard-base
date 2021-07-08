@@ -1,6 +1,6 @@
 import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
-import { DateSchedule, TzDate } from './ad-dates'
+import { DateManager, DateSchedule, TzDate } from './ad-dates'
 /**
  * TODO:
  *	Dynamic HTML:
@@ -11,11 +11,40 @@ import { DateSchedule, TzDate } from './ad-dates'
 	EXTRACT JSON DATA
 	Prepare dynamic data here.
  */
+export let timeblock, hasDoubleHeader
 export const requestDynamicImages = async () => {
-	// preload dynamic images, will be available on ImageManager
-	// const mainSource = DpsManager.getData('main', 'bg.Sources')
-	// DpsManager.addImageRequest(mainSource, 'bg')
+	timeblock = getCurrentTimblock()
+	console.log(timeblock)
+	hasDoubleHeader = timeblock['Matchup 1'] && timeblock['Matchup 2']
+	if (timeblock['Matchup 1']) {
+		DpsManager.addImageRequest(timeblock['Matchup 1']['Player 1'].Sources, 'matchup1-player1')
+		DpsManager.addImageRequest(timeblock['Matchup 1']['Player 2'].Sources, 'matchup1-player2')
+	}
+	if (timeblock['Matchup 2']) {
+		DpsManager.addImageRequest(timeblock['Matchup 2']['Player 1'].Sources, 'matchup2-player1')
+		DpsManager.addImageRequest(timeblock['Matchup 2']['Player 2'].Sources, 'matchup2-player2')
+	}
 }
+
+const getCurrentTimblock = () => {
+	// get "schedule" feed from DPS
+	const dpsSchedule = DpsManager.getData('schedule')
+	// locate current row, based on "Start Date" and "Timezone" columns
+	const rows = Object.values(dpsSchedule)
+	const nextRowIndex = rows.findIndex(row => {
+		const localNow = DateManager.getNow()
+		const startDate = new TzDate({
+			datetime: [row['Start Date'], row['Timezone']]
+		})
+		console.log(startDate)
+		startDate.print()
+		// if this timeblock has not yet started, stop looping
+		return localNow < startDate.getTime()
+	})
+	// since next-row hasn't started, try to return the previous...or default to the first row
+	return nextRowIndex > 0 ? rows[nextRowIndex - 1] : rows[0]
+}
+
 
 // export const dpsdata = {
 // 	matchups: [

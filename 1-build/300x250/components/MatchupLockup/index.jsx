@@ -1,11 +1,17 @@
 import { h, render, Component, createRef } from 'preact'
 import Matchup from '../Matchup'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
+
 import './styles.scss'
 
 class MatchupLockup extends Component {
 	constructor(props) {
 		super(props)
 		this.finalFontSize = 200 //Default final font size. Needs to be high so all incoming font sizes will be smaller
+	}
+
+	getImage = (name) => {
+		return ImageManager.get(name).src
 	}
 
 	// When a matchup gets resizes this function gets called via props
@@ -26,17 +32,25 @@ class MatchupLockup extends Component {
 	}
 
 	render() {
+		const { matchups } = this.props
 		return (
 			<div className={this.props.className} style={this.props.style}>
-				{this.props.matchups.map((matchup, idx) => {
+				{matchups.map((matchup, idx) => {
+					const matchupNum = idx + 1
 					return (
-						<Matchup
-							ref={(el) => (this[`matchup${idx}`] = el)}
-							key={`matchup${idx}`}
-							data={matchup}
-							className={this.props.matchupClassName}
-							resizeComplete={this.resizeComplete}
-						/>
+						<div>
+							<Matchup
+								ref={(el) => (this[`matchup${idx}`] = el)}
+								key={`matchup${idx}`}
+								matchup={matchup}
+								className={this.props.matchupClassName}
+								resizeComplete={this.resizeComplete}
+							/>
+							<div className="matchuplockup__players">
+								<img src={this.getImage(`matchup${matchupNum}-player1`)} width="50" />
+								<img src={this.getImage(`matchup${matchupNum}-player2`)} width="50" />
+							</div>
+						</div>
 					)
 				})}
 			</div>

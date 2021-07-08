@@ -19,11 +19,9 @@ class Matchup extends Component {
 
 	autoSizeMatchup = (el) => {
 		const w = el.getBoundingClientRect().width
-
 		while (this.getTheWidth(el) > 300) {
 			this.checkFontSize(el)
 		}
-
 		this.props.resizeComplete(this.finalFontSize)
 	}
 
@@ -59,14 +57,18 @@ class Matchup extends Component {
 	}
 
 	render() {
-		const { player1, player1ranking, player2, player2ranking, vs } = this.props.data
-
+		// const { player1, player1ranking, player2, player2ranking, vs } = this.props.data
+		const { matchup } = this.props
+		const player1 = matchup['Player 1'].Label
+		const player1Rank = matchup['Player 1'].Rank || ''
+		const player2 = matchup['Player 2'].Label
+		const player2Rank = matchup['Player 2'].Rank || ''
 		return (
 			<div className={this.props.className} ref={(el) => (this.matchup = el)}>
-				<span className="ranking">{player1ranking}</span>
+				<span className="ranking">{player1Rank}</span>
 				<span>{player1}</span>
-				<span className="vs">{vs}</span>
-				<span className="ranking">{player2ranking}</span>
+				<span className="vs">{matchup.vs}</span>
+				<span className="ranking">{player2Rank}</span>
 				<span>{player2}</span>
 			</div>
 		)

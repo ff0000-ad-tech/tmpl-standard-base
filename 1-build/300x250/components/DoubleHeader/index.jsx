@@ -24,8 +24,8 @@ class DoubleHeader extends Component {
 				<MatchupLockup
 					className="doubleheader__matchuplockup"
 					matchupClassName="matchup__double"
-					matchups={adData.dpsdata.matchups}
 					resizeComplete={this.resizeComplete}
+					matchups={[adData.timeblock['Matchup 1'], adData.timeblock['Matchup 2']]}
 				/>
 				<div className="doubleheader__tunein">{useConvertLineBreaks(adData.dateMessage)}</div>
 			</div>
