@@ -27,8 +27,8 @@ class Ad extends Component {
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
 					<div className="ad__cta">{AdData.teams.team1.name}</div>
 				</div>
-				<img style={{ position: 'absolute', top: '0', left: '0' }} src={ImageManager.get(window.adData.networks[0].name).src} />
-				<IntroTeamLockup />
+				<img style={{ position: 'absolute', top: '0', left: '0' }} src={ImageManager.get(AdData.networks[0].name).src} />
+				<IntroTeamLockup data={AdData.teams.team1} />
 			</div>
 		)
 	}

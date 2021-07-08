@@ -159,7 +159,6 @@ export const prepareAdData = () => {
 		return parseFloat(str) / 100
 	}
 
-	const playersRaw = Velvet.get('players') || []
 	for (let i = 1; i < 3; i++) {
 		const teamStr = `team_${i}`
 		const ogRank = Velvet.get(`${teamStr}.rank_manual`) // switched from "rank", bc Velvet is pulling blanks
@@ -182,17 +181,14 @@ export const prepareAdData = () => {
 			alphaSecondary: toPercentage(Velvet.get(`${teamStr}.secondary_color_opacity`)),
 		}
 
+		const playersRaw = Velvet.get('players') || []
 		const playerImage = Velvet.get(`${teamStr}.player_image`)
-
-		// console.log(`%c player image...`, 'color: black; background-color: cyan; font-style: italic; padding: 0px;')
-		// console.warn(playerImage)
 		if (playerImage) {
 			const playerUrl = Velvet.get(playerImage, 'url')
-			// console.log(`%c player URL ...`, 'color: black; background-color: yellow; font-style: italic; padding: 0px;')
-			// console.warn(playerUrl)
 			if (playerUrl) {
 				for (let p = 0, t = playersRaw.length; p < t; p++) {
 					const teamPlayerImage = Velvet.get(playersRaw[p], 'player_image')
+					console.warn(`GET PLAYERS RAW[${p}]`, teamPlayerImage)
 					if (!teamPlayerImage) continue
 					const teamPlayerUrl = Velvet.get(teamPlayerImage, 'url')
 					if (teamPlayerUrl && teamPlayerUrl.split('?')[0] === playerUrl.split('?')[0]) {
@@ -203,6 +199,7 @@ export const prepareAdData = () => {
 							},
 							true
 						)
+						console.warn('players[p]=====', players[p])
 						break
 					}
 				}
@@ -210,9 +207,10 @@ export const prepareAdData = () => {
 		}
 	}
 
-	players = players.filter((data) => {
-		if (data) return data
-	})
+	// players = players.filter((data) => {
+	// 	if (data) return data
+	// })
+	console.warn('players=====', players)
 
 	// tracking pixel
 	if (Velvet.get('tracker_tag')) loadPixel(Velvet.get('tracker_tag'))
