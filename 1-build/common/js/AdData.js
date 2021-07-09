@@ -219,5 +219,5 @@ export const prepareAdData = () => {
 	console.warn('players=====', players)
 
 	// tracking pixel
-	if (Velvet.get('tracker_tag')) loadPixel(Velvet.get('tracker_tag'))
+	// if (Velvet.get('tracker_tag')) loadPixel(Velvet.get('tracker_tag'))
 }

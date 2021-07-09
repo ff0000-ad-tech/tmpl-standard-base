@@ -172,6 +172,21 @@
 			/*-- Red.Require.promise_polyfill.end --*/
 		</script>
 
+		<!-- preload inline scripts...if not needed until the build, use externalIncludes  -->
+		<script type="text/javascript">
+			this.loadPixel = function (url) {
+				console.log('loadPixel()', url)
+				var imageElement = document.createElement('img')
+				imageElement.src = matchProtocolTo(url)
+				imageElement.style.borderStyle = 'none'
+				imageElement.style.position = 'absolute'
+				imageElement.height = 1
+				imageElement.width = 1
+				imageElement.alt = ''
+				document.getElementById('view').appendChild(imageElement)
+			}
+		</script>
+
 		<script type="text/javascript">
 			function loadBackup() {
 				console.log('Index.loadBackup()')

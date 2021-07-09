@@ -24,11 +24,44 @@
 		}
 	}
 
+	&__mainlogo-lockup {
+		position: relative;
+		width: 80px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 	&__mainlogo {
-		height: 50px;
-		width: 50px;
+		height: 57px;
+		// width: 50px;
 		position: relative;
 		object-fit: contain;
+
+		&-sponsor {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		&-sponsorcopy {
+			position: relative;
+			font-size: 6px;
+			color: white;
+		}
+
+		&-sponsorlogo {
+			position: relative;
+			height: 12px;
+			object-fit: contain;
+		}
+
+		&--withsponsor {
+			position: relative;
+			height: 50px;
+			// width: 50px;
+			object-fit: contain;
+		}
 	}
 	&__tunein {
 		position: relative;
