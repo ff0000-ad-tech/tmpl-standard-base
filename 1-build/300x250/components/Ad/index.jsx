@@ -21,11 +21,9 @@ class Ad extends Component {
 	}
 
 	componentDidMount() {
-		console.warn('########################')
-		console.warn('teamname===', this.introTeam2.teamname)
-		console.warn('########################')
-		useAutosizeFontSizes([this.introTeam1.teamname], 200, 10)
-		useAutosizeFontSizes([this.introTeam2.teamname], 200, 10)
+		useAutosizeFontSizes([this.introTeam1.teamname, this.introTeam2.teamname], 100, 10)
+		useAutosizeFontSizes([this.endframeTeam1.teamname, this.endframeTeam2.teamname], 120, 10)
+		// useAutosizeFontSizes([], 100, 10)
 		// useAutosizeFontSizes([this.endframeTeam1.base, this.endframeTeam2.base], 160)
 	}
 	render() {

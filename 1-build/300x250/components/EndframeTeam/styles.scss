@@ -35,11 +35,14 @@
 	}
 
 	&__name {
-		position: relative;
 		font-size: 30px;
 		color: white;
 		display: flex;
 		align-items: baseline;
+		white-space: nowrap;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 20px;
 	}
 
 	&__rank {

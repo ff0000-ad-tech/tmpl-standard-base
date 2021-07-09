@@ -16,13 +16,14 @@
 	}
 
 	&__name {
-		width: 100%;
 		font-size: 30px;
 		color: white;
 		display: flex;
 		align-items: baseline;
 		justify-content: center;
 		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	&__rank {
