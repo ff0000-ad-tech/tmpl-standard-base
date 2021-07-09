@@ -6,7 +6,7 @@ import BrandLogo from '../BrandLogo'
 import IntroTeamLockup from '../IntroTeamLockup'
 import EndframeTeam from '../EndframeTeam'
 import Footer from '../Footer'
-
+import useAutosizeFontSizes from '@common/hooks/useAutosizeFontSizes'
 // Assets
 import '@common/fonts/template_font.woff'
 import '@size/images/160over90-logo.png'
@@ -20,6 +20,14 @@ class Ad extends Component {
 		super(props)
 	}
 
+	componentDidMount() {
+		console.warn('########################')
+		console.warn('teamname===', this.introTeam2.teamname)
+		console.warn('########################')
+		useAutosizeFontSizes([this.introTeam1.teamname], 200, 10)
+		useAutosizeFontSizes([this.introTeam2.teamname], 200, 10)
+		// useAutosizeFontSizes([this.endframeTeam1.base, this.endframeTeam2.base], 160)
+	}
 	render() {
 		return (
 			<div className="ad">

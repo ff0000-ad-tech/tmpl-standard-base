@@ -36,7 +36,7 @@ class IntroTeamLockup extends Component {
 
 				<img className="introteamlockup__logo" src={ImageManager.get(logo.imageId).src} alt="logo" />
 				<img className="introteamlockup__player" src={ImageManager.get(player.imageId).src} alt="player" />
-				<div className="introteamlockup__name">
+				<div className="introteamlockup__name" ref={(el) => (this.teamname = el)}>
 					<span className="introteamlockup__rank">{rank}</span>
 					{name}
 				</div>
