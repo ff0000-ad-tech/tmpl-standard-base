@@ -20,15 +20,6 @@ class IntroTeamLockup extends Component {
 		gsap.to(this.player, { duration: 0.5, x: 90, ease: 'expo.out' })
 		gsap.to(this.teamname, { duration: 0.5, y: '-=60', ease: 'expo.out' })
 	}
-	// animateOut() {
-	// 	gsap.from('.introteamlockup', { duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })
-	// }
-	// over() {
-	// 	gsap.to('#logo', { duration: 0.3, scale: 1.4, ease: 'expo.out' })
-	// }
-	// out() {
-	// 	gsap.to('#logo', { duration: 0.3, scale: 1.2, ease: 'expo.out' })
-	// }
 
 	render() {
 		let { logo, player, name, rank, colorPrimary, colorSecondary, textColor } = this.props.team
