@@ -23,7 +23,11 @@ class EndframeTeam extends Component {
 				</div>
 
 				<img className="endframeteam__logo" src={ImageManager.get(team.logo.imageId).src} alt="ef_logo" />
-				<div className="endframeteam__name" ref={(el) => (this.teamname = el)}>
+				<div
+					className="endframeteam__name"
+					ref={(el) => (this.teamname = el)}
+					style={{ fontFamily: AdData.fonts.reg, color: team.textColor || team.colorSecondary }}
+				>
 					<span className="endframeteam__rank">{team.rank}</span>
 					{team.name}
 				</div>

@@ -18,7 +18,9 @@ class Footer extends Component {
 				<img className="footer__bg" src={ImageManager.get('black_texture').src} alt="bg" />
 				<img className="footer__mainlogo" src={ImageManager.get(AdData.mainLogo.imageId).src} alt="mainlogo" />
 				<div className="footer__lockup">
-					<div className="footer__tunein">{AdData.dateMessage}</div>
+					<div className="footer__tunein" style={{ fontFamily: AdData.fonts.reg }}>
+						{AdData.dateMessage}
+					</div>
 					<div className="footer__networklogos">
 						{AdData.networks.map((network) => (
 							<img className="footer__networklogos-logo" src={network.url} alt="sponsorlogo" />

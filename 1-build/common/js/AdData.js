@@ -2,6 +2,9 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import * as Velvet from '@common/js/ad-velvet'
 import { DateFormatter, DateSchedule, spanish, TzDate } from '@common/js/ad-dates'
 import { ObjectUtils } from '@common/js/ad-utils'
+
+import '@common/fonts/AudibleCFBReg.woff'
+import '@common/fonts/KairosSansW1GMed.woff'
 // STANDARD STUFF
 export const copy = [
 	'WHY PAY MORE\nFOR ELECTRICITY?',
@@ -10,8 +13,10 @@ export const copy = [
 ]
 
 export const fonts = {
-	primary: 'template_font',
+	reg: 'AudibleCFBReg',
+	med: 'KairosSansW1GMed',
 }
+
 export const colors = {}
 
 // ESPN STUFF

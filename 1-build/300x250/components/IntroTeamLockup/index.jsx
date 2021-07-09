@@ -31,7 +31,7 @@ class IntroTeamLockup extends Component {
 	// }
 
 	render() {
-		let { logo, player, name, rank, colorPrimary } = this.props.team
+		let { logo, player, name, rank, colorPrimary, colorSecondary, textColor } = this.props.team
 		return (
 			<div className="introteamlockup">
 				<div className="introteamlockup__bg-container">
@@ -41,7 +41,11 @@ class IntroTeamLockup extends Component {
 
 				<img className="introteamlockup__logo" src={ImageManager.get(logo.imageId).src} alt="logo" ref={(el) => (this.logo = el)} />
 				<img className="introteamlockup__player" src={ImageManager.get(player.imageId).src} alt="player" ref={(el) => (this.player = el)} />
-				<div className="introteamlockup__name" ref={(el) => (this.teamname = el)}>
+				<div
+					className="introteamlockup__name"
+					ref={(el) => (this.teamname = el)}
+					style={{ fontFamily: AdData.fonts.reg, color: textColor || colorSecondary }}
+				>
 					<span className="introteamlockup__rank">{rank}</span>
 					{name}
 				</div>
