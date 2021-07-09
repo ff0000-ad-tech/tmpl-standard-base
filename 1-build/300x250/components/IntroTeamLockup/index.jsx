@@ -10,14 +10,19 @@ class IntroTeamLockup extends Component {
 		console.warn('PROPS======', props)
 	}
 
+	componentDidMount() {
+		gsap.set(this.logo, { x: -adParams.adWidth })
+		gsap.set(this.player, { x: adParams.adWidth })
+		gsap.set(this.teamname, { y: '+=60' })
+	}
 	animateIn() {
-		gsap.fromTo('.introteamlockup__logo', { x: -adParams.adWidth }, { delay: 0.3, duration: 0.5, x: 50, ease: 'expo.out' })
-		gsap.fromTo('.introteamlockup__player', { x: adParams.adWidth }, { delay: 0.3, duration: 0.5, x: 90, ease: 'expo.out' })
-		gsap.from('.introteamlockup__name', { delay: 0.3, duration: 0.5, y: '+=60', ease: 'expo.out' })
+		gsap.to(this.logo, { duration: 0.5, x: 50, ease: 'expo.out' })
+		gsap.to(this.player, { duration: 0.5, x: 90, ease: 'expo.out' })
+		gsap.to(this.teamname, { duration: 0.5, y: '-=60', ease: 'expo.out' })
 	}
-	animateOut() {
-		gsap.fromTo('#logo', { scale: 0 }, { delay: 0.3, duration: 0.5, scale: 1.2, ease: 'expo.out' })
-	}
+	// animateOut() {
+	// 	gsap.from('.introteamlockup', { duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })
+	// }
 	// over() {
 	// 	gsap.to('#logo', { duration: 0.3, scale: 1.4, ease: 'expo.out' })
 	// }
@@ -34,8 +39,8 @@ class IntroTeamLockup extends Component {
 					<div className="endframeteam__bgcover" style={{ background: colorPrimary }} alt="ef_bgcover" />
 				</div>
 
-				<img className="introteamlockup__logo" src={ImageManager.get(logo.imageId).src} alt="logo" />
-				<img className="introteamlockup__player" src={ImageManager.get(player.imageId).src} alt="player" />
+				<img className="introteamlockup__logo" src={ImageManager.get(logo.imageId).src} alt="logo" ref={(el) => (this.logo = el)} />
+				<img className="introteamlockup__player" src={ImageManager.get(player.imageId).src} alt="player" ref={(el) => (this.player = el)} />
 				<div className="introteamlockup__name" ref={(el) => (this.teamname = el)}>
 					<span className="introteamlockup__rank">{rank}</span>
 					{name}

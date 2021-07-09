@@ -12,11 +12,13 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { introTeam1 } = this.adRef
-
+		const { introTeam1, introTeam2 } = this.adRef
 		introTeam1.animateIn()
+		console.warn('INTRO TEAM 1 ref===', introTeam1)
 		gsap.to(introTeam1.base, { duration: 0.5, delay: 3, x: adParams.adWidth })
-		gsap.delayedCall(3, introTeam1.animateIn)
+		gsap.delayedCall(3, () => {
+			introTeam2.animateIn()
+		})
 		gsap.from('.footer', { delay: 5, duration: 0.5, y: adParams.adHeight, ease: 'expo.out' })
 		gsap.from('.endframeteam--left', { delay: 5, duration: 0.5, x: '-=150', y: '-=80', ease: 'expo.out' })
 		gsap.from('.endframeteam--right', { delay: 5, duration: 0.5, x: '+=150', y: '-=80', ease: 'expo.out' })

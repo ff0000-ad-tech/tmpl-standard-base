@@ -21,8 +21,8 @@ class Ad extends Component {
 	}
 
 	componentDidMount() {
-		useAutosizeFontSizes([this.introTeam1.teamname, this.introTeam2.teamname], 100, 10)
-		useAutosizeFontSizes([this.endframeTeam1.teamname, this.endframeTeam2.teamname], 120, 10)
+		// useAutosizeFontSizes([this.introTeam1.teamname, this.introTeam2.teamname], 100, 10)
+		// useAutosizeFontSizes([this.endframeTeam1.teamname, this.endframeTeam2.teamname], 120, 10)
 		// useAutosizeFontSizes([], 100, 10)
 		// useAutosizeFontSizes([this.endframeTeam1.base, this.endframeTeam2.base], 160)
 	}
@@ -34,8 +34,8 @@ class Ad extends Component {
 					<div className="ad__cta">{AdData.teams.team1.name}</div>
 				</div>
 				<img style={{ position: 'absolute', top: '0', left: '0' }} src={ImageManager.get(AdData.networks[0].name).src} />
-				<IntroTeamLockup team={AdData.teams.team2} ref={(el) => (this.introTeam2 = el)} />
-				<IntroTeamLockup team={AdData.teams.team1} ref={(el) => (this.introTeam1 = el)} />
+				<IntroTeamLockup team={AdData.teams.team2} key="t1" ref={(el) => (this.introTeam2 = el)} />
+				<IntroTeamLockup team={AdData.teams.team1} key="t2" ref={(el) => (this.introTeam1 = el)} />
 				<Footer ref={(el) => (this.footer = el)} />
 				<EndframeTeam team={AdData.teams.team1} side="left" ref={(el) => (this.endframeTeam1 = el)} />
 				<EndframeTeam team={AdData.teams.team2} side="right" ref={(el) => (this.endframeTeam2 = el)} />
