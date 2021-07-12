@@ -34,8 +34,8 @@ class Footer extends Component {
 							{AdData.headline}
 						</div>
 					) : null}
-					<div className="footer__tunein" style={{ fontFamily: AdData.fonts.reg }}>
-						{AdData.dateMessage}
+					<div className="footer__tunein" style={{ fontFamily: AdData.fonts.reg }} dangerouslySetInnerHTML={{ __html: AdData.dateMessage }}>
+						{/* {AdData.dateMessage} */}
 					</div>
 					<div className="footer__networklogos">
 						{AdData.networks.map((network) => (
