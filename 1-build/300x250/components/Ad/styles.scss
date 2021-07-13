@@ -1,6 +1,4 @@
-@import '../../../common/styles/resets.scss';
-@import '../../../common/styles/mixins.scss';
-@import '../../../common/styles/variables.scss';
+@import '../../../common/styles/main.scss';
 
 // Convert css vars in index to scss vars
 $ad-width: var(--ad-width);
