@@ -17,6 +17,7 @@ export const requestDynamicImages = async () => {
 	DpsManager.addImageRequest(mainSource, 'bg')
 }
 
+
 export const copy = [
 	'WHY PAY MORE\nFOR ELECTRICITY?',
 	'MAKE THE MOST OF YOUR\nENERGY AND MONEY',
