@@ -1,0 +1,18 @@
+.tf {
+	&__box {
+		width: 200px;
+		height: 100px;
+		background-color: rgb(211, 211, 211);
+		padding: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		// white-space: nowrap; // Uncomment this to make single line
+
+		div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}
