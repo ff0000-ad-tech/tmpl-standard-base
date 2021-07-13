@@ -1,5 +1,5 @@
 import { h, render, Component, createRef } from 'preact'
-import { ImageManager } from '@ff0000-ad-tech/ad-control'
+import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 import TextFit from '../TextFit'
 
@@ -9,10 +9,9 @@ import '@common/fonts/template_font.woff'
 class Ad extends Component {
 	constructor(props) {
 		super(props)
-	}
-
-	getImage = (name) => {
-		return ImageManager.get(name).src
+		this.state = {
+			activeItem: 'element',
+		}
 	}
 
 	render() {

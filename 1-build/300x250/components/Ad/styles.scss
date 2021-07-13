@@ -1,12 +1,17 @@
-@import '../../../common/styles/styles.scss';
+@import '../../../common/styles/main.scss';
 
-.a {
+// Convert css vars in index to scss vars
+$ad-width: var(--ad-width);
+$ad-height: var(--ad-height);
+
+.ad {
+	@include ad-border;
+
 	position: relative;
-	width: 100%;
-	height: 100%;
-	border: 1px solid #303030;
+	width: $ad-width;
+	height: $ad-height;
 	overflow: hidden;
-	background: $color-alabaster;
+	background: $color-primary;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
