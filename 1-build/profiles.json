@@ -1,25 +1,25 @@
 {
-	"default": {
-		"webpack": {
-			"deploy": {
-				"profile": {
-					"name": "default",
-					"base64Inline": false,
-					"env": {
-						"id": "default",
-						"runPath": "",
-						"adPath": ""
-					}
-				}
-			}
-		},
-		"targets": [
-			{
-				"size": "300x250",
-				"index": "index.html",
-				"deployAt": 1624566416487
-			}
-		],
-		"updateAt": 1611214155700
-	}
+  "default": {
+    "webpack": {
+      "deploy": {
+        "profile": {
+          "name": "default",
+          "base64Inline": false,
+          "env": {
+            "id": "default",
+            "runPath": "",
+            "adPath": ""
+          }
+        }
+      }
+    },
+    "targets": [
+      {
+        "size": "300x250",
+        "index": "index.html",
+        "deployAt": 1626216493594
+      }
+    ],
+    "updateAt": 1611214155700
+  }
 }
