@@ -11,17 +11,7 @@ class Control extends Component {
 	}
 
 	render() {
-		return (
-			<div
-				id={`control-${adParams.adWidth}x${adParams.adHeight}`}
-				style={{
-					width: `${adParams.adWidth}px`,
-					height: `${adParams.adHeight}px`,
-				}}
-			>
-				<Ad ref={(el) => (this.adRef = el)} />
-			</div>
-		)
+		return <Ad ref={(el) => (this.adRef = el)} />
 	}
 }
 export default Control
