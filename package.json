@@ -17,7 +17,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-canvas-examples",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
@@ -31,7 +31,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
-    "branch": "master"
+    "branch": "bsa/main"
   },
   "devDependencies": {
     "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
