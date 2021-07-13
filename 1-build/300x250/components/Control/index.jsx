@@ -16,10 +16,10 @@ class Control extends Component {
 
 		// brandlogo.start()
 
-		gsap.set('ad__cta', { y: '-=20' })
+		gsap.set('.ad__cta', { opacity: 1 })
 
-		gsap.to('.ad__logo', { delay: 1, duration: 0.5, x: '-=60', ease: 'expo.out' })
-		gsap.to('.ad__cta', { delay: 1, duration: 0.5, y: '+=20', opacity: 1, ease: 'expo.out' })
+		gsap.from('.ad__logo', { delay: 1, duration: 0.5, x: -adParams.adWidth, ease: 'expo.out' })
+		gsap.from('.ad__cta', { delay: 1, duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })
 	}
 
 	handleClick = () => {
@@ -34,18 +34,7 @@ class Control extends Component {
 
 	render() {
 		return (
-			<div
-				id={`control-${adParams.adWidth}x${adParams.adHeight}`}
-				style={{
-					width: `${adParams.adWidth}px`,
-					height: `${adParams.adHeight}px`,
-				}}
-				onClick={this.handleClick}
-				onMouseOver={this.handleRollOver}
-				onMouseLeave={this.handleRollOut}
-			>
-				<Ad ref={(el) => (this.adRef = el)} />
-			</div>
+			<Ad ref={(el) => (this.adRef = el)} onClick={this.handleClick} onMouseOver={this.handleRollOver} onMouseLeave={this.handleRollOut} />
 		)
 	}
 }

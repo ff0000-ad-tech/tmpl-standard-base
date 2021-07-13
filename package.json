@@ -1,8 +1,8 @@
 {
 	"buildSource": {
-		"platform": "Velvet-DPS",
+		"platform": "Standard",
 		"template": "Base",
-		"option": "Master",
+		"option": "DPS ESPN",
 		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/velvet-dps",
 		"release": "beta.1"
 	},
@@ -31,7 +31,7 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
-		"branch": "bsa/velvet-dps"
+		"branch": "bsa/dps-espn"
 	},
 	"devDependencies": {
 		"@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
