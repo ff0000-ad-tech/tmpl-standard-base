@@ -16,7 +16,7 @@ class Ad extends Component {
 
 	render() {
 		return (
-			<div className="a">
+			<div className="ad">
 				<TextFit minFontSize={1} maxFontSize={50} className="tf__box">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				</TextFit>
