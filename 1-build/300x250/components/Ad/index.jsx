@@ -19,7 +19,7 @@ class Ad extends Component {
 
 	render() {
 		return (
-			<div className="ad">
+			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
 				<BrandLogo ref={(el) => (this.brandlogo = el)} />
 				<div className="ad__footer">
 					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
