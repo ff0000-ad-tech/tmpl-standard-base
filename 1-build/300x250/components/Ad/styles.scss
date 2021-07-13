@@ -1,6 +1,4 @@
-@import '../../../common/styles/resets.scss';
-@import '../../../common/styles/mixins.scss';
-@import '../../../common/styles/variables.scss';
+@import '../../../common/styles/main.scss';
 
 // Convert css vars in index to scss vars
 $ad-width: var(--ad-width);
@@ -20,8 +18,8 @@ $ad-height: var(--ad-height);
 		@include flex-center;
 		@include primary-font;
 
-		left: 146px;
 		opacity: 0;
+		left: 146px;
 		height: 23px;
 		border-radius: 50em;
 		background: $color-primary;
@@ -39,12 +37,14 @@ $ad-height: var(--ad-height);
 
 	&__logo {
 		height: 25px;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
 	}
 
 	&__footer {
+		position: absolute;
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		align-items: center;
 		bottom: 0;
 		height: 60px;
 		width: 100%;
