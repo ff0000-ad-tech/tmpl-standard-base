@@ -37,18 +37,7 @@ class Control extends Component {
 
 	render() {
 		return (
-			<div
-				id={`control-${adParams.adWidth}x${adParams.adHeight}`}
-				style={{
-					width: `${adParams.adWidth}px`,
-					height: `${adParams.adHeight}px`,
-				}}
-				onClick={this.handleClick}
-				onMouseOver={this.handleRollOver}
-				onMouseLeave={this.handleRollOut}
-			>
-				<Ad ref={(el) => (this.adRef = el)} />
-			</div>
+			<Ad ref={(el) => (this.adRef = el)} onClick={this.handleClick} onMouseOver={this.handleRollOver} onMouseLeave={this.handleRollOut} />
 		)
 	}
 }
