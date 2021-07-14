@@ -124,7 +124,6 @@ export const prepareAdData = () => {
 	}).print()
 
 	dateMessage = schedule.currentLabel
-	console.warn('DATE MESSAGE=', dateMessage)
 
 	////////////////////////////////////////////////////////
 	//////////////////////// CLICKTAG //////////////////////
@@ -153,8 +152,6 @@ export const prepareAdData = () => {
 		}
 		return exit || clickTag
 	})()
-
-	console.warn('CLICKTAG=', clickTag)
 
 	////////////////////////////////////////////////////////
 	///////////////////////// PLAYERS //////////////////////
@@ -210,13 +207,11 @@ export const prepareAdData = () => {
 				}
 			}
 		}
-		console.warn(`ADDATA TEAM${i}===`, teams[`team${i}`])
 	}
 
 	// players = players.filter((data) => {
 	// 	if (data) return data
 	// })
-	console.warn('players=====', players)
 
 	// tracking pixel
 	// if (Velvet.get('tracker_tag')) loadPixel(Velvet.get('tracker_tag'))

@@ -5,6 +5,10 @@
 	width: 100%;
 	height: 100%;
 
+	& > * {
+		position: absolute;
+	}
+
 	&__logo {
 		height: 134px;
 		object-fit: contain;
@@ -39,7 +43,6 @@
 	}
 
 	&__bgcover {
-		position: absolute;
 		top: 0;
 		left: 0;
 		mix-blend-mode: multiply;

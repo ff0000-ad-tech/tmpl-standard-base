@@ -1,31 +1,37 @@
 .footer {
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	height: 86px;
 	width: 100%;
-	display: flex;
-	align-items: center;
+
+	&__bg {
+		position: absolute;
+	}
+
+	&__content {
+		width: 100%;
+		position: absolute;
+		display: flex;
+		align-items: center;
+	}
 
 	&__sponsor {
-		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 15px;
 		&-copy {
-			position: relative;
 			font-size: 10px;
 			color: white;
 		}
 		&-logo {
 			height: 15px;
-			position: relative;
 			object-fit: contain;
 		}
 	}
 
 	&__mainlogo-lockup {
-		position: relative;
 		width: 80px;
 		display: flex;
 		flex-direction: column;
@@ -35,59 +41,46 @@
 	&__mainlogo {
 		height: 57px;
 		// width: 50px;
-		position: relative;
 		object-fit: contain;
 
 		&-sponsor {
-			position: relative;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 		}
 		&-sponsorcopy {
-			position: relative;
 			font-size: 6px;
 			color: white;
 		}
 
 		&-sponsorlogo {
-			position: relative;
 			height: 12px;
 			object-fit: contain;
 		}
 
 		&--withsponsor {
-			position: relative;
 			height: 50px;
 			// width: 50px;
 			object-fit: contain;
 		}
 	}
 	&__tunein {
-		position: relative;
 		font-size: 15px;
 		color: white;
 	}
 
-	&__tunein > * {
-		position: relative;
-	}
-
 	&__networklogos {
-		position: relative;
 		display: flex;
 		justify-content: center;
 		width: 100%;
 		padding: 5px 0;
 		&-logo {
-			position: relative;
 			height: 30px;
 			object-fit: contain;
 		}
 	}
 
 	&__lockup {
-		position: relative;
 		height: 86px;
 		width: 75%;
 		flex: 1;

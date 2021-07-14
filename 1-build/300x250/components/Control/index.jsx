@@ -14,7 +14,7 @@ class Control extends Component {
 	startAnimation = () => {
 		const { introTeam1, introTeam2 } = this.adRef
 		introTeam1.animateIn()
-		console.warn('INTRO TEAM 1 ref===', introTeam1)
+
 		gsap.to(introTeam1.base, { duration: 0.5, delay: 3, x: adParams.adWidth })
 		gsap.delayedCall(3, () => {
 			introTeam2.animateIn()

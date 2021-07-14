@@ -2,6 +2,7 @@
 	position: absolute;
 
 	&--left {
+		position: absolute;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -11,15 +12,13 @@
 		left: 0;
 		clip-path: polygon(0 0, 100% 0, 87% 100%, 0% 100%);
 		.endframeteam__logo {
-			// transform-origin: center;
-			// transform: scale(0.5);
-			position: relative;
 			height: 83px;
 			object-fit: contain;
 			transform: translateX(-9%);
 		}
 
 		.endframeteam__name {
+			position: absolute;
 			font-size: 20px;
 			color: white;
 			display: flex;
@@ -31,6 +30,7 @@
 		}
 	}
 	&--right {
+		position: absolute;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -41,15 +41,13 @@
 		clip-path: polygon(13% 0, 100% 0, 100% 100%, 0% 100%);
 
 		.endframeteam__logo {
-			// transform-origin: center;
-			// transform: scale(0.5);
-			position: relative;
 			height: 83px;
 			object-fit: contain;
 			transform: translateX(9%);
 		}
 
 		.endframeteam__name {
+			position: absolute;
 			font-size: 20px;
 			color: white;
 			display: flex;
@@ -61,12 +59,7 @@
 		}
 	}
 
-	&__bg {
-		position: relative;
-	}
-
 	&__rank {
-		position: relative;
 		font-size: 0.5em;
 		color: white;
 	}

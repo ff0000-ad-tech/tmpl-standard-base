@@ -1,13 +1,12 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
-import * as AdData from '@common/js/AdData.js'
+
 import './styles.scss'
 import '@size/images/bg_intro.jpg'
 
 class IntroTeamLockup extends Component {
 	constructor(props) {
 		super(props)
-		console.warn('PROPS======', props)
 	}
 
 	componentDidMount() {
@@ -35,7 +34,7 @@ class IntroTeamLockup extends Component {
 				<div
 					className="introteamlockup__name"
 					ref={(el) => (this.teamname = el)}
-					style={{ fontFamily: AdData.fonts.reg, color: textColor || colorSecondary }}
+					style={{ fontFamily: adData.fonts.reg, color: textColor || colorSecondary }}
 				>
 					<span className="introteamlockup__rank">{rank}</span>
 					{name}
