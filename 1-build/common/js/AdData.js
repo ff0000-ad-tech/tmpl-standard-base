@@ -11,10 +11,11 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 	EXTRACT JSON DATA
 	Prepare dynamic data here.
  */
+export let bgImage
 export const requestDynamicImages = async () => {
 	// preload dynamic images, will be available on ImageManager
 	const mainSource = DpsManager.getData('main', 'bg.Sources')
-	DpsManager.addImageRequest(mainSource, 'bg')
+	bgImage = DpsManager.addSourceImageRequest(mainSource)
 }
 
 export const copy = [

@@ -2,6 +2,7 @@
 package-lock.json
 node_modules
 1-build/node_modules
+1-build/**/dps-assets*
 2-debug
 dev-ops
 !.gitignore
