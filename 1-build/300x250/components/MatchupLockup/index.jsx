@@ -47,8 +47,8 @@ class MatchupLockup extends Component {
 								resizeComplete={this.resizeComplete}
 							/>
 							<div className="matchuplockup__players">
-								<img src={this.getImage(`matchup${matchupNum}-player1`)} width="50" />
-								<img src={this.getImage(`matchup${matchupNum}-player2`)} width="50" />
+								<img src={this.getImage(adData[`matchup${matchupNum}Player1`].imageId)} width="50" />
+								<img src={this.getImage(adData[`matchup${matchupNum}Player2`].imageId)} width="50" />
 							</div>
 						</div>
 					)

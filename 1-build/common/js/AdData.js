@@ -18,17 +18,19 @@ import { DateManager, DateSchedule, TzDate } from './ad-dates'
 // 	bgImage = DpsManager.addSourceImageRequest(mainSource)
 // }
 export let timeblock, hasDoubleHeader
+export let matchup1Player1, matchup1Player2
+export let matchup2Player1, matchup2Player2
 export const requestDynamicImages = async () => {
 	timeblock = getCurrentTimblock()
 	console.log(timeblock)
 	hasDoubleHeader = timeblock['Matchup 1'] && timeblock['Matchup 2']
 	if (timeblock['Matchup 1']) {
-		DpsManager.addImageRequest(timeblock['Matchup 1']['Player 1'].Sources, 'matchup1-player1')
-		DpsManager.addImageRequest(timeblock['Matchup 1']['Player 2'].Sources, 'matchup1-player2')
+		matchup1Player1 = DpsManager.addSourceImageRequest(timeblock['Matchup 1']['Player 1'].Sources)
+		matchup1Player2 = DpsManager.addSourceImageRequest(timeblock['Matchup 1']['Player 2'].Sources)
 	}
 	if (timeblock['Matchup 2']) {
-		DpsManager.addImageRequest(timeblock['Matchup 2']['Player 1'].Sources, 'matchup2-player1')
-		DpsManager.addImageRequest(timeblock['Matchup 2']['Player 2'].Sources, 'matchup2-player2')
+		matchup2Player1 = DpsManager.addSourceImageRequest(timeblock['Matchup 2']['Player 1'].Sources)
+		matchup2Player2 = DpsManager.addSourceImageRequest(timeblock['Matchup 2']['Player 2'].Sources)
 	}
 }
 
