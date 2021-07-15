@@ -11,6 +11,12 @@ import { DateManager, DateSchedule, TzDate } from './ad-dates'
 	EXTRACT JSON DATA
 	Prepare dynamic data here.
  */
+// export let bgImage
+// export const requestDynamicImages = async () => {
+// 	// preload dynamic images, will be available on ImageManager
+// 	const mainSource = DpsManager.getData('main', 'bg.Sources')
+// 	bgImage = DpsManager.addSourceImageRequest(mainSource)
+// }
 export let timeblock, hasDoubleHeader
 export const requestDynamicImages = async () => {
 	timeblock = getCurrentTimblock()
