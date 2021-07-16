@@ -18,12 +18,12 @@ class Footer extends Component {
 				<img className="footer__bg" src={ImageManager.get('black_texture').src} alt="bg" />
 				<div className="footer__content">
 					<div className="footer__mainlogo-lockup">
-						<img className={mainLogoClass} src={ImageManager.get(adData.mainLogo.imageId).src} alt="mainlogo" />
+						<img className={mainLogoClass} src={ImageManager.get(adData.mainLogo).src} alt="mainlogo" />
 						{adData.headline ? (
 							<div className="footer__mainlogo-sponsor">
 								{adData.sponsorCopy ? <span className="footer__mainlogo-sponsorcopy">{adData.sponsorCopy}</span> : null}
 								{adData.sponsorImage ? (
-									<img className="footer__mainlogo-sponsorlogo" src={ImageManager.get(adData.sponsorImage.imageId).src} alt="sponsorlogo" />
+									<img className="footer__mainlogo-sponsorlogo" src={ImageManager.get(adData.sponsorImage).src} alt="sponsorlogo" />
 								) : null}
 							</div>
 						) : null}
@@ -49,7 +49,7 @@ class Footer extends Component {
 						{!adData.headline ? (
 							<div className="footer__sponsor">
 								<span className="footer__sponsor-copy">{adData.sponsorCopy}</span>
-								<img className="footer__sponsor-logo" src={ImageManager.get(adData.sponsorImage.imageId).src} alt="sponsorlogo" />
+								<img className="footer__sponsor-logo" src={ImageManager.get(adData.sponsorImage).src} alt="sponsorlogo" />
 							</div>
 						) : null}
 					</div>

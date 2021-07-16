@@ -29,8 +29,8 @@ class IntroTeamLockup extends Component {
 					<div className="endframeteam__bgcover" style={{ background: colorPrimary }} alt="ef_bgcover" />
 				</div>
 
-				<img className="introteamlockup__logo" src={ImageManager.get(logo.imageId).src} alt="logo" ref={(el) => (this.logo = el)} />
-				<img className="introteamlockup__player" src={ImageManager.get(player.imageId).src} alt="player" ref={(el) => (this.player = el)} />
+				<img className="introteamlockup__logo" src={ImageManager.get(logo).src} alt="logo" ref={(el) => (this.logo = el)} />
+				<img className="introteamlockup__player" src={ImageManager.get(player).src} alt="player" ref={(el) => (this.player = el)} />
 				<div
 					className="introteamlockup__name"
 					ref={(el) => (this.teamname = el)}

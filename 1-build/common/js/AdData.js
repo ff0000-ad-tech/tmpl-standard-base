@@ -9,12 +9,12 @@ import '@common/fonts/KairosSansW1GMed.woff'
 export const copy = [
 	'WHY PAY MORE\nFOR ELECTRICITY?',
 	'MAKE THE MOST OF YOUR\nENERGY AND MONEY',
-	'CHOOSE SMART SAVINGS\nWITH DISCOUNT POWER.',
+	'CHOOSE SMART SAVINGS\nWITH DISCOUNT POWER.'
 ]
 
 export const fonts = {
 	reg: 'AudibleCFBReg',
-	med: 'KairosSansW1GMed',
+	med: 'KairosSansW1GMed'
 }
 
 export const colors = {}
@@ -42,10 +42,11 @@ export const prepareAdData = () => {
 	////////////////////////////////////////////////////////
 	//////////////////////// GENERAL //////////////////////
 	////////////////////////////////////////////////////////
-	mainLogo = ImageManager.addImageRequest({ src: Velvet.get('main_logo.logo.url'), imageId: 'main_logo' })
+	mainLogo = ImageManager.addImageRequest({ src: Velvet.get('main_logo.logo.url') })
 	sponsorCopy = Velvet.get('sponsor_copy')
-	sponsorImage = ImageManager.addImageRequest({ src: Velvet.get('sponsor_image.image.url'), imageId: 'sponsor_image' })
-	bubbleImage = ImageManager.addImageRequest({ src: Velvet.get('bubble_image.image.url'), imageId: 'bubble_image' })
+	sponsorImage = ImageManager.addImageRequest({ src: Velvet.get('sponsor_image.image.url') })
+	bubbleImage = ImageManager.addImageRequest({ src: Velvet.get('bubble_image.image.url') })
+
 	headline = Velvet.get('headline')
 
 	////////////////////////////////////////////////////////
@@ -56,12 +57,14 @@ export const prepareAdData = () => {
 	const networksRaw = Velvet.get('networks')
 	networks = networksRaw.map((elem) => {
 		// Add the image request
-		ImageManager.addImageRequest({ src: elem.light.value.url, imageId: elem.name.value })
-
+		console.warn(elem.light.value.url)
+		const imageId = ImageManager.addImageRequest({ src: elem.light.value.url })
+		console.warn(imageId)
 		// Return object containing the image name for use with ImageManager.get() and the image url
 		return {
 			name: elem.name.value,
 			url: elem.light.value.url,
+			imageId
 		}
 	})
 
@@ -96,7 +99,7 @@ export const prepareAdData = () => {
 	const schedule = new DateSchedule({
 		target: new TzDate({
 			datetime: tuneInRaw.datetime,
-			outputTimezone: tuneInRaw.timezone,
+			outputTimezone: tuneInRaw.timezone
 		}),
 		eventDuration: 180,
 		isStandard: true,
@@ -119,8 +122,8 @@ export const prepareAdData = () => {
 				return `${label} ${date.format('${t}')}${spanStart}${date.format('${a}')}/${date.format('${z}')}${spanEnd}`
 			},
 			NOW: () => 'LIVE NOW',
-			PAST: () => 'VIEW HIGHLIGHTS',
-		},
+			PAST: () => 'VIEW HIGHLIGHTS'
+		}
 	}).print()
 
 	dateMessage = schedule.currentLabel
@@ -135,7 +138,7 @@ export const prepareAdData = () => {
 			MRAID: ['up_url', 'app_url'], // deprecated, makes this build template compatible with a v2x cs-plugin-apply-networks
 			MRAID_IOS: ['up_url_espn_app_ios', 'live_url_espn_app_ios'],
 			MRAID_ANDROID: ['up_url_espn_app', 'live_url_espn_app'],
-			ESPN: ['up_url', 'live_url'], // required fields in Velvet
+			ESPN: ['up_url', 'live_url'] // required fields in Velvet
 		}
 		const i = schedule.isLive ? 1 : 0
 		let exit
@@ -172,7 +175,7 @@ export const prepareAdData = () => {
 		teams[`team${i}`] = {
 			name: teamName,
 			// name: `${rank}${space}${teamName}`,
-			logo: ImageManager.addImageRequest({ src: Velvet.get(`${teamStr}.primary_logo.url`), imageId: `${teamStr}_logo` }),
+			logo: ImageManager.addImageRequest({ src: Velvet.get(`${teamStr}.primary_logo.url`) }),
 			rank: ogRank,
 			//
 			color: Velvet.get(`${teamStr}.color`),
@@ -181,7 +184,7 @@ export const prepareAdData = () => {
 			colorPrimary: Velvet.get(`${teamStr}.primary_color`),
 			alphaPrimary: toPercentage(Velvet.get(`${teamStr}.primary_color_opacity`)),
 			colorSecondary: Velvet.get(`${teamStr}.secondary_color`),
-			alphaSecondary: toPercentage(Velvet.get(`${teamStr}.secondary_color_opacity`)),
+			alphaSecondary: toPercentage(Velvet.get(`${teamStr}.secondary_color_opacity`))
 		}
 
 		const playersRaw = Velvet.get('players') || []
@@ -197,11 +200,11 @@ export const prepareAdData = () => {
 						players[`player${i}`] = ObjectUtils.defaults(
 							teams[`team${i}`],
 							{
-								playerImage: ImageManager.addImageRequest({ src: playerUrl, imageId: `player${i}_image` }),
+								playerImage: ImageManager.addImageRequest({ src: playerUrl })
 							},
 							true
 						)
-						teams[`team${i}`].player = ImageManager.addImageRequest({ src: playerUrl, imageId: `player${i}_image` })
+						teams[`team${i}`].player = ImageManager.addImageRequest({ src: playerUrl })
 						break
 					}
 				}

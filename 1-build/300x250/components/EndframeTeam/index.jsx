@@ -21,7 +21,7 @@ class EndframeTeam extends Component {
 					<div className="endframeteam__bgcover" style={{ background: team.colorPrimary }} alt="ef_bgcover" />
 				</div>
 
-				<img className="endframeteam__logo" src={ImageManager.get(team.logo.imageId).src} alt="ef_logo" />
+				<img className="endframeteam__logo" src={ImageManager.get(team.logo).src} alt="ef_logo" />
 				<div
 					className="endframeteam__name"
 					ref={(el) => (this.teamname = el)}

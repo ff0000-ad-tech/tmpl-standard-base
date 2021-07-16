@@ -25,13 +25,13 @@ class Ad extends Component {
 	render() {
 		return (
 			<div className="ad">
-				<img style={{ position: 'absolute', top: '0', left: '0' }} src={ImageManager.get(adData.networks[0].name).src} />
+				<img style={{ position: 'absolute', top: '0', left: '0' }} src={ImageManager.get(adData.networks[0].imageId).src} />
 				<IntroTeamLockup team={adData.teams.team2} key="t1" ref={(el) => (this.introTeam2 = el)} />
 				<IntroTeamLockup team={adData.teams.team1} key="t2" ref={(el) => (this.introTeam1 = el)} />
 				<Footer ref={(el) => (this.footer = el)} />
 				<EndframeTeam team={adData.teams.team1} side="left" ref={(el) => (this.endframeTeam1 = el)} />
 				<EndframeTeam team={adData.teams.team2} side="right" ref={(el) => (this.endframeTeam2 = el)} />
-				<img className="ad__bubbleimage" src={ImageManager.get(adData.bubbleImage.imageId).src} />
+				<img className="ad__bubbleimage" src={ImageManager.get(adData.bubbleImage).src} />
 			</div>
 		)
 	}
