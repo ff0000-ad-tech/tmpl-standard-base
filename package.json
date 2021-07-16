@@ -17,7 +17,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-text-fit-example",
-  "version": "3.5.0-beta.6",
+  "version": "3.6.0-beta.6",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",

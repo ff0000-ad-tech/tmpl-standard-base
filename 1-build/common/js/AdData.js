@@ -10,8 +10,9 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 	EXTRACT JSON DATA
 	Prepare dynamic data here.
  */
+// export let myDynamicImage
 export const requestDynamicImages = async () => {
-	// ImageManager.addImageRequest({ src: '/path/to/asset', imageId: 'my-dynamic-image' })
+	// myDynamicImage = ImageManager.addImageRequest({ src: '/path/to/asset' })
 }
 
 /**
