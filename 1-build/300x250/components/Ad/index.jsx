@@ -20,6 +20,7 @@ class Ad extends Component {
 		this.networklogos = ['espn', 'espn app', 'espn go']
 	}
 
+	// test
 	render() {
 		return (
 			<div className="ad">
