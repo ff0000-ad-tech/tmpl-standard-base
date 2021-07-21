@@ -30,13 +30,12 @@
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloader: [], // Default generic preloader animation
+				preloaders: [], // Default generic preloader animation
 				// preloader: ['../common/images/dp-preloader.gif'], // Custom preloader image or animation
-				failover: ['./backup.jpg'],
-				payload: {
-					text: ['./build.bundle.js'],
-					binary: [],
-				},
+				backups: ['./backup.jpg'],
+				scripts: [],
+				images: [],
+				fonts: [],
 				external: [],
 			}
 			/*-- Red.Settings.assets.end --*/
@@ -170,7 +169,7 @@
 			}
 			function useBackup() {
 				console.log('Index.useBackup()')
-				useStatic()
+				loadBackup()
 			}
 		</script>
 
