@@ -4,7 +4,7 @@
       "deploy": {
         "profile": {
           "name": "default",
-          "base64Inline": false,
+          "fbaCompile": true,
           "env": {
             "id": "default",
             "runPath": "",
@@ -17,9 +17,9 @@
       {
         "size": "300x250",
         "index": "index.html",
-        "deployAt": 1624660455770
+        "deployAt": "..."
       }
     ],
-    "updateAt": 1611214155700
+    "updateAt": 1627063505758
   }
 }
