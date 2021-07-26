@@ -30,19 +30,18 @@
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloaders: [], // Default generic preloader animation
+				preloaders: ['./images/preloader_black.gif'], // Default generic preloader animation
 				backups: ['./backup.jpg'],
 				scripts: [],
 				images: [],
 				fonts: [],
-				external: [],
 				binaries: [],
 			}
 			/*-- Red.Settings.assets.end --*/
 
-			function onImpression(binaryAssets) {
+			function onImpression(assets) {
 				console.log('Index.onImpression()')
-				Build.launch(binaryAssets)
+				Build.launch(assets)
 			}
 
 			function isDevEnvironment() {
@@ -160,16 +159,12 @@
 		</script>
 
 		<script type="text/javascript">
-			function loadBackup() {
-				console.log('Index.loadBackup()')
+			function useBackup() {
+				console.log('Index.useBackup()')
 				document.getElementById('backup').style.cssText =
 					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
 				document.getElementById('main').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
-			}
-			function useBackup() {
-				console.log('Index.useBackup()')
-				loadBackup()
 			}
 		</script>
 
