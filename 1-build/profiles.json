@@ -5,6 +5,7 @@
         "profile": {
           "name": "default",
           "fbaCompile": true,
+          "optimize": false,
           "env": {
             "id": "default",
             "runPath": "",
@@ -17,9 +18,9 @@
       {
         "size": "300x250",
         "index": "index.html",
-        "deployAt": 1627071361212
+        "deployAt": 1627347564332
       }
     ],
-    "updateAt": 1627063505758
+    "updateAt": 1627344464290
   }
 }

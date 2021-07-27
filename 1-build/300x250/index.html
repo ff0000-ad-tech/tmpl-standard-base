@@ -32,7 +32,7 @@
 			var assets = {
 				preloaders: ['./images/preloader_black.gif'], // Default generic preloader animation
 				backups: ['./backup.jpg'],
-				scripts: [],
+				scripts: ['./build.bundle.js'],
 				images: [],
 				fonts: [],
 				binaries: [],
@@ -161,8 +161,7 @@
 		<script type="text/javascript">
 			function useBackup() {
 				console.log('Index.useBackup()')
-				document.getElementById('backup').style.cssText =
-					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
+				document.getElementById('backup').style.cssText = 'background-image: url(' + assets.backups[0] + ');'
 				document.getElementById('main').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
 			}
