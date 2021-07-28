@@ -8,13 +8,10 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
  *
  */
 export const init = async (assets) => {
-	console.log(assets)
 	// instantiate global ad-data
 	window.adData = AdData
-	// add binary payload
-	addImageAssets([...assets.images, ...assets.binaries])
-	// add preloader images to build
-	addPreloadedImages()
+	// add payload assets to ImageManager
+	addImageAssets([...assets.preloaders, ...assets.images, ...assets.binaries])
 	// author adds necessary requests to queue
 	await window.adData.requestDynamicImages()
 	// preload dynamic images
@@ -22,14 +19,8 @@ export const init = async (assets) => {
 }
 
 const addImageAssets = async (imageAssets) => {
-	console.log('Preflight.addFbaImages()')
-	console.log(imageAssets)
+	console.log('Preflight.addImageAssets()')
 	ImageManager.add(imageAssets)
-}
-
-const addPreloadedImages = async () => {
-	console.log('Preflight.addPreloadedImages()')
-	ImageManager.add(assets.preloadedImages)
 }
 
 const loadDynamicImages = async () => {
