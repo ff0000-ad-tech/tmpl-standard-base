@@ -30,20 +30,18 @@
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloader: [], // Default generic preloader animation
-				// preloader: ['../common/images/dp-preloader.gif'], // Custom preloader image or animation
-				failover: ['./backup.jpg'],
-				payload: {
-					text: ['./build.bundle.js'],
-					binary: [],
-				},
-				external: [],
+				preloaders: [], // Default preloader is css, image-paths here will be available below, see preparePreloader()
+				backups: ['./backup.jpg'],
+				scripts: ['./build.bundle.js'],
+				images: [],
+				fonts: [],
+				binaries: [],
 			}
 			/*-- Red.Settings.assets.end --*/
 
-			function onImpression(binaryAssets) {
+			function onImpression(assets) {
 				console.log('Index.onImpression()')
-				Build.launch(binaryAssets)
+				Build.launch(assets)
 			}
 
 			function isDevEnvironment() {
@@ -161,16 +159,11 @@
 		</script>
 
 		<script type="text/javascript">
-			function loadBackup() {
-				console.log('Index.loadBackup()')
-				document.getElementById('backup').style.cssText =
-					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
-				document.getElementById('main').style.display = 'none'
-				document.getElementById('aux').style.display = 'block'
-			}
 			function useBackup() {
 				console.log('Index.useBackup()')
-				useStatic()
+				document.getElementById('backup').style.cssText = 'background-image: url(' + assets.backups[0] + ');'
+				document.getElementById('main').style.display = 'none'
+				document.getElementById('aux').style.display = 'block'
 			}
 		</script>
 
