@@ -13,7 +13,7 @@
 
 		<script type="text/javascript">
 			/*-- Red.Network.clicktags.start --*/
-			var clickTag = 'http://www.changeme.com/'
+			var clickTag = 'http://set.ad-platform.clickthrough'
 			/*-- Red.Network.clicktags.end --*/
 
 			/*-- Red.Settings.ad_params.start --*/
@@ -155,16 +155,16 @@
 		<script type="text/javascript">
 			/**
 			 * NOTE: Promise Polyfill
-			 * 
-			 * The core-js polyfills for async/await is rather heavy for ads. However, 
+			 *
+			 * The core-js polyfills for async/await is rather heavy for ads. However,
 			 * https://www.npmjs.com/package/promise-polyfill is only 3k/1k-gzipped.
-			 * 
-			 * Then we use babel to transform async/await syntax in the bundles to 
+			 *
+			 * Then we use babel to transform async/await syntax in the bundles to
 			 * old-school Promise.then.catch style which works with the above polyfill.
-			 * 
+			 *
 			 * For more info, see @ff0000-ad-tech/wp-deploy-manager's Babel setup, and
 			 * https://www.npmjs.com/package/babel-plugin-transform-async-to-promises
-			 * 
+			 *
 			 */
 			/*-- Red.Require.promise_polyfill.start --*/
 			require('./1-build/node_modules/promise-polyfill/dist/polyfill.min.js')
