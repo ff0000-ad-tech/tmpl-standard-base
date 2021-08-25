@@ -1,6 +1,7 @@
 # Browsers that we support
 # see, https://github.com/browserslist/browserslist#browserslistrc
+#
+# npx browserslist "> 0.75% in US, not IE 11"
 
-defaults
+> 0.75%
 not IE 11
-maintained node versions
