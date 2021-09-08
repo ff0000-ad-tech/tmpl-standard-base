@@ -1,2 +1,9 @@
+// CSS variable for use throughout ad
+
+// Ad - Converts css vars in index to scss vars
+$ad-width: var(--ad-width);
+$ad-height: var(--ad-height);
+
+// Colors
 $color-primary: #f6f2ee;
 $color-secondary: #2a2a2a;

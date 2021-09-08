@@ -13,7 +13,7 @@
 
 		<script type="text/javascript">
 			/*-- Red.Network.clicktags.start --*/
-			var clickTag = 'http://www.changeme.com/'
+			var clickTag = 'http://set.clickthrough'
 			/*-- Red.Network.clicktags.end --*/
 
 			/*-- Red.Settings.ad_params.start --*/
@@ -40,20 +40,18 @@
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloader: [], // Default generic preloader animation
-				// preloader: ['../common/images/dp-preloader.gif'], // Custom preloader image or animation
-				failover: ['./backup.jpg'],
-				payload: {
-					text: ['./build.bundle.js'],
-					binary: [],
-				},
-				external: [],
+				preloaders: [], // Default preloader is css, image-paths here will be available below, see preparePreloader()
+				backups: ['./backup.jpg'],
+				scripts: ['./build.bundle.js'],
+				images: [],
+				fonts: [],
+				binaries: [],
 			}
 			/*-- Red.Settings.assets.end --*/
 
-			function onImpression(binaryAssets) {
+			function onImpression(assets) {
 				console.log('Index.onImpression()')
-				Build.launch(binaryAssets)
+				Build.launch(assets)
 			}
 
 			function isDevEnvironment() {
@@ -141,6 +139,8 @@
 
 			#backup {
 				position: absolute;
+				width: 100%;
+				height: 100%;
 			}
 		</style>
 
@@ -165,21 +165,11 @@
 		</div>
 
 		<script type="text/javascript">
-			/*-- Red.Require.promise_polyfill.start --*/
-			require('./1-build/node_modules/promise-polyfill/dist/polyfill.min.js')
-			/*-- Red.Require.promise_polyfill.end --*/
-		</script>
-
-		<script type="text/javascript">
 			function useBackup() {
 				console.log('Index.useBackup()')
-				loadBackup()
-			}
-			function loadBackup() {
-				console.log('Index.loadBackup()')
-				document.getElementById('backup').style.cssText =
-					'background-image: url(' + adParams.adPath + assets.failover.images[0].source + ');'
+				document.getElementById('backup').style.cssText = 'background-image: url(' + assets.backups[0] + ');'
 				document.getElementById('main').style.display = 'none'
+				document.getElementById('preloader').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
 			}
 		</script>
@@ -195,7 +185,7 @@
 			function prepareIndex() {
 				console.log('Index.prepareIndex()')
 				makeAuxClickable()
-				return new Promise((resolve) => {
+				return new Promise(function (resolve) {
 					/*-- Red.Network.onload.start --*/
 					resolve()
 					/*-- Red.Network.onload.end --*/
@@ -204,20 +194,20 @@
 			// ad-params
 			function prepareAdParamsMisc() {
 				console.log('Index.prepareAdParamsMisc()')
-				return new Promise((resolve) => {
+				return new Promise(function (resolve) {
 					resolve()
 				})
 			}
 			// preloader
 			function preparePreloader(images) {
 				console.log('Index.preparePreloader()')
-				images.map((image) => {
+				images.map(function (image) {
 					document.getElementById('preloader').appendChild(image)
 				})
 				// resolve this function when
 				// preloader animation is complete
-				return new Promise((resolve) => {
-					setTimeout(() => {
+				return new Promise(function (resolve) {
+					setTimeout(function () {
 						resolve()
 					}, 1000)
 					// resolve()

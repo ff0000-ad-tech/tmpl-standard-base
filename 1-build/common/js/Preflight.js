@@ -8,13 +8,11 @@ import { DpsManager } from '@ff0000-ad-tech/ad-dps'
  * Resources that are shared by all the sizes should be loaded here.
  *
  */
-export const init = async (binaryAssets) => {
+export const init = async (assets) => {
 	// instantiate global ad-data
 	window.adData = AdData
-	// add binary payload
-	addFbaImages(binaryAssets)
-	// add preloader images to build
-	addPreloadedImages()
+	// add payload assets to ImageManager
+	addImageAssets([...assets.preloaders, ...assets.images, ...assets.binaries])
 	// init dps-manager environment, based on adParams.environmentId
 	DpsManager.init(adParams)
 	// load dps-data and add to ad-data
@@ -27,14 +25,9 @@ export const init = async (binaryAssets) => {
 	await DpsManager.preflightComplete()
 }
 
-const addFbaImages = async (binaryAssets) => {
-	console.log('Preflight.addFbaImages()')
-	ImageManager.add(binaryAssets)
-}
-
-const addPreloadedImages = async () => {
-	console.log('Preflight.addPreloadedImages()')
-	ImageManager.add(assets.preloadedImages)
+const addImageAssets = async (imageAssets) => {
+	console.log('Preflight.addImageAssets()')
+	ImageManager.add(imageAssets)
 }
 
 const loadDynamicImages = async () => {
