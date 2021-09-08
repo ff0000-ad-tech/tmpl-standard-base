@@ -7,27 +7,20 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
  * Resources that are shared by all the sizes should be loaded here.
  *
  */
-export const init = async (binaryAssets) => {
+export const init = async (assets) => {
 	// instantiate global ad-data
 	window.adData = AdData
-	// add binary payload
-	addFbaImages(binaryAssets)
-	// add preloader images to build
-	addPreloadedImages()
+	// add payload assets to ImageManager
+	addImageAssets([...assets.preloaders, ...assets.images, ...assets.binaries])
 	// author adds necessary requests to queue
 	await window.adData.requestDynamicImages()
 	// preload dynamic images
 	await loadDynamicImages()
 }
 
-const addFbaImages = async (binaryAssets) => {
-	console.log('Preflight.addFbaImages()')
-	ImageManager.add(binaryAssets)
-}
-
-const addPreloadedImages = async () => {
-	console.log('Preflight.addPreloadedImages()')
-	ImageManager.add(assets.preloadedImages)
+const addImageAssets = async (imageAssets) => {
+	console.log('Preflight.addImageAssets()')
+	ImageManager.add(imageAssets)
 }
 
 const loadDynamicImages = async () => {
