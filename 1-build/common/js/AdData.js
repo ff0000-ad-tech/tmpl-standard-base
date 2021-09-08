@@ -45,7 +45,7 @@ export let players = {}
 
 export let clickTag
 
-export const processVelvetAdData = () => {
+export const processVelvetAdData = async () => {
 	console.warn('AdData.processVelvetAdData()')
 	//PREPARE AND PROCESS YOUR VELVET DATA HERE
 	////////////////////////////////////////////////////////
@@ -82,7 +82,6 @@ export const processVelvetAdData = () => {
 	}
 	// Get the networks from the velvet data
 	const networksRaw = Velvet.get('networks')
-	console.log(networksRaw)
 	networks = networksRaw.map((elem) => {
 		const scaleFactor = getScale(elem.name.value)
 		// Add the image request
@@ -90,7 +89,6 @@ export const processVelvetAdData = () => {
 			src: elem.dark.value.url,
 			imageId: elem.dark.value.name,
 		})
-		console.warn(imageId)
 		// Return object containing the image name for use with ImageManager.get() and the image url
 		return {
 			name: elem.name.value,
@@ -126,7 +124,7 @@ export const processVelvetAdData = () => {
 	const spanStart = `<span style="font-size: 65%;">`
 	const spanEnd = `</span>`
 
-	function tweakLabel(date, label) {
+	const tweakLabel = (date, label) => {
 		label = date.format(label)
 		switch (label) {
 			case 'tue':
@@ -139,7 +137,6 @@ export const processVelvetAdData = () => {
 				return label
 		}
 	}
-	console.warn(tuneInRaw)
 	const schedule = new DateSchedule({
 		target: new TzDate({
 			datetime: tuneInRaw.datetime,
