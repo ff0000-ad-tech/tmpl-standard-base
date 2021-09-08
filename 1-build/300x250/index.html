@@ -25,6 +25,17 @@
 				politeLoadAfter: 1,
 				failoverOnError: true,
 				version: '3.1.0-beta.5',
+
+				velvet: {
+					client: '3YLOU2j85h',
+					locale: 'UcuShCkQys',
+					segment: 'Nu4xRR22Wj',
+					// addata: 'cGU5hMyQd8',
+				},
+				dateSettings: {
+					dateOverride: null, // ['2017-06-11 09:30:01', 'local'],
+					language: 'english', //'spanish'
+				},
 			}
 			/*-- Red.Settings.ad_params.end --*/
 
@@ -135,6 +146,11 @@
 		</style>
 
 		<!-- Red.Network.script.start -->
+		<script type="text/javascript">
+			if (!isDevEnvironment() && typeof parent.window.googletag != 'object')
+				document.write(["<script src='mraid.js'><", '/script>'].join(''))
+		</script>
+
 		<!-- Red.Network.script.end -->
 	</head>
 
@@ -153,6 +169,20 @@
 				<div id="backup"></div>
 			</div>
 		</div>
+
+		<script type="text/javascript">
+			this.loadPixel = function (url) {
+				console.log('loadPixel()', url)
+				var imageElement = document.createElement('img')
+				imageElement.src = matchProtocolTo(url)
+				imageElement.style.borderStyle = 'none'
+				imageElement.style.position = 'absolute'
+				imageElement.height = 1
+				imageElement.width = 1
+				imageElement.alt = ''
+				document.getElementById('view').appendChild(imageElement)
+			}
+		</script>
 
 		<script type="text/javascript">
 			function useBackup() {
@@ -177,7 +207,28 @@
 				makeAuxClickable()
 				return new Promise(function (resolve) {
 					/*-- Red.Network.onload.start --*/
-					resolve()
+					// determine espn-network
+					if (typeof window.parent.app === 'object') {
+						adParams.espnChannel = 'ESPN_FFL_APP'
+						onESPN()
+					} else if (typeof mraid !== 'undefined') {
+						if (navigator.userAgent.toLowerCase().indexOf('android') > -1) {
+							adParams.espnChannel = 'MRAID_ANDROID'
+						} else {
+							adParams.espnChannel = 'MRAID_IOS'
+						}
+						if (mraid.getState() === 'loading') {
+							mraid.addEventListener('ready', onESPN)
+						} else {
+							onESPN()
+						}
+					} else {
+						adParams.espnChannel = 'ESPN'
+						onESPN()
+					}
+					function onESPN() {
+						resolve()
+					}
 					/*-- Red.Network.onload.end --*/
 				})
 			}
@@ -215,8 +266,42 @@
 				Network = new (function () {
 					/*-- Red.Network.exit.start --*/
 					this.exit = function (clickTag) {
-						console.log('Network -> STANDARD EXIT')
-						window.open(clickTag, '_blank')
+						var clickUrl = this.appendMacro('%%CLICK_URL_UNESC%%', clickTag)
+						var cachebuster = '%%CACHEBUSTER%%'
+						if (cachebuster.search('^%%') > -1) {
+							cachebuster = new Date().getTime()
+						}
+						switch (adParams.espnChannel) {
+							case 'ESPN_FFL_APP':
+								console.log('Network -> ESPN_FFL_APP EXIT (Fantasy App)')
+								if (navigator.userAgent.toLowerCase().indexOf('android') > -1) {
+									window.parent.app.ads.clickThrough(clickUrl + '?ord=' + cachebuster)
+								} else {
+									window.parent.app.ads.clickThrough(clickUrl)
+								}
+								break
+
+							case 'MRAID': // backwards compatibility
+							case 'MRAID_IOS':
+								console.log('Network -> MRAID EXIT (ESPN App, iOS)')
+								// do not append macro to the sportscenter deeplink
+								if (clickTag.search(/^sportscenter/) > -1) {
+									mraid.open(clickTag)
+								} else {
+									mraid.open(clickUrl)
+								}
+								break
+
+							case 'MRAID_ANDROID':
+								console.log('Network -> MRAID EXIT (ESPN App, Android)')
+								mraid.open(clickUrl + '?ord=' + cachebuster)
+								break
+
+							case 'ESPN':
+								console.log('Network -> ESPN EXIT (Dot com)')
+								window.open(clickUrl, '_blank')
+								break
+						}
 					}
 					/*-- Red.Network.exit.end --*/
 

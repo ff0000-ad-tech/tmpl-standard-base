@@ -1,9 +1,9 @@
 {
 	"buildSource": {
 		"platform": "Standard",
-		"template": "Base",
-		"option": "Main",
-		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/main",
+		"template": "Velvet",
+		"option": "Default",
+		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/velvet",
 		"release": "beta.1"
 	},
 	"scripts": {
