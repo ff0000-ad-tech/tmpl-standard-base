@@ -1,7 +1,7 @@
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
-import * as Velvet from '@common/js/ad-velvet'
-import { DateFormatter, DateSchedule, spanish, TzDate } from '@common/js/ad-dates'
-import { ObjectUtils } from '@common/js/ad-utils'
+import * as Velvet from '@ff0000-ad-tech/ad-velvet'
+import { DateFormatter, DateSchedule, spanish, TzDate } from '@ff0000-ad-tech/ad-dates'
+import { ObjectUtils } from '@ff0000-ad-tech/ad-utils'
 
 /**
  * TODO:
@@ -82,6 +82,7 @@ export const processVelvetAdData = () => {
 	}
 	// Get the networks from the velvet data
 	const networksRaw = Velvet.get('networks')
+	console.log(networksRaw)
 	networks = networksRaw.map((elem) => {
 		const scaleFactor = getScale(elem.name.value)
 		// Add the image request
@@ -138,6 +139,7 @@ export const processVelvetAdData = () => {
 				return label
 		}
 	}
+	console.warn(tuneInRaw)
 	const schedule = new DateSchedule({
 		target: new TzDate({
 			datetime: tuneInRaw.datetime,
