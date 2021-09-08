@@ -2,8 +2,8 @@
 	"buildSource": {
 		"platform": "Standard",
 		"template": "Base",
-		"option": "Main",
-		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/main",
+		"option": "Default",
+		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/standard__base__default",
 		"release": "beta.1"
 	},
 	"scripts": {
