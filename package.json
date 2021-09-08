@@ -3,7 +3,7 @@
 		"platform": "Standard",
 		"template": "Base",
 		"option": "Master",
-		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/master",
+		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/gs__expandable__default",
 		"release": "beta.1"
 	},
 	"scripts": {
