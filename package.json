@@ -1,8 +1,8 @@
 {
 	"buildSource": {
-		"platform": "Standard",
-		"template": "Velvet",
-		"option": "Default",
+		"platform": "Velvet",
+		"template": "Base",
+		"option": "ESPN",
 		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/velvet",
 		"release": "beta.1"
 	},
