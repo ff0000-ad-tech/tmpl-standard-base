@@ -1,8 +1,5 @@
+// Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
-
-// Convert css vars in index to scss vars
-$ad-width: var(--ad-width);
-$ad-height: var(--ad-height);
 
 .ad {
 	@include ad-border;

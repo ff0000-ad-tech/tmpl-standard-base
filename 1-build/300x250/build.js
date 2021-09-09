@@ -9,10 +9,10 @@ import './dps-assets-index'
 /*-- DPS.Assets.import.end --*/
 
 // called from index.html onImpression()
-const launch = async (binaryAssets) => {
+const launch = async (assets) => {
 	console.log('Bundle.launch()')
 	// prepare env, ad-data, and assets
-	await Preflight.init(binaryAssets)
+	await Preflight.init(assets)
 	// render jsx
 	render(<Control />, document.getElementById('main'))
 }
