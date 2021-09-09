@@ -16,8 +16,8 @@
     "prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
-  "name": "@ff0000-ad-tech/tmpl-standard-base-default",
-  "version": "3.7.0-beta.1",
+  "name": "@ff0000-ad-tech/tmpl-dps-base-dps-default",
+  "version": "3.7.0-beta.3",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
