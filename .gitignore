@@ -4,6 +4,5 @@ node_modules
 1-build/node_modules
 1-build/**/.inline-imports.js
 2-debug
-dev-ops
 !.gitignore
 !.gitkeep
