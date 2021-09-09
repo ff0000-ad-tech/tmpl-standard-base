@@ -1,8 +1,10 @@
-import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import * as Velvet from '@ff0000-ad-tech/ad-velvet'
 import { DateFormatter, DateSchedule, spanish, TzDate } from '@ff0000-ad-tech/ad-dates'
 import { ObjectUtils } from '@ff0000-ad-tech/ad-utils'
+
+import '@common/fonts/AudibleCFBReg.woff'
+import '@common/fonts/ChickenScratchCFB.woff'
 
 /**
  * TODO:
@@ -17,8 +19,6 @@ import { ObjectUtils } from '@ff0000-ad-tech/ad-utils'
 export let bgImage
 export const requestDynamicImages = async () => {
 	// preload dynamic images, will be available on ImageManager
-	const mainSource = DpsManager.getData('main', 'bg.Sources')
-	bgImage = DpsManager.addSourceImageRequest(mainSource)
 }
 
 export const copy = [
@@ -27,14 +27,21 @@ export const copy = [
 	'CHOOSE SMART SAVINGS\nWITH DISCOUNT POWER.',
 ]
 export const fonts = {
-	primary: 'template_font',
+	scratch: 'ChickenScratchCFB',
+	reg: 'AudibleCFBReg',
 }
 export const colors = {}
 
 // VELVET
+export const isWide = adParams.adWidth > 300
+export const isMobile = adParams.adHeight < 90 && adParams.adWidth < 400
+
 export let mainLogo
 export let sponsorCopy
 export let sponsorImage
+export let sponsorName
+
+export let bubbleImage
 export let headline
 export let hasHeadline = false
 
@@ -56,9 +63,15 @@ export const processVelvetAdData = async () => {
 		imageId: 'main_logo',
 	})
 	sponsorCopy = Velvet.get('sponsor_copy')
+	sponsorName = Velvet.get('sponsor_image.name.value')
+
 	sponsorImage = ImageManager.addImageRequest({
 		src: Velvet.get('sponsor_image.image.url'),
 		imageId: 'sponsor_image',
+	})
+	bubbleImage = ImageManager.addImageRequest({
+		src: Velvet.get('bubble_image.image.url'),
+		imageId: 'bubble_image',
 	})
 	headline = Velvet.get('headline')
 	hasHeadline = headline || sponsorCopy ? true : false

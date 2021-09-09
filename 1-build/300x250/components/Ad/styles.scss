@@ -1,5 +1,8 @@
-// Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
+
+// Convert css vars in index to scss vars
+$ad-width: var(--ad-width);
+$ad-height: var(--ad-height);
 
 .ad {
 	@include ad-border;
@@ -11,6 +14,18 @@
 	background: $color-primary;
 	cursor: pointer;
 
+	&__at {
+		position: absolute;
+		left: 50%;
+		top: 92px;
+		transform: translateX(-50%);
+		width: 40px;
+		object-fit: contain;
+
+		&--noheadline {
+			top: 75px;
+		}
+	}
 	&__cta {
 		@include flex-center;
 		@include primary-font;
