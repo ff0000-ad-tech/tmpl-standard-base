@@ -1,0 +1,14 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.bl {
+	width: $ad-width;
+	height: 188px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	img {
+		height: 75px;
+	}
+}
