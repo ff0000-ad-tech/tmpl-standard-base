@@ -1,3 +1,4 @@
+import { DpsManager } from '@ff0000-ad-tech/ad-dps'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import * as Velvet from '@ff0000-ad-tech/ad-velvet'
 import { DateFormatter, DateSchedule, spanish, TzDate } from '@ff0000-ad-tech/ad-dates'
@@ -13,14 +14,13 @@ import { ObjectUtils } from '@ff0000-ad-tech/ad-utils'
 	EXTRACT JSON DATA
 	Prepare dynamic data here.
  */
-// export let myDynamicImage
+export let bgImage
 export const requestDynamicImages = async () => {
-	// myDynamicImage = ImageManager.addImageRequest({ src: '/path/to/asset' })
+	// preload dynamic images, will be available on ImageManager
+	const mainSource = DpsManager.getData('main', 'bg.Sources')
+	bgImage = DpsManager.addSourceImageRequest(mainSource)
 }
 
-/**
-	DEFINE and EXPORT global Ad-Data
- */
 export const copy = [
 	'WHY PAY MORE\nFOR ELECTRICITY?',
 	'MAKE THE MOST OF YOUR\nENERGY AND MONEY',

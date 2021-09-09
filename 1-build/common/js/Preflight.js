@@ -15,10 +15,16 @@ export const init = async (assets) => {
 	await loadVelvetData()
 	// add payload assets to ImageManager
 	addImageAssets([...assets.preloaders, ...assets.images, ...assets.binaries])
+	// init dps-manager environment, based on adParams.environmentId
+	DpsManager.init(adParams)
+	// load dps-data and add to ad-data
+	await DpsManager.loadFeeds(adParams.dpsConfig)
 	// author adds necessary requests to queue
 	await window.adData.requestDynamicImages()
 	// preload dynamic images
 	await loadDynamicImages()
+	// let creative-server know dps-preflight is complete
+	await DpsManager.preflightComplete()
 }
 
 // load velvet data and send to AdData

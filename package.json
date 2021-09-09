@@ -16,8 +16,8 @@
     "prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
-  "name": "@ff0000-ad-tech/tmpl-standard-base-default",
-  "version": "3.7.0-beta.1",
+  "name": "@ff0000-ad-tech/tmpl-dps-base-default",
+  "version": "3.7.0-beta.6",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
@@ -37,6 +37,7 @@
     "@babel/eslint-parser": "^7.15.0",
     "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
     "@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.1.0",
+    "@ff0000-ad-tech/cs-plugin-dps-renderer": "^1.0.1",
     "@ff0000-ad-tech/debug": "^4.1.0",
     "@ff0000-ad-tech/wp-creative-server": "^4.0.0",
     "@ff0000-ad-tech/wp-deploy-manager": "^11.3.1",

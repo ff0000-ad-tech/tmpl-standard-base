@@ -21,20 +21,19 @@
 				networkId: 'STANDARD',
 				adWidth: 300,
 				adHeight: 250,
-				environmentId: 'debug',
+				environmentId: 'dps-local', // 'dps-inlined', 'dps-staging', 'dps-prod',
 				politeLoadAfter: 1,
 				failoverOnError: true,
-				version: '3.1.0-beta.5',
-
-				velvet: {
-					client: '3YLOU2j85h',
-					locale: 'UcuShCkQys',
-					segment: 'Nu4xRR22Wj',
-					// addata: 'cGU5hMyQd8',
-				},
-				dateSettings: {
-					dateOverride: null, // ['2017-06-11 09:30:01', 'local'],
-					language: 'english', //'spanish'
+				version: '3.1.0-beta.1',
+				dpsConfig: {
+					feeds: [
+						{
+							label: 'main',
+							ssid: '1FIO9fLeSPJJFeeMpTQKO-4qbtttQeem8CxgJWYGDvjA',
+							sid: '0',
+							rid: 'cc953f35-7457-4f01-bbe9-3326c8b9c6da', // optional row-id
+						},
+					],
 				},
 			}
 			/*-- Red.Settings.ad_params.end --*/
@@ -56,7 +55,7 @@
 			}
 
 			function isDevEnvironment() {
-				return adParams.environmentId == 'debug' || window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
+				return window.location.href.match(/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+/)
 			}
 		</script>
 
