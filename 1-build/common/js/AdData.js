@@ -28,6 +28,10 @@ export const fonts = {
 }
 export const colors = {}
 
+export let headline
 export const processVelvetAdData = async () => {
 	console.warn(`TODO: Prepare Velvet data for presentation..`)
+	// example
+	headline = Velvet.get('headline')
+	console.log(` - headline: ${headline}`)
 }
