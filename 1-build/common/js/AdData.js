@@ -27,3 +27,7 @@ export const fonts = {
 	primary: 'template_font',
 }
 export const colors = {}
+
+export const processVelvetAdData = async () => {
+	console.warn(`TODO: Prepare Velvet data for presentation..`)
+}
