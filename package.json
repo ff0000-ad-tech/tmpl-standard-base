@@ -4,7 +4,7 @@
     "template": "Examples",
     "option": "Canvas",
     "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/standard__examples__canvas",
-    "release": "beta.9"
+    "release": "beta.10"
   },
   "scripts": {
     "prepare": "npm run install-build && npm run prettier",
@@ -17,7 +17,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-examples-canvas",
-  "version": "3.7.0-beta.9",
+  "version": "3.7.0-beta.10",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
