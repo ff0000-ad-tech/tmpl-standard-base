@@ -4,7 +4,7 @@
     "template": "Examples",
     "option": "Text-fit",
     "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/standard__examples__text-fit",
-    "release": "beta.7"
+    "release": "beta.8"
   },
   "scripts": {
     "prepare": "npm run install-build && npm run prettier",
@@ -17,7 +17,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-examples-text-fit",
-  "version": "3.7.0-beta.7",
+  "version": "3.7.0-beta.8",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
