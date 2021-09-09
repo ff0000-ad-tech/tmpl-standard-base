@@ -2,8 +2,11 @@
 package-lock.json
 node_modules
 1-build/node_modules
+
 1-build/**/.inline-imports.js
+1-build/**/dps-assets*/**/*
+!1-build/**/dps-assets*/.gitkeep
+
 2-debug
-dev-ops
 !.gitignore
 !.gitkeep
