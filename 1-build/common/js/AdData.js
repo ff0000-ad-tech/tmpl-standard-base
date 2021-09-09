@@ -1,4 +1,5 @@
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
+import * as Velvet from '@ff0000-ad-tech/ad-velvet'
 
 /**
  * TODO:
