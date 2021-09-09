@@ -1,8 +1,8 @@
 {
   "buildSource": {
     "platform": "Velvet",
-    "template": "Base",
-    "option": "ESPN",
+    "template": "ESPN",
+    "option": "CFB",
     "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/velvet__base__espn",
     "release": "beta.1"
   },
@@ -16,7 +16,7 @@
     "prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
-  "name": "@ff0000-ad-tech/tmpl-velvet-base-espn",
+  "name": "@ff0000-ad-tech/tmpl-velvet-espn-cfb",
   "version": "3.7.0-beta.1",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",

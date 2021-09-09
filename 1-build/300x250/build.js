@@ -13,5 +13,5 @@ const launch = async (binaryAssets) => {
 }
 
 window.Build = {
-	launch
+	launch,
 }
