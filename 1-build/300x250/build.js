@@ -1,12 +1,11 @@
 import { h, render } from 'preact'
 import * as Preflight from '@common/js/Preflight.js'
 
-import Control from './components/Control'
-
-// if rendering dps inline, creative server will add dps asset imports here
+// if rendering dps-inline, Creative Server will add dps asset imports here
 /*-- DPS.Assets.import.start --*/
-import './dps-assets-index'
 /*-- DPS.Assets.import.end --*/
+
+import Control from './components/Control'
 
 // called from index.html onImpression()
 const launch = async (assets) => {
