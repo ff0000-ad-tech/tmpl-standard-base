@@ -18,7 +18,7 @@ export const init = async (assets) => {
 	addImageAssets([...assets.preloaders, ...assets.images, ...assets.binaries])
 	// prepare date-management
 	await prepareDateManagement()
-	// init dps-manager environment, based on adParams.environmentId
+	// init dps-manager environment, based on adParams.dpsConfig.mode
 	DpsManager.init(adParams)
 	// load dps-data and add to ad-data
 	await DpsManager.loadFeeds(adParams.dpsConfig)
