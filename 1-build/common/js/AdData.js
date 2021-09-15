@@ -33,10 +33,10 @@ const getCurrentTimblock = () => {
 	const dpsSchedule = DpsManager.getData('schedule')
 	// locate current row, based on "Start Date" and "Timezone" columns
 	const rows = Object.values(dpsSchedule)
-	const nextRowIndex = rows.findIndex(row => {
+	const nextRowIndex = rows.findIndex((row) => {
 		const localNow = DateManager.getNow()
 		const startDate = new TzDate({
-			datetime: [row['Start Date'], row['Timezone']]
+			datetime: [row['Start Date'], row['Timezone']],
 		})
 		console.log(startDate)
 		startDate.print()
@@ -46,7 +46,6 @@ const getCurrentTimblock = () => {
 	// since next-row hasn't started, try to return the previous...or default to the first row
 	return nextRowIndex > 0 ? rows[nextRowIndex - 1] : rows[0]
 }
-
 
 // export const dpsdata = {
 // 	matchups: [
@@ -88,4 +87,3 @@ export const prepareDateSchedule = () => {
 	dateMessage = schedule.currentLabel
 	dateHour = schedule.target.toDateTime()
 }
-
