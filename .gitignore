@@ -10,3 +10,6 @@ node_modules
 2-debug
 !.gitignore
 !.gitkeep
+!dps.json
+!2-debug/**/dps.json
+!3-traffic/**/dps.json
