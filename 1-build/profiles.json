@@ -1,26 +1,26 @@
 {
-	"default": {
-		"webpack": {
-			"deploy": {
-				"profile": {
-					"name": "default",
-					"fbaCompile": true,
-					"optimize": true,
-					"env": {
-						"id": "default",
-						"runPath": "",
-						"adPath": ""
-					}
-				}
-			}
-		},
-		"targets": [
-			{
-				"size": "300x250",
-				"index": "index.html",
-				"deployAt": 1631667919279
-			}
-		],
-		"updateAt": 1627497453096
-	}
+  "default": {
+    "webpack": {
+      "deploy": {
+        "profile": {
+          "name": "default",
+          "fbaCompile": true,
+          "optimize": true,
+          "env": {
+            "id": "default",
+            "runPath": "",
+            "adPath": ""
+          }
+        }
+      }
+    },
+    "targets": [
+      {
+        "size": "300x250",
+        "index": "index.html",
+        "deployAt": 1633393454553
+      }
+    ],
+    "updateAt": 1627497453096
+  }
 }
