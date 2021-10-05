@@ -21,33 +21,32 @@
 				networkId: 'STANDARD',
 				adWidth: 300,
 				adHeight: 250,
-				preloaderDuration: 1, // seconds to hold on the preloader
-				politeLoadAfter: 0, // minimum number of seconds before starting subload
-				failoverOnError: true,
 				environmentId: 'debug',
+				politeLoadAfter: 1,
+				failoverOnError: true,
 				version: '3.1.0-beta.5',
-				// velvet
 				velvet: {
 					client: '3YLOU2j85h',
 					locale: 'UcuShCkQys',
-					segment: 'uMcu56TkT6',
+					segment: 'uMcu56TkT6'
 					// addata: 'cGU5hMyQd8',
 				},
 				dateSettings: {
 					dateOverride: null, // ['2017-06-11 09:30:01', 'local'],
-					language: 'english', //'spanish'
-				},
+					language: 'english' //'spanish'
+				}
 			}
 			/*-- Red.Settings.ad_params.end --*/
 
 			/*-- Red.Settings.assets.start --*/
 			var assets = {
-				preloaders: [], // Default preloader is css, image-paths here will be available below, see preparePreloader()
-				backups: ['./backup.jpg'],
+				// preloaders: [], // Default generic preloader animation
+				preloaders: ['./images/texture-white.jpg', './images/cfb_shield_preloader2.gif'], // Custom preloader image or animation
+				backups: ['./backup.jpg'], // has to be an array
 				scripts: ['./build.bundle.js'],
 				images: [],
 				fonts: [],
-				binaries: [],
+				binaries: []
 			}
 			/*-- Red.Settings.assets.end --*/
 
@@ -74,8 +73,8 @@
 			#view {
 				position: relative;
 				overflow: hidden;
-				width: 300px;
-				height: 250px;
+				width: var(--ad-width);
+				height: var(--ad-height);
 			}
 			#main {
 				position: absolute;
@@ -97,48 +96,26 @@
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				border: 1px solid #000;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				background-color: #f6f2ee;
+				background-color: white;
 			}
-			#preloader-ring {
-				display: inline-block;
-				position: relative;
-				width: 50px;
-				height: 50px;
-			}
-			#preloader-ring div {
-				box-sizing: border-box;
-				display: block;
+			#preloader-border {
 				position: absolute;
-				width: 34px;
-				height: 34px;
-				margin: 4px;
-				border: 4px solid black;
-				border-radius: 50%;
-				animation: preloader-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-				border-color: black transparent transparent transparent;
+				width: 100%;
+				height: 100%;
+				border: 1px solid black;
+				z-index: 1;
 			}
-			#preloader-ring div:nth-child(1) {
-				animation-delay: -0.45s;
+			#texture-white {
+				position: absolute;
+				top: 1px;
+				left: 1px;
 			}
-			#preloader-ring div:nth-child(2) {
-				animation-delay: -0.3s;
+			#cfb_shield_preloader2 {
+				position: absolute;
 			}
-			#preloader-ring div:nth-child(3) {
-				animation-delay: -0.15s;
-			}
-			@keyframes preloader-ring {
-				0% {
-					transform: rotate(0deg);
-				}
-				100% {
-					transform: rotate(360deg);
-				}
-			}
-
 			#backup {
 				position: absolute;
 				width: 100%;
@@ -147,6 +124,10 @@
 		</style>
 
 		<!-- Red.Network.script.start -->
+		<script type="text/javascript">
+			if (!isDevEnvironment() && typeof parent.window.googletag != 'object')
+				document.write(["<script src='mraid.js'><", '/script>'].join(''))
+		</script>
 		<!-- Red.Network.script.end -->
 	</head>
 
@@ -155,23 +136,31 @@
 			<div id="main"></div>
 			<div id="aux">
 				<div id="preloader">
-					<div id="preloader-ring">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
+					<div id="preloader-border"></div>
 				</div>
 				<div id="backup"></div>
 			</div>
 		</div>
 
 		<script type="text/javascript">
+			this.loadPixel = function (url) {
+				console.log('loadPixel()', url)
+				var imageElement = document.createElement('img')
+				imageElement.src = matchProtocolTo(url)
+				imageElement.style.borderStyle = 'none'
+				imageElement.style.position = 'absolute'
+				imageElement.height = 1
+				imageElement.width = 1
+				imageElement.alt = ''
+				document.getElementById('view').appendChild(imageElement)
+			}
+		</script>
+
+		<script type="text/javascript">
 			function useBackup() {
 				console.log('Index.useBackup()')
 				document.getElementById('backup').style.cssText = 'background-image: url(' + assets.backups[0] + ');'
 				document.getElementById('main').style.display = 'none'
-				document.getElementById('preloader').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
 			}
 		</script>
@@ -189,7 +178,28 @@
 				makeAuxClickable()
 				return new Promise(function (resolve) {
 					/*-- Red.Network.onload.start --*/
-					resolve()
+					// determine espn-network
+					if (typeof window.parent.app === 'object') {
+						adParams.espnChannel = 'ESPN_FFL_APP'
+						onESPN()
+					} else if (typeof mraid !== 'undefined') {
+						if (navigator.userAgent.toLowerCase().indexOf('android') > -1) {
+							adParams.espnChannel = 'MRAID_ANDROID'
+						} else {
+							adParams.espnChannel = 'MRAID_IOS'
+						}
+						if (mraid.getState() === 'loading') {
+							mraid.addEventListener('ready', onESPN)
+						} else {
+							onESPN()
+						}
+					} else {
+						adParams.espnChannel = 'ESPN'
+						onESPN()
+					}
+					function onESPN() {
+						resolve()
+					}
 					/*-- Red.Network.onload.end --*/
 				})
 			}
@@ -204,7 +214,6 @@
 			function preparePreloader(images) {
 				console.log('Index.preparePreloader()')
 				images.map(function (image) {
-					// NOTE: these image-elements' id is the filename without extension
 					document.getElementById('preloader').appendChild(image)
 				})
 				// resolve this function when
@@ -212,7 +221,7 @@
 				return new Promise(function (resolve) {
 					setTimeout(function () {
 						resolve()
-					}, adParams.preloaderDuration * 1000)
+					}, 1000)
 					// resolve()
 				})
 			}
@@ -228,8 +237,42 @@
 				Network = new (function () {
 					/*-- Red.Network.exit.start --*/
 					this.exit = function (clickTag) {
-						console.log('Network -> STANDARD EXIT')
-						window.open(clickTag, '_blank')
+						var clickUrl = this.appendMacro('%%CLICK_URL_UNESC%%', clickTag)
+						var cachebuster = '%%CACHEBUSTER%%'
+						if (cachebuster.search('^%%') > -1) {
+							cachebuster = new Date().getTime()
+						}
+						switch (adParams.espnChannel) {
+							case 'ESPN_FFL_APP':
+								console.log('Network -> ESPN_FFL_APP EXIT (Fantasy App)')
+								if (navigator.userAgent.toLowerCase().indexOf('android') > -1) {
+									window.parent.app.ads.clickThrough(clickUrl + '?ord=' + cachebuster)
+								} else {
+									window.parent.app.ads.clickThrough(clickUrl)
+								}
+								break
+
+							case 'MRAID': // backwards compatibility
+							case 'MRAID_IOS':
+								console.log('Network -> MRAID EXIT (ESPN App, iOS)')
+								// do not append macro to the sportscenter deeplink
+								if (clickTag.search(/^sportscenter/) > -1) {
+									mraid.open(clickTag)
+								} else {
+									mraid.open(clickUrl)
+								}
+								break
+
+							case 'MRAID_ANDROID':
+								console.log('Network -> MRAID EXIT (ESPN App, Android)')
+								mraid.open(clickUrl + '?ord=' + cachebuster)
+								break
+
+							case 'ESPN':
+								console.log('Network -> ESPN EXIT (Dot com)')
+								window.open(clickUrl, '_blank')
+								break
+						}
 					}
 					/*-- Red.Network.exit.end --*/
 

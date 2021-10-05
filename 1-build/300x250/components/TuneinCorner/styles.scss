@@ -1,0 +1,77 @@
+// Length of the long corner lines
+$line-length: 6px;
+// Gap between the corner lines
+$line-gap: 2px;
+$color-gray: #bbbbbb;
+$border: 1px solid $color-gray;
+
+// Controls the space between the tunein text and where the corners start.
+// Basically like padding on the tunein text
+$corner-x-offset: 12px;
+
+.tuneincorner {
+	display: flex;
+	&.tr {
+		position: relative;
+		left: $corner-x-offset;
+	}
+	&.tl {
+		position: relative;
+		left: -$corner-x-offset;
+		transform: scaleX(-1);
+	}
+
+	&.bl {
+		position: relative;
+		left: -$corner-x-offset;
+		transform: scale(-1, -1);
+		bottom: 2px; //adjusts position for extra space at bottom of text
+	}
+
+	&.br {
+		position: relative;
+		left: $corner-x-offset;
+		transform: scaleY(-1);
+		bottom: 2px; //adjusts position for extra space at bottom of text
+	}
+
+	&__innerleft {
+		width: $line-gap;
+		display: flex;
+		flex-direction: column;
+
+		&-top {
+			width: 100%;
+			height: $line-length;
+			border-right: $border;
+			margin-bottom: $line-gap;
+		}
+
+		&-bottom {
+			width: 100%;
+			height: $line-gap;
+			border-top: $border;
+			border-right: $border;
+		}
+	}
+	&__innerright {
+		width: $line-length;
+		display: flex;
+		flex-direction: column;
+		margin-left: $line-gap;
+
+		&-top {
+			width: 100%;
+			height: $line-length;
+			border-left: $border;
+			border-bottom: $border;
+			margin-bottom: $line-gap;
+		}
+
+		&-bottom {
+			width: 100%;
+			height: $line-gap;
+			border-top: $border;
+		}
+	}
+}

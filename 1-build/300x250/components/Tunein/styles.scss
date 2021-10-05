@@ -1,0 +1,20 @@
+.tunein {
+	display: flex;
+	flex-direction: column;
+
+	&__topbottom {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__copy-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__copy {
+		font-size: 22px;
+		color: #2c2c2c;
+	}
+}
