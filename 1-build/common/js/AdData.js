@@ -1,5 +1,9 @@
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
+import '@size/images/NetworkABC.png'
+import '@size/images/NetworkESPN.png'
+import '@size/images/NetworkESPNDeportes.png'
+
 /**
  * TODO:
  *	Dynamic HTML:
@@ -18,12 +22,30 @@ export const requestDynamicImages = async () => {
 /**
 	DEFINE and EXPORT global Ad-Data
  */
-export const copy = [
-	'WHY PAY MORE\nFOR ELECTRICITY?',
-	'MAKE THE MOST OF YOUR\nENERGY AND MONEY',
-	'CHOOSE SMART SAVINGS\nWITH DISCOUNT POWER.',
-]
+
 export const fonts = {
 	primary: 'template_font',
 }
 export const colors = {}
+
+// Sample ESPN networks data. Normally comes from Velvet
+export const networks = [
+	{
+		name: 'ABC',
+		url: 'images/NetworkABC.png',
+		imageId: 'ABC',
+		scaleFactor: 1,
+	},
+	{
+		name: 'ESPN',
+		url: 'images/NetworkESPN.png',
+		imageId: 'ESPN',
+		scaleFactor: 0.7,
+	},
+	{
+		name: 'ESPN Deportes',
+		url: 'images/NetworkESPNDeportes.png',
+		imageId: 'Deportes',
+		scaleFactor: 1,
+	},
+]

@@ -1,3 +1,6 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
 .textfitparagraph {
 	&__box {
 		width: 150px;

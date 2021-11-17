@@ -1,3 +1,6 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
 .matchupstacked {
 	font-size: 60px;
 	white-space: nowrap;

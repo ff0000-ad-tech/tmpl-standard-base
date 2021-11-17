@@ -12,7 +12,7 @@ class MatchupStacked extends Component {
 	}
 
 	componentDidMount() {
-		useTextFit([this.matchup], 250, 10)
+		useTextFit([this.matchup], 200, 10)
 	}
 
 	render() {

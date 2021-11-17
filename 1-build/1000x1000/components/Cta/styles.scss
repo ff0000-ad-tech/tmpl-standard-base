@@ -1,3 +1,6 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
 .cta {
 	background-color: #8cdadc;
 	font-family: Arial, Helvetica, sans-serif;
