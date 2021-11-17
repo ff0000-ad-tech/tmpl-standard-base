@@ -1,0 +1,12 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.hookautosizefontsizes {
+	&__textfield {
+		font-size: 50px;
+		width: 200px;
+		height: 30px;
+		background-color: #8cdadc;
+		white-space: nowrap;
+	}
+}

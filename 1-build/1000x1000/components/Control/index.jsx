@@ -12,24 +12,24 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { brandlogo } = this.adRef
+		// Destructure out component refs from the ad ref so that we can reference them
+		// or call methods on them
+		const { componentBasic, componentMethods } = this.adRef
 
-		brandlogo.start()
-
-		gsap.set('.ad__cta', { opacity: 1 })
-
-		gsap.from('.ad__logo', { delay: 1, duration: 0.5, x: -adParams.adWidth, ease: 'expo.out' })
-		gsap.from('.ad__cta', { delay: 1, duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })
+		// Call components start() method
+		componentMethods.start()
 	}
 
 	handleClick = () => {
 		Network.exit(window.clickTag)
 	}
 	handleRollOver = () => {
-		this.adRef.brandlogo.over()
+		// Call over() on any components you want to animate on ad rollover
+		// example: this.adRef.cta.over()
 	}
 	handleRollOut = () => {
-		this.adRef.brandlogo.out()
+		// Call over() on any components you want to animate on ad rollout
+		// example: this.adRef.cta.out()
 	}
 
 	render() {

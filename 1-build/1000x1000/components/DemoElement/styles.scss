@@ -1,0 +1,27 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.demoelement {
+	display: flex;
+	flex-direction: column;
+	background-color: #e5e5e5;
+	border: 1px solid black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+
+	&__header {
+		width: 100%;
+		height: 20px;
+		color: #8cdadc;
+		background-color: #606060;
+		padding: 3px;
+		text-align: center;
+	}
+
+	&__contentcontainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+}
