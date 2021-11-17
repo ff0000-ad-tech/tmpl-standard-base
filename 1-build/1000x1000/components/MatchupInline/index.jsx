@@ -6,7 +6,7 @@ import useTextFit from '@common/hooks/useTextFit'
 // Styles
 import './styles.scss'
 
-class Matchup extends Component {
+class MatchupInline extends Component {
 	constructor(props) {
 		super(props)
 	}
@@ -30,4 +30,4 @@ class Matchup extends Component {
 	}
 }
 
-export default Matchup
+export default MatchupInline

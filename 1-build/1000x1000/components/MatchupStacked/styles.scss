@@ -1,0 +1,16 @@
+.matchupstacked {
+	font-size: 60px;
+	white-space: nowrap;
+	background-color: #8cdadc;
+	height: fit-content;
+	text-align: center;
+
+	&__vsat {
+		font-size: 0.7em;
+		padding: 0 5px;
+	}
+
+	&__rank {
+		font-size: 0.7em;
+	}
+}

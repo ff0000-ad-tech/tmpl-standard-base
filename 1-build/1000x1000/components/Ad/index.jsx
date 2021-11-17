@@ -9,6 +9,7 @@ import ComponentTextFitParagraph from '../ComponentTextFitParagraph'
 import HookTextFit from '../HookTextFit'
 import Cta from '../Cta'
 import MatchupInline from '../MatchupInline'
+import MatchupStacked from '../MatchupStacked'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -41,7 +42,22 @@ class Ad extends Component {
 						<Cta />
 					</DemoElement>
 					<DemoElement name="ESPN Lockup Inline" width="300px" height="150px">
-						<MatchupInline homeTeamName="Alabama State" homeTeamRank="4" vsat="vs" awayTeamName="Mississippi State" awayTeamRank="1" />
+						<MatchupInline
+							homeTeamName="Alabama State"
+							homeTeamRank="4"
+							vsat="vs"
+							awayTeamName="Mississippi State is cool"
+							awayTeamRank="1"
+						/>
+					</DemoElement>
+					<DemoElement name="ESPN Lockup Stacked" width="300px" height="150px">
+						<MatchupStacked
+							homeTeamName="Alabama State"
+							homeTeamRank="4"
+							vsat="vs"
+							awayTeamName="Mississippi State is cool"
+							awayTeamRank="1"
+						/>
 					</DemoElement>
 				</div>
 			</div>
