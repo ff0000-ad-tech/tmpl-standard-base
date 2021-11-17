@@ -6,7 +6,9 @@ import ComponentBasic from '../ComponentBasic'
 import ComponentMethods from '../ComponentMethods'
 import DemoElement from '../DemoElement'
 import ComponentTextFitParagraph from '../ComponentTextFitParagraph'
-import HookAutosizeFontSizes from '../HookAutosizeFontSizes'
+import HookTextFit from '../HookTextFit'
+import Cta from '../Cta'
+import MatchupInline from '../MatchupInline'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -24,16 +26,24 @@ class Ad extends Component {
 	render() {
 		return (
 			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
-				<ComponentBasic ref={(el) => (this.componentBasic = el)} />
-				<ComponentMethods ref={(el) => (this.componentMethods = el)} />
-				<DemoElement name="Component TextFitParagraph" width="250px" height="150px" ref={(el) => (this.componentTextFitParagraph = el)}>
-					<ComponentTextFitParagraph minFontSize={1} maxFontSize={50}>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					</ComponentTextFitParagraph>
-				</DemoElement>
-				<DemoElement name="Hook AutosizeFontSizes" width="250px" height="150px" ref={(el) => (this.componentTextFitParagraph = el)}>
-					<HookAutosizeFontSizes />
-				</DemoElement>
+				<div className="ad__inner-container">
+					<ComponentBasic />
+					<ComponentMethods ref={(el) => (this.componentMethods = el)} />
+					<DemoElement name="Component TextFitParagraph" width="250px" height="150px">
+						<ComponentTextFitParagraph minFontSize={1} maxFontSize={50}>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</ComponentTextFitParagraph>
+					</DemoElement>
+					<DemoElement name="Hook TextFit" width="250px" height="150px">
+						<HookTextFit />
+					</DemoElement>
+					<DemoElement name="Component CTA" width="150px" height="150px">
+						<Cta />
+					</DemoElement>
+					<DemoElement name="ESPN Lockup Inline" width="300px" height="150px">
+						<MatchupInline homeTeamName="Alabama State" homeTeamRank="4" vsat="vs" awayTeamName="Mississippi State" awayTeamRank="1" />
+					</DemoElement>
+				</div>
 			</div>
 		)
 	}

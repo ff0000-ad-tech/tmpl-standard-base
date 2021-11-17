@@ -13,14 +13,6 @@ class ComponentMethods extends Component {
 		gsap.fromTo('#logo', { opacity: 0 }, { duration: 3, opacity: 1, ease: 'expo.out' })
 	}
 
-	over() {
-		gsap.to('#logo', { duration: 0.3, scale: 1.4, ease: 'expo.out' })
-	}
-
-	out() {
-		gsap.to('#logo', { duration: 0.3, scale: 1.2, ease: 'expo.out' })
-	}
-
 	render() {
 		return (
 			<div className="component__methods">

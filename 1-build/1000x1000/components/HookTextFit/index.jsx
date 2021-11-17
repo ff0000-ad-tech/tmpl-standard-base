@@ -2,24 +2,24 @@ import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 // Hooks
-import useAutosizeFontSizes from '@common/hooks/useAutosizeFontSizes'
+import useTextFit from '@common/hooks/useTextFit'
 
 // Styles
 import './styles.scss'
 
-class HookAutosizeFontSizes extends Component {
+class HookTextFit extends Component {
 	constructor(props) {
 		super(props)
 	}
 
 	componentDidMount() {
-		useAutosizeFontSizes([this.textRef], 200, 5)
+		useTextFit([this.textRef], 200, 5)
 	}
 
 	render() {
 		return (
-			<div className="hookautosizefontsizes">
-				<div className="hookautosizefontsizes__textfield" ref={(el) => (this.textRef = el)}>
+			<div className="hooktextfit">
+				<div className="hooktextfit__textfield" ref={(el) => (this.textRef = el)}>
 					This text will autosize to fit this box's width
 				</div>
 			</div>
@@ -27,4 +27,4 @@ class HookAutosizeFontSizes extends Component {
 	}
 }
 
-export default HookAutosizeFontSizes
+export default HookTextFit

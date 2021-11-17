@@ -1,6 +1,6 @@
 import { h } from 'preact'
 
-const useAutosizeFontSizes = (elArray, maxWidth, minFontSize, useHeight = false) => {
+const useTextFit = (elArray, maxWidth, minFontSize, useHeight = false) => {
 	let finalFontSize = 9999
 
 	const getScrollWidth = (el) => {
@@ -48,4 +48,4 @@ const useAutosizeFontSizes = (elArray, maxWidth, minFontSize, useHeight = false)
 	return finalFontSize
 }
 
-export default useAutosizeFontSizes
+export default useTextFit

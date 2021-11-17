@@ -21,7 +21,7 @@ class Control extends Component {
 	}
 
 	handleClick = () => {
-		Network.exit(window.clickTag)
+		//Network.exit(window.clickTag)
 	}
 	handleRollOver = () => {
 		// Call over() on any components you want to animate on ad rollover
