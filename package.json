@@ -3,6 +3,8 @@
     "platform": "Standard",
     "template": "Examples",
     "option": "Component Demo",
+    "size": "1000x1000",
+    "profile": "default",
     "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/standard__examples__component-demo",
     "release": "beta.3"
   },
