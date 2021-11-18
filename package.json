@@ -1,8 +1,8 @@
 {
 	"buildSource": {
 		"platform": "Standard",
-		"template": "Base",
-		"option": "Main",
+		"template": "Examples",
+		"option": "Component Demo",
 		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/main",
 		"release": "beta.1"
 	},
