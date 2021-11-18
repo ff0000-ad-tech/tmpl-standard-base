@@ -20,10 +20,10 @@ class MatchupInline extends Component {
 
 		return (
 			<div className="matchupinline" ref={(el) => (this.matchup = el)}>
-				<span className="matchupinline__rank">{homeTeamRank}</span>
+				{homeTeamRank ? <span className="matchupinline__rank">{homeTeamRank}</span> : null}
 				<span>{homeTeamName}</span>
 				<span className="matchupinline__vsat">{vsat}</span>
-				<span className="matchupinline__rank">{awayTeamRank}</span>
+				{awayTeamRank ? <span className="matchupinline__rank">{awayTeamRank}</span> : null}
 				<span>{awayTeamName}</span>
 			</div>
 		)

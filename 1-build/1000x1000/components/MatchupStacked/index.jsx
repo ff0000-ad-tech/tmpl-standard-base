@@ -21,12 +21,12 @@ class MatchupStacked extends Component {
 		return (
 			<div className="matchupstacked" ref={(el) => (this.matchup = el)}>
 				<div>
-					<span className="matchupstacked__rank">{homeTeamRank}</span>
+					{homeTeamRank ? <span className="matchupstacked__rank">{homeTeamRank}</span> : null}
 					<span>{homeTeamName}</span>
 				</div>
 				<span className="matchupstacked__vsat">{vsat}</span>
 				<div>
-					<span className="matchupstacked__rank">{awayTeamRank}</span>
+					{awayTeamRank ? <span className="matchupstacked__rank">{awayTeamRank}</span> : null}
 					<span>{awayTeamName}</span>
 				</div>
 			</div>

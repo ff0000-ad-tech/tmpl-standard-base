@@ -40,12 +40,15 @@ class Ad extends Component {
 						<HookTextFit />
 					</DemoElement>
 					<DemoElement name="Component CTA" width="150px" height="150px">
-						<Cta />
+						<Cta text="Click Me Now!" />
 					</DemoElement>
-					<DemoElement name="ESPN Lockup Inline" width="300px" height="150px">
+					<DemoElement name="Component CTA Fit" width="150px" height="150px">
+						<Cta text="Click Me now or else!" fit width="120px" height="30px" minFont="1" />
+					</DemoElement>
+					<DemoElement name="ESPN Matchup Inline" width="300px" height="150px">
 						<MatchupInline homeTeamName="Alabama State" homeTeamRank="4" vsat="vs" awayTeamName="Mississippi State" awayTeamRank="1" />
 					</DemoElement>
-					<DemoElement name="ESPN Lockup Stacked" width="300px" height="150px">
+					<DemoElement name="ESPN Matchup Stacked" width="300px" height="150px">
 						<MatchupStacked homeTeamName="Alabama State" homeTeamRank="4" vsat="vs" awayTeamName="Mississippi State" awayTeamRank="1" />
 					</DemoElement>
 					<DemoElement name="ESPN Networks" width="200px" height="150px">

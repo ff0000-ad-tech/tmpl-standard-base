@@ -1,5 +1,8 @@
 import { h, render, Component, createRef } from 'preact'
 
+// Hooks
+import useTextFit from '@common/hooks/useTextFit'
+
 // Styles
 import './styles.scss'
 
@@ -8,22 +11,36 @@ class Cta extends Component {
 		super(props)
 	}
 
-	over() {
-		gsap.to('#cta1', { duration: 0.3, scale: 1.1, ease: 'expo.out' })
+	stripPx(str) {
+		return parseInt(str.substring(0, str.length - 2))
 	}
 
-	out() {
-		gsap.to('#cta1', { duration: 0.3, scale: 1, ease: 'expo.out' })
+	componentDidMount() {
+		const { width, minFont, fit } = this.props
+
+		if (fit) {
+			useTextFit([this.ctaRef], this.stripPx(width), parseInt(minFont))
+			this.ctaRef.style.width = width
+		}
 	}
 
-	click() {
+	over = () => {
+		gsap.to(this.ctaRef, { duration: 0.3, scale: 1.1, ease: 'expo.out' })
+	}
+
+	out = () => {
+		gsap.to(this.ctaRef, { duration: 0.3, scale: 1, ease: 'expo.out' })
+	}
+
+	click = () => {
 		alert('You Clicked')
 	}
 
 	render() {
+		const { text } = this.props
 		return (
-			<div className="cta" id="cta1" onMouseOver={this.over} onMouseLeave={this.out} onClick={this.click}>
-				CTA TEXT
+			<div className="cta" id="cta1" onMouseOver={this.over} onMouseLeave={this.out} onClick={this.click} ref={(el) => (this.ctaRef = el)}>
+				{text}
 			</div>
 		)
 	}
