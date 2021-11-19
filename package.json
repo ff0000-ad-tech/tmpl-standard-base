@@ -1,52 +1,51 @@
 {
-	"buildSource": {
+  "buildSource": {
 		"platform": "Standard",
 		"template": "Examples",
 		"option": "Component Demo",
 		"size": "1000x1000",
 		"repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/standard__examples__component-demo",
-		"release": "beta.4"
-	},
-	"scripts": {
-		"prepare": "npm run install-build && npm run prettier",
-		"install-build": "cd ./1-build && npm install && cd ../",
-		"reinstall": "rm -rf ./node_modules && rm ./package-lock.json && npm i",
-		"start": "npm run browser",
-		"browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser",
-		"server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
-		"prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
-		"pub": "cd ./dev-ops && sh npm-publish.sh"
-	},
-	"name": "@ff0000-ad-tech/tmpl-standard-examples-component-demo",
-	"version": "3.6.0-beta.4",
-	"description": "Open-source HTML banner-authoring framework.",
-	"author": "160over90",
-	"license": "MIT",
-	"publishConfig": {
-		"access": "public"
-	},
-	"engines": {
-		"node": ">=14.3.0",
-		"npm": ">=6.14.5"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
-		"branch": "bsa/main"
-	},
-	"devDependencies": {
-		"@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
-		"@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.1.0",
-		"@ff0000-ad-tech/debug": "^4.1.0",
-		"@ff0000-ad-tech/wp-creative-server": "^3.2.1",
-		"@ff0000-ad-tech/wp-deploy-manager": "^11.0.0",
-		"babel-eslint": "^8.2.1",
-		"eslint": "^4.16.0",
-		"eslint-config-prettier": "^2.9.0",
-		"eslint-plugin-prettier": "^2.5.0",
-		"minimist": "^1.2.5",
-		"np": "^7.2.0",
-		"prettier": "^2.2.1",
-		"version-bump-prompt": "^6.1.0"
-	}
+		"release": "beta.4"  },
+  "scripts": {
+    "prepare": "npm run install-build && npm run prettier",
+    "install-build": "cd ./1-build && npm install && cd ../",
+    "reinstall": "rm -rf ./node_modules && rm ./package-lock.json && npm i",
+    "start": "npm run browser",
+    "browser": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./ --browser",
+    "server": "node ./node_modules/@ff0000-ad-tech/wp-creative-server/index.js --context ./",
+    "prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
+    "pub": "cd ./dev-ops && sh npm-publish.sh"
+  },
+  "name": "@ff0000-ad-tech/tmpl-standard-base-default",
+  "version": "3.7.1-beta.1",
+  "description": "Open-source HTML banner-authoring framework.",
+  "author": "160over90",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14.3.0",
+    "npm": ">=6.14.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
+    "branch": "bsa/main"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.0",
+    "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
+    "@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.1.0",
+    "@ff0000-ad-tech/debug": "^4.1.0",
+    "@ff0000-ad-tech/wp-creative-server": "^4.0.0",
+    "@ff0000-ad-tech/wp-deploy-manager": "^11.3.1",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "minimist": "^1.2.5",
+    "np": "^7.2.0",
+    "prettier": "^2.3.2",
+    "version-bump-prompt": "^6.1.0"
+  }
 }

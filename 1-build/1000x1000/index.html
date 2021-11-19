@@ -13,17 +13,18 @@
 
 		<script type="text/javascript">
 			/*-- Red.Network.clicktags.start --*/
-			var clickTag = 'http://www.changeme.com/'
+			var clickTag = 'http://set.clickthrough'
 			/*-- Red.Network.clicktags.end --*/
 
 			/*-- Red.Settings.ad_params.start --*/
 			var adParams = {
 				networkId: 'STANDARD',
-				adWidth: 1000,
-				adHeight: 1000,
-				environmentId: 'debug',
-				politeLoadAfter: 1,
+				adWidth: 300,
+				adHeight: 250,
+				preloaderDuration: 1, // seconds to hold on the preloader
+				politeLoadAfter: 0, // minimum number of seconds before starting subload
 				failoverOnError: true,
+				environmentId: 'debug',
 				version: '3.1.0-beta.5',
 			}
 			/*-- Red.Settings.ad_params.end --*/
@@ -129,6 +130,8 @@
 
 			#backup {
 				position: absolute;
+				width: 100%;
+				height: 100%;
 			}
 		</style>
 
@@ -153,16 +156,11 @@
 		</div>
 
 		<script type="text/javascript">
-			/*-- Red.Require.promise_polyfill.start --*/
-			require('./1-build/node_modules/promise-polyfill/dist/polyfill.min.js')
-			/*-- Red.Require.promise_polyfill.end --*/
-		</script>
-
-		<script type="text/javascript">
 			function useBackup() {
 				console.log('Index.useBackup()')
 				document.getElementById('backup').style.cssText = 'background-image: url(' + assets.backups[0] + ');'
 				document.getElementById('main').style.display = 'none'
+				document.getElementById('preloader').style.display = 'none'
 				document.getElementById('aux').style.display = 'block'
 			}
 		</script>
@@ -178,7 +176,7 @@
 			function prepareIndex() {
 				console.log('Index.prepareIndex()')
 				makeAuxClickable()
-				return new Promise((resolve) => {
+				return new Promise(function (resolve) {
 					/*-- Red.Network.onload.start --*/
 					resolve()
 					/*-- Red.Network.onload.end --*/
@@ -187,22 +185,23 @@
 			// ad-params
 			function prepareAdParamsMisc() {
 				console.log('Index.prepareAdParamsMisc()')
-				return new Promise((resolve) => {
+				return new Promise(function (resolve) {
 					resolve()
 				})
 			}
 			// preloader
 			function preparePreloader(images) {
 				console.log('Index.preparePreloader()')
-				images.map((image) => {
+				images.map(function (image) {
+					// NOTE: these image-elements' id is the filename without extension
 					document.getElementById('preloader').appendChild(image)
 				})
 				// resolve this function when
 				// preloader animation is complete
-				return new Promise((resolve) => {
-					setTimeout(() => {
+				return new Promise(function (resolve) {
+					setTimeout(function () {
 						resolve()
-					}, 1000)
+					}, adParams.preloaderDuration * 1000)
 					// resolve()
 				})
 			}
