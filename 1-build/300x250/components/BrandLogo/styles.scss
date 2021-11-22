@@ -1,14 +1,22 @@
 // Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
 
-.bl {
+.twitchlogo {
 	width: $ad-width;
-	height: 188px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 
-	img {
-		height: 75px;
+	* {
+		position: absolute;
 	}
+
+	&__extrusion-container {
+		top: 60px;
+		height: 40px;
+		height: 100px;
+		width: 100%;
+		overflow: hidden;
+	}
+}
+
+.st0 {
+	fill: white;
 }
