@@ -12,8 +12,9 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { brandlogo } = this.adRef
+		const { brandlogo, twitchTextRef } = this.adRef
 		// brandlogo.start()
+		twitchTextRef.start()
 		// gsap.set('.ad__cta', { opacity: 1 })
 		// gsap.from('.ad__logo', { delay: 1, duration: 0.5, x: -adParams.adWidth, ease: 'expo.out' })
 		// gsap.from('.ad__cta', { delay: 1, duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })

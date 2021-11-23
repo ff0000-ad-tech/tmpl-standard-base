@@ -22,7 +22,7 @@ class Ad extends Component {
 	render() {
 		return (
 			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
-				<TwitchText className="twitchtext" width={100}>
+				<TwitchText className="twitchtext" width={250} animateOut outDelay={2} ref={(el) => (this.twitchTextRef = el)}>
 					{this.text}
 				</TwitchText>
 			</div>
