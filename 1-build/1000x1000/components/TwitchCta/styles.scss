@@ -1,0 +1,17 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchcta {
+	overflow: hidden;
+	background-color: black;
+	color: white;
+	font-family: 'RoobertTW-SemiBold';
+	text-align: center;
+	padding: 10px 15px;
+	white-space: nowrap;
+	width: fit-content;
+
+	&__arrow {
+		font-size: calc(1em + 2px);
+	}
+}

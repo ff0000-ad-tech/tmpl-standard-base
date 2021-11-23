@@ -1,0 +1,16 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchtext {
+	position: absolute;
+	height: 100px;
+	top: 60px;
+	&__textfield {
+		font-family: 'RoobertTW-SemiBold';
+		font-size: 50px;
+		height: 30px;
+		background-color: #8cdadc;
+		white-space: nowrap;
+		height: fit-content;
+	}
+}

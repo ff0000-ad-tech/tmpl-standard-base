@@ -2,6 +2,7 @@
 @import '../../../common/styles/main.scss';
 
 .demoelement {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	background-color: #e5e5e5;
@@ -19,6 +20,7 @@
 	}
 
 	&__contentcontainer {
+		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;

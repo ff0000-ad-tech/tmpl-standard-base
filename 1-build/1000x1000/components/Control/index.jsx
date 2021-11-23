@@ -14,10 +14,10 @@ class Control extends Component {
 	startAnimation = () => {
 		// Destructure out component refs from the ad ref so that we can reference them
 		// or call methods on them
-		const { componentBasic, componentMethods } = this.adRef
+		const { brandLogo } = this.adRef
 
 		// Call components start() method
-		componentMethods.start()
+		brandLogo.start()
 	}
 
 	handleClick = () => {
