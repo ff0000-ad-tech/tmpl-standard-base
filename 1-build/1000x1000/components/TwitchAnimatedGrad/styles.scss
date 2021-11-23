@@ -1,0 +1,13 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchanimatedgrad {
+	width: 100%;
+	height: 100%;
+}
+.grad2-1 {
+	@include twitch-grad2-1;
+}
+.grad3-1 {
+	@include twitch-grad3-1;
+}

@@ -1,10 +1,9 @@
 // Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
 
-.twitchlogo {
+.twitchbug {
 	width: 300px;
 	height: 100px;
-	transform: scale(0.6);
 
 	&__inner {
 		width: inherit;

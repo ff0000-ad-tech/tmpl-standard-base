@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 
 import { SplitText as _SplitText } from '@common/js/SplitText.min.js'
-import useConvertLineBreaks from '@common/hooks/useConvertLineBreaks'
+// import useConvertLineBreaks from '@common/hooks/useConvertLineBreaks'
 import useTextFit from '@common/hooks/useTextFit'
 import '@common/fonts/RoobertTW-SemiBold.woff'
 import './styles.scss'
@@ -51,13 +51,16 @@ class TwitchText extends Component {
 	}
 
 	render() {
-		const { width, children } = this.props
+		const { width, children, debug } = this.props
 
 		return (
 			<div className="twitchtext">
-				<div className="twitchtext__textfield" style={{ width: `${width}px` }} ref={(el) => (this.textRef = el)}>
-					{useConvertLineBreaks(children)}
-				</div>
+				<div
+					className="twitchtext__textfield"
+					style={{ width: `${width}px`, backgroundColor: debug ? 'green' : null }}
+					ref={(el) => (this.textRef = el)}
+					dangerouslySetInnerHTML={{ __html: children }}
+				></div>
 			</div>
 		)
 	}

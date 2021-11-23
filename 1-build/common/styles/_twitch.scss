@@ -51,13 +51,13 @@ $twitch-color-zero: #1e69ff;
 }
 
 @mixin twitch-grad3-1 {
-	background: $twitch-color-purple;
+	// background: $twitch-color-purple;
 	background: linear-gradient(180deg, $twitch-color-purple 0%, $twitch-color-cuddle 50%, $twitch-color-lightning 100%);
 }
 
 // 3 Color Predefined
 @mixin twitch-grad3-2 {
-	background: $twitch-color-purple;
+	// background: $twitch-color-purple;
 	background: linear-gradient(180deg, $twitch-color-purple 0%, $twitch-color-mega 50%, $twitch-color-lightning 100%);
 }
 

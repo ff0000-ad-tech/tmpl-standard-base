@@ -17,3 +17,29 @@
 		flex-wrap: wrap;
 	}
 }
+
+// Gradients
+.grad {
+	width: 100%;
+	height: 100%;
+}
+.grad2-1 {
+	@include twitch-grad2-1;
+}
+
+.grad3-1 {
+	@include twitch-grad3-1;
+}
+.grad3-2 {
+	@include twitch-grad3-2;
+}
+.grad3-3 {
+	@include twitch-grad3-3;
+}
+.grad3-4 {
+	@include twitch-grad3-4;
+}
+
+.twitch__purple {
+	background: $twitch-color-purple;
+}
