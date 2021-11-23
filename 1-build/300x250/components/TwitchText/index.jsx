@@ -14,10 +14,14 @@ class TwitchText extends Component {
 
 	componentDidMount() {
 		const { textRef } = this
-		const { width, animateOut, outDelay } = this.props
+		const { width, animateOut, outDelay, fit } = this.props
 
+		let finalFontSize = getComputedStyle(textRef).getPropertyValue('font-size')
 		// Autosize text
-		const finalFontSize = useTextFit([textRef], width, 5)
+		if (fit) {
+			finalFontSize = useTextFit([textRef], width, 5)
+		}
+		console.warn(`Font size = ${finalFontSize}`)
 
 		// Distance words will move
 		const yDistance = finalFontSize * 1.3
