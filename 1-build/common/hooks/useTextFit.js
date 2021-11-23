@@ -1,7 +1,7 @@
 import { h } from 'preact'
 
-const useTextFit = (elArray, maxWidth, minFontSize, maxFontSize) => {
-	let finalFontSize = maxFontSize || 500
+const useTextFit = (elArray, maxWidth, minFont, maxFont) => {
+	let finalFontSize = maxFont || 500
 
 	const getScrollWidth = (el) => {
 		return el.scrollWidth
@@ -18,10 +18,10 @@ const useTextFit = (elArray, maxWidth, minFontSize, maxFontSize) => {
 		const fs = Number(fsString.substring(0, fsString.length - 2))
 		const newFs = fs - 1
 
-		if (newFs < minFontSize) {
+		if (newFs < minFont) {
 			elArray.map((el) => {
-				finalFontSize = minFontSize
-				el.style.fontSize = `${minFontSize}px`
+				finalFontSize = minFont
+				el.style.fontSize = `${minFont}px`
 			})
 		} else if (newFs < finalFontSize) {
 			elArray.map((el) => {

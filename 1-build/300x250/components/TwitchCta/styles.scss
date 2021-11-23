@@ -10,4 +10,8 @@
 	padding: 10px 15px;
 	white-space: nowrap;
 	width: fit-content;
+
+	&__arrow {
+		font-size: calc(1em + 2px);
+	}
 }
