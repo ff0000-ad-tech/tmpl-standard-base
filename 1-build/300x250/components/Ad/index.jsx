@@ -27,7 +27,7 @@ class Ad extends Component {
 				{/* <TwitchText className="twitchtext" width={250} animateOut fit outDelay={2} ref={(el) => (this.twitchTextRef = el)}>
 					{this.text}
 				</TwitchText> */}
-				<TwitchCta fit width={100} minFont={3} text="Install this app now ↗" ref={(el) => (this.twitchCtaRef = el)} />
+				<TwitchCta fit width={300} minFont={3} maxFont={33} text="Install this app now ↗" ref={(el) => (this.twitchCtaRef = el)} />
 			</div>
 		)
 	}

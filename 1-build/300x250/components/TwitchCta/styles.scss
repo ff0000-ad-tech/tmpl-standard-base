@@ -3,15 +3,11 @@
 
 .twitchcta {
 	overflow: hidden;
-
-	&__inner {
-		background-color: black;
-		color: white;
-		font-family: 'RoobertTW-SemiBold';
-		font-size: 15px;
-		text-align: center;
-		padding: 10px 15px;
-		white-space: nowrap;
-		width: fit-content;
-	}
+	background-color: black;
+	color: white;
+	font-family: 'RoobertTW-SemiBold';
+	text-align: center;
+	padding: 10px 15px;
+	white-space: nowrap;
+	width: fit-content;
 }
