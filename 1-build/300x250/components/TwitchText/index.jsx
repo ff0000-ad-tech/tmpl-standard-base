@@ -1,7 +1,8 @@
 import { h, Component } from 'preact'
 
 import { SplitText as _SplitText } from '@common/js/SplitText.min.js'
-import useConvertLineBreaks from '@common/js/useConvertLineBreaks'
+import useConvertLineBreaks from '@common/hooks/useConvertLineBreaks'
+import useTextFit from '@common/hooks/useTextFit'
 import '@common/fonts/RoobertTW-SemiBold.woff'
 import './styles.scss'
 class TwitchText extends Component {
@@ -10,6 +11,7 @@ class TwitchText extends Component {
 	}
 
 	componentDidMount() {
+		useTextFit([this.textRef], this.props.width, 5)
 		let tl = gsap.timeline(),
 			mySplitText = new _SplitText(this.textRef, { type: 'words' }),
 			words = mySplitText.words //an array of all the divs that wrap each character
@@ -21,8 +23,10 @@ class TwitchText extends Component {
 
 	render() {
 		return (
-			<div ref={(el) => (this.textRef = el)} className="twitchtext">
-				{useConvertLineBreaks(this.props.children)}
+			<div className="twitchtext">
+				<div className="twitchtext__textfield" style={{ width: `${this.props.width}px` }} ref={(el) => (this.textRef = el)}>
+					{useConvertLineBreaks(this.props.children)}
+				</div>
 			</div>
 		)
 	}

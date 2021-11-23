@@ -2,6 +2,14 @@
 @import '../../../common/styles/main.scss';
 
 .twitchtext {
-	font-family: 'RoobertTW-SemiBold';
-	font-size: 30px;
+	height: 100px;
+
+	&__textfield {
+		font-family: 'RoobertTW-SemiBold';
+		font-size: 50px;
+		height: 30px;
+		background-color: #8cdadc;
+		white-space: nowrap;
+		height: fit-content;
+	}
 }
