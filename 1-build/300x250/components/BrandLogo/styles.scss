@@ -2,8 +2,7 @@
 @import '../../../common/styles/main.scss';
 
 .twitchlogo {
-	width: $ad-width;
-
+	transform: scale(0.3);
 	* {
 		position: absolute;
 	}
@@ -14,6 +13,37 @@
 		height: 100px;
 		width: 100%;
 		overflow: hidden;
+	}
+
+	&__triangle-topleft {
+		left: 29.2px;
+		width: 0;
+		height: 0;
+		border-bottom: 19px solid black;
+		border-right: 14px solid transparent;
+	}
+
+	&__triangle-topright {
+		left: 229px;
+		width: 0;
+		height: 0;
+		border-bottom: 19px solid black;
+		border-left: 14px solid transparent;
+	}
+
+	&__bar-topleft {
+		transform-origin: left top;
+		left: 26.5px;
+		width: 4.5px;
+		height: 20px;
+		background-color: black;
+	}
+	&__bar-topright {
+		transform-origin: right top;
+		right: 52.5px;
+		width: 4.5px;
+		height: 20px;
+		background-color: black;
 	}
 }
 
