@@ -1,0 +1,72 @@
+///////////////////////////////////////////////
+// Colors
+///////////////////////////////////////////////
+$twitch-color-purple: #9146ff;
+$twitch-color-blackops: #000000;
+$twitch-color-ice: #f0f0ff;
+$twitch-color-jiggle: #fab4ff;
+$twitch-color-worm: #facdcd;
+$twitch-color-isabelle: #feee85;
+$twitch-color-droid: #befae1;
+$twitch-color-wipeout: #00c8af;
+$twitch-color-smoke: #d2d2e6;
+$twitch-color-widow: #bfabff;
+$twitch-color-peach: #fc6675;
+$twitch-color-packman: #ffca5f;
+$twitch-color-felicia: #57bee6;
+$twitch-color-sonic: #0014a5;
+$twitch-color-dragon: #8205b4;
+$twitch-color-cuddle: #fa1ed2;
+$twitch-color-bandit: #ff6905;
+$twitch-color-lightning: #fafa19;
+$twitch-color-ko: #beff00;
+$twitch-color-mega: #00fafa;
+$twitch-color-nights: #41145f;
+$twitch-color-osu: #be0078;
+$twitch-color-sniper: #fa2828;
+$twitch-color-egg: #00fa05;
+$twitch-color-legend: #69ffc3;
+$twitch-color-zero: #1e69ff;
+
+///////////////////////////////////////////////
+// Mixins
+///////////////////////////////////////////////
+
+// GRADIENTS
+// Pass in whatever colors you want
+@mixin twitch-grad2($color1, $color2) {
+	background: $color1;
+	background: linear-gradient(180deg, $color1 0%, $color2 100%);
+}
+
+@mixin twitch-grad3($color1, $color2) {
+	background: $color1;
+	background: linear-gradient(180deg, $color1 0%, $color2 50%, $color3 100%);
+}
+
+// 2 Color Predefined
+@mixin twitch-grad2-1 {
+	background: $twitch-color-purple;
+	background: linear-gradient(180deg, $twitch-color-purple 0%, $twitch-color-mega 100%);
+}
+
+@mixin twitch-grad3-1 {
+	background: $twitch-color-purple;
+	background: linear-gradient(180deg, $twitch-color-purple 0%, $twitch-color-cuddle 50%, $twitch-color-lightning 100%);
+}
+
+// 3 Color Predefined
+@mixin twitch-grad3-2 {
+	background: $twitch-color-purple;
+	background: linear-gradient(180deg, $twitch-color-purple 0%, $twitch-color-mega 50%, $twitch-color-lightning 100%);
+}
+
+@mixin twitch-grad3-3 {
+	background: $twitch-color-purple;
+	background: linear-gradient(180deg, $twitch-color-purple 0%, $twitch-color-legend 50%, $twitch-color-zero 100%);
+}
+
+@mixin twitch-grad3-4 {
+	background: $twitch-color-purple;
+	background: linear-gradient(180deg, $twitch-color-purple 0%, $twitch-color-cuddle 50%, $twitch-color-zero 100%);
+}

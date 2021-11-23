@@ -48,3 +48,9 @@
 		background: $color-secondary;
 	}
 }
+
+.grad-1 {
+	width: 100%;
+	height: 250px;
+	@include twitch-grad3-1;
+}
