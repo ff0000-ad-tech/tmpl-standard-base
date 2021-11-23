@@ -4,6 +4,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 // Components
 import BrandLogo from '../BrandLogo'
 import TwitchText from '../TwitchText'
+import TwitchCta from '../TwitchCta'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -19,12 +20,14 @@ class Ad extends Component {
 		this.text = 'This is some cool text<br>for a twitch ad'
 	}
 
+	start() {}
 	render() {
 		return (
 			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
-				<TwitchText className="twitchtext" width={250} animateOut fit outDelay={2} ref={(el) => (this.twitchTextRef = el)}>
+				{/* <TwitchText className="twitchtext" width={250} animateOut fit outDelay={2} ref={(el) => (this.twitchTextRef = el)}>
 					{this.text}
-				</TwitchText>
+				</TwitchText> */}
+				<TwitchCta height={30} text="Install now ↗" ref={(el) => (this.twitchCtaRef = el)} />
 			</div>
 		)
 	}
