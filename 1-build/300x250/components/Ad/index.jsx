@@ -3,6 +3,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 // Components
 import BrandLogo from '../BrandLogo'
+import TwitchText from '../TwitchText'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -15,12 +16,13 @@ import './styles.scss'
 class Ad extends Component {
 	constructor(props) {
 		super(props)
+		this.text = 'This is some cool text<br>for a twitch ad'
 	}
 
 	render() {
 		return (
 			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
-				<BrandLogo ref={(el) => (this.brandlogo = el)} />
+				<TwitchText className="twitchtext">{this.text}</TwitchText>
 			</div>
 		)
 	}
