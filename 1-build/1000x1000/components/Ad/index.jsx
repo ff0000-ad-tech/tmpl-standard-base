@@ -4,6 +4,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 // Components
 import DemoElement from '../DemoElement'
 import TwitchBug from '../TwitchBug'
+import TwitchWordMark from '../TwitchWordMark'
 import TwitchCta from '../TwitchCta'
 import TwitchText from '../TwitchText'
 import TwitchAnimatedGrad from '../TwitchAnimatedGrad'
@@ -26,6 +27,9 @@ class Ad extends Component {
 		return (
 			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
 				<div className="ad__inner-container">
+					<DemoElement name="Twitch Bug" width="550px" height="550px">
+						<TwitchWordMark scale={0.6} ref={(el) => (this.twitchWordMark = el)} />
+					</DemoElement>
 					<DemoElement name="Twitch Bug" width="250px" height="150px">
 						<TwitchBug debug scale={0.6} ref={(el) => (this.twitchBug = el)} />
 					</DemoElement>

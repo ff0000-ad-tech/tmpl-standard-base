@@ -1,0 +1,79 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchwordmark {
+	width: 300px;
+	height: 300px;
+	background-color: $twitch_color_purple;
+	&__inner {
+		width: inherit;
+		height: inherit;
+		transform-origin: center center;
+		position: relative;
+
+		* {
+			position: absolute;
+		}
+	}
+
+	&__grad {
+		// clip-path: polygon(0 0, 100% 0, 75% 100%, 30% 100%);
+		clip-path: polygon(
+			0% 0%,
+			100% 0%,
+			73% 100%,
+			64% 100%,
+			62.3% 95%,
+			62% 100%,
+			55% 100%,
+			53% 95%,
+			53% 100%,
+			38% 100%,
+			36% 95%,
+			36% 100%,
+			31% 100%
+		);
+		//
+		top: 75px;
+		width: 100%;
+		height: 92px;
+		background: linear-gradient(180deg, rgba(0, 250, 250, 0) 0%, rgba(0, 250, 250, 1) 100%);
+	}
+	&__beam-left {
+		transform: skew(34deg);
+		left: 74px;
+		top: 70px;
+		width: 8px;
+		opacity: 0.15;
+		height: 100px;
+		background: linear-gradient(90deg, rgba(0, 250, 250, 0) 0%, rgba(0, 250, 250, 1) 100%);
+	}
+	&__beam-mid {
+		top: 70px;
+		left: 159px;
+		width: 8px;
+		opacity: 0.15;
+		height: 100px;
+		background: linear-gradient(270deg, rgba(0, 250, 250, 0) 0%, rgba(0, 250, 250, 1) 100%);
+	}
+	&__beam-right {
+		transform: skew(350deg);
+		left: 194px;
+		top: 70px;
+		width: 8px;
+		opacity: 0.15;
+		height: 100px;
+		background: linear-gradient(270deg, rgba(0, 250, 250, 0) 0%, rgba(0, 250, 250, 1) 100%);
+	}
+
+	&__ref {
+		visibility: hidden;
+		object-fit: contain;
+		width: 336px;
+		top: -11px;
+		left: -9px;
+	}
+}
+.wm-white {
+	fill: white;
+}
