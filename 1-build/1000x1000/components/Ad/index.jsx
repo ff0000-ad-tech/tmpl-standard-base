@@ -8,6 +8,7 @@ import TwitchWordMark from '../TwitchWordMark'
 import TwitchCta from '../TwitchCta'
 import TwitchText from '../TwitchText'
 import TwitchAnimatedGrad from '../TwitchAnimatedGrad'
+import TwitchStreamerBug from '../TwitchStreamerBug'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -27,6 +28,16 @@ class Ad extends Component {
 		return (
 			<div className="ad">
 				<div className="ad__inner-container">
+					<DemoElement
+						name="Twitch Streamer bug"
+						width="250px"
+						height="150px"
+						onClick={() => {
+							this.twitchStreamerBug.restart()
+						}}
+					>
+						<TwitchStreamerBug ref={(el) => (this.twitchStreamerBug = el)} />
+					</DemoElement>
 					<DemoElement
 						name="Twitch Wordmark"
 						width="250px"

@@ -61,7 +61,7 @@ class TwitchCta extends Component {
 
 	start() {
 		// Scale down the cta on X and Y, we can also now set its opacity to be visible
-		gsap.set('.twitchcta', { scaleX: 0.1, scaleY: 0.1, opacity: 1 })
+		gsap.set('.twitchcta', { scaleX: 0.05, scaleY: 0.05, opacity: 1 })
 		// Scale cta y
 		gsap.to('.twitchcta', { duration: 0.2, scaleY: 1 })
 		// Scale cta x, when complete then animate cta text in
