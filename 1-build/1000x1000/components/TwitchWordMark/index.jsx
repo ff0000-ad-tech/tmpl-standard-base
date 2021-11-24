@@ -36,12 +36,20 @@ class TwitchWordMark extends Component {
 		)
 	}
 	componentDidMount() {
+		this.start()
+	}
+
+	// Only used in demo for restarting animation. You can delete if you want
+	restart() {
+		this.start()
+	}
+
+	start() {
 		let bg2 = 'linear-gradient(rgba(0, 250, 250, 0) 80%, rgba(0, 250, 250, 1) 100%)'
 		gsap.from('.twitchwordmark__grad', { background: bg2, duration: 0.5 })
 		gsap.from('.twitchword', { duration: 0.5, scale: 0.5 })
 	}
 
-	start() {}
 	render() {
 		const { debug, scale } = this.props
 		return (

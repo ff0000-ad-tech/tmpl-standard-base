@@ -35,9 +35,7 @@ class Control extends Component {
 	}
 
 	render() {
-		return (
-			<Ad ref={(el) => (this.adRef = el)} onClick={this.handleClick} onMouseOver={this.handleRollOver} onMouseLeave={this.handleRollOut} />
-		)
+		return <Ad ref={(el) => (this.adRef = el)} />
 	}
 }
 export default Control

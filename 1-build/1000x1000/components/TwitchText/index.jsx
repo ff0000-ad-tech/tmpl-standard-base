@@ -45,6 +45,12 @@ class TwitchText extends Component {
 		this.tl = tl
 	}
 
+	// Only used in demo for restarting animation. You can delete if you want
+	restart() {
+		this.tl.seek(0)
+		this.start()
+	}
+
 	start() {
 		// Starts the text animation
 		this.tl.play()

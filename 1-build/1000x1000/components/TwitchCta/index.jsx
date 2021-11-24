@@ -43,6 +43,22 @@ class TwitchCta extends Component {
 		this.tl = tl
 	}
 
+	// Only used in demo for restarting animation. You can delete if you want
+	restart() {
+		const { ctaRef } = this
+		let tl = gsap.timeline(),
+			mySplitText = new _SplitText(ctaRef, { type: 'words' }),
+			words = mySplitText.words //an array of all the divs that wrap each character
+		// Pause timeline so we can start it later
+		tl.pause()
+		// Animate in each word
+		tl.from(words, { duration: 0.5, y: `+=30`, ease: 'expo.out', stagger: 0.08 })
+		// Set the tl class var to our timeline here for ref throughout class
+		this.tl = tl
+		this.tl.seek(0)
+		this.start()
+	}
+
 	start() {
 		// Scale down the cta on X and Y, we can also now set its opacity to be visible
 		gsap.set('.twitchcta', { scaleX: 0.1, scaleY: 0.1, opacity: 1 })

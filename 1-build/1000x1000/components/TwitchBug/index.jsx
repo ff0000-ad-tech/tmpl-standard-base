@@ -50,7 +50,24 @@ class TwitchBug extends Component {
 		gsap.set('.twitchbug__bar-topright', { opacity: 0 })
 	}
 
+	// Only used in demo for restarting animation. You can delete if you want
+	restart() {
+		this.start()
+	}
+
 	start() {
+		//////////////////////////////////////////////////
+		// Below is only used to reset stuff for restart//
+		// Bit can be deleted in production 			//
+		//////////////////////////////////////////////////
+		gsap.set('.twitchbug', { opacity: 0 })
+		gsap.set('.twitchbug__triangle-topright', { transformOrigin: '100% 0' })
+		gsap.set('.twitchbug__triangle-topleft', { transformOrigin: '0 0' })
+		gsap.set('.outline', { opacity: 0 })
+		gsap.set('.twitchbug__bar-topleft', { opacity: 0 })
+		gsap.set('.twitchbug__bar-topright', { opacity: 0 })
+		//////////////////////////////////////////////////
+
 		const { scale } = this.props
 		console.warn('STARTED')
 		const dur = 0.8

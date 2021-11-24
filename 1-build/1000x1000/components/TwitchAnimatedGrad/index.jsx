@@ -8,12 +8,14 @@ class TwitchAnimatedGrad extends Component {
 		super(props)
 	}
 
-	componentDidMount() {
+	restart() {
+		this.start()
+	}
+
+	start() {
 		const { duration } = this.props
 		gsap.from('#covergrad', { ease: 'none', duration, opacity: 0 })
 	}
-
-	start() {}
 	render() {
 		const { startClass, endClass } = this.props
 		return (

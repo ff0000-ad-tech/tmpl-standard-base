@@ -25,18 +25,46 @@ class Ad extends Component {
 
 	render() {
 		return (
-			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
+			<div className="ad">
 				<div className="ad__inner-container">
-					<DemoElement name="Twitch Bug" width="250px" height="180px">
+					<DemoElement
+						name="Twitch Wordmark"
+						width="250px"
+						height="180px"
+						onClick={() => {
+							this.twitchWordMark.restart()
+						}}
+					>
 						<TwitchWordMark scale={0.6} ref={(el) => (this.twitchWordMark = el)} />
 					</DemoElement>
-					<DemoElement name="Twitch Bug" width="250px" height="150px">
+					<DemoElement
+						name="Twitch Bug"
+						width="250px"
+						height="150px"
+						onClick={() => {
+							this.twitchBug.restart()
+						}}
+					>
 						<TwitchBug debug scale={0.6} ref={(el) => (this.twitchBug = el)} />
 					</DemoElement>
-					<DemoElement name="Twitch CTA" width="250px" height="150px">
+					<DemoElement
+						name="Twitch CTA"
+						width="250px"
+						height="150px"
+						onClick={() => {
+							this.twitchCta.restart()
+						}}
+					>
 						<TwitchCta fit width={200} minFont={3} maxFont={25} arrow text="Install this app now" ref={(el) => (this.twitchCta = el)} />
 					</DemoElement>
-					<DemoElement name="Twitch Text" width="250px" height="150px">
+					<DemoElement
+						name="Twitch Text"
+						width="250px"
+						height="150px"
+						onClick={() => {
+							this.twitchText.restart()
+						}}
+					>
 						<TwitchText className="twitchtext" width={200} animateOut fit outDelay={2} ref={(el) => (this.twitchText = el)}>
 							{this.text}
 						</TwitchText>
@@ -56,8 +84,15 @@ class Ad extends Component {
 					<DemoElement name="Twitch Grad3-4" width="250px" height="150px">
 						<div className="grad3-4 grad"></div>
 					</DemoElement>
-					<DemoElement name="Twitch Animated Grad" width="250px" height="150px">
-						<TwitchAnimatedGrad startClass="grad3-2" endClass="grad2-1" duration={1} />
+					<DemoElement
+						name="Twitch Animated Grad"
+						width="250px"
+						height="150px"
+						onClick={() => {
+							this.twitchAnimatedGrad.restart()
+						}}
+					>
+						<TwitchAnimatedGrad startClass="grad3-2" endClass="grad2-1" duration={1} ref={(el) => (this.twitchAnimatedGrad = el)} />
 					</DemoElement>
 				</div>
 			</div>
