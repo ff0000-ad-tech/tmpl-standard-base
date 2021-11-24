@@ -43,10 +43,12 @@ class TwitchWordMark extends Component {
 		return (
 			<div className="twitchwordmark">
 				<div className="twitchwordmark__inner" style={{ backgroundColor: debug ? 'green' : null }}>
-					<div className="twitchwordmark__grad" />
-					<div className="twitchwordmark__beam-left" />
-					<div className="twitchwordmark__beam-mid" />
-					<div className="twitchwordmark__beam-right" />
+					<div className="twitchwordmark__grad">
+						<div className="twitchwordmark__beam twitchwordmark__beam-left" />
+						<div className="twitchwordmark__beam twitchwordmark__beam-mid" />
+						<div className="twitchwordmark__beam twitchwordmark__beam-right" />
+					</div>
+
 					<img className="twitchwordmark__ref" src={ImageManager.get('wmref').src} />
 					{this.outline}
 				</div>
