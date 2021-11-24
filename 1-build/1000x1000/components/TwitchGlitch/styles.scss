@@ -1,0 +1,51 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchglitch {
+	width: 300px;
+	height: 100px;
+	position: relative;
+	background: $twitch-color-lightning;
+
+	&__left {
+		position: absolute;
+		top: 30.3px;
+		left: 5px;
+		width: 60px;
+		height: 30px;
+		background: linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%);
+		transform: skewY(-45deg);
+	}
+	&__mid {
+		position: absolute;
+		top: 60px;
+		left: 17px;
+		width: 60px;
+		height: 10px;
+		background: linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 0.5) 100%);
+		transform: skewY(-45deg);
+	}
+	&__bottom {
+		position: absolute;
+		top: 30px;
+		left: 35.3px;
+		width: 29.2px;
+		height: 60px;
+		background: linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%);
+		transform: skewX(-45deg);
+	}
+
+	&__glitch-bg {
+		fill: white;
+	}
+	&__glitch-icon {
+		fill: $twitch-color-purple;
+	}
+	&__glitch {
+		position: absolute;
+		top: -8px;
+		left: 61px;
+		width: 50px;
+		aspect-ratio: 1;
+	}
+}

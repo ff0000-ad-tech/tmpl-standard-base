@@ -2,7 +2,6 @@ import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 // Components
-import ComponentTextFitParagraph from '../ComponentTextFitParagraph'
 import '@common/images/replay.svg'
 
 // Assets
