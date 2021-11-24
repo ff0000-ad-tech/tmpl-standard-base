@@ -35,7 +35,10 @@ class TwitchWordMark extends Component {
 			</svg>
 		)
 	}
-	componentDidMount() {}
+	componentDidMount() {
+		let bg2 = 'linear-gradient(rgba(0, 250, 250, 0) 80%, rgba(0, 250, 250, 1) 100%)'
+		gsap.from('.twitchwordmark__grad', { background: bg2, duration: 0.5 })
+	}
 
 	start() {}
 	render() {
