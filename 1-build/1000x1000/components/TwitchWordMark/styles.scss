@@ -3,7 +3,8 @@
 
 .twitchwordmark {
 	width: 300px;
-	height: 300px;
+	height: 165px;
+	// transform-origin: center center;
 	background-color: $twitch_color_purple;
 	&__inner {
 		width: inherit;

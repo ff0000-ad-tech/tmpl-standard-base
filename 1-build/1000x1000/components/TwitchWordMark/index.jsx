@@ -43,9 +43,9 @@ class TwitchWordMark extends Component {
 
 	start() {}
 	render() {
-		const { debug } = this.props
+		const { debug, scale } = this.props
 		return (
-			<div className="twitchwordmark">
+			<div className="twitchwordmark" style={`transform: scale(${scale})`}>
 				<div className="twitchwordmark__inner" style={{ backgroundColor: debug ? 'green' : null }}>
 					<div className="twitchwordmark__grad">
 						<div className="twitchwordmark__beam twitchwordmark__beam-left" />

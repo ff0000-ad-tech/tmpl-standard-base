@@ -27,7 +27,7 @@ class Ad extends Component {
 		return (
 			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
 				<div className="ad__inner-container">
-					<DemoElement name="Twitch Bug" width="550px" height="550px">
+					<DemoElement name="Twitch Bug" width="250px" height="180px">
 						<TwitchWordMark scale={0.6} ref={(el) => (this.twitchWordMark = el)} />
 					</DemoElement>
 					<DemoElement name="Twitch Bug" width="250px" height="150px">
