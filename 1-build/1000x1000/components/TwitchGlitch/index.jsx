@@ -17,8 +17,8 @@ class TwitchGlitch extends Component {
 								class="twitchglitch__glitch-icon"
 								d="M0,1905h451v637l639-637h439l476-505V0H0 M1805,1300l-400,400h-400l-350,350v-350H205V200h1600V1300z"
 							/>
-							<rect x="1305" y="550" class="twitchglitch__glitch-icon" width="200" height="600" />
-							<rect x="755" y="550" class="twitchglitch__glitch-icon" width="200" height="600" />
+							<rect x="1305" y="550" class="twitchglitch__glitch-icon-eye" width="200" height="600" />
+							<rect x="755" y="550" class="twitchglitch__glitch-icon-eye" width="200" height="600" />
 						</g>
 					</g>
 				</g>
@@ -26,14 +26,27 @@ class TwitchGlitch extends Component {
 		)
 	}
 	componentDidMount() {
-		// this.start()
+		// Setup gradients to tween to
 		let bg_left = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
 		let bg_mid = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
 		let bg_bottom = 'linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
+
+		// Animate gradients
 		gsap.to('.twitchglitch__left', { duration: 0.3, backgroundImage: bg_left, ease: 'sine.out' })
 		gsap.to('.twitchglitch__mid', { duration: 0.3, backgroundImage: bg_mid, ease: 'sine.out' })
 		gsap.to('.twitchglitch__bottom', { duration: 0.3, backgroundImage: bg_bottom, ease: 'sine.out' })
 		gsap.from('.twitchglitch__glitch', { duration: 0.305, left: -5, top: 40, ease: 'sine.out' })
+
+		// Eye animation
+		let delay = 0.2
+		// Animate open
+		gsap.from('.twitchglitch__glitch-icon-eye', { delay: delay, duration: 0.05, scaleY: 0, ease: 'sine.out' })
+		// Animate closed
+		gsap.to('.twitchglitch__glitch-icon-eye', { delay: delay + 0.1, duration: 0.05, scaleY: 0, ease: 'sine.out' })
+		// Animate open
+		gsap.to('.twitchglitch__glitch-icon-eye', { delay: delay + 0.15, duration: 0.05, scaleY: 1, ease: 'sine.out' })
+		gsap.to('.twitchglitch__glitch-icon-eye', { delay: delay + 0.2, duration: 0.05, scaleY: 0.2, ease: 'sine.out' })
+		gsap.to('.twitchglitch__glitch-icon-eye', { delay: delay + 0.25, duration: 0.1, scaleY: 1, ease: 'sine.out' })
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want
