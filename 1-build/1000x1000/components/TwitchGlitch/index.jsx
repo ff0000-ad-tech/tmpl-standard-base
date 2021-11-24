@@ -26,7 +26,15 @@ class TwitchGlitch extends Component {
 			</svg>
 		)
 	}
-	componentDidMount() {}
+	componentDidMount() {
+		// this.start()
+		let bg_left = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
+		let bg_mid = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 0.5) 100%, rgba(145, 70, 255, 0) 100%)'
+		let bg_bottom = 'linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
+		gsap.to('.twitchglitch__left', { duration: 2, backgroundImage: bg_left })
+		gsap.to('.twitchglitch__mid', { duration: 2, backgroundImage: bg_mid })
+		gsap.to('.twitchglitch__bottom', { duration: 2, backgroundImage: bg_bottom })
+	}
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
