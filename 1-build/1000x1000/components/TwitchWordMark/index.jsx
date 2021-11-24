@@ -12,7 +12,7 @@ class TwitchWordMark extends Component {
 		super(props)
 
 		this.outline = (
-			<svg viewBox="0 0 1140 290">
+			<svg viewBox="0 0 1140 290" class="twitchword">
 				<polygon class="wm-white" points="170,170 100,170 100,190 170,190 170,270 60,270 20,230 20,20 100,20 100,90 170,90 " />
 				<polygon
 					class="wm-white"
@@ -38,6 +38,7 @@ class TwitchWordMark extends Component {
 	componentDidMount() {
 		let bg2 = 'linear-gradient(rgba(0, 250, 250, 0) 80%, rgba(0, 250, 250, 1) 100%)'
 		gsap.from('.twitchwordmark__grad', { background: bg2, duration: 0.5 })
+		gsap.from('.twitchword', { duration: 0.5, scale: 0.5 })
 	}
 
 	start() {}
