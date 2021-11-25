@@ -10,6 +10,7 @@ import TwitchText from '../TwitchText'
 import TwitchAnimatedGrad from '../TwitchAnimatedGrad'
 import TwitchStreamerBug from '../TwitchStreamerBug'
 import TwitchGlitch from '../TwitchGlitch'
+import TwitchWordBoard from '../TwitchWordBoard'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -23,12 +24,26 @@ class Ad extends Component {
 	constructor(props) {
 		super(props)
 		this.text = 'This is some cool text<br>for a twitch ad'
+		this.wordboardtext = 'Its Here.'
 	}
 
 	render() {
 		return (
 			<div className="ad">
 				<div className="ad__inner-container">
+					<DemoElement
+						name="Twitch Text"
+						width="550px"
+						height="550px"
+						onClick={() => {
+							// this.twitchWordBoard.restart()
+						}}
+					>
+						<TwitchWordBoard className="twitchtext" width={550} animateOut fit outDelay={2} ref={(el) => (this.twitchWordBoard = el)}>
+							{this.wordboardtext}
+						</TwitchWordBoard>
+					</DemoElement>
+
 					<DemoElement
 						name="Twitch Glitch"
 						width="250px"
