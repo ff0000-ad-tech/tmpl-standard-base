@@ -2,9 +2,14 @@
 @import '../../../common/styles/main.scss';
 
 .twitchwordboard {
-	height: fit-content;
+	overflow: hidden;
 
 	&__textfield {
+		width: fit-content;
+		height: fit-content;
+		left: 50%;
+		transform: translateX(-50%);
+		position: relative;
 		font-family: 'RoobertTW-SemiBold';
 		font-size: 20px;
 		white-space: nowrap;
@@ -13,7 +18,8 @@
 }
 .line {
 	letter-spacing: 2px;
-	animation: in 2s ease-out forwards;
+	// transform-origin: center;
+	// animation: in 2s ease-out forwards;
 }
 
 @keyframes in {

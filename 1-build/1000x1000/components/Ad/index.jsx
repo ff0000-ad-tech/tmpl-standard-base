@@ -33,13 +33,21 @@ class Ad extends Component {
 				<div className="ad__inner-container">
 					<DemoElement
 						name="Twitch Text"
-						width="550px"
-						height="550px"
+						width="400px"
+						height="400px"
 						onClick={() => {
 							// this.twitchWordBoard.restart()
 						}}
 					>
-						<TwitchWordBoard className="twitchtext" width={550} animateOut fit outDelay={2} ref={(el) => (this.twitchWordBoard = el)}>
+						<TwitchWordBoard
+							className="twitchtext"
+							width={300}
+							height={300}
+							animateOut
+							fit
+							outDelay={2}
+							ref={(el) => (this.twitchWordBoard = el)}
+						>
 							{this.wordboardtext}
 						</TwitchWordBoard>
 					</DemoElement>
