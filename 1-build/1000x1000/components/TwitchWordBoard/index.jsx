@@ -39,9 +39,9 @@ class TwitchWordBoard extends Component {
 
 	start() {
 		// Starts the text animation
-		gsap.from(this.lines, { duration: 0.8, paddingTop: 20, paddingBottom: 20, stagger: 0.05 })
+		gsap.from(this.lines, { duration: 0.4, paddingTop: 20, paddingBottom: 20, stagger: 0.03 })
 		// gsap.from('.twitchwordboard__textfield', { scale: 2, duration: 0.8, ease: 'expo.out' })
-		gsap.set('.line', { animation: 'in .8s ease-out forwards' })
+		gsap.set('.line', { animation: 'in .4s ease-out forwards' })
 	}
 
 	render() {
