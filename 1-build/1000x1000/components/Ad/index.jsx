@@ -39,15 +39,7 @@ class Ad extends Component {
 							this.twitchWordBoard.restart()
 						}}
 					>
-						<TwitchWordBoard
-							className="twitchtext"
-							width="100%"
-							height="100%"
-							animateOut
-							fit
-							outDelay={2}
-							ref={(el) => (this.twitchWordBoard = el)}
-						>
+						<TwitchWordBoard className="twitchtext" width="100%" height="100%" zoomScale={2} ref={(el) => (this.twitchWordBoard = el)}>
 							{this.wordboardtext}
 						</TwitchWordBoard>
 					</DemoElement>

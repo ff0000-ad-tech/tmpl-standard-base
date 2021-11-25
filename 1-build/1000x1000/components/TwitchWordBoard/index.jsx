@@ -26,6 +26,7 @@ class TwitchWordBoard extends Component {
 	}
 
 	start() {
+		const { zoomScale } = this.props
 		// Starts the text animation
 		gsap.from(this.lines, {
 			duration: 0.4,
@@ -34,7 +35,12 @@ class TwitchWordBoard extends Component {
 			onComplete: () => {},
 		})
 		gsap.set('.twitchwordboard__line', { animation: 'in .4s forwards' })
-		gsap.to('.twitchwordboard__textfield', { delay: 0.36, scale: 1.25, duration: 0.4, ease: 'sine.out' })
+		gsap.set('.twitchwordboard__line', { animation: 'in .4s forwards' })
+		gsap.to('.twitchwordboard__textfield', { delay: 0.36, scale: zoomScale, duration: 0.4, ease: 'sine.out' })
+		gsap.to('.twitchwordboard__textfield', { delay: 0.7, scale: zoomScale - 0.5, duration: 0.3 })
+		gsap.set('.twitchwordboard__textfield', { delay: 0.95, opacity: 0 })
+		gsap.set('.twitchwordboard__singleword', { delay: 0.95, opacity: 1 })
+		gsap.from('.twitchwordboard__singleword', { delay: 0.95, scale: zoomScale, duration: 0.3, ease: 'sine.out' })
 	}
 
 	getText() {
@@ -47,7 +53,7 @@ class TwitchWordBoard extends Component {
 	}
 
 	render() {
-		const { width, height, debug } = this.props
+		const { width, height, debug, children } = this.props
 
 		return (
 			<div className="twitchwordboard" style={{ width: `${width}px`, height: `${height}px`, background: debug ? 'green' : null }}>
@@ -56,6 +62,7 @@ class TwitchWordBoard extends Component {
 					ref={(el) => (this.textRef = el)}
 					dangerouslySetInnerHTML={{ __html: this.getText() }}
 				></div>
+				<div className="twitchwordboard__singleword" dangerouslySetInnerHTML={{ __html: children }}></div>
 			</div>
 		)
 	}

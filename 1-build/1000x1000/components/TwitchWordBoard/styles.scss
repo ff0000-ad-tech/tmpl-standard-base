@@ -5,12 +5,13 @@
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	&__textfield {
 		width: fit-content;
 		height: fit-content;
-		left: 50%;
-		transform: translateX(-50%);
 		position: relative;
 		font-family: 'RoobertTW-SemiBold';
 		font-size: 21px;
@@ -19,6 +20,17 @@
 	}
 	&__line {
 		letter-spacing: 2px;
+	}
+
+	&__singleword {
+		font-family: 'RoobertTW-SemiBold';
+		font-size: 21px;
+		white-space: nowrap;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		opacity: 0;
+		transform: translate(-50%, -50%);
 	}
 }
 
