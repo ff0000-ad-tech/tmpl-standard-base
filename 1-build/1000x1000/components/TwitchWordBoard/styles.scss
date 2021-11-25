@@ -1,14 +1,26 @@
 // Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
 
-.twitchtext {
+.twitchwordboard {
 	height: fit-content;
 
 	&__textfield {
 		font-family: 'RoobertTW-SemiBold';
-		font-size: 50px;
-		height: 30px;
+		font-size: 20px;
 		white-space: nowrap;
-		height: fit-content;
+		text-align: center;
+	}
+}
+.line {
+	letter-spacing: 2px;
+	animation: in 2s ease-out forwards;
+}
+
+@keyframes in {
+	0% {
+		letter-spacing: 3px;
+	}
+	100% {
+		letter-spacing: 1px;
 	}
 }
