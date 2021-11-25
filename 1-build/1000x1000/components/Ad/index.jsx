@@ -33,16 +33,16 @@ class Ad extends Component {
 				<div className="ad__inner-container">
 					<DemoElement
 						name="Twitch Text"
-						width="400px"
-						height="400px"
+						width="250px"
+						height="180px"
 						onClick={() => {
-							// this.twitchWordBoard.restart()
+							this.twitchWordBoard.restart()
 						}}
 					>
 						<TwitchWordBoard
 							className="twitchtext"
-							width={300}
-							height={300}
+							width="100%"
+							height="100%"
 							animateOut
 							fit
 							outDelay={2}
@@ -55,7 +55,7 @@ class Ad extends Component {
 					<DemoElement
 						name="Twitch Glitch"
 						width="250px"
-						height="150px"
+						height="180px"
 						onClick={() => {
 							// this.twitchStreamerBug.restart()
 						}}
@@ -65,7 +65,7 @@ class Ad extends Component {
 					<DemoElement
 						name="Twitch Streamer bug"
 						width="250px"
-						height="150px"
+						height="180px"
 						onClick={() => {
 							this.twitchStreamerBug.restart()
 						}}
@@ -85,7 +85,7 @@ class Ad extends Component {
 					<DemoElement
 						name="Twitch Bug"
 						width="250px"
-						height="150px"
+						height="180px"
 						onClick={() => {
 							this.twitchBug.restart()
 						}}
@@ -95,7 +95,7 @@ class Ad extends Component {
 					<DemoElement
 						name="Twitch CTA"
 						width="250px"
-						height="150px"
+						height="180px"
 						onClick={() => {
 							this.twitchCta.restart()
 						}}
@@ -105,7 +105,7 @@ class Ad extends Component {
 					<DemoElement
 						name="Twitch Text"
 						width="250px"
-						height="150px"
+						height="180px"
 						onClick={() => {
 							this.twitchText.restart()
 						}}
@@ -114,25 +114,25 @@ class Ad extends Component {
 							{this.text}
 						</TwitchText>
 					</DemoElement>
-					<DemoElement name="Twitch Grad2-1" width="250px" height="150px">
+					<DemoElement name="Twitch Grad2-1" width="250px" height="180px">
 						<div className="grad2-1 grad"></div>
 					</DemoElement>
-					<DemoElement name="Twitch Grad3-1" width="250px" height="150px">
+					<DemoElement name="Twitch Grad3-1" width="250px" height="180px">
 						<div className="grad3-1 grad"></div>
 					</DemoElement>
-					<DemoElement name="Twitch Grad3-2" width="250px" height="150px">
+					<DemoElement name="Twitch Grad3-2" width="250px" height="180px">
 						<div className="grad3-2 grad"></div>
 					</DemoElement>
-					<DemoElement name="Twitch Grad3-3" width="250px" height="150px">
+					<DemoElement name="Twitch Grad3-3" width="250px" height="180px">
 						<div className="grad3-3 grad"></div>
 					</DemoElement>
-					<DemoElement name="Twitch Grad3-4" width="250px" height="150px">
+					<DemoElement name="Twitch Grad3-4" width="250px" height="180px">
 						<div className="grad3-4 grad"></div>
 					</DemoElement>
 					<DemoElement
 						name="Twitch Animated Grad"
 						width="250px"
-						height="150px"
+						height="180px"
 						onClick={() => {
 							this.twitchAnimatedGrad.restart()
 						}}

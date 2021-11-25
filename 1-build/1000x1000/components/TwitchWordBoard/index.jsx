@@ -8,24 +8,33 @@ import './styles.scss'
 class TwitchWordBoard extends Component {
 	constructor(props) {
 		super(props)
-		// Holds ref to timeline
-		this.tl = null
 	}
 
 	componentDidMount() {
 		const { textRef } = this
-		let { children } = this.props
-		const { width } = this.props
 
-		const split = new _SplitText(textRef, { type: 'lines', linesClass: 'line' })
+		const split = new _SplitText(textRef, { type: 'lines', linesClass: 'twitchwordboard__line' })
 		this.lines = split.lines
 		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
-		this.tl.seek(0)
+		gsap.set('.twitchwordboard__line', { animation: '' })
+		gsap.set('.twitchwordboard__textfield', { scale: 1 })
 		this.start()
+	}
+
+	start() {
+		// Starts the text animation
+		gsap.from(this.lines, {
+			duration: 0.4,
+			paddingTop: 30,
+			paddingBottom: 30,
+			onComplete: () => {},
+		})
+		gsap.set('.twitchwordboard__line', { animation: 'in .4s forwards' })
+		gsap.to('.twitchwordboard__textfield', { delay: 0.36, scale: 1.25, duration: 0.4, ease: 'sine.out' })
 	}
 
 	getText() {
@@ -37,24 +46,11 @@ class TwitchWordBoard extends Component {
 		return newText.repeat(30)
 	}
 
-	start() {
-		// Starts the text animation
-		gsap.from(this.lines, {
-			duration: 0.4,
-			paddingTop: 20,
-			paddingBottom: 20,
-			// stagger: 0.03,
-			onComplete: () => {},
-		})
-		gsap.set('.line', { animation: 'in .4s ease-out forwards' })
-		gsap.to('.twitchwordboard__textfield', { delay: 0.35, scale: 1.2, duration: 0.5, ease: 'sine.Out' })
-	}
-
 	render() {
 		const { width, height, debug } = this.props
 
 		return (
-			<div className="twitchwordboard" style={{ width: `${width}px`, height: `${height}px` }}>
+			<div className="twitchwordboard" style={{ width: `${width}px`, height: `${height}px`, background: debug ? 'green' : null }}>
 				<div
 					className="twitchwordboard__textfield"
 					ref={(el) => (this.textRef = el)}
