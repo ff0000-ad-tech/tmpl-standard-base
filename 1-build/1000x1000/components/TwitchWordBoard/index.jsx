@@ -29,6 +29,7 @@ class TwitchWordBoard extends Component {
 
 	start() {
 		const { zoomScale } = this.props
+		gsap.set('.twitchwordboard__textfield', { opacity: 1 })
 		// Starts the text animation
 		gsap.from('.twitchwordboard__textfield', { y: 60, duration: 0.4 })
 		gsap.from(this.lines, {

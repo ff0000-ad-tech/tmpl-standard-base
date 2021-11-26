@@ -68,6 +68,7 @@ class Ad extends Component {
 						name="Twitch Wordmark"
 						width="250px"
 						height="180px"
+						background="#9146ff"
 						onClick={() => {
 							this.twitchWordMark.restart()
 						}}
@@ -82,7 +83,7 @@ class Ad extends Component {
 							this.twitchBug.restart()
 						}}
 					>
-						<TwitchBug debug scale={0.6} ref={(el) => (this.twitchBug = el)} />
+						<TwitchBug scale={0.6} ref={(el) => (this.twitchBug = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch CTA"
