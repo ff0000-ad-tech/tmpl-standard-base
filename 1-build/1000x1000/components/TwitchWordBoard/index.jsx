@@ -20,6 +20,8 @@ class TwitchWordBoard extends Component {
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
+		gsap.set('.twitchwordboard__textfield', { opacity: 0 })
+		gsap.set('.twitchwordboard__singleword', { opacity: 0, scale: 1 })
 		gsap.set('.twitchwordboard__line', { animation: '' })
 		gsap.set('.twitchwordboard__textfield', { scale: 1 })
 		this.start()
@@ -28,13 +30,13 @@ class TwitchWordBoard extends Component {
 	start() {
 		const { zoomScale } = this.props
 		// Starts the text animation
+		gsap.from('.twitchwordboard__textfield', { y: 60, duration: 0.4 })
 		gsap.from(this.lines, {
 			duration: 0.4,
 			paddingTop: 30,
 			paddingBottom: 30,
 			onComplete: () => {},
 		})
-		gsap.set('.twitchwordboard__line', { animation: 'in .4s forwards' })
 		gsap.set('.twitchwordboard__line', { animation: 'in .4s forwards' })
 		gsap.to('.twitchwordboard__textfield', { delay: 0.36, scale: zoomScale, duration: 0.4, ease: 'sine.out' })
 		gsap.to('.twitchwordboard__textfield', { delay: 0.7, scale: zoomScale - 0.5, duration: 0.3 })

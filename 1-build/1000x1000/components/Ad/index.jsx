@@ -49,7 +49,7 @@ class Ad extends Component {
 						width="250px"
 						height="180px"
 						onClick={() => {
-							// this.twitchStreamerBug.restart()
+							this.twitchGlitch.restart()
 						}}
 					>
 						<TwitchGlitch ref={(el) => (this.twitchGlitch = el)} />
