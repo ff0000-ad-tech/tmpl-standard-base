@@ -12,6 +12,7 @@ import TwitchStreamerBug from '../TwitchStreamerBug'
 import TwitchGlitch from '../TwitchGlitch'
 import TwitchWordBoard from '../TwitchWordBoard'
 import TwitchTripleText from '../TwitchTripleText'
+import TwitchNameScrollBug from '../TwitchNameScrollBug'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -34,6 +35,26 @@ class Ad extends Component {
 			<div className="ad">
 				<div className="ad__inner-container">
 					<DemoElement
+						name="Twitch Name Scroll Bug"
+						width="250px"
+						height="180px"
+						onClick={() => {
+							this.twitchNameScrollBug.restart()
+						}}
+					>
+						<TwitchNameScrollBug name="Khaykashi" scale={0.2} ref={(el) => (this.twitchNameScrollBug = el)} />
+					</DemoElement>
+					<DemoElement
+						name="Twitch Name Scroll Bug"
+						width="250px"
+						height="180px"
+						onClick={() => {
+							this.twitchNameScrollBug2.restart()
+						}}
+					>
+						<TwitchNameScrollBug name="Khaykashi" scale={0.2} ref={(el) => (this.twitchNameScrollBug2 = el)} />
+					</DemoElement>
+					<DemoElement
 						name="Twitch Triple Text"
 						width="250px"
 						height="180px"
@@ -53,6 +74,16 @@ class Ad extends Component {
 						>
 							{this.tripletext}
 						</TwitchTripleText>
+					</DemoElement>
+					<DemoElement
+						name="Twitch Bug"
+						width="250px"
+						height="180px"
+						onClick={() => {
+							this.twitchBug.restart()
+						}}
+					>
+						<TwitchBug scale={0.6} ref={(el) => (this.twitchBug = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Word Board"
@@ -98,16 +129,7 @@ class Ad extends Component {
 					>
 						<TwitchWordMark scale={0.6} ref={(el) => (this.twitchWordMark = el)} />
 					</DemoElement>
-					<DemoElement
-						name="Twitch Bug"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchBug.restart()
-						}}
-					>
-						<TwitchBug scale={0.6} ref={(el) => (this.twitchBug = el)} />
-					</DemoElement>
+
 					<DemoElement
 						name="Twitch CTA"
 						width="250px"

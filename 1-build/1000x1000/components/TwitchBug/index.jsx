@@ -48,6 +48,7 @@ class TwitchBug extends Component {
 		gsap.set('.outline', { opacity: 0 })
 		gsap.set('.twitchbug__bar-topleft', { opacity: 0 })
 		gsap.set('.twitchbug__bar-topright', { opacity: 0 })
+		// this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want
@@ -77,8 +78,9 @@ class TwitchBug extends Component {
 		// Show the component
 		gsap.set('.twitchbug', { opacity: 1 })
 		// Set initial scale
+		console.warn('BUG SCALE = ', scale)
 		if (scale) {
-			gsap.set('.twitchbug', { scale: scale })
+			gsap.set(this.bugRef, { scale: scale })
 		}
 		gsap.to('.twitchbug__inner', { duration: 0.2, scale: '-=.2' })
 		// Bounce Scale down
@@ -113,7 +115,7 @@ class TwitchBug extends Component {
 	render() {
 		const { debug } = this.props
 		return (
-			<div className="twitchbug">
+			<div className="twitchbug" ref={(el) => (this.bugRef = el)}>
 				<div className="twitchbug__inner" style={{ backgroundColor: debug ? 'green' : null }}>
 					<div className="twitchbug__extrusion-container">
 						<img className="twitchbug__left" src={ImageManager.get('LeftExt').src} />
