@@ -1,0 +1,24 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchtripletext {
+	position: relative;
+	font-family: 'RoobertTW-SemiBold';
+	color: white;
+	width: 100%;
+	height: 60%;
+
+	&__textfield {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		white-space: nowrap;
+
+		&--outline {
+			-webkit-text-fill-color: rgba(0, 0, 0, 0); /* Will override color (regardless of order) */
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: white;
+		}
+	}
+}

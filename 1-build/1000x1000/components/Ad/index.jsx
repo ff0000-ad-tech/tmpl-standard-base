@@ -11,6 +11,7 @@ import TwitchAnimatedGrad from '../TwitchAnimatedGrad'
 import TwitchStreamerBug from '../TwitchStreamerBug'
 import TwitchGlitch from '../TwitchGlitch'
 import TwitchWordBoard from '../TwitchWordBoard'
+import TwitchTripleText from '../TwitchTripleText'
 
 // Assets
 import '@common/fonts/template_font.woff'
@@ -25,12 +26,34 @@ class Ad extends Component {
 		super(props)
 		this.text = 'This is some cool text<br>for a twitch ad'
 		this.wordboardtext = 'Its Here.'
+		this.tripletext = 'This is a really cool thing!<br>Yes, yes it is!'
 	}
 
 	render() {
 		return (
 			<div className="ad">
 				<div className="ad__inner-container">
+					<DemoElement
+						name="Twitch Triple Text"
+						width="250px"
+						height="180px"
+						background="#9146ff"
+						onClick={() => {
+							this.twitchTripleText.restart()
+						}}
+					>
+						<TwitchTripleText
+							width={230}
+							zoomScale={2}
+							fit
+							minFontSize={5}
+							//maxFontSize={23}
+							fontSize={50}
+							ref={(el) => (this.twitchTripleText = el)}
+						>
+							{this.tripletext}
+						</TwitchTripleText>
+					</DemoElement>
 					<DemoElement
 						name="Twitch Text"
 						width="250px"
