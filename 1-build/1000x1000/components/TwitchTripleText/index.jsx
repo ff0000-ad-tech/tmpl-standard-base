@@ -77,7 +77,7 @@ class TwitchTripleText extends Component {
 	}
 
 	render() {
-		const { fontSize, width, children, debug } = this.props
+		const { fontSize, width, children } = this.props
 		// We need to pass in a font size for the text so we can set its css font-size
 		// if we don't pass a fontSize in then use 16
 		const fs = fontSize || 16

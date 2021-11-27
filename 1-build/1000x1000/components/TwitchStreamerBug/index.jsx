@@ -49,7 +49,12 @@ class TwitchStreamerBug extends Component {
 		this.tl.to('.streamerbug__bg', { duration: 0.2, scaleX: 1 }, '-=.05')
 		this.tl.from('.streamerbug__glitch', { duration: 0.35, y: 30, ease: 'expo.out' }, '-=.2')
 		this.tl.from('.streamerbug__streamername', { duration: 0.35, y: 30, ease: 'expo.out' }, '-=.1')
-		this.tl.fromTo('.streamerbug__highlight', { x: -highlightWidth }, { duration: 0.6, x: highlightWidth, ease: 'sine.inOut' }, '-=.35')
+		this.tl.fromTo(
+			'.streamerbug__highlight',
+			{ x: -highlightWidth - 2 },
+			{ duration: 0.6, x: highlightWidth + 2, ease: 'sine.inOut' },
+			'-=.35'
+		)
 		this.tl.play()
 
 		// Only used to demonstrate animate out
@@ -69,13 +74,13 @@ class TwitchStreamerBug extends Component {
 		this.tl.reverse()
 	}
 	render() {
-		const { text, arrow, maxFont } = this.props
+		const { name } = this.props
 		return (
 			<div className="streamerbug" ref={(el) => (this.streamerBug = el)}>
 				<div className="streamerbug__container">
 					<div className="streamerbug__bg" />
 					{this.glitch}
-					<div className="streamerbug__streamername">/Reapz okmike</div>
+					<div className="streamerbug__streamername">/{name}</div>
 					<div className="streamerbug__highlight" ref={(el) => (this.highlight = el)} />
 				</div>
 			</div>

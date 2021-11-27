@@ -55,7 +55,7 @@ class Ad extends Component {
 						</TwitchTripleText>
 					</DemoElement>
 					<DemoElement
-						name="Twitch Text"
+						name="Twitch Word Board"
 						width="250px"
 						height="180px"
 						onClick={() => {
@@ -85,7 +85,7 @@ class Ad extends Component {
 							this.twitchStreamerBug.restart()
 						}}
 					>
-						<TwitchStreamerBug ref={(el) => (this.twitchStreamerBug = el)} />
+						<TwitchStreamerBug ref={(el) => (this.twitchStreamerBug = el)} name="UmiNoKaiju" />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Wordmark"
