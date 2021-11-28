@@ -96,7 +96,7 @@ class Ad extends Component {
 							this.twitchGlitch.restart()
 						}}
 					>
-						<TwitchGlitch ref={(el) => (this.twitchGlitch = el)} />
+						<TwitchGlitch scale={1.3} ref={(el) => (this.twitchGlitch = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Streamer bug"
