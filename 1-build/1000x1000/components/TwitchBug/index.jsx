@@ -36,18 +36,20 @@ class TwitchBug extends Component {
 				/>
 				<path
 					class="outline"
+					ref={(el) => (this.outlineRef = el)}
 					d="M1140,290V120l-50-50h-50V0H937.21l-.49,70H790l-30,30V70H690V0H470V70H105V0H0V240l50,50H190V260l30,30H590V260l30,30H760V260l30,30M170,170H100v20h70v80H60L20,230V20h80V90h70ZM470,270H230l-40-40V90h80V190h20V90h80V190h20V90h80Zm100,0H490V90h80Zm0-200H490V20h80ZM740,170H670v20h70v80H630l-40-40V20h80V90h70Zm180,0H840v20h80v80H800l-40-40V130l40-40H920Zm200,100h-80V170h-20V270H940V20h80V90h60l40,40Z"
 				/>
 			</svg>
 		)
 	}
 	componentDidMount() {
-		gsap.set('.twitchbug', { opacity: 0 })
-		gsap.set('.twitchbug__triangle-topright', { transformOrigin: '100% 0' })
-		gsap.set('.twitchbug__triangle-topleft', { transformOrigin: '0 0' })
-		gsap.set('.outline', { opacity: 0 })
-		gsap.set('.twitchbug__bar-topleft', { opacity: 0 })
-		gsap.set('.twitchbug__bar-topright', { opacity: 0 })
+		const { twitchbugRef, triangletoprightRef, triangletopleftRef, outlineRef, bartopleftRef, bartoprightRef } = this
+		gsap.set(twitchbugRef, { opacity: 0 })
+		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
+		gsap.set(triangletopleftRef, { transformOrigin: '0 0' })
+		gsap.set(outlineRef, { opacity: 0 })
+		gsap.set(bartopleftRef, { opacity: 0 })
+		gsap.set(bartoprightRef, { opacity: 0 })
 		// this.start()
 	}
 
@@ -57,76 +59,89 @@ class TwitchBug extends Component {
 	}
 
 	start() {
+		const {
+			twitchbugRef,
+			triangletoprightRef,
+			triangletopleftRef,
+			outlineRef,
+			bartopleftRef,
+			bartoprightRef,
+			innerRef,
+			leftRef,
+			middleRef,
+			rightRef,
+		} = this
+		const { scale } = this.props
+
 		//////////////////////////////////////////////////
 		// Below is only used to reset stuff for restart//
 		// Bit can be deleted in production 			//
 		//////////////////////////////////////////////////
-		gsap.set('.twitchbug', { opacity: 0 })
-		gsap.set('.twitchbug__triangle-topright', { transformOrigin: '100% 0' })
-		gsap.set('.twitchbug__triangle-topleft', { transformOrigin: '0 0' })
-		gsap.set('.outline', { opacity: 0 })
-		gsap.set('.twitchbug__bar-topleft', { opacity: 0 })
-		gsap.set('.twitchbug__bar-topright', { opacity: 0 })
+		gsap.set(twitchbugRef, { opacity: 0 })
+		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
+		gsap.set(triangletopleftRef, { transformOrigin: '0 0' })
+		gsap.set(outlineRef, { opacity: 0 })
+		gsap.set(bartopleftRef, { opacity: 0 })
+		gsap.set(bartoprightRef, { opacity: 0 })
 		//////////////////////////////////////////////////
 
-		const { scale } = this.props
-		console.warn('STARTED')
 		const dur = 0.8
 		const e = 'expo.out'
 		let delay = 0
 
 		// Show the component
-		gsap.set('.twitchbug', { opacity: 1 })
+		gsap.set(twitchbugRef, { opacity: 1 })
 		// Set initial scale
 		console.warn('BUG SCALE = ', scale)
 		if (scale) {
-			gsap.set(this.bugRef, { scale: scale })
+			gsap.set(twitchbugRef, { scale: scale })
 		}
-		gsap.to('.twitchbug__inner', { duration: 0.2, scale: '-=.2' })
+		gsap.to(innerRef, { duration: 0.2, scale: '-=.2' })
 		// Bounce Scale down
-		gsap.to('.twitchbug__inner', { duration: 0.2, scale: '-=.1' })
+		gsap.to(innerRef, { duration: 0.2, scale: '-=.1' })
 		delay += 0.2
 
 		// Bring in logo outline
-		gsap.set('.twitchbug__bar-topleft', { delay: delay, opacity: 1 })
-		gsap.set('.twitchbug__bar-topright', { delay: delay, opacity: 1 })
-		gsap.set('.outline', { delay: delay, opacity: 1 })
+		gsap.set(bartopleftRef, { delay: delay, opacity: 1 })
+		gsap.set(bartoprightRef, { delay: delay, opacity: 1 })
+		gsap.set(outlineRef, { delay: delay, opacity: 1 })
 
 		// Bounce Scale up
-		gsap.to('.twitchbug__inner', { delay: delay, duration: 0.2, scale: '+=.05' })
+		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: '+=.05' })
 		delay += 0.2
 
 		// Jump Scale up
-		gsap.to('.twitchbug__inner', { delay: delay, duration: 0.2, scale: '+=.1' })
+		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: '+=.1' })
 		delay += 0
 		// Start Extrusion
-		gsap.from('.twitchbug__left', { delay: delay, duration: dur, x: '-=40', y: '-=40', ease: e })
-		gsap.from('.twitchbug__middle', { delay: delay, duration: dur, y: '-=40', ease: e })
-		gsap.from('.twitchbug__right', { delay: delay, duration: dur, x: '+=40', y: '-=40', ease: e })
-		gsap.from('.twitchbug__triangle-topleft', { delay: delay + 0.1, duration: dur, scaleX: 0, ease: e })
-		gsap.from('.twitchbug__triangle-topright', { delay: delay + 0.1, duration: dur, scaleX: 0, ease: e })
-		gsap.to('.twitchbug__bar-topleft', { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
-		gsap.to('.twitchbug__bar-topright', { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
+		gsap.from(leftRef, { delay: delay, duration: dur, x: '-=40', y: '-=40', ease: e })
+		gsap.from(middleRef, { delay: delay, duration: dur, y: '-=40', ease: e })
+		gsap.from(rightRef, { delay: delay, duration: dur, x: '+=40', y: '-=40', ease: e })
+		gsap.from(triangletopleftRef, { delay: delay + 0.1, duration: dur, scaleX: 0, ease: e })
+		gsap.from(triangletoprightRef, { delay: delay + 0.1, duration: dur, scaleX: 0, ease: e })
+		gsap.to(bartopleftRef, { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
+		gsap.to(bartoprightRef, { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
 		delay += 0.2
 
 		// Continuous Scale up
-		gsap.to('.twitchbug__inner', { delay: delay, duration: 0.5, scale: 1 })
+		gsap.to(innerRef, { delay: delay, duration: 0.5, scale: 1 })
 	}
 	render() {
+		const { outline } = this
 		const { debug } = this.props
 		return (
-			<div className="twitchbug" ref={(el) => (this.bugRef = el)}>
-				<div className="twitchbug__inner" style={{ backgroundColor: debug ? 'green' : null }}>
+			<div className="twitchbug" ref={(el) => (this.twitchbugRef = el)}>
+				<div className="twitchbug__inner" ref={(el) => (this.innerRef = el)}>
 					<div className="twitchbug__extrusion-container">
-						<img className="twitchbug__left" src={ImageManager.get('LeftExt').src} />
-						<img className="twitchbug__middle" src={ImageManager.get('MiddleExt').src} />
-						<img className="twitchbug__right" src={ImageManager.get('RightExt').src} />
+						<img className="twitchbug__left" src={ImageManager.get('LeftExt').src} ref={(el) => (this.leftRef = el)} />
+						<img className="twitchbug__middle" src={ImageManager.get('MiddleExt').src} ref={(el) => (this.middleRef = el)} />
+						<img className="twitchbug__right" src={ImageManager.get('RightExt').src} ref={(el) => (this.rightRef = el)} />
 					</div>
-					{this.outline}
-					<div className="twitchbug__triangle-topleft" />
-					<div className="twitchbug__triangle-topright" />
-					<div className="twitchbug__bar-topleft" />
-					<div className="twitchbug__bar-topright" />
+					{outline}
+					<div className="twitchbug__triangle-topleft" ref={(el) => (this.triangletopleftRef = el)} />
+					<div className="twitchbug__triangle-topright" ref={(el) => (this.triangletoprightRef = el)} />
+					<div className="twitchbug__bar-topleft" ref={(el) => (this.bartopleftRef = el)} />
+					<div className="twitchbug__bar-topright" ref={(el) => (this.bartoprightRef = el)} />
 				</div>
 			</div>
 		)
