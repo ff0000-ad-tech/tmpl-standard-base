@@ -130,7 +130,7 @@ class TwitchBug extends Component {
 		const { outline } = this
 		const { debug } = this.props
 		return (
-			<div className="twitchbug" ref={(el) => (this.twitchbugRef = el)}>
+			<div style={this.props.style || null} className="twitchbug" ref={(el) => (this.twitchbugRef = el)}>
 				<div className="twitchbug__inner" ref={(el) => (this.innerRef = el)}>
 					<div className="twitchbug__extrusion-container">
 						<img className="twitchbug__left" src={ImageManager.get('LeftExt').src} ref={(el) => (this.leftRef = el)} />

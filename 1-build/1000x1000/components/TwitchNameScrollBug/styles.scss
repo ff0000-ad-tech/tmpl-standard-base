@@ -4,12 +4,28 @@
 .twitchnamescrollbug {
 	height: fit-content;
 	width: 100%;
-
+	background: green;
+	&__bug {
+		background: purple;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 	&__textfield {
 		font-family: 'RoobertTW-SemiBold';
 		font-size: 50px;
 		height: 30px;
 		white-space: nowrap;
 		height: fit-content;
+	}
+	&__namecontainer {
+		background: purple;
+		position: relative;
+		overflow: hidden;
+		left: 20px;
+
+		&-text {
+			white-space: nowrap;
+		}
 	}
 }
