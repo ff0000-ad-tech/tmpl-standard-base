@@ -16,10 +16,10 @@ class TwitchCta extends Component {
 	}
 
 	componentDidMount() {
-		const { ctaRef } = this
+		const { ctaRef, textContainerRef } = this
 		const { width, minFont, maxFont, fit } = this.props
 
-		gsap.set('.twitchcta', { opacity: 0 })
+		gsap.set(ctaRef, { opacity: 0 })
 
 		let finalFontSize = getComputedStyle(ctaRef).getPropertyValue('font-size')
 		if (fit) {
@@ -29,7 +29,7 @@ class TwitchCta extends Component {
 
 		// Used to offset the text on Y because of extra space in the font face
 		const textYOffset = finalFontSize * 0.15
-		gsap.set('#twitchcta__text-container', { y: `-=${textYOffset}` })
+		gsap.set(textContainerRef, { y: `-=${textYOffset}` })
 
 		// Word animation timeline
 		let tl = gsap.timeline(),
@@ -60,12 +60,13 @@ class TwitchCta extends Component {
 	}
 
 	start() {
+		const { ctaRef } = this
 		// Scale down the cta on X and Y, we can also now set its opacity to be visible
-		gsap.set('.twitchcta', { scaleX: 0.05, scaleY: 0.05, opacity: 1 })
+		gsap.set(ctaRef, { scaleX: 0.05, scaleY: 0.05, opacity: 1 })
 		// Scale cta y
-		gsap.to('.twitchcta', { duration: 0.2, scaleY: 1 })
+		gsap.to(ctaRef, { duration: 0.2, scaleY: 1 })
 		// Scale cta x, when complete then animate cta text in
-		gsap.to('.twitchcta', {
+		gsap.to(ctaRef, {
 			duration: 0.2,
 			delay: 0.2,
 			scaleX: 1,
@@ -78,7 +79,7 @@ class TwitchCta extends Component {
 		const { text, arrow, maxFont } = this.props
 		return (
 			<div className="twitchcta" style={{ fontSize: maxFont }} ref={(el) => (this.ctaRef = el)}>
-				<div id="twitchcta__text-container">
+				<div id="twitchcta__text-container" ref={(el) => (this.textContainerRef = el)}>
 					{text}
 					{arrow ? <span className="twitchcta__arrow">&nbsp↗</span> : null}
 				</div>

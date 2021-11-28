@@ -21,7 +21,6 @@ class TwitchText extends Component {
 		if (fit) {
 			finalFontSize = useTextFit([textRef], width, 5)
 		}
-		console.warn(`Font size = ${finalFontSize}`)
 
 		// Distance words will move
 		const yDistance = finalFontSize * 1.3

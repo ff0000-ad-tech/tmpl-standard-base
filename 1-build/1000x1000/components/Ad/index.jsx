@@ -87,7 +87,6 @@ class Ad extends Component {
 							{this.wordboardtext}
 						</TwitchWordBoard>
 					</DemoElement>
-
 					<DemoElement
 						name="Twitch Glitch"
 						width="250px"
