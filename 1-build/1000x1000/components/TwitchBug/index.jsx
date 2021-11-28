@@ -92,13 +92,32 @@ class TwitchBug extends Component {
 		// Show the component
 		gsap.set(twitchbugRef, { opacity: 1 })
 		// Set initial scale
-		console.warn('BUG SCALE = ', scale)
 		if (scale) {
-			gsap.set(twitchbugRef, { scale: scale })
+			gsap.set(innerRef, { scale: scale })
+			// Since transform scale does not affect doc flow (original size and position are still in effect)
+			// we need to resize the parent to the new dimensions
+			twitchbugRef.style.width = 300 * scale + 'px'
+			twitchbugRef.style.height = 100 * scale + 'px'
+
+			// Since transform scale does not affect doc flow (original size and position are still in effect)
+			// we need to reposition the scaled element to remain centered
+			// We need different calculations based on if scale is > or < 1
+			if (scale < 1) {
+				const newLeft = (300 - 300 * scale) / 2
+				const newTop = (100 - 100 * scale) / 2
+				innerRef.style.left = `-${newLeft}px`
+				innerRef.style.top = `-${newTop}px`
+			}
+			if (scale > 1) {
+				const newLeft = (300 * scale - 300) / 2
+				const newTop = (100 * scale - 100) / 2
+				innerRef.style.left = `${newLeft}px`
+				innerRef.style.top = `${newTop}px`
+			}
 		}
-		gsap.to(innerRef, { duration: 0.2, scale: '-=.2' })
+		gsap.to(innerRef, { duration: 0.2, scale: `-=${0.2 * scale}` })
 		// Bounce Scale down
-		gsap.to(innerRef, { duration: 0.2, scale: '-=.1' })
+		gsap.to(innerRef, { duration: 0.2, scale: `-=${0.1 * scale}` })
 		delay += 0.2
 
 		// Bring in logo outline
@@ -107,11 +126,13 @@ class TwitchBug extends Component {
 		gsap.set(outlineRef, { delay: delay, opacity: 1 })
 
 		// Bounce Scale up
-		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: '+=.05' })
+		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: `+=${0.05 * scale}` })
 		delay += 0.2
 
 		// Jump Scale up
-		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: '+=.1' })
+		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: `-=${0.2 * scale}` })
+		// Continuous Scale up
+		gsap.to(innerRef, { delay: delay, duration: 0.3, scale: scale })
 		delay += 0
 		// Start Extrusion
 		gsap.from(leftRef, { delay: delay, duration: dur, x: '-=40', y: '-=40', ease: e })
@@ -122,9 +143,6 @@ class TwitchBug extends Component {
 		gsap.to(bartopleftRef, { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
 		gsap.to(bartoprightRef, { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
 		delay += 0.2
-
-		// Continuous Scale up
-		gsap.to(innerRef, { delay: delay, duration: 0.5, scale: 1 })
 	}
 	render() {
 		const { outline } = this

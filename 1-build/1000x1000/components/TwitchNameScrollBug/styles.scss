@@ -3,24 +3,14 @@
 
 .twitchnamescrollbug {
 	position: relative;
-	height: 31px;
 	width: 100%;
+	left: 10px;
+	display: flex;
+	align-items: center;
 
-	&__bug {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	&__textfield {
-		height: 30px;
-		white-space: nowrap;
-		height: fit-content;
-	}
 	&__namecontainer {
-		position: absolute;
-		top: 5px;
 		overflow: hidden;
-		left: 72px;
+		margin-left: 10px;
 
 		&-text {
 			font-family: 'RoobertTW-SemiBold';

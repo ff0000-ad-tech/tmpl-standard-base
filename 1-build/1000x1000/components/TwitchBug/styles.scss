@@ -2,12 +2,12 @@
 @import '../../../common/styles/main.scss';
 
 .twitchbug {
-	width: 300px;
-	height: 100px;
-
+	// background: green;
 	&__inner {
-		width: inherit;
-		height: inherit;
+		position: relative;
+		// background: red;
+		width: 300px;
+		height: 100px;
 		transform-origin: center center;
 		position: relative;
 
