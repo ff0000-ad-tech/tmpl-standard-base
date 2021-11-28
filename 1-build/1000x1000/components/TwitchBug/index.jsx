@@ -148,8 +148,8 @@ class TwitchBug extends Component {
 		const { outline } = this
 		const { debug } = this.props
 		return (
-			<div style={this.props.style || null} className="twitchbug" ref={(el) => (this.twitchbugRef = el)}>
-				<div className="twitchbug__inner" ref={(el) => (this.innerRef = el)}>
+			<div style={{ background: debug ? 'green' : null }} className="twitchbug" ref={(el) => (this.twitchbugRef = el)}>
+				<div style={{ background: debug ? 'red' : null }} className="twitchbug__inner" ref={(el) => (this.innerRef = el)}>
 					<div className="twitchbug__extrusion-container">
 						<img className="twitchbug__left" src={ImageManager.get('LeftExt').src} ref={(el) => (this.leftRef = el)} />
 						<img className="twitchbug__middle" src={ImageManager.get('MiddleExt').src} ref={(el) => (this.middleRef = el)} />

@@ -73,7 +73,7 @@ class Ad extends Component {
 							this.twitchBug.restart()
 						}}
 					>
-						<TwitchBug scale={0.6} ref={(el) => (this.twitchBug = el)} />
+						<TwitchBug scale={0.7} ref={(el) => (this.twitchBug = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Word Board"

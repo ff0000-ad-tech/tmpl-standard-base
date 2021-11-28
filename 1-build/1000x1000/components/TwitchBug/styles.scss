@@ -2,11 +2,10 @@
 @import '../../../common/styles/main.scss';
 
 .twitchbug {
-	background: green;
 	position: relative;
+
 	&__inner {
 		position: absolute;
-		background: red;
 		width: 300px;
 		height: 100px;
 		transform-origin: center center;

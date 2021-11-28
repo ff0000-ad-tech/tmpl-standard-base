@@ -31,10 +31,12 @@ class TwitchNameScrollBug extends Component {
 	}
 
 	render() {
-		const { twitchBugRef, textRef, scale } = this.props
+		const { twitchBugRef, textRef, scale, debug } = this.props
 		return (
 			<div className="twitchnamescrollbug">
-				<TwitchBug scale={scale} ref={(el) => (this.twitchBugRef = el)} />
+				<div>
+					<TwitchBug scale={scale} debug={debug} ref={(el) => (this.twitchBugRef = el)} />
+				</div>
 				<div className="twitchnamescrollbug__namecontainer">
 					<div className="twitchnamescrollbug__namecontainer-text" ref={(el) => (this.textRef = el)}>
 						{this.nameText}
