@@ -24,20 +24,19 @@ class TwitchNameScrollBug extends Component {
 	}
 
 	start() {
-		const { ref, twitchBugRef } = this
+		const { textRef, twitchBugRef } = this
 		// Starts the text animation
-		// gsap.set(this.ref, { scale: 1 })
-		gsap.to(this.textRef, { x: '-=200', duration: 3, ease: 'none' })
+		gsap.fromTo(textRef, { x: '0' }, { x: '-=200', duration: 3, ease: 'none' })
 		twitchBugRef.start()
 	}
 
 	render() {
-		const { width, name, debug, scale } = this.props
-		const bugStyles = { position: 'relative', top: '0' }
+		const { twitchBugRef, textRef, scale } = this.props
+		const bugStyles = { position: 'relative', top: '-34px', left: '-114px' }
 		return (
 			<div className="twitchnamescrollbug">
 				<TwitchBug style={bugStyles} scale={scale} ref={(el) => (this.twitchBugRef = el)} />
-				<div className="twitchnamescrollbug__namecontainer" ref={(el) => (this.ref = el)}>
+				<div className="twitchnamescrollbug__namecontainer">
 					<div className="twitchnamescrollbug__namecontainer-text" ref={(el) => (this.textRef = el)}>
 						{this.nameText}
 					</div>

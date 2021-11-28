@@ -45,16 +45,6 @@ class Ad extends Component {
 						<TwitchNameScrollBug name="Khaykashi" scale={0.2} ref={(el) => (this.twitchNameScrollBug = el)} />
 					</DemoElement>
 					<DemoElement
-						name="Twitch Name Scroll Bug"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchNameScrollBug2.restart()
-						}}
-					>
-						<TwitchNameScrollBug name="Khaykashi" scale={0.4} ref={(el) => (this.twitchNameScrollBug2 = el)} />
-					</DemoElement>
-					<DemoElement
 						name="Twitch Triple Text"
 						width="250px"
 						height="180px"

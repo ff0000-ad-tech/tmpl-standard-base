@@ -2,29 +2,29 @@
 @import '../../../common/styles/main.scss';
 
 .twitchnamescrollbug {
-	height: fit-content;
+	position: relative;
+	height: 31px;
 	width: 100%;
-	background: green;
+
 	&__bug {
-		background: purple;
 		position: absolute;
 		top: 0;
 		left: 0;
 	}
 	&__textfield {
-		font-family: 'RoobertTW-SemiBold';
-		font-size: 50px;
 		height: 30px;
 		white-space: nowrap;
 		height: fit-content;
 	}
 	&__namecontainer {
-		background: purple;
-		position: relative;
+		position: absolute;
+		top: 5px;
 		overflow: hidden;
-		left: 20px;
+		left: 72px;
 
 		&-text {
+			font-family: 'RoobertTW-SemiBold';
+			font-size: 16px;
 			white-space: nowrap;
 		}
 	}
