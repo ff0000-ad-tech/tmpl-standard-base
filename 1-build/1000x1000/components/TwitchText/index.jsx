@@ -60,10 +60,10 @@ class TwitchText extends Component {
 		const { width, children, debug } = this.props
 
 		return (
-			<div className="twitchtext">
+			<div className="twitchtext" style={{ backgroundColor: debug ? 'green' : null }}>
 				<div
 					className="twitchtext__textfield"
-					style={{ width: `${width}px`, backgroundColor: debug ? 'green' : null }}
+					style={{ width: `${width}px`, backgroundColor: debug ? 'red' : null }}
 					ref={(el) => (this.textRef = el)}
 					dangerouslySetInnerHTML={{ __html: children }}
 				></div>
