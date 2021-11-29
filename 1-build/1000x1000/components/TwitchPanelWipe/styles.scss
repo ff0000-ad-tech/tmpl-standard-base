@@ -1,0 +1,60 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchpanelwipe {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	&__panel-left {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
+	&__panel-right {
+		position: absolute;
+		height: 100%;
+		overflow: hidden;
+	}
+	&__img-left {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__img-right {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__leftout {
+		animation: leftoutanimation 0.5s forwards;
+	}
+	&__rightout {
+		animation: rightoutanimation 0.3s forwards;
+	}
+	&__leftin {
+		clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+	}
+	&__rightin {
+		clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+	}
+}
+
+@keyframes leftoutanimation {
+	from {
+		clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+	}
+
+	to {
+		clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+	}
+}
+@keyframes rightoutanimation {
+	from {
+		clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+	}
+
+	to {
+		clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+	}
+}

@@ -13,6 +13,7 @@ import TwitchGlitch from '../TwitchGlitch'
 import TwitchWordBoard from '../TwitchWordBoard'
 import TwitchTripleText from '../TwitchTripleText'
 import TwitchNameScrollBug from '../TwitchNameScrollBug'
+import TwitchPanelWipe from '../TwitchPanelWipe'
 
 // Assets
 
@@ -31,6 +32,16 @@ class Ad extends Component {
 		return (
 			<div className="ad">
 				<div className="ad__inner-container">
+					<DemoElement
+						name="Twitch Name Scroll Bug"
+						width="250px"
+						height="180px"
+						onClick={() => {
+							this.twitchPanelWipe.restart()
+						}}
+					>
+						<TwitchPanelWipe ref={(el) => (this.twitchPanelWipe = el)} />
+					</DemoElement>
 					<DemoElement
 						name="Twitch Name Scroll Bug"
 						width="250px"
