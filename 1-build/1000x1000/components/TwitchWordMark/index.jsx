@@ -5,14 +5,13 @@ import './styles.scss'
 import '@size/images/LeftExt.svg'
 import '@size/images/MiddleExt.svg'
 import '@size/images/RightExt.svg'
-import '@size/images/wmref.png'
 
 class TwitchWordMark extends Component {
 	constructor(props) {
 		super(props)
 
 		this.outline = (
-			<svg viewBox="0 0 1140 290" class="twitchword">
+			<svg viewBox="0 0 1140 290" class="twitchword" ref={(el) => (this.wordRef = el)}>
 				<polygon class="wm-white" points="170,170 100,170 100,190 170,190 170,270 60,270 20,230 20,20 100,20 100,90 170,90 " />
 				<polygon
 					class="wm-white"
@@ -36,32 +35,43 @@ class TwitchWordMark extends Component {
 		)
 	}
 	componentDidMount() {
+		const { scale } = this.props
+		const { innerRef, wordmarkRef } = this
+		gsap.set(innerRef, { opacity: 0 })
+		if (scale) {
+			gsap.set(innerRef, { scale: scale })
+			wordmarkRef.style.width = 300 * scale + 'px'
+			wordmarkRef.style.height = 165 * scale + 'px'
+		}
 		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
+		const { innerRef } = this
+		gsap.set(innerRef, { opacity: 0 })
 		this.start()
 	}
 
 	start() {
+		const { innerRef, wordRef, gradRef } = this
 		let bg2 = 'linear-gradient(rgba(0, 250, 250, 0) 80%, rgba(0, 250, 250, 1) 100%)'
-		gsap.from('.twitchwordmark__grad', { background: bg2, duration: 0.5 })
-		gsap.from('.twitchword', { duration: 0.5, scale: 0.5 })
+
+		gsap.set(innerRef, { opacity: 1 })
+		gsap.from(gradRef, { background: bg2, duration: 0.5 })
+		gsap.from(wordRef, { duration: 0.5, scale: 0.5 })
 	}
 
 	render() {
 		const { debug, scale } = this.props
 		return (
-			<div className="twitchwordmark" style={`transform: scale(${scale})`}>
-				<div className="twitchwordmark__inner" style={{ backgroundColor: debug ? 'green' : null }}>
-					<div className="twitchwordmark__grad">
+			<div className="twitchwordmark" style={{ backgroundColor: debug ? 'green' : null }} ref={(el) => (this.wordmarkRef = el)}>
+				<div className="twitchwordmark__inner" style={{ backgroundColor: debug ? 'red' : null }} ref={(el) => (this.innerRef = el)}>
+					<div className="twitchwordmark__grad" ref={(el) => (this.gradRef = el)}>
 						<div className="twitchwordmark__beam twitchwordmark__beam-left" />
 						<div className="twitchwordmark__beam twitchwordmark__beam-mid" />
 						<div className="twitchwordmark__beam twitchwordmark__beam-right" />
 					</div>
-
-					<img className="twitchwordmark__ref" src={ImageManager.get('wmref').src} />
 					{this.outline}
 				</div>
 			</div>

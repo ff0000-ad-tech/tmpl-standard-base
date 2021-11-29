@@ -15,9 +15,6 @@ import TwitchTripleText from '../TwitchTripleText'
 import TwitchNameScrollBug from '../TwitchNameScrollBug'
 
 // Assets
-import '@common/fonts/template_font.woff'
-import '@size/images/160over90-logo.png'
-import '@size/images/160over90-logo-small.png'
 
 // Styles
 import './styles.scss'

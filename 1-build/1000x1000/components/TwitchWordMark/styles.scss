@@ -2,14 +2,16 @@
 @import '../../../common/styles/main.scss';
 
 .twitchwordmark {
-	width: 300px;
-	height: 165px;
+	position: relative;
 
 	&__inner {
-		width: inherit;
-		height: inherit;
+		position: absolute;
+		width: 300px;
+		height: 165px;
 		transform-origin: center center;
-		position: relative;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 
 		* {
 			position: absolute;
@@ -75,5 +77,5 @@
 	fill: white;
 }
 .wm-outline {
-	fill: none;
+	fill: $twitch-color-purple;
 }
