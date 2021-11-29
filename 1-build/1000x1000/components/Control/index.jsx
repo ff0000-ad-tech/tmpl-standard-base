@@ -14,8 +14,7 @@ class Control extends Component {
 	startAnimation = () => {
 		// Destructure out component refs from the ad ref so that we can reference them
 		// or call methods on them
-		const { twitchBug, twitchCta, twitchText } = this.adRef
-
+		// const { twitchBug, twitchCta, twitchText } = this.adRef
 		// Call components start() method
 		// twitchBug.start()
 		// twitchCta.start()

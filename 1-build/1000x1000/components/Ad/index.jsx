@@ -39,7 +39,7 @@ class Ad extends Component {
 							this.twitchNameScrollBug.restart()
 						}}
 					>
-						<TwitchNameScrollBug name="Khaykashi" scale={0.2} ref={(el) => (this.twitchNameScrollBug = el)} />
+						<TwitchNameScrollBug name="Khaykashi" scale={0.3} ref={(el) => (this.twitchNameScrollBug = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Triple Text"

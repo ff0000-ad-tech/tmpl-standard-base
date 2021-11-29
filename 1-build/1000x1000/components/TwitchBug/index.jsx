@@ -98,22 +98,6 @@ class TwitchBug extends Component {
 			// we need to resize the parent to the new dimensions
 			twitchbugRef.style.width = 300 * scale + 'px'
 			twitchbugRef.style.height = 100 * scale + 'px'
-
-			// Since transform scale does not affect doc flow (original size and position are still in effect)
-			// we need to reposition the scaled element to remain centered
-			// We need different calculations based on if scale is > or < 1
-			// if (scale < 1) {
-			// 	const newLeft = (300 - 300 * scale) / 2
-			// 	const newTop = (100 - 100 * scale) / 2
-			// 	innerRef.style.left = `-${newLeft}px`
-			// 	innerRef.style.top = `-${newTop}px`
-			// }
-			// if (scale > 1) {
-			// 	const newLeft = (300 * scale - 300) / 2
-			// 	const newTop = (100 * scale - 100) / 2
-			// 	innerRef.style.left = `${newLeft}px`
-			// 	innerRef.style.top = `${newTop}px`
-			// }
 		}
 		gsap.to(innerRef, { duration: 0.2, scale: `-=${0.2 * scale}` })
 		// Bounce Scale down
