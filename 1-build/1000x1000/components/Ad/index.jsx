@@ -33,7 +33,7 @@ class Ad extends Component {
 			<div className="ad">
 				<div className="ad__inner-container">
 					<DemoElement
-						name="Twitch Name Scroll Bug"
+						name="Twitch Panel Wipe"
 						width="250px"
 						height="180px"
 						onClick={() => {
