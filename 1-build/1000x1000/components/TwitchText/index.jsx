@@ -42,6 +42,7 @@ class TwitchText extends Component {
 			tl.to(words, { duration: 0, opacity: 0, stagger: stagger }, '-=.85')
 		}
 		this.tl = tl
+		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want

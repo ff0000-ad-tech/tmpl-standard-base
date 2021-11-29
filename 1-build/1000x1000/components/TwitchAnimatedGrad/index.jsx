@@ -8,19 +8,24 @@ class TwitchAnimatedGrad extends Component {
 		super(props)
 	}
 
+	componentDidMount() {
+		gsap.set(this.coverRef, { opacity: 0 })
+		this.start()
+	}
 	restart() {
+		gsap.set(this.coverRef, { opacity: 0 })
 		this.start()
 	}
 
 	start() {
 		const { duration } = this.props
-		gsap.from('#covergrad', { ease: 'none', duration, opacity: 0 })
+		gsap.to(this.coverRef, { ease: 'none', duration, opacity: 1 })
 	}
 	render() {
 		const { startClass, endClass } = this.props
 		return (
 			<div className={`twitchanimatedgrad ${startClass}`}>
-				<div id="covergrad" className={`twitchanimatedgrad ${endClass}`}></div>
+				<div className={`twitchanimatedgrad ${endClass}`} ref={(el) => (this.coverRef = el)}></div>
 			</div>
 		)
 	}

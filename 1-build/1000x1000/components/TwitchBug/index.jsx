@@ -50,7 +50,7 @@ class TwitchBug extends Component {
 		gsap.set(outlineRef, { opacity: 0 })
 		gsap.set(bartopleftRef, { opacity: 0 })
 		gsap.set(bartoprightRef, { opacity: 0 })
-		// this.start()
+		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want

@@ -17,9 +17,9 @@ class Control extends Component {
 		const { twitchBug, twitchCta, twitchText } = this.adRef
 
 		// Call components start() method
-		twitchBug.start()
-		twitchCta.start()
-		twitchText.start()
+		// twitchBug.start()
+		// twitchCta.start()
+		// twitchText.start()
 	}
 
 	handleClick = () => {

@@ -41,6 +41,7 @@ class TwitchCta extends Component {
 		tl.from(words, { duration: 0.5, y: `+=30`, ease: 'expo.out', stagger: 0.08 })
 		// Set the tl class var to our timeline here for ref throughout class
 		this.tl = tl
+		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want
