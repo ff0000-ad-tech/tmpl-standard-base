@@ -20,17 +20,19 @@ class TwitchNameScrollBug extends Component {
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
+		const { twitchBugRef } = this
+		twitchBugRef.restart()
 		this.start()
 	}
 
 	start() {
-		const { textRef, twitchBugRef } = this
+		const { textRef } = this
 		// Starts the text animation
 		gsap.fromTo(textRef, { x: '0' }, { x: '-=200', duration: 3, ease: 'none' })
 	}
 
 	render() {
-		const { twitchBugRef, textRef, scale, debug } = this.props
+		const { scale, debug } = this.props
 		return (
 			<div className="twitchnamescrollbug">
 				<div>

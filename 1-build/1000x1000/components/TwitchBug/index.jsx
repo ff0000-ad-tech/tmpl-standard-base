@@ -55,6 +55,14 @@ class TwitchBug extends Component {
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
+		console.warn('RESTART')
+		const { twitchbugRef, triangletoprightRef, triangletopleftRef, outlineRef, bartopleftRef, bartoprightRef } = this
+		gsap.set(twitchbugRef, { opacity: 0 })
+		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
+		gsap.set(triangletopleftRef, { transformOrigin: '0 0' })
+		gsap.set(outlineRef, { opacity: 0 })
+		gsap.set(bartopleftRef, { opacity: 0 })
+		gsap.set(bartoprightRef, { opacity: 0 })
 		this.start()
 	}
 
