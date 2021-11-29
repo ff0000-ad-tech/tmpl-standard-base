@@ -1,8 +1,6 @@
 import { h, Component } from 'preact'
 
 import { SplitText as _SplitText } from '@common/js/SplitText.min.js'
-// import useConvertLineBreaks from '@common/hooks/useConvertLineBreaks'
-import useTextFit from '@common/hooks/useTextFit'
 import '@common/fonts/RoobertTW-SemiBold.woff'
 import './styles.scss'
 class TwitchWordBoard extends Component {
@@ -20,18 +18,20 @@ class TwitchWordBoard extends Component {
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
-		gsap.set('.twitchwordboard__textfield', { opacity: 0 })
-		gsap.set('.twitchwordboard__singleword', { opacity: 0, scale: 1 })
+		const { textRef, singlewordRef } = this
+		gsap.set(textRef, { opacity: 0 })
+		gsap.set(singlewordRef, { opacity: 0, scale: 1 })
 		gsap.set('.twitchwordboard__line', { animation: '' })
-		gsap.set('.twitchwordboard__textfield', { scale: 1 })
+		gsap.set(textRef, { scale: 1 })
 		this.start()
 	}
 
 	start() {
 		const { zoomScale } = this.props
-		gsap.set('.twitchwordboard__textfield', { opacity: 1 })
+		const { textRef, singlewordRef } = this
+		gsap.set(textRef, { opacity: 1 })
 		// Starts the text animation
-		gsap.from('.twitchwordboard__textfield', { y: 60, duration: 0.4 })
+		gsap.from(textRef, { y: 60, duration: 0.4 })
 		gsap.from(this.lines, {
 			duration: 0.4,
 			paddingTop: 30,
@@ -39,11 +39,11 @@ class TwitchWordBoard extends Component {
 			onComplete: () => {},
 		})
 		gsap.set('.twitchwordboard__line', { animation: 'in .4s forwards' })
-		gsap.to('.twitchwordboard__textfield', { delay: 0.36, scale: zoomScale, duration: 0.4, ease: 'sine.out' })
-		gsap.to('.twitchwordboard__textfield', { delay: 0.7, scale: zoomScale - 0.5, duration: 0.3 })
-		gsap.set('.twitchwordboard__textfield', { delay: 0.95, opacity: 0 })
-		gsap.set('.twitchwordboard__singleword', { delay: 0.95, opacity: 1 })
-		gsap.from('.twitchwordboard__singleword', { delay: 0.95, scale: zoomScale, duration: 0.3, ease: 'sine.out' })
+		gsap.to(textRef, { delay: 0.36, scale: zoomScale, duration: 0.4, ease: 'sine.out' })
+		gsap.to(textRef, { delay: 0.7, scale: zoomScale - 0.5, duration: 0.3 })
+		gsap.set(textRef, { delay: 0.95, opacity: 0 })
+		gsap.set(singlewordRef, { delay: 0.95, opacity: 1 })
+		gsap.from(singlewordRef, { delay: 0.95, scale: zoomScale, duration: 0.3, ease: 'sine.out' })
 	}
 
 	getText() {
@@ -65,7 +65,11 @@ class TwitchWordBoard extends Component {
 					ref={(el) => (this.textRef = el)}
 					dangerouslySetInnerHTML={{ __html: this.getText() }}
 				></div>
-				<div className="twitchwordboard__singleword" dangerouslySetInnerHTML={{ __html: children }}></div>
+				<div
+					className="twitchwordboard__singleword"
+					ref={(el) => (this.singlewordRef = el)}
+					dangerouslySetInnerHTML={{ __html: children }}
+				></div>
 			</div>
 		)
 	}
