@@ -13,6 +13,7 @@ class TwitchTripleText extends Component {
 
 	componentDidMount() {
 		const { offsetFactor, offset, fit } = this.props
+		const { outline1Ref, outline2Ref } = this
 
 		// Get the current font size for the text
 		// This finalFontSize var is use in calculating the line offsets
@@ -23,8 +24,8 @@ class TwitchTripleText extends Component {
 			// fitFontSize called useTextFit which WILL already resize the font of our fullText element
 			finalFontSize = this.fitFontSize()
 			// Set the remaining outline texts to the same font size as fullText
-			this.outline1Ref.style.fontSize = `${finalFontSize}px`
-			this.outline2Ref.style.fontSize = `${finalFontSize}px`
+			outline1Ref.style.fontSize = `${finalFontSize}px`
+			outline2Ref.style.fontSize = `${finalFontSize}px`
 		}
 
 		///////////////////////////////////
@@ -44,40 +45,44 @@ class TwitchTripleText extends Component {
 		}
 
 		// Set out outlines to the proper offset positions
-		gsap.set('#twitchtripletext__outline1', { x: `-=${lineOffset * 2}`, y: `-=${lineOffset * 2}` })
-		gsap.set('#twitchtripletext__outline2', { x: `-=${lineOffset}`, y: `-=${lineOffset}` })
+		gsap.set(outline1Ref, { x: `-=${lineOffset * 2}`, y: `-=${lineOffset * 2}` })
+		gsap.set(outline2Ref, { x: `-=${lineOffset}`, y: `-=${lineOffset}` })
 
 		this.start()
 	}
 
 	fitFontSize() {
+		const { fullTextRef } = this
 		const { width, minFontSize, maxFontSize } = this.props
-		return useTextFit([this.fullTextRef], width, minFontSize, maxFontSize)
+		return useTextFit([fullTextRef], width, minFontSize, maxFontSize)
 	}
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
-		gsap.set('#twitchtripletext__fulltext', { opacity: 0 })
+		const { fullTextRef } = this
+		gsap.set(fullTextRef, { opacity: 0 })
 		this.start()
 	}
 
 	start() {
+		const { outline1Ref, outline2Ref, fullTextRef } = this
 		// Starts the text animation
 		let showHideDelay = 0.1
 
 		// Show text
-		gsap.set('#twitchtripletext__outline1', { opacity: 1, delay: 0 })
-		gsap.set('#twitchtripletext__outline2', { opacity: 1, delay: showHideDelay })
-		gsap.set('#twitchtripletext__fulltext', { opacity: 1, delay: showHideDelay * 2 })
+		gsap.set(outline1Ref, { opacity: 1, delay: 0 })
+		gsap.set(outline2Ref, { opacity: 1, delay: showHideDelay })
+		gsap.set(fullTextRef, { opacity: 1, delay: showHideDelay * 2 })
 
 		const delayBeforeHide = 0.1
 		const hideDelay = delayBeforeHide + showHideDelay * 2
 		// Hide text
-		gsap.set('#twitchtripletext__outline1', { opacity: 0, delay: hideDelay })
-		gsap.set('#twitchtripletext__outline2', { opacity: 0, delay: hideDelay + showHideDelay })
+		gsap.set(outline1Ref, { opacity: 0, delay: hideDelay })
+		gsap.set(outline2Ref, { opacity: 0, delay: hideDelay + showHideDelay })
 	}
 
 	render() {
 		const { fontSize, width, children } = this.props
+
 		// We need to pass in a font size for the text so we can set its css font-size
 		// if we don't pass a fontSize in then use 16
 		const fs = fontSize || 16
