@@ -1,76 +1,20 @@
 // Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
 
-.twitchglitch {
-	width: 336px;
-	height: 392px;
+.twitchglitchextrude {
+	width: 76px;
+	height: 85px;
 	position: relative;
-	// background: green;
-	&__ref {
-		position: absolute;
-	}
-	&__eye {
-		position: absolute;
-		width: 28px;
-		height: 83px;
-		background-color: black;
-		&-left {
-			left: 77px;
-			top: 52px;
-		}
-		&-right {
-			left: 154px;
-			top: 52px;
-		}
-	}
+
 	&__inner {
-		// background: red;
 		position: absolute;
-		width: 336px;
-		height: 392px;
+		width: 76px;
+		height: 85px;
 		transform-origin: center center;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
 	}
-	&__body {
-		bottom: 0;
-		width: 336px;
-		height: 392px;
-		background: rgb(0, 0, 0);
-		clip-path: polygon(0% 82%, 0% 18%, 5% 14%, 84% 14%, 84% 64%, 63% 82%, 46% 82%, 25% 100%, 25% 82%);
-		animation: move 0.5s forwards;
-		position: absolute;
-
-		&-inner {
-			top: 81px;
-			left: 31px;
-			width: 224px;
-			height: 260px;
-			transform: scale(0.8);
-			transform-origin: center 105.5px;
-			background: rgb(255, 255, 255);
-			clip-path: polygon(0% 81%, 0% 0%, 100% 0%, 100% 60%, 75% 81%, 34% 81%, 28% 81%, 28% 81%);
-			position: absolute;
-		}
-	}
-	@keyframes move {
-		0% {
-			clip-path: polygon(0% 82%, 0% 18%, 5% 14%, 84% 14%, 84% 64%, 63% 82%, 46% 82%, 25% 100%, 25% 82%);
-		}
-		100% {
-			clip-path: polygon(0% 82%, 0% 18%, 21% 0%, 100% 0%, 100% 50%, 63% 82%, 46% 82%, 25% 100%, 25% 82%);
-		}
-	}
-	@keyframes addtail {
-		0% {
-			clip-path: polygon(0% 81%, 0% 0%, 100% 0%, 100% 60%, 75% 81%, 34% 81%, 28% 81%, 28% 81%);
-		}
-		100% {
-			clip-path: polygon(0% 81%, 0% 0%, 100% 0%, 100% 60%, 75% 81%, 50% 81%, 28% 100%, 28% 81%);
-		}
-	}
-	////////////////////////////
 	&__left {
 		position: absolute;
 		top: 20px;
@@ -134,7 +78,13 @@
 		width: 46px;
 		aspect-ratio: 1;
 	}
-
+	&__ref {
+		object-fit: contain;
+		width: 86px;
+		position: absolute;
+		left: 27px;
+		top: -6px;
+	}
 	&__extrusion-container {
 		position: absolute;
 		left: 0;

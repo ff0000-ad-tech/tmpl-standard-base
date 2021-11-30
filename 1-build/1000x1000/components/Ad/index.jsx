@@ -9,6 +9,7 @@ import TwitchCta from '../TwitchCta'
 import TwitchText from '../TwitchText'
 import TwitchAnimatedGrad from '../TwitchAnimatedGrad'
 import TwitchStreamerBug from '../TwitchStreamerBug'
+import TwitchGlitchExtrude from '../TwitchGlitchExtrude'
 import TwitchGlitch from '../TwitchGlitch'
 import TwitchWordBoard from '../TwitchWordBoard'
 import TwitchTripleText from '../TwitchTripleText'
@@ -32,6 +33,16 @@ class Ad extends Component {
 		return (
 			<div className="ad">
 				<div className="ad__inner-container">
+					<DemoElement
+						name="Twitch Glitch"
+						width="450px"
+						height="450px"
+						onClick={() => {
+							this.twitchGlitch.restart()
+						}}
+					>
+						<TwitchGlitch ref={(el) => (this.twitchGlitch = el)} />
+					</DemoElement>
 					<DemoElement
 						name="Twitch Panel Wipe"
 						width="250px"
@@ -96,14 +107,14 @@ class Ad extends Component {
 						</TwitchWordBoard>
 					</DemoElement>
 					<DemoElement
-						name="Twitch Glitch"
+						name="Twitch Glitch Extrude"
 						width="250px"
 						height="180px"
 						onClick={() => {
-							this.twitchGlitch.restart()
+							this.twitchGlitchExtrude.restart()
 						}}
 					>
-						<TwitchGlitch scale={1.3} ref={(el) => (this.twitchGlitch = el)} />
+						<TwitchGlitchExtrude scale={1.3} ref={(el) => (this.twitchGlitchExtrude = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Streamer bug"

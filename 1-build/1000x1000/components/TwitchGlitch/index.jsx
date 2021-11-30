@@ -2,7 +2,8 @@ import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 import './styles.scss'
-import '@size/images/ref.png'
+import '@size/images/refstart.jpg'
+import '@size/images/refend.jpg'
 class TwitchGlitch extends Component {
 	constructor(props) {
 		super(props)
@@ -28,77 +29,70 @@ class TwitchGlitch extends Component {
 	componentDidMount() {
 		const { glitchRef, glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
 		const { scale } = this.props
-		// Setup gradients to tween to
-		this.bg_left_start = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
-		this.bg_mid_start = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
-		this.bg_bottom_start = 'linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
-		this.bg_left_end = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
-		this.bg_mid_end = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
-		this.bg_bottom_end = 'linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
-
-		// Initial setup
-		gsap.set(glitchIconRef, { left: -5, top: 40, opacity: 0 })
-		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
-		gsap.set(leftRef, { backgroundImage: this.bg_left_start })
-		gsap.set(midRef, { backgroundImage: this.bg_mid_start })
-		gsap.set(bottomRef, { backgroundImage: this.bg_bottom_start })
 
 		if (scale) {
 			gsap.set(innerRef, { scale: scale })
-			glitchRef.style.width = 76 * scale + 'px'
-			glitchRef.style.height = 85 * scale + 'px'
+			glitchRef.style.width = 336 * scale + 'px'
+			glitchRef.style.height = 392 * scale + 'px'
 		}
+
+		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
 		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
 		const { glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef } = this
-		// Initial setup
-		gsap.set(leftRef, { backgroundImage: this.bg_left_start })
-		gsap.set(midRef, { backgroundImage: this.bg_mid_start })
-		gsap.set(bottomRef, { backgroundImage: this.bg_bottom_start })
-
-		gsap.set(glitchIconRef, { scale: 1, left: -5, top: 40, opacity: 0 })
+		const { scale } = this.props
 		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
+		gsap.set(bodyInnerRef, { scale: 0.8 })
 		this.start()
 	}
 
 	start() {
-		const { glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef } = this
-		gsap.set(glitchIconRef, { opacity: 1 })
-		gsap.from(glitchIconRef, { scale: 2, duration: 0.3, ease: 'expo.out' })
-		let delay = 0.3
+		const { scale } = this.props
+		const { bodyInnerRef, innerRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef } = this
+		gsap.from(innerRef, { scale: scale ? scale * 2 : 2, duration: 0.3 })
+		gsap.to(bodyInnerRef, { scale: 1, duration: 0.5 })
+		gsap.delayedCall(0.3, () => {
+			bodyInnerRef.style.animation = 'addtail .7s forwards'
+		})
+		gsap.to(bodyInnerRef, {
+			delay: 0.5,
+			top: 28,
+			left: 84,
+			duration: 0.5,
+			onComplete: () => {
+				this.animateEyes()
+			},
+		})
+	}
 
-		// Animate gradients
-		gsap.to(leftRef, { delay: delay, duration: 0.3, backgroundImage: this.bg_left_end, ease: 'sine.out' })
-		gsap.to(midRef, { delay: delay, duration: 0.3, backgroundImage: this.bg_mid_end, ease: 'sine.out' })
-		gsap.to(bottomRef, { delay: delay, duration: 0.3, backgroundImage: this.bg_bottom_end, ease: 'sine.out' })
-		// Slide glich up
-		gsap.to(glitchIconRef, { delay: delay, duration: 0.305, left: 35, top: 0, ease: 'sine.out' })
-
+	animateEyes() {
+		const { leftEyeRef, rightEyeRef } = this
 		// Eye animation
 		// Animate open
 		gsap.set([leftEyeRef, rightEyeRef], { opacity: 1 })
-		gsap.from([leftEyeRef, rightEyeRef], { delay: delay, duration: 0.05, scaleY: 0, ease: 'sine.out' })
+		gsap.from([leftEyeRef, rightEyeRef], { duration: 0.05, scaleY: 0, ease: 'sine.out' })
 		// Animate closed
-		gsap.to([leftEyeRef, rightEyeRef], { delay: delay + 0.1, duration: 0.05, scaleY: 0, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.1, duration: 0.05, scaleY: 0, ease: 'sine.out' })
 		// Animate open
-		gsap.to([leftEyeRef, rightEyeRef], { delay: delay + 0.15, duration: 0.05, scaleY: 1, ease: 'sine.out' })
-		gsap.to([leftEyeRef, rightEyeRef], { delay: delay + 0.2, duration: 0.05, scaleY: 0.2, ease: 'sine.out' })
-		gsap.to([leftEyeRef, rightEyeRef], { delay: delay + 0.25, duration: 0.1, scaleY: 1, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.15, duration: 0.05, scaleY: 1, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.2, duration: 0.05, scaleY: 0.2, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.25, duration: 0.1, scaleY: 1, ease: 'sine.out' })
 	}
 	render() {
 		const { debug } = this.props
 		return (
 			<div className="twitchglitch" style={{ background: debug ? 'green' : null }} ref={(el) => (this.glitchRef = el)}>
 				<div className="twitchglitch__inner" style={{ background: debug ? 'red' : null }} ref={(el) => (this.innerRef = el)}>
-					<div className="twitchglitch__extrusion-container">
-						<div className="twitchglitch__left" ref={(el) => (this.leftRef = el)}></div>
-						<div className="twitchglitch__bottom" ref={(el) => (this.bottomRef = el)}></div>
-						<div className="twitchglitch__mid" ref={(el) => (this.midRef = el)}></div>
+					{/* <img src={ImageManager.get('refstart').src} className="twitchglitch__ref" /> */}
+					{/* <img src={ImageManager.get('refend').src} className="twitchglitch__ref" /> */}
+					<div className="twitchglitch__body" ref={(el) => (this.bodyRef = el)}></div>
+					<div className="twitchglitch__body-inner" ref={(el) => (this.bodyInnerRef = el)}>
+						<div className="twitchglitch__eye twitchglitch__eye-left" ref={(el) => (this.leftEyeRef = el)} />
+						<div className="twitchglitch__eye twitchglitch__eye-right" ref={(el) => (this.rightEyeRef = el)} />
 					</div>
-					{this.glitch}
 				</div>
 			</div>
 		)
