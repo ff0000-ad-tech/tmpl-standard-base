@@ -41,7 +41,7 @@ class Ad extends Component {
 							this.twitchGlitch.restart()
 						}}
 					>
-						<TwitchGlitch ref={(el) => (this.twitchGlitch = el)} />
+						<TwitchGlitch scale={0.5} ref={(el) => (this.twitchGlitch = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Panel Wipe"
