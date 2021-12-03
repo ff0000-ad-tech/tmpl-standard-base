@@ -74,8 +74,8 @@ class TwitchGlitch extends Component {
 		const { bodyInnerRef, innerRef, bodyRef, rightEyeRef, leftRef, midRef, bottomRef } = this
 		// Initial scale down
 		this.setState({ bodyIn: 'twitchglitch__body-in', innerIn: 'twitchglitch__body-inner-in' })
-		gsap.fromTo(innerRef, { scale: scale ? scale + 0.25 : 1.25 }, { scale: scale ? scale * 1 : 1, duration: 0.3 })
-		let delay = 0.3
+		gsap.fromTo(innerRef, { scale: scale ? scale + 0.25 : 1.25 }, { scale: scale ? scale * 1 : 1, duration: 0.25, ease: 'none' })
+		let delay = 0.25
 		gsap.fromTo(bodyInnerRef, { scale: 0.8 }, { scale: 1, duration: 0.3, delay: delay })
 		// gsap.delayedCall(0.3, () => {
 		// 	bodyInnerRef.style.animation = 'innerin .7s forwards'
