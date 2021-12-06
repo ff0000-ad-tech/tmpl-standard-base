@@ -34,8 +34,9 @@ class TwitchGlitch extends Component {
 	componentDidMount() {
 		const { glitchRef, bodyInnerRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
 		const { scale } = this.props
-		gsap.set(innerRef, { scale: scale ? scale + 0.25 : 1.25 })
-		console.error(scale ? scale + 0.25 : 1.25)
+		gsap.set(innerRef, { scale: scale ? scale + 0.25 * scale : 1.25 })
+
+		console.error('did mount scale', scale ? scale + 0.25 : 1.25)
 		gsap.set(bodyInnerRef, { scale: 0.8 })
 		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
 		if (scale) {
@@ -50,7 +51,7 @@ class TwitchGlitch extends Component {
 		const { innerRef, leftEyeRef, rightEyeRef, bodyInnerRef, bodyRef, bottomRef } = this
 		const { scale } = this.props
 
-		gsap.set(innerRef, { scale: scale ? scale + 0.25 : 1.25 })
+		gsap.set(innerRef, { scale: scale ? scale + 0.25 * scale : 1.25 })
 		gsap.set(bodyInnerRef, { scale: 0.8, top: 81, left: 31 })
 		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
 		this.setState(
@@ -74,6 +75,7 @@ class TwitchGlitch extends Component {
 
 		this.setState({ bodyIn: 'twitchglitch__body-in', innerIn: 'twitchglitch__body-inner-in' })
 		gsap.to(innerRef, { scale: scale ? scale * 1 : 1, duration: 0.25, ease: 'none' })
+		console.error('start scale to 1==', scale ? scale * 1 : 1)
 		gsap.fromTo(bodyInnerRef, { scale: 0.8 }, { scale: 1, duration: 0.25, delay: 0.1, ease: 'none' })
 		gsap.to(bodyInnerRef, {
 			delay: 0.25,
