@@ -8,8 +8,16 @@ class TwitchGlitchExtrude extends Component {
 		super(props)
 
 		// Set classes if a color is passes in
-		this.color = this.props.color
+		this.color = this.props.color || 'black'
+
+		// Define RGB colors
+		this.colors = {
+			purple: '145, 70, 255',
+			black: '0,0,0',
+		}
+
 		this.eyeColor = this.color ? `twitchglitchextrude__glitch-icon-eye--${this.color}` : ''
+		this.iconColor = this.color ? `twitchglitchextrude__glitch-icon--${this.color}` : ''
 
 		this.glitch = (
 			<svg viewBox="0 0 2005 2542" class="twitchglitchextrude__glitch" ref={(el) => (this.glitchIconRef = el)}>
@@ -21,7 +29,7 @@ class TwitchGlitchExtrude extends Component {
 					<g>
 						<g id="Layer_1-2">
 							<path
-								class="twitchglitchextrude__glitch-icon"
+								class={`twitchglitchextrude__glitch-icon ${this.iconColor}`}
 								d="M0,1905h451v637l639-637h439l476-505V0H0 M1805,1300l-400,400h-400l-350,350v-350H205V200h1600V1300z"
 							/>
 							<rect
@@ -47,22 +55,16 @@ class TwitchGlitchExtrude extends Component {
 		)
 	}
 	componentDidMount() {
-		const { glitchRef, glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
+		const { glitchRef, glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef, colors, color } = this
 		const { scale } = this.props
 		// Setup gradients to tween to
-		switch (key) {
-			case value:
-				break
 
-			default:
-				break
-		}
-		this.bg_left_start = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
-		this.bg_mid_start = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
-		this.bg_bottom_start = 'linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
-		this.bg_left_end = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
-		this.bg_mid_end = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
-		this.bg_bottom_end = 'linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 100%, rgba(145, 70, 255, 0) 100%)'
+		this.bg_left_start = `linear-gradient(90deg, rgba(${colors[color]}, 0) 0%, rgba(${colors[color]}, 1) 0%, rgba(${colors[color]}, 0) 0%)`
+		this.bg_mid_start = `linear-gradient(90deg, rgba(${colors[color]}, 0) 10%, rgba(${colors[color]}, 1) 0%, rgba(${colors[color]}, 0) 0%)`
+		this.bg_bottom_start = `linear-gradient(0deg, rgba(${colors[color]}, 0) 0%, rgba(${colors[color]}, 1) 0%, rgba(${colors[color]}, 0) 0%)`
+		this.bg_left_end = `linear-gradient(90deg, rgba(${colors[color]}, 0) 0%, rgba(${colors[color]}, 1) 100%, rgba(${colors[color]}, 0) 100%)`
+		this.bg_mid_end = `linear-gradient(90deg, rgba(${colors[color]}, 0) 10%, rgba(${colors[color]}, 1) 100%, rgba(${colors[color]}, 0) 100%)`
+		this.bg_bottom_end = `linear-gradient(0deg, rgba(${colors[color]}, 0) 0%, rgba(${colors[color]}, 1) 100%, rgba(${colors[color]}, 0) 100%)`
 
 		// Initial setup
 		gsap.set(glitchIconRef, { left: -5, top: 40, opacity: 0 })

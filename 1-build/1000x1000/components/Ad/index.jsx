@@ -114,7 +114,7 @@ class Ad extends Component {
 							this.twitchGlitchExtrude.restart()
 						}}
 					>
-						<TwitchGlitchExtrude scale={1.3} ref={(el) => (this.twitchGlitchExtrude = el)} />
+						<TwitchGlitchExtrude scale={1.3} color="purple" ref={(el) => (this.twitchGlitchExtrude = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Streamer bug"

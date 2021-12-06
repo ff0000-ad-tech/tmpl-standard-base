@@ -65,8 +65,11 @@
 		fill: white;
 	}
 	&__glitch-icon {
-		fill: $twitch-color-purple;
+		fill: black;
 
+		&--purple {
+			fill: $twitch-color-purple;
+		}
 		&-eye {
 			fill: black;
 			transform-origin: center 400px;
