@@ -96,8 +96,8 @@ class TwitchGlitch extends Component {
 		// Move the inner body up and to the right
 		gsap.to(bodyInnerRef, {
 			delay: 0.23,
-			top: 28,
-			left: 84,
+			top: 35,
+			left: 77,
 			duration: 0.3,
 		})
 		// Start the eye animation
