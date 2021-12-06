@@ -35,13 +35,13 @@ class Ad extends Component {
 				<div className="ad__inner-container">
 					<DemoElement
 						name="Twitch Glitch"
-						width="450px"
-						height="450px"
+						width="250px"
+						height="180px"
 						onClick={() => {
 							this.twitchGlitch.restart()
 						}}
 					>
-						<TwitchGlitch scale={0.5} color="purple" ref={(el) => (this.twitchGlitch = el)} />
+						<TwitchGlitch scale={0.2} color="purple" ref={(el) => (this.twitchGlitch = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Panel Wipe"

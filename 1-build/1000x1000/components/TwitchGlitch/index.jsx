@@ -95,7 +95,7 @@ class TwitchGlitch extends Component {
 		gsap.fromTo(bodyInnerRef, { scale: 0.8 }, { scale: 1, duration: 0.25, delay: 0.1, ease: 'none' })
 		// Move the inner body up and to the right
 		gsap.to(bodyInnerRef, {
-			delay: 0.25,
+			delay: 0.23,
 			top: 28,
 			left: 84,
 			duration: 0.3,
