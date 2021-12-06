@@ -8,6 +8,7 @@
 	// background: green;
 	&__ref {
 		position: absolute;
+		opacity: 0.5;
 	}
 	&__eye {
 		position: absolute;
@@ -46,7 +47,7 @@
 		clip-path: $twitchglitch-body-start;
 
 		&-in {
-			animation: bodyin 0.3s forwards;
+			animation: bodyin 0.3s forwards 0.5;
 		}
 
 		&-inner {
@@ -54,7 +55,6 @@
 			left: 31px;
 			width: 224px;
 			height: 260px;
-			transform: scale(0.8);
 			transform-origin: center 105.5px;
 			background: rgb(255, 255, 255);
 			clip-path: $twitchglitch-inner-start;

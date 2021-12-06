@@ -32,16 +32,16 @@ class TwitchGlitch extends Component {
 		)
 	}
 	componentDidMount() {
-		const { glitchRef, glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
+		const { glitchRef, bodyInnerRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
 		const { scale } = this.props
-
+		gsap.set(innerRef, { scale: scale ? scale + 0.25 : 1.25 })
+		console.error(scale ? scale + 0.25 : 1.25)
+		gsap.set(bodyInnerRef, { scale: 0.8 })
+		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
 		if (scale) {
-			gsap.set(innerRef, { scale: scale })
 			glitchRef.style.width = 336 * scale + 'px'
 			glitchRef.style.height = 392 * scale + 'px'
 		}
-
-		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
 		this.start()
 	}
 
@@ -50,10 +50,9 @@ class TwitchGlitch extends Component {
 		const { innerRef, leftEyeRef, rightEyeRef, bodyInnerRef, bodyRef, bottomRef } = this
 		const { scale } = this.props
 
-		gsap.set(innerRef, { scale: scale })
+		gsap.set(innerRef, { scale: scale ? scale + 0.25 : 1.25 })
+		gsap.set(bodyInnerRef, { scale: 0.8, top: 81, left: 31 })
 		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
-		gsap.set(bodyInnerRef, { top: 81, left: 31 })
-
 		this.setState(
 			{
 				bodyIn: '',
@@ -71,23 +70,19 @@ class TwitchGlitch extends Component {
 
 	start() {
 		const { scale } = this.props
-		const { bodyInnerRef, innerRef, bodyRef, rightEyeRef, leftRef, midRef, bottomRef } = this
-		// Initial scale down
+		const { bodyInnerRef, innerRef } = this
+
 		this.setState({ bodyIn: 'twitchglitch__body-in', innerIn: 'twitchglitch__body-inner-in' })
-		gsap.fromTo(innerRef, { scale: scale ? scale + 0.25 : 1.25 }, { scale: scale ? scale * 1 : 1, duration: 0.25, ease: 'none' })
-		let delay = 0.25
-		gsap.fromTo(bodyInnerRef, { scale: 0.8 }, { scale: 1, duration: 0.3, delay: delay })
-		// gsap.delayedCall(0.3, () => {
-		// 	bodyInnerRef.style.animation = 'innerin .7s forwards'
-		// })
+		gsap.to(innerRef, { scale: scale ? scale * 1 : 1, duration: 0.25, ease: 'none' })
+		gsap.fromTo(bodyInnerRef, { scale: 0.8 }, { scale: 1, duration: 0.25, delay: 0.1, ease: 'none' })
 		gsap.to(bodyInnerRef, {
-			delay: 0.5,
+			delay: 0.25,
 			top: 28,
 			left: 84,
-			duration: 0.5,
-			onComplete: () => {
-				this.animateEyes()
-			},
+			duration: 0.3,
+		})
+		gsap.delayedCall(0.35, () => {
+			this.animateEyes()
 		})
 	}
 
@@ -96,21 +91,19 @@ class TwitchGlitch extends Component {
 		// Eye animation
 		// Animate open
 		gsap.set([leftEyeRef, rightEyeRef], { opacity: 1 })
-		gsap.from([leftEyeRef, rightEyeRef], { duration: 0.05, scaleY: 0, ease: 'sine.out' })
+		gsap.from([leftEyeRef, rightEyeRef], { duration: 0.07, scaleY: 0, ease: 'sine.out' })
 		// Animate closed
-		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.1, duration: 0.05, scaleY: 0, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.12, duration: 0.05, scaleY: 0, ease: 'sine.out' })
 		// Animate open
-		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.15, duration: 0.05, scaleY: 1, ease: 'sine.out' })
-		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.2, duration: 0.05, scaleY: 0.2, ease: 'sine.out' })
-		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.25, duration: 0.1, scaleY: 1, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.17, duration: 0.05, scaleY: 1, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.22, duration: 0.05, scaleY: 0.2, ease: 'sine.out' })
+		gsap.to([leftEyeRef, rightEyeRef], { delay: 0.27, duration: 0.1, scaleY: 1, ease: 'sine.out' })
 	}
 	render() {
 		const { debug } = this.props
 		return (
 			<div className="twitchglitch" style={{ background: debug ? 'green' : null }} ref={(el) => (this.glitchRef = el)}>
 				<div className="twitchglitch__inner" style={{ background: debug ? 'red' : null }} ref={(el) => (this.innerRef = el)}>
-					{/* <img src={ImageManager.get('refstart').src} className="twitchglitch__ref" /> */}
-					{/* <img src={ImageManager.get('refend').src} className="twitchglitch__ref" /> */}
 					<div className={`twitchglitch__body ${this.state.bodyIn}`} ref={(el) => (this.bodyRef = el)}></div>
 					<div className={`twitchglitch__body-inner ${this.state.innerIn}`} ref={(el) => (this.bodyInnerRef = el)}>
 						<div className="twitchglitch__eye twitchglitch__eye-left" ref={(el) => (this.leftEyeRef = el)} />

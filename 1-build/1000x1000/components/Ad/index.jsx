@@ -43,7 +43,7 @@ class Ad extends Component {
 					>
 						<TwitchGlitch scale={0.5} ref={(el) => (this.twitchGlitch = el)} />
 					</DemoElement>
-					<DemoElement
+					{/* <DemoElement
 						name="Twitch Panel Wipe"
 						width="250px"
 						height="180px"
@@ -184,7 +184,7 @@ class Ad extends Component {
 						}}
 					>
 						<TwitchAnimatedGrad startClass="grad3-2" endClass="grad2-1" duration={1} ref={(el) => (this.twitchAnimatedGrad = el)} />
-					</DemoElement>
+					</DemoElement> */}
 				</div>
 			</div>
 		)
