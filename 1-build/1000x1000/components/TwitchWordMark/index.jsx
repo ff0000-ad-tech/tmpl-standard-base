@@ -2,9 +2,6 @@ import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 
 import './styles.scss'
-import '@size/images/LeftExt.svg'
-import '@size/images/MiddleExt.svg'
-import '@size/images/RightExt.svg'
 
 class TwitchWordMark extends Component {
 	constructor(props) {

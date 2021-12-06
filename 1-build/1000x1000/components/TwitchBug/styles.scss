@@ -4,6 +4,11 @@
 .twitchbug {
 	position: relative;
 
+	&__color {
+		&--purple {
+			background: $twitch-color-purple;
+		}
+	}
 	&__inner {
 		position: absolute;
 		width: 300px;
@@ -16,7 +21,12 @@
 			position: absolute;
 		}
 	}
-
+	&__extrusion {
+		fill: black;
+		&--purple {
+			fill: $twitch-color-purple;
+		}
+	}
 	&__extrusion-container {
 		top: 60px;
 		height: 40px;
@@ -25,40 +35,57 @@
 		overflow: hidden;
 	}
 
-	&__triangle-topleft {
-		left: 29.2px;
-		width: 0;
-		height: 0;
-		border-bottom: 19px solid black;
-		border-right: 14px solid transparent;
+	&__triangle {
+		&-topleft {
+			left: 29.2px;
+			width: 0;
+			height: 0;
+			border-bottom: 19px solid black;
+			border-right: 14px solid transparent;
+		}
+
+		&-topright {
+			left: 231px;
+			width: 0;
+			height: 0;
+			border-bottom: 19px solid black;
+			border-left: 14px solid transparent;
+		}
+		&--purple {
+			border-bottom: 19px solid $twitch-color-purple;
+		}
 	}
 
-	&__triangle-topright {
-		left: 231px;
-		width: 0;
-		height: 0;
-		border-bottom: 19px solid black;
-		border-left: 14px solid transparent;
+	&__bar {
+		&-topleft {
+			transform-origin: left top;
+			left: 26.5px;
+			width: 4.5px;
+			height: 20px;
+			background: black;
+		}
+
+		&-topright {
+			transform-origin: right top;
+			right: 52.5px;
+			width: 4.5px;
+			height: 20px;
+			background: black;
+		}
+
+		&--purple {
+			background: $twitch-color-purple;
+		}
 	}
 
-	&__bar-topleft {
-		transform-origin: left top;
-		left: 26.5px;
-		width: 4.5px;
-		height: 20px;
-		background-color: black;
+	&__outline {
+		fill: black;
+		&--purple {
+			fill: $twitch-color-purple;
+		}
 	}
-	&__bar-topright {
-		transform-origin: right top;
-		right: 52.5px;
-		width: 4.5px;
-		height: 20px;
-		background-color: black;
+
+	&__logofill {
+		fill: white;
 	}
-}
-.outline {
-	fill: black;
-}
-.st0 {
-	fill: white;
 }
