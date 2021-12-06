@@ -3,7 +3,7 @@
 
 .twitchcta {
 	overflow: hidden;
-	background-color: black;
+	background: black;
 	color: white;
 	font-family: 'RoobertTW-SemiBold';
 	text-align: center;
@@ -11,6 +11,9 @@
 	white-space: nowrap;
 	width: fit-content;
 
+	&--purple {
+		background: $twitch-color-purple;
+	}
 	&__arrow {
 		font-size: calc(1em + 2px);
 	}

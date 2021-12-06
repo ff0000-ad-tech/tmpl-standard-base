@@ -146,7 +146,16 @@ class Ad extends Component {
 							this.twitchCta.restart()
 						}}
 					>
-						<TwitchCta fit width={200} minFont={3} maxFont={25} arrow text="Install this app now" ref={(el) => (this.twitchCta = el)} />
+						<TwitchCta
+							color="purple"
+							fit
+							width={200}
+							minFont={3}
+							maxFont={25}
+							arrow
+							text="Install this app now"
+							ref={(el) => (this.twitchCta = el)}
+						/>
 					</DemoElement>
 					<DemoElement
 						name="Twitch Text"

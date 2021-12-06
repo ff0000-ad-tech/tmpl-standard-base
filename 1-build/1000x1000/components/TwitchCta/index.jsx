@@ -13,6 +13,8 @@ class TwitchCta extends Component {
 		super(props)
 		// Holds ref to timeline
 		this.tl = null
+		this.color = this.props.color
+		this.ctaColor = this.color ? `twitchcta--${this.color}` : ''
 	}
 
 	componentDidMount() {
@@ -77,9 +79,10 @@ class TwitchCta extends Component {
 		})
 	}
 	render() {
+		const { ctaColor } = this
 		const { text, arrow, maxFont } = this.props
 		return (
-			<div className="twitchcta" style={{ fontSize: maxFont }} ref={(el) => (this.ctaRef = el)}>
+			<div className={`twitchcta ${ctaColor}`} style={{ fontSize: maxFont }} ref={(el) => (this.ctaRef = el)}>
 				<div id="twitchcta__text-container" ref={(el) => (this.textContainerRef = el)}>
 					{text}
 					{arrow ? <span className="twitchcta__arrow">&nbsp↗</span> : null}
