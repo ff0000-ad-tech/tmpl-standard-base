@@ -68,8 +68,11 @@
 		fill: $twitch-color-purple;
 
 		&-eye {
-			fill: $twitch-color-purple;
+			fill: black;
 			transform-origin: center 400px;
+			&--purple {
+				fill: $twitch-color-purple;
+			}
 		}
 	}
 	&__glitch {

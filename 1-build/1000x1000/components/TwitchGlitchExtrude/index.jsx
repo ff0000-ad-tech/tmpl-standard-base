@@ -7,6 +7,10 @@ class TwitchGlitchExtrude extends Component {
 	constructor(props) {
 		super(props)
 
+		// Set classes if a color is passes in
+		this.color = this.props.color
+		this.eyeColor = this.color ? `twitchglitchextrude__glitch-icon-eye--${this.color}` : ''
+
 		this.glitch = (
 			<svg viewBox="0 0 2005 2542" class="twitchglitchextrude__glitch" ref={(el) => (this.glitchIconRef = el)}>
 				<g>
@@ -23,7 +27,7 @@ class TwitchGlitchExtrude extends Component {
 							<rect
 								x="1305"
 								y="550"
-								class="twitchglitchextrude__glitch-icon-eye"
+								class={`twitchglitchextrude__glitch-icon-eye ${this.eyeColor}`}
 								ref={(el) => (this.leftEyeRef = el)}
 								width="200"
 								height="600"
@@ -31,7 +35,7 @@ class TwitchGlitchExtrude extends Component {
 							<rect
 								x="755"
 								y="550"
-								class="twitchglitchextrude__glitch-icon-eye"
+								class={`twitchglitchextrude__glitch-icon-eye ${this.eyeColor}`}
 								ref={(el) => (this.rightEyeRef = el)}
 								width="200"
 								height="600"
@@ -46,6 +50,13 @@ class TwitchGlitchExtrude extends Component {
 		const { glitchRef, glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
 		const { scale } = this.props
 		// Setup gradients to tween to
+		switch (key) {
+			case value:
+				break
+
+			default:
+				break
+		}
 		this.bg_left_start = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
 		this.bg_mid_start = 'linear-gradient(90deg, rgba(145, 70, 255, 0) 10%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
 		this.bg_bottom_start = 'linear-gradient(0deg, rgba(145, 70, 255, 0) 0%, rgba(145, 70, 255, 1) 0%, rgba(145, 70, 255, 0) 0%)'
