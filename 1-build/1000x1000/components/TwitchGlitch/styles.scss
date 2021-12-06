@@ -1,20 +1,26 @@
 // Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
 
+$twitchglitch-body-start: polygon(0% 82%, 0% 18%, 5% 14%, 84% 14%, 84% 64%, 63% 82%, 46% 82%, 25% 100%, 25% 82%);
+$twitchglitch-body-end: polygon(0% 82%, 0% 18%, 21% 0%, 100% 0%, 100% 50%, 63% 82%, 46% 82%, 25% 100%, 25% 82%);
+$twitchglitch-inner-start: polygon(0% 81%, 0% 0%, 100% 0%, 100% 60%, 75% 81%, 34% 81%, 28% 81%, 28% 81%);
+$twitchglitch-inner-end: polygon(0% 81%, 0% 0%, 100% 0%, 100% 60%, 75% 81%, 50% 81%, 28% 100%, 28% 81%);
+
 .twitchglitch {
 	width: 336px;
 	height: 392px;
 	position: relative;
-	// background: green;
-	&__ref {
-		position: absolute;
-		opacity: 0.5;
-	}
+
 	&__eye {
 		position: absolute;
 		width: 28px;
 		height: 83px;
-		background-color: black;
+		background: black;
+
+		&--purple {
+			background: $twitch-color-purple;
+		}
+
 		&-left {
 			left: 77px;
 			top: 52px;
@@ -34,10 +40,6 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 	}
-	$twitchglitch-body-start: polygon(0% 82%, 0% 18%, 5% 14%, 84% 14%, 84% 64%, 63% 82%, 46% 82%, 25% 100%, 25% 82%);
-	$twitchglitch-body-end: polygon(0% 82%, 0% 18%, 21% 0%, 100% 0%, 100% 50%, 63% 82%, 46% 82%, 25% 100%, 25% 82%);
-	$twitchglitch-inner-start: polygon(0% 81%, 0% 0%, 100% 0%, 100% 60%, 75% 81%, 34% 81%, 28% 81%, 28% 81%);
-	$twitchglitch-inner-end: polygon(0% 81%, 0% 0%, 100% 0%, 100% 60%, 75% 81%, 50% 81%, 28% 100%, 28% 81%);
 	&__body {
 		bottom: 0;
 		width: 336px;
@@ -46,6 +48,9 @@
 		position: absolute;
 		clip-path: $twitchglitch-body-start;
 
+		&--purple {
+			background: $twitch-color-purple;
+		}
 		&-in {
 			animation: bodyin 0.3s forwards 0.5;
 		}
