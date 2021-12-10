@@ -61,7 +61,7 @@ class Ad extends Component {
 							this.twitchNameScrollBug.restart()
 						}}
 					>
-						<TwitchNameScrollBug name="Khaykashi" color="purple" scale={0.3} ref={(el) => (this.twitchNameScrollBug = el)} />
+						<TwitchNameScrollBug name="Khaykashi" color="purple" scale={0.15} ref={(el) => (this.twitchNameScrollBug = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Triple Text"
@@ -92,7 +92,7 @@ class Ad extends Component {
 							this.twitchBug.restart()
 						}}
 					>
-						<TwitchBug scale={0.7} color="purple" ref={(el) => (this.twitchBug = el)} />
+						<TwitchBug color="purple" scale={0.5} ref={(el) => (this.twitchBug = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Word Board"

@@ -16,6 +16,7 @@ class TwitchBug extends Component {
 		this.triangleColor = this.color ? `twitchbug__triangle--${this.color}` : ''
 		this.extrusionColor = this.color ? `twitchbug__extrusion--${this.color}` : ''
 		this.barColor = this.color ? `twitchbug__bar--${this.color}` : ''
+		this.scale = this.props.scale || 1
 
 		this.leftExtrusion = (
 			<svg viewBox="0 0 1140 150.1" class={`twitchbug__extrusion ${this.extrusionColor}`} ref={(el) => (this.leftRef = el)}>
@@ -87,8 +88,8 @@ class TwitchBug extends Component {
 		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
 		gsap.set(triangletopleftRef, { transformOrigin: '0 0' })
 		gsap.set(outlineRef, { opacity: 0 })
-		gsap.set(bartopleftRef, { opacity: 0 })
-		gsap.set(bartoprightRef, { opacity: 0 })
+		gsap.set(bartopleftRef, { opacity: 0, scaleX: 1 })
+		gsap.set(bartoprightRef, { opacity: 0, scaleX: 1 })
 		this.start()
 	}
 
@@ -104,8 +105,8 @@ class TwitchBug extends Component {
 			leftRef,
 			middleRef,
 			rightRef,
+			scale,
 		} = this
-		const { scale } = this.props
 
 		//////////////////////////////////////////////////
 		// Below is only used to reset stuff for restart//
@@ -115,10 +116,11 @@ class TwitchBug extends Component {
 		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
 		gsap.set(triangletopleftRef, { transformOrigin: '0 0' })
 		gsap.set(outlineRef, { opacity: 0 })
-		gsap.set(bartopleftRef, { opacity: 0 })
-		gsap.set(bartoprightRef, { opacity: 0 })
+		gsap.set(bartopleftRef, { opacity: 0, scaleX: 1 })
+		gsap.set(bartoprightRef, { opacity: 0, scaleX: 1 })
 		//////////////////////////////////////////////////
 
+		//Extrusion duration
 		const dur = 0.8
 		const e = 'expo.out'
 		let delay = 0
@@ -133,9 +135,9 @@ class TwitchBug extends Component {
 			twitchbugRef.style.width = 300 * scale + 'px'
 			twitchbugRef.style.height = 100 * scale + 'px'
 		}
-		gsap.to(innerRef, { duration: 0.2, scale: `-=${0.2 * scale}` })
+
 		// Bounce Scale down
-		gsap.to(innerRef, { duration: 0.2, scale: `-=${0.1 * scale}` })
+		gsap.to(innerRef, { duration: 0.2, scale: `-=${0.2 * scale}`, ease: 'expo.in' })
 		delay += 0.2
 
 		// Bring in logo outline
@@ -144,14 +146,8 @@ class TwitchBug extends Component {
 		gsap.set(outlineRef, { delay: delay, opacity: 1 })
 
 		// Bounce Scale up
-		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: `+=${0.05 * scale}` })
-		delay += 0.2
+		gsap.to(innerRef, { delay: delay, duration: 0.15, scale: `+=${0.08 * scale}` })
 
-		// Jump Scale up
-		gsap.to(innerRef, { delay: delay, duration: 0.2, scale: `-=${0.2 * scale}` })
-		// Continuous Scale up
-		gsap.to(innerRef, { delay: delay, duration: 0.3, scale: scale })
-		delay += 0
 		// Start Extrusion
 		gsap.from(leftRef, { delay: delay, duration: dur, x: '-=40', y: '-=40', ease: e })
 		gsap.from(middleRef, { delay: delay, duration: dur, y: '-=40', ease: e })
@@ -161,6 +157,10 @@ class TwitchBug extends Component {
 		gsap.to(bartopleftRef, { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
 		gsap.to(bartoprightRef, { delay: delay + 0.1, duration: dur, scaleX: 0.6, ease: e })
 		delay += 0.2
+		// Jump Scale up
+		gsap.set(innerRef, { delay: delay, scale: `+=${0.2 * scale}` })
+		// // Continuous Scale up
+		gsap.to(innerRef, { delay: delay + 0.02, duration: 0.3, scale: `+=${0.1 * scale}`, ease: 'sine.out' })
 	}
 	render() {
 		const { outline, triangleColor, barColor, leftExtrusion, middleExtrusion, rightExtrusion } = this
