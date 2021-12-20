@@ -1,0 +1,81 @@
+// Import the main scss file to have access to variables, globals, mixins
+@import '../../../common/styles/main.scss';
+
+.twitchwordmarkfull {
+	position: relative;
+
+	&__inner {
+		position: absolute;
+		width: 300px;
+		height: 165px;
+		transform-origin: center center;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+
+		* {
+			position: absolute;
+		}
+	}
+
+	&__grad {
+		// clip-path: polygon(0 0, 100% 0, 75% 100%, 30% 100%);
+		clip-path: polygon(
+			0% 0%,
+			100% 0%,
+			69% 100%,
+			59% 100%,
+			57.3% 95%,
+			57% 100%,
+			51.6% 100%,
+			49.6% 95%,
+			49.6% 100%,
+			41% 100%,
+			39% 95%,
+			39% 100%,
+			31% 100%
+		);
+		//
+		top: 76px;
+		right: 0;
+		width: 287px;
+		height: 89px;
+		transform-origin: bottom;
+	}
+	&__beam {
+		width: 8px;
+		opacity: 0.15;
+		height: 89px;
+		&-left {
+			transform: skew(40deg);
+			left: 72px;
+			background: linear-gradient(90deg, rgba(0, 250, 250, 0) 0%, rgba(0, 250, 250, 1) 100%);
+		}
+		&-mid {
+			left: 142px;
+			background: linear-gradient(270deg, rgba(0, 250, 250, 0) 0%, rgba(0, 250, 250, 1) 100%);
+		}
+		&-right {
+			transform: skew(345deg);
+			left: 175px;
+			background: linear-gradient(270deg, rgba(0, 250, 250, 0) 0%, rgba(0, 250, 250, 1) 100%);
+		}
+	}
+
+	&__ref {
+		visibility: hidden;
+		object-fit: contain;
+		width: 324px;
+		top: -6px;
+		left: -3px;
+	}
+	&__twitchword {
+		transform-origin: center 200%;
+	}
+	&__wm-white {
+		fill: white;
+	}
+	&__wm-outline {
+		fill: $twitch-color-purple;
+	}
+}

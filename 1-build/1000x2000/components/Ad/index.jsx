@@ -5,6 +5,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import DemoElement from '../DemoElement'
 import TwitchBug from '../TwitchBug'
 import TwitchWordMark from '../TwitchWordMark'
+import TwitchWordMarkFull from '../TwitchWordMarkFull'
 import TwitchCta from '../TwitchCta'
 import TwitchText from '../TwitchText'
 import TwitchAnimatedGrad from '../TwitchAnimatedGrad'
@@ -34,97 +35,15 @@ class Ad extends Component {
 			<div className="ad">
 				<div className="ad__inner-container">
 					<DemoElement
-						name="Twitch Glitch"
+						name="Twitch Wordmark Full"
 						width="250px"
 						height="180px"
+						background="#cccccc"
 						onClick={() => {
-							this.twitchGlitch.restart()
+							this.twitchWordMarkFull.restart()
 						}}
 					>
-						<TwitchGlitch scale={0.2} color="purple" ref={(el) => (this.twitchGlitch = el)} />
-					</DemoElement>
-					<DemoElement
-						name="Twitch Panel Wipe"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchPanelWipe.restart()
-						}}
-					>
-						<TwitchPanelWipe ref={(el) => (this.twitchPanelWipe = el)} />
-					</DemoElement>
-					<DemoElement
-						name="Twitch Name Scroll Bug"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchNameScrollBug.restart()
-						}}
-					>
-						<TwitchNameScrollBug name="Khaykashi" color="purple" scale={0.15} ref={(el) => (this.twitchNameScrollBug = el)} />
-					</DemoElement>
-					<DemoElement
-						name="Twitch Triple Text"
-						width="250px"
-						height="180px"
-						background="#9146ff"
-						onClick={() => {
-							this.twitchTripleText.restart()
-						}}
-					>
-						<TwitchTripleText
-							width={230}
-							zoomScale={2}
-							fit
-							minFontSize={5}
-							//maxFontSize={23}
-							fontSize={50}
-							ref={(el) => (this.twitchTripleText = el)}
-						>
-							{this.tripletext}
-						</TwitchTripleText>
-					</DemoElement>
-					<DemoElement
-						name="Twitch Bug"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchBug.restart()
-						}}
-					>
-						<TwitchBug color="purple" scale={0.5} ref={(el) => (this.twitchBug = el)} />
-					</DemoElement>
-					<DemoElement
-						name="Twitch Word Board"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchWordBoard.restart()
-						}}
-					>
-						<TwitchWordBoard className="twitchtext" width="100%" height="100%" zoomScale={2} ref={(el) => (this.twitchWordBoard = el)}>
-							{this.wordboardtext}
-						</TwitchWordBoard>
-					</DemoElement>
-					<DemoElement
-						name="Twitch Glitch Extrude"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchGlitchExtrude.restart()
-						}}
-					>
-						<TwitchGlitchExtrude scale={1.3} color="purple" ref={(el) => (this.twitchGlitchExtrude = el)} />
-					</DemoElement>
-					<DemoElement
-						name="Twitch Streamer bug"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchStreamerBug.restart()
-						}}
-					>
-						<TwitchStreamerBug ref={(el) => (this.twitchStreamerBug = el)} name="UmiNoKaiju" />
+						<TwitchWordMarkFull scale={0.6} gradColors={['#00fafa', '#ef00fa', '5dfa00']} ref={(el) => (this.twitchWordMarkFull = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Wordmark"
@@ -137,66 +56,171 @@ class Ad extends Component {
 					>
 						<TwitchWordMark scale={0.6} ref={(el) => (this.twitchWordMark = el)} />
 					</DemoElement>
-
-					<DemoElement
-						name="Twitch CTA"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchCta.restart()
-						}}
-					>
-						<TwitchCta
-							color="purple"
-							fit
-							width={200}
-							minFont={3}
-							maxFont={25}
-							arrow
-							text="Install this app now"
-							ref={(el) => (this.twitchCta = el)}
-						/>
-					</DemoElement>
-					<DemoElement
-						name="Twitch Text"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchText.restart()
-						}}
-					>
-						<TwitchText className="twitchtext" width={200} animateOut fit outDelay={2} ref={(el) => (this.twitchText = el)}>
-							{this.text}
-						</TwitchText>
-					</DemoElement>
-					<DemoElement name="Twitch Grad2-1" width="250px" height="180px">
-						<div className="grad2-1 grad"></div>
-					</DemoElement>
-					<DemoElement name="Twitch Grad3-1" width="250px" height="180px">
-						<div className="grad3-1 grad"></div>
-					</DemoElement>
-					<DemoElement name="Twitch Grad3-2" width="250px" height="180px">
-						<div className="grad3-2 grad"></div>
-					</DemoElement>
-					<DemoElement name="Twitch Grad3-3" width="250px" height="180px">
-						<div className="grad3-3 grad"></div>
-					</DemoElement>
-					<DemoElement name="Twitch Grad3-4" width="250px" height="180px">
-						<div className="grad3-4 grad"></div>
-					</DemoElement>
-					<DemoElement
-						name="Twitch Animated Grad"
-						width="250px"
-						height="180px"
-						onClick={() => {
-							this.twitchAnimatedGrad.restart()
-						}}
-					>
-						<TwitchAnimatedGrad startClass="grad3-2" endClass="grad2-1" duration={1} ref={(el) => (this.twitchAnimatedGrad = el)} />
-					</DemoElement>
 				</div>
 			</div>
 		)
 	}
 }
 export default Ad
+
+// <DemoElement
+// name="Twitch Glitch"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchGlitch.restart()
+// }}
+// >
+// <TwitchGlitch scale={0.2} color="purple" ref={(el) => (this.twitchGlitch = el)} />
+// </DemoElement>
+// <DemoElement
+// name="Twitch Panel Wipe"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchPanelWipe.restart()
+// }}
+// >
+// <TwitchPanelWipe ref={(el) => (this.twitchPanelWipe = el)} />
+// </DemoElement>
+// <DemoElement
+// name="Twitch Name Scroll Bug"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchNameScrollBug.restart()
+// }}
+// >
+// <TwitchNameScrollBug name="Khaykashi" color="purple" scale={0.15} ref={(el) => (this.twitchNameScrollBug = el)} />
+// </DemoElement>
+// <DemoElement
+// name="Twitch Triple Text"
+// width="250px"
+// height="180px"
+// background="#9146ff"
+// onClick={() => {
+// 	this.twitchTripleText.restart()
+// }}
+// >
+// <TwitchTripleText
+// 	width={230}
+// 	zoomScale={2}
+// 	fit
+// 	minFontSize={5}
+// 	//maxFontSize={23}
+// 	fontSize={50}
+// 	ref={(el) => (this.twitchTripleText = el)}
+// >
+// 	{this.tripletext}
+// </TwitchTripleText>
+// </DemoElement>
+// <DemoElement
+// name="Twitch Bug"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchBug.restart()
+// }}
+// >
+// <TwitchBug color="purple" scale={0.5} ref={(el) => (this.twitchBug = el)} />
+// </DemoElement>
+// <DemoElement
+// name="Twitch Word Board"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchWordBoard.restart()
+// }}
+// >
+// <TwitchWordBoard className="twitchtext" width="100%" height="100%" zoomScale={2} ref={(el) => (this.twitchWordBoard = el)}>
+// 	{this.wordboardtext}
+// </TwitchWordBoard>
+// </DemoElement>
+// <DemoElement
+// name="Twitch Glitch Extrude"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchGlitchExtrude.restart()
+// }}
+// >
+// <TwitchGlitchExtrude scale={1.3} color="purple" ref={(el) => (this.twitchGlitchExtrude = el)} />
+// </DemoElement>
+// <DemoElement
+// name="Twitch Streamer bug"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchStreamerBug.restart()
+// }}
+// >
+// <TwitchStreamerBug ref={(el) => (this.twitchStreamerBug = el)} name="UmiNoKaiju" />
+// </DemoElement>
+// <DemoElement
+// name="Twitch Wordmark"
+// width="250px"
+// height="180px"
+// background="#9146ff"
+// onClick={() => {
+// 	this.twitchWordMark.restart()
+// }}
+// >
+// <TwitchWordMark scale={0.6} ref={(el) => (this.twitchWordMark = el)} />
+// </DemoElement>
+
+// <DemoElement
+// name="Twitch CTA"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchCta.restart()
+// }}
+// >
+// <TwitchCta
+// 	color="purple"
+// 	fit
+// 	width={200}
+// 	minFont={3}
+// 	maxFont={25}
+// 	arrow
+// 	text="Install this app now"
+// 	ref={(el) => (this.twitchCta = el)}
+// />
+// </DemoElement>
+// <DemoElement
+// name="Twitch Text"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchText.restart()
+// }}
+// >
+// <TwitchText className="twitchtext" width={200} animateOut fit outDelay={2} ref={(el) => (this.twitchText = el)}>
+// 	{this.text}
+// </TwitchText>
+// </DemoElement>
+// <DemoElement name="Twitch Grad2-1" width="250px" height="180px">
+// <div className="grad2-1 grad"></div>
+// </DemoElement>
+// <DemoElement name="Twitch Grad3-1" width="250px" height="180px">
+// <div className="grad3-1 grad"></div>
+// </DemoElement>
+// <DemoElement name="Twitch Grad3-2" width="250px" height="180px">
+// <div className="grad3-2 grad"></div>
+// </DemoElement>
+// <DemoElement name="Twitch Grad3-3" width="250px" height="180px">
+// <div className="grad3-3 grad"></div>
+// </DemoElement>
+// <DemoElement name="Twitch Grad3-4" width="250px" height="180px">
+// <div className="grad3-4 grad"></div>
+// </DemoElement>
+// <DemoElement
+// name="Twitch Animated Grad"
+// width="250px"
+// height="180px"
+// onClick={() => {
+// 	this.twitchAnimatedGrad.restart()
+// }}
+// >
+// <TwitchAnimatedGrad startClass="grad3-2" endClass="grad2-1" duration={1} ref={(el) => (this.twitchAnimatedGrad = el)} />
+// </DemoElement>
