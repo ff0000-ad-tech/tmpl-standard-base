@@ -42,7 +42,7 @@ class TwitchGlitch extends Component {
 		const { glitchRef, bodyInnerRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
 		const { scale } = this.props
 		// Set initial scale for the inner container that contains the glitch animation
-		gsap.set(innerRef, { scale: scale ? scale + 0.25 * scale : 1.25 })
+		gsap.set(innerRef, { scale: scale ? scale + 0.66 * scale : 1.66 })
 
 		// Set initial scale for the inner body
 		gsap.set(bodyInnerRef, { scale: 0.8 })
@@ -63,7 +63,7 @@ class TwitchGlitch extends Component {
 		const { scale } = this.props
 
 		// Reset initial values
-		gsap.set(innerRef, { scale: scale ? scale + 0.25 * scale : 1.25 })
+		gsap.set(innerRef, { scale: scale ? scale + 0.66 * scale : 1.66 })
 		gsap.set(bodyInnerRef, { scale: 0.8, top: 81, left: 31 })
 		gsap.set([leftEyeRef, rightEyeRef], { opacity: 0 })
 
@@ -89,8 +89,7 @@ class TwitchGlitch extends Component {
 
 		// Set our css animation classes so they animate
 		this.setState({ bodyIn: 'twitchglitch__body-in', innerIn: 'twitchglitch__body-inner-in' })
-		// Scale the inner container to 100%
-		gsap.to(innerRef, { scale: scale ? scale * 1 : 1, duration: 0.25, ease: 'none' })
+		gsap.to(innerRef, { scale: scale ? scale * 1 : 1, duration: 0.25, ease: 'power3.out' })
 		// At the same time and duration scale the inner body up to 100%
 		gsap.fromTo(bodyInnerRef, { scale: 0.8 }, { scale: 1, duration: 0.25, delay: 0.1, ease: 'none' })
 		// Move the inner body up and to the right
