@@ -20,7 +20,7 @@ class TwitchCta extends Component {
 	componentDidMount() {
 		const { ctaRef, textContainerRef } = this
 		const { width, minFont, maxFont, fit } = this.props
-
+		// Hide the component
 		gsap.set(ctaRef, { opacity: 0 })
 
 		let finalFontSize = getComputedStyle(ctaRef).getPropertyValue('font-size')
@@ -64,7 +64,10 @@ class TwitchCta extends Component {
 
 	start() {
 		const { ctaRef } = this
-		// Scale down the cta on X and Y, we can also now set its opacity to be visible
+		// Show the component
+		gsap.set(ctaRef, { opacity: 1 })
+
+		// Scale down the cta on X and Y
 		gsap.set(ctaRef, { scaleX: 0.05, scaleY: 0.05, opacity: 1 })
 		// Scale cta y
 		gsap.to(ctaRef, { duration: 0.2, scaleY: 1 })

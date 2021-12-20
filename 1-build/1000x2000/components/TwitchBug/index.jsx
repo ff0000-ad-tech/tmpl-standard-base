@@ -71,7 +71,9 @@ class TwitchBug extends Component {
 	}
 	componentDidMount() {
 		const { twitchbugRef, triangletoprightRef, triangletopleftRef, outlineRef, bartopleftRef, bartoprightRef } = this
+		// Hide the component
 		gsap.set(twitchbugRef, { opacity: 0 })
+
 		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
 		gsap.set(triangletopleftRef, { transformOrigin: '0 0' })
 		gsap.set(outlineRef, { opacity: 0 })
@@ -82,7 +84,6 @@ class TwitchBug extends Component {
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
-		console.warn('RESTART')
 		const { twitchbugRef, triangletoprightRef, triangletopleftRef, outlineRef, bartopleftRef, bartoprightRef } = this
 		gsap.set(twitchbugRef, { opacity: 0 })
 		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
@@ -112,6 +113,7 @@ class TwitchBug extends Component {
 		// Below is only used to reset stuff for restart//
 		// Bit can be deleted in production 			//
 		//////////////////////////////////////////////////
+		// Hide the component
 		gsap.set(twitchbugRef, { opacity: 0 })
 		gsap.set(triangletoprightRef, { transformOrigin: '100% 0' })
 		gsap.set(triangletopleftRef, { transformOrigin: '0 0' })

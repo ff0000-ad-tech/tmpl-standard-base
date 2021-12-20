@@ -41,6 +41,9 @@ class TwitchGlitch extends Component {
 	componentDidMount() {
 		const { glitchRef, bodyInnerRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef } = this
 		const { scale } = this.props
+		// Hide the component
+		gsap.set(glitchRef, { opacity: 0 })
+
 		// Set initial scale for the inner container that contains the glitch animation
 		gsap.set(innerRef, { scale: scale ? scale + 0.66 * scale : 1.66 })
 
@@ -85,7 +88,9 @@ class TwitchGlitch extends Component {
 
 	start() {
 		const { scale } = this.props
-		const { bodyInnerRef, innerRef } = this
+		const { glitchRef, bodyInnerRef, innerRef } = this
+		// Show the component
+		gsap.set(glitchRef, { opacity: 1 })
 
 		// Set our css animation classes so they animate
 		this.setState({ bodyIn: 'twitchglitch__body-in', innerIn: 'twitchglitch__body-inner-in' })

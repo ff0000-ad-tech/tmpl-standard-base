@@ -34,6 +34,10 @@ class TwitchWordMark extends Component {
 	componentDidMount() {
 		const { scale } = this.props
 		const { innerRef, wordmarkRef } = this
+
+		// Hide the component
+		gsap.set(wordmarkRef, { opacity: 0 })
+
 		gsap.set(innerRef, { opacity: 0 })
 		if (scale) {
 			gsap.set(innerRef, { scale: scale })
@@ -51,7 +55,10 @@ class TwitchWordMark extends Component {
 	}
 
 	start() {
-		const { innerRef, wordRef, gradRef } = this
+		const { wordmarkRef, innerRef, wordRef, gradRef } = this
+		// Hide the component
+		gsap.set(wordmarkRef, { opacity: 2 })
+
 		let bg2 = 'linear-gradient(rgba(0, 250, 250, 0) 80%, rgba(0, 250, 250, 1) 100%)'
 
 		gsap.set(innerRef, { opacity: 1 })

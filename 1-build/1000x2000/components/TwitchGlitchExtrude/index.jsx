@@ -57,8 +57,10 @@ class TwitchGlitchExtrude extends Component {
 	componentDidMount() {
 		const { glitchRef, glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef, innerRef, colors, color } = this
 		const { scale } = this.props
-		// Setup gradients to tween to
+		// Hide the component
+		gsap.set(glitchRef, { opacity: 0 })
 
+		// Setup gradients to tween to
 		this.bg_left_start = `linear-gradient(90deg, rgba(${colors[color]}, 0) 0%, rgba(${colors[color]}, 1) 0%, rgba(${colors[color]}, 0) 0%)`
 		this.bg_mid_start = `linear-gradient(90deg, rgba(${colors[color]}, 0) 10%, rgba(${colors[color]}, 1) 0%, rgba(${colors[color]}, 0) 0%)`
 		this.bg_bottom_start = `linear-gradient(0deg, rgba(${colors[color]}, 0) 0%, rgba(${colors[color]}, 1) 0%, rgba(${colors[color]}, 0) 0%)`
@@ -95,7 +97,10 @@ class TwitchGlitchExtrude extends Component {
 	}
 
 	start() {
-		const { glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef } = this
+		const { glitchRef, glitchIconRef, leftEyeRef, rightEyeRef, leftRef, midRef, bottomRef } = this
+		// Show the component
+		gsap.set(glitchRef, { opacity: 1 })
+
 		gsap.set(glitchIconRef, { opacity: 1 })
 		gsap.from(glitchIconRef, { scale: 2, duration: 0.3, ease: 'expo.out' })
 		let delay = 0.3
