@@ -45,6 +45,7 @@ class TwitchGlitch extends Component {
 		gsap.set(glitchRef, { opacity: 0 })
 
 		// Set initial scale for the inner container that contains the glitch animation
+		// for not as big scale use .25 instead of .66
 		gsap.set(innerRef, { scale: scale ? scale + 0.66 * scale : 1.66 })
 
 		// Set initial scale for the inner body
