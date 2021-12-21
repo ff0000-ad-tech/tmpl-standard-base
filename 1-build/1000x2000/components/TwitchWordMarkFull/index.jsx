@@ -72,7 +72,7 @@ class TwitchWordMarkFull extends Component {
 	}
 	componentDidMount() {
 		const { scale } = this.props
-		const { gradStart, gradRef, innerRef, wordmarkfullRef } = this
+		const { innerRef, wordmarkfullRef } = this
 
 		// Hide the component
 		gsap.set(wordmarkfullRef, { opacity: 0 })
@@ -97,15 +97,12 @@ class TwitchWordMarkFull extends Component {
 		this.start()
 	}
 	start() {
-		const { gradHolderRef, wordmarkfullRef, innerRef, wordRef, gradRef, gradEnd, backfillerRef } = this
+		const { wordmarkfullRef, wordRef, gradRef, gradEnd, backfillerRef } = this
 		// Show the component
 		gsap.set(wordmarkfullRef, { opacity: 1 })
 
 		// Animation duration
 		const dur = 0.5
-
-		// gsap.set(innerRef, { opacity: 1 })
-		// gsap.set(wordRef, { x: 4, y: 89, scale: 0.38 })
 		// Animate the gradient
 		gsap.to(gradRef, { background: gradEnd, duration: dur + 0.01, ease: 'expo.out' })
 		// Animate the wordmark
