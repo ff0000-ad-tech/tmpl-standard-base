@@ -62,7 +62,7 @@ class TwitchWordMark extends Component {
 		let bg2 = 'linear-gradient(rgba(0, 250, 250, 0) 80%, rgba(0, 250, 250, 1) 100%)'
 
 		gsap.set(innerRef, { opacity: 1 })
-		gsap.from(gradRef, { background: bg2, duration: 0.5 })
+		// gsap.from(gradRef, { background: bg2, duration: 0.5 })
 		gsap.from(wordRef, { duration: 0.5, scale: 0.5 })
 	}
 
