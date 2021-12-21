@@ -43,7 +43,7 @@ class Ad extends Component {
 							this.twitchWordMarkFull.restart()
 						}}
 					>
-						<TwitchWordMarkFull scale={0.6} gradColors={['#00fafa', '#ef00fa', '5dfa00']} ref={(el) => (this.twitchWordMarkFull = el)} />
+						<TwitchWordMarkFull scale={0.6} gradColors={['#9146ff', '#00fafa', '#fafa19']} ref={(el) => (this.twitchWordMarkFull = el)} />
 					</DemoElement>
 					<DemoElement
 						name="Twitch Wordmark"

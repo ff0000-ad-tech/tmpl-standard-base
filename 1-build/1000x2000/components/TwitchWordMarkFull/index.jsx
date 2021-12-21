@@ -7,20 +7,21 @@ class TwitchWordMarkFull extends Component {
 	constructor(props) {
 		super(props)
 		const { gradColors } = this.props
-		console.error(gradColors)
+
+		// Convert hex colors to RGBA
 		const color1 = this.convertHexToRGB(gradColors[0])
 		const color2 = this.convertHexToRGB(gradColors[1])
-		console.error('color2', color2)
-		const color3 = this.convertHexToRGB(gradColors[2])
-		this.twoColorGradStart = `linear-gradient(rgba(${color1},0) 100%, rgba(${color2},0) 100%)`
-		this.threeColorGradStart = `linear-gradient( rgba(${color1},0) 100%,rgba(${color1},0) 100%, rgba(${color2},0) 100%, rgba(${color3},0) 100%)`
-		this.twoColorGradEnd = `linear-gradient(rgba(${color1},1) 0%, rgba(${color2},1) 100%)`
-		this.threeColorGradEnd = `linear-gradient(rgba(${color1},0) 0%,rgba(${color1},1) 0%, rgba(${color2},1) 50%, rgba(${color3},1) 100%)`
+		const color3 = gradColors[2] ? this.convertHexToRGB(gradColors[2]) : gradColors[1]
+
+		// Setup start and end gradients
+		this.twoColorGradStart = `linear-gradient(rgba(${color1},0) 100%, rgba(${color1},0) 100%, rgba(${color2},0) 100%)`
+		this.threeColorGradStart = `linear-gradient( rgba(${color1},0) 100%,rgba(${color1},1) 100%, rgba(${color2},1) 100%, rgba(${color3},1) 100%)`
+		this.twoColorGradEnd = `linear-gradient(rgba(${color1},0) 0%,rgba(${color1},1) 16%, rgba(${color2},1) 100%)`
+		this.threeColorGradEnd = `linear-gradient(rgba(${color1},0) 0%,rgba(${color1},1) 16%, rgba(${color2},1) 70%, rgba(${color3},1) 100%)`
 		this.gradStart = gradColors.length > 2 ? this.threeColorGradStart : this.twoColorGradStart
 		this.gradEnd = gradColors.length > 2 ? this.threeColorGradEnd : this.twoColorGradEnd
-		console.warn(this.gradStart)
-		console.warn(this.gradEnd)
-		this.outline = (
+
+		this.workmark = (
 			<svg viewBox="0 0 1140 290" class="twitchwordmarkfull__twitchword" ref={(el) => (this.wordRef = el)}>
 				<polygon
 					class="twitchwordmarkfull__wm-white"
@@ -46,8 +47,7 @@ class TwitchWordMarkFull extends Component {
 					points="1120,270 1040,270 1040,170 1020,170 1020,270 940,270 940,20 1020,20 1020,90 1080,90 1120,130 "
 				/>
 				<path
-					class="twitchwordmarkfull__wm-outline"
-					id="Outline"
+					style={{ fill: gradColors[0] }}
 					d="M1140,290V120l-50-50h-50V0H920.2l-24.5,70H790l-30,30V70h-70V0H470v70H147L120,0H0v240l50,50h140v-30l30,30
 	h370v-30l30,30h140v-30l30,30 M170,170h-70v20h70v80H60l-40-40V20h80v70h70V170z M470,270H230l-40-40V90h80v100h20V90h80v100h20V90
 	h80V270z M570,270h-80V90h80V270z M570,70h-80V20h80V70z M740,170h-70v20h70v80H630l-40-40V20h80v70h70V170z M920,170h-80v20h80v80
@@ -77,8 +77,6 @@ class TwitchWordMarkFull extends Component {
 		// Hide the component
 		gsap.set(wordmarkfullRef, { opacity: 0 })
 
-		gsap.set(innerRef, { opacity: 0 })
-
 		if (scale) {
 			gsap.set(innerRef, { scale: scale })
 			wordmarkfullRef.style.width = 300 * scale + 'px'
@@ -89,35 +87,53 @@ class TwitchWordMarkFull extends Component {
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
-		const { innerRef, gradRef, gradStart } = this
-		gsap.set(innerRef, { opacity: 0 })
+		const { gradRef, gradStart, backfillerRef } = this
+		// Reset the grad to the start grad
 		gradRef.style.background = gradStart
+		// Reset backfiller positions
+		backfillerRef.style.bottom = '0'
+		backfillerRef.style.width = '100px'
+		backfillerRef.style.left = '80px'
 		this.start()
 	}
 	start() {
-		const { wordmarkfullRef, innerRef, wordRef, gradRef, gradEnd } = this
-		// Hide the component
+		const { gradHolderRef, wordmarkfullRef, innerRef, wordRef, gradRef, gradEnd, backfillerRef } = this
+		// Show the component
 		gsap.set(wordmarkfullRef, { opacity: 1 })
-		gsap.set(innerRef, { opacity: 1 })
-		gsap.set(gradRef, { scaleY: 0 })
-		console.error(gradEnd)
-		gsap.to(gradRef, { scaleY: 1, background: gradEnd, duration: 0.5, ease: 'none' })
-		gsap.from(wordRef, { duration: 0.5, scale: 0.5, y: 38, ease: 'expo.out' })
+
+		// Animation duration
+		const dur = 0.5
+
+		// gsap.set(innerRef, { opacity: 1 })
+		// gsap.set(wordRef, { x: 4, y: 89, scale: 0.38 })
+		// Animate the gradient
+		gsap.to(gradRef, { background: gradEnd, duration: dur + 0.12, ease: 'expo.out' })
+		// Animate the wordmark
+		gsap.from(wordRef, { duration: dur, x: 4, y: 89, scale: 0.38, ease: 'expo.out' })
+		// Animate the backing filler for the wordmark
+		gsap.to(backfillerRef, { duration: dur, width: 170, left: 31, bottom: 89, ease: 'expo.out' })
 	}
 
 	render() {
-		const { debug, scale } = this.props
+		const { debug, gradColors } = this.props
 		const { gradStart } = this
-		console.error(gradStart)
+
 		return (
 			<div className="twitchwordmarkfull" style={{ backgroundColor: debug ? 'green' : null }} ref={(el) => (this.wordmarkfullRef = el)}>
 				<div className="twitchwordmarkfull__inner" style={{ backgroundColor: debug ? 'red' : null }} ref={(el) => (this.innerRef = el)}>
-					<div className="twitchwordmarkfull__grad" style={{ background: gradStart }} ref={(el) => (this.gradRef = el)}>
-						<div className="twitchwordmarkfull__beam twitchwordmarkfull__beam-left" />
-						<div className="twitchwordmarkfull__beam twitchwordmarkfull__beam-mid" />
-						<div className="twitchwordmarkfull__beam twitchwordmarkfull__beam-right" />
+					<div className="twitchwordmarkfull__gradholder" ref={(el) => (this.gradHolderRef = el)}>
+						<div className="twitchwordmarkfull__grad" style={{ background: gradStart }} ref={(el) => (this.gradRef = el)}>
+							<div
+								className="twitchwordmarkfull__backfiller"
+								style={{ background: gradColors[0] }}
+								ref={(el) => (this.backfillerRef = el)}
+							/>
+							<div className="twitchwordmarkfull__beam twitchwordmarkfull__beam-left" />
+							<div className="twitchwordmarkfull__beam twitchwordmarkfull__beam-mid" />
+							<div className="twitchwordmarkfull__beam twitchwordmarkfull__beam-right" />
+						</div>
 					</div>
-					{this.outline}
+					{this.workmark}
 				</div>
 			</div>
 		)

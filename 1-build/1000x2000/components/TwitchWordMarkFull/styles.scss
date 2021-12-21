@@ -3,7 +3,13 @@
 
 .twitchwordmarkfull {
 	position: relative;
-
+	&__backfiller {
+		height: 20px;
+		left: 100px;
+		width: 80px;
+		bottom: 0;
+		transform-origin: center bottom;
+	}
 	&__inner {
 		position: absolute;
 		width: 300px;
@@ -17,12 +23,22 @@
 			position: absolute;
 		}
 	}
-
+	&__gradholder {
+		top: 56px;
+		right: 0;
+		width: 287px;
+		height: 109px;
+		overflow: hidden;
+		transform-origin: bottom;
+		// background: red;
+	}
 	&__grad {
 		// clip-path: polygon(0 0, 100% 0, 75% 100%, 30% 100%);
 		clip-path: polygon(
-			0% 0%,
-			100% 0%,
+			0% 19%,
+			0% 8%,
+			100% 8%,
+			100% 19%,
 			69% 100%,
 			59% 100%,
 			57.3% 95%,
@@ -36,16 +52,17 @@
 			31% 100%
 		);
 		//
-		top: 76px;
-		right: 0;
+		// top: 56px;
+		// right: 0;
 		width: 287px;
-		height: 89px;
+		height: 109px;
 		transform-origin: bottom;
 	}
 	&__beam {
 		width: 8px;
 		opacity: 0.15;
 		height: 89px;
+		top: 20px;
 		&-left {
 			transform: skew(40deg);
 			left: 72px;
@@ -70,7 +87,9 @@
 		left: -3px;
 	}
 	&__twitchword {
-		transform-origin: center 200%;
+		position: relative;
+		bottom: 0;
+		transform-origin: center bottom;
 	}
 	&__wm-white {
 		fill: white;
