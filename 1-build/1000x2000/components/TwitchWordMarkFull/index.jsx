@@ -17,7 +17,7 @@ class TwitchWordMarkFull extends Component {
 		this.twoColorGradStart = `linear-gradient(rgba(${color1},0) 100%, rgba(${color1},0) 100%, rgba(${color2},0) 100%)`
 		this.threeColorGradStart = `linear-gradient( rgba(${color1},0) 100%,rgba(${color1},1) 100%, rgba(${color2},1) 100%, rgba(${color3},1) 100%)`
 		this.twoColorGradEnd = `linear-gradient(rgba(${color1},0) 0%,rgba(${color1},1) 16%, rgba(${color2},1) 100%)`
-		this.threeColorGradEnd = `linear-gradient(rgba(${color1},0) 0%,rgba(${color1},1) 16%, rgba(${color2},1) 70%, rgba(${color3},1) 100%)`
+		this.threeColorGradEnd = `linear-gradient(rgba(${color1},0) 17.8%,rgba(${color1},1) 17.8%, rgba(${color2},1) 70%, rgba(${color3},1) 100%)`
 		this.gradStart = gradColors.length > 2 ? this.threeColorGradStart : this.twoColorGradStart
 		this.gradEnd = gradColors.length > 2 ? this.threeColorGradEnd : this.twoColorGradEnd
 
@@ -107,7 +107,7 @@ class TwitchWordMarkFull extends Component {
 		// gsap.set(innerRef, { opacity: 1 })
 		// gsap.set(wordRef, { x: 4, y: 89, scale: 0.38 })
 		// Animate the gradient
-		gsap.to(gradRef, { background: gradEnd, duration: dur + 0.12, ease: 'expo.out' })
+		gsap.to(gradRef, { background: gradEnd, duration: dur + 0.01, ease: 'expo.out' })
 		// Animate the wordmark
 		gsap.from(wordRef, { duration: dur, x: 4, y: 89, scale: 0.38, ease: 'expo.out' })
 		// Animate the backing filler for the wordmark
