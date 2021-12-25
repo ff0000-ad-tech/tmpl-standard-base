@@ -81,7 +81,7 @@ class TwitchWordMarkFull extends Component {
 		if (scale) {
 			gsap.set(innerRef, { scale: scale })
 			wordmarkfullRef.style.width = 300 * scale + 'px'
-			wordmarkfullRef.style.height = 165 * scale + 'px'
+			wordmarkfullRef.style.height = 184 * scale + 'px'
 		}
 		this.start()
 	}
@@ -110,7 +110,7 @@ class TwitchWordMarkFull extends Component {
 		gsap.to(gradHolderRef, { duration: dur, 'clip-path': 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', ease: 'expo.out' })
 		gsap.from(wordRef, { duration: dur, x: 4, y: 109, scale: 0.38, ease: 'expo.out' })
 		// Animate the backing filler for the wordmark
-		gsap.to(backfillerRef, { duration: dur, width: 183, left: 41, bottom: 88, ease: 'expo.out' })
+		gsap.to(backfillerRef, { duration: dur, width: 183, left: 41, bottom: 107, ease: 'expo.out' })
 	}
 
 	render() {
