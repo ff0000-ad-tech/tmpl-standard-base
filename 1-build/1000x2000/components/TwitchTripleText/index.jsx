@@ -47,8 +47,6 @@ class TwitchTripleText extends Component {
 		// Set out outlines to the proper offset positions
 		gsap.set(outline1Ref, { x: `-=${lineOffset * 2}`, y: `-=${lineOffset * 2}` })
 		gsap.set(outline2Ref, { x: `-=${lineOffset}`, y: `-=${lineOffset}` })
-
-		this.start()
 	}
 
 	fitFontSize() {

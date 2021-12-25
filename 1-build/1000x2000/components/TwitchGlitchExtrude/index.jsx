@@ -80,7 +80,6 @@ class TwitchGlitchExtrude extends Component {
 			glitchRef.style.width = 76 * scale + 'px'
 			glitchRef.style.height = 85 * scale + 'px'
 		}
-		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want

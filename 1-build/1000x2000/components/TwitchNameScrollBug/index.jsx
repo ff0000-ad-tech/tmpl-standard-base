@@ -12,12 +12,6 @@ class TwitchNameScrollBug extends Component {
 		this.nameText = this.nameText.repeat(20)
 	}
 
-	componentDidMount() {
-		const { textRef } = this
-		const { width, animateOut, outDelay, fit } = this.props
-		this.start()
-	}
-
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
 		const { twitchBugRef } = this

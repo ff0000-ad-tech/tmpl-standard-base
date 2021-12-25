@@ -58,7 +58,6 @@ class TwitchGlitch extends Component {
 			glitchRef.style.height = 392 * scale + 'px'
 		}
 		// Start the animation
-		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want

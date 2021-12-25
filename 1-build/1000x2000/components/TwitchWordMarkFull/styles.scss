@@ -5,15 +5,15 @@
 	position: relative;
 	&__backfiller {
 		height: 20px;
-		left: 100px;
-		width: 80px;
-		bottom: 0;
+		left: 121px;
+		width: 63px;
+		bottom: -20px;
 		transform-origin: center bottom;
 	}
 	&__inner {
 		position: absolute;
 		width: 300px;
-		height: 165px;
+		height: 184px;
 		transform-origin: center center;
 		left: 50%;
 		top: 50%;
@@ -24,21 +24,22 @@
 		}
 	}
 	&__gradholder {
-		top: 56px;
+		top: 76px;
 		right: 0;
 		width: 287px;
 		height: 109px;
+		clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 		overflow: hidden;
 		transform-origin: bottom;
 		// background: red;
 	}
 	&__grad {
+		position: absolute;
+		// top: -20px;
 		// clip-path: polygon(0 0, 100% 0, 75% 100%, 30% 100%);
 		clip-path: polygon(
-			0% 19%,
-			0% 8%,
-			99.7% 8%,
-			99.7% 19%,
+			0% 0%,
+			100% 0%,
 			69% 100%,
 			59% 100%,
 			57.3% 95%,

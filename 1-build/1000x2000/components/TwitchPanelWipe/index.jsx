@@ -13,11 +13,6 @@ class TwitchPanelWipe extends Component {
 		}
 	}
 
-	componentDidMount() {
-		gsap.delayedCall(1, () => {
-			this.start()
-		})
-	}
 	restart() {
 		// Reset image positions
 		gsap.set(this.imgLeft, { x: 0 })

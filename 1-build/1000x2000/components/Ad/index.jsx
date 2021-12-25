@@ -30,6 +30,39 @@ class Ad extends Component {
 		this.tripletext = 'This is a really cool thing!<br>Yes, yes it is!'
 	}
 
+	componentDidMount() {
+		const {
+			twitchWordMarkFull3,
+			twitchWordMarkFull2,
+			twitchGlitch,
+			twitchPanelWipe,
+			twitchNameScrollBug,
+			twitchTripleText,
+			twitchBug,
+			twitchWordBoard,
+			twitchGlitchExtrude,
+			twitchStreamerBug,
+			twitchWordMark,
+			twitchCta,
+			twitchText,
+			twitchAnimatedGrad,
+		} = this
+
+		twitchWordMarkFull3.start()
+		twitchWordMarkFull2.start()
+		twitchGlitch.start()
+		twitchPanelWipe.start()
+		twitchNameScrollBug.start()
+		twitchTripleText.start()
+		twitchBug.start()
+		twitchWordBoard.start()
+		twitchGlitchExtrude.start()
+		twitchStreamerBug.start()
+		twitchWordMark.start()
+		twitchCta.start()
+		twitchText.start()
+		twitchAnimatedGrad.start()
+	}
 	render() {
 		return (
 			<div className="ad">
@@ -43,7 +76,12 @@ class Ad extends Component {
 							this.twitchWordMarkFull3.restart()
 						}}
 					>
-						<TwitchWordMarkFull scale={0.6} gradColors={['#9146ff', '#00fafa', '#fafa19']} ref={(el) => (this.twitchWordMarkFull3 = el)} />
+						<TwitchWordMarkFull
+							delay={3}
+							scale={0.6}
+							gradColors={['#9146ff', '#00fafa', '#fafa19']}
+							ref={(el) => (this.twitchWordMarkFull3 = el)}
+						/>
 					</DemoElement>
 					<DemoElement
 						name="Twitch Wordmark Full 2 Color"

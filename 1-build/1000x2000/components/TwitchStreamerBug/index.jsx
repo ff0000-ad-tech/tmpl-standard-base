@@ -28,10 +28,6 @@ class TwitchStreamerBug extends Component {
 		)
 	}
 
-	componentDidMount() {
-		this.start()
-	}
-
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
 		// this.tl.reverse()

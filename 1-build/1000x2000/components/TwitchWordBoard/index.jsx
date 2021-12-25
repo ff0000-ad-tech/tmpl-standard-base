@@ -13,7 +13,6 @@ class TwitchWordBoard extends Component {
 
 		const split = new _SplitText(textRef, { type: 'lines', linesClass: 'twitchwordboard__line' })
 		this.lines = split.lines
-		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want

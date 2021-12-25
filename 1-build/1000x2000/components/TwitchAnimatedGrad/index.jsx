@@ -10,7 +10,6 @@ class TwitchAnimatedGrad extends Component {
 
 	componentDidMount() {
 		gsap.set(this.coverRef, { opacity: 0 })
-		this.start()
 	}
 	restart() {
 		gsap.set(this.coverRef, { opacity: 0 })

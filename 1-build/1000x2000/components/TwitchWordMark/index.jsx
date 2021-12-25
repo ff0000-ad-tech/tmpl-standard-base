@@ -44,7 +44,6 @@ class TwitchWordMark extends Component {
 			wordmarkRef.style.width = 300 * scale + 'px'
 			wordmarkRef.style.height = 165 * scale + 'px'
 		}
-		this.start()
 	}
 
 	// Only used in demo for restarting animation. You can delete if you want
