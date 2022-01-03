@@ -19,7 +19,7 @@ class TwitchWordMarkFull extends Component {
 		this.threeColorGradEnd = `linear-gradient(${color1} 0%, ${color2} 70%, ${color3} 100%)`
 		this.gradStart = gradColors.length > 2 ? this.threeColorGradStart : this.twoColorGradStart
 		this.gradEnd = gradColors.length > 2 ? this.threeColorGradEnd : this.twoColorGradEnd
-		this.startClip = 'polygon(0% 0%, 0% 0%, 100% 100%, 0% 100%);'
+		this.startClip = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);'
 		this.endClip = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);'
 		this.workmark = (
 			<svg viewBox="0 0 1140 290" class="twitchwordmarkfull__twitchword" ref={(el) => (this.wordRef = el)}>
@@ -73,13 +73,17 @@ class TwitchWordMarkFull extends Component {
 
 	// Only used in demo for restarting animation. You can delete if you want
 	restart() {
-		const { gradRef, gradStart, backfillerRef } = this
+		const { gradRef, gradStart, backfillerRef, gradHolderRef } = this
 		// Reset the grad to the start grad
 		gradRef.style.background = gradStart
+
 		// Reset backfiller positions
 		backfillerRef.style.bottom = '0'
 		backfillerRef.style.width = '100px'
 		backfillerRef.style.left = '80px'
+
+		// Reset grad holder clipping mask
+		gsap.set(gradHolderRef, { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' })
 		this.start()
 	}
 	start() {
@@ -88,7 +92,7 @@ class TwitchWordMarkFull extends Component {
 		gsap.set(wordmarkfullRef, { opacity: 1 })
 
 		// Animation duration
-		const dur = 5
+		const dur = 0.5
 		// Animate the gradient
 		gsap.to(gradRef, { background: gradEnd, duration: dur, ease: 'expo.out' })
 		// Animate the wordmark

@@ -16,8 +16,11 @@ import TwitchWordBoard from '../TwitchWordBoard'
 import TwitchTripleText from '../TwitchTripleText'
 import TwitchNameScrollBug from '../TwitchNameScrollBug'
 import TwitchPanelWipe from '../TwitchPanelWipe'
+import TwitchSquareTrans from '../TwitchSquareTrans'
 
 // Assets
+// Images
+import '@size/images/panelwipe.jpg'
 
 // Styles
 import './styles.scss'
@@ -46,6 +49,8 @@ class Ad extends Component {
 			twitchCta,
 			twitchText,
 			twitchAnimatedGrad,
+			twitchSquareTrans,
+			twitchSquareTransReverse,
 		} = this
 
 		twitchWordMarkFull3.start()
@@ -62,11 +67,39 @@ class Ad extends Component {
 		twitchCta.start()
 		twitchText.start()
 		twitchAnimatedGrad.start()
+		twitchSquareTrans.start()
+		twitchSquareTransReverse.start()
 	}
 	render() {
 		return (
 			<div className="ad">
 				<div className="ad__inner-container">
+					<DemoElement
+						name="Twitch Square Trans (inout)"
+						width="250px"
+						height="180px"
+						background="#cccccc"
+						onClick={() => {
+							this.twitchSquareTrans.restart()
+						}}
+					>
+						<TwitchSquareTrans type="inout" delay="2" ref={(el) => (this.twitchSquareTrans = el)}>
+							<img src={ImageManager.get('panelwipe').src} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+						</TwitchSquareTrans>
+					</DemoElement>
+					<DemoElement
+						name="Twitch Square Trans (inout reverse)"
+						width="250px"
+						height="180px"
+						background="#cccccc"
+						onClick={() => {
+							this.twitchSquareTransReverse.restart()
+						}}
+					>
+						<TwitchSquareTrans type="inout" delay="2" reverse ref={(el) => (this.twitchSquareTransReverse = el)}>
+							<img src={ImageManager.get('panelwipe').src} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+						</TwitchSquareTrans>
+					</DemoElement>
 					<DemoElement
 						name="Twitch Wordmark Full 3 Color"
 						width="250px"

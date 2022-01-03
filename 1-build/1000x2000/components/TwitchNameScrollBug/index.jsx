@@ -20,7 +20,8 @@ class TwitchNameScrollBug extends Component {
 	}
 
 	start() {
-		const { textRef } = this
+		const { textRef, twitchBugRef } = this
+		twitchBugRef.start()
 		// Starts the text animation
 		gsap.fromTo(textRef, { x: '0' }, { x: '-=200', duration: 3, ease: 'none' })
 	}
