@@ -24,6 +24,16 @@
         "size": "1000x1000",
         "index": "index.html",
         "deployAt": 1637282208599
+      },
+      {
+        "size": "1000x2000",
+        "index": "index.html",
+        "deployAt": 1641318826555
+      },
+      {
+        "size": "775x1360",
+        "index": "index.html",
+        "deployAt": 1641319333358
       }
     ],
     "updateAt": 1627497453096

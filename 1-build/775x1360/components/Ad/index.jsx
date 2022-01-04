@@ -45,7 +45,6 @@ class Ad extends Component {
 			twitchWordBoard,
 			twitchGlitchExtrude,
 			twitchStreamerBug,
-			twitchWordMark,
 			twitchCta,
 			twitchText,
 			twitchAnimatedGrad,
@@ -63,7 +62,6 @@ class Ad extends Component {
 		twitchWordBoard.start()
 		twitchGlitchExtrude.start()
 		twitchStreamerBug.start()
-		twitchWordMark.start()
 		twitchCta.start()
 		twitchText.start()
 		twitchAnimatedGrad.start()
@@ -145,7 +143,9 @@ class Ad extends Component {
 							this.twitchPanelWipe.restart()
 						}}
 					>
-						<TwitchPanelWipe ref={(el) => (this.twitchPanelWipe = el)} />
+						<TwitchPanelWipe ref={(el) => (this.twitchPanelWipe = el)}>
+							<img src={ImageManager.get('panelwipe').src} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+						</TwitchPanelWipe>
 					</DemoElement>
 					<DemoElement
 						name="Twitch Name Scroll Bug"
@@ -220,18 +220,6 @@ class Ad extends Component {
 					>
 						<TwitchStreamerBug ref={(el) => (this.twitchStreamerBug = el)} name="UmiNoKaiju" />
 					</DemoElement>
-					<DemoElement
-						name="Twitch Wordmark"
-						width="250px"
-						height="180px"
-						background="#9146ff"
-						onClick={() => {
-							this.twitchWordMark.restart()
-						}}
-					>
-						<TwitchWordMark scale={0.6} ref={(el) => (this.twitchWordMark = el)} />
-					</DemoElement>
-
 					<DemoElement
 						name="Twitch CTA"
 						width="250px"
