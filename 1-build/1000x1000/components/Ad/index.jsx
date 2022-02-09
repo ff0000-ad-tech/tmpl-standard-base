@@ -5,7 +5,7 @@ import { ImageManager } from '@ff0000-ad-tech/ad-assets'
 import ComponentBasic from '../ComponentBasic'
 import ComponentMethods from '../ComponentMethods'
 import DemoElement from '../DemoElement'
-import ComponentTextFitParagraph from '../ComponentTextFitParagraph'
+import TextFit from '../TextFit'
 import HookTextFit from '../HookTextFit'
 import Cta from '../Cta'
 import MatchupInline from '../MatchupInline'
@@ -32,9 +32,9 @@ class Ad extends Component {
 					<ComponentBasic />
 					<ComponentMethods ref={(el) => (this.componentMethods = el)} />
 					<DemoElement name="Component TextFitParagraph" width="250px" height="150px">
-						<ComponentTextFitParagraph minFontSize={1} maxFontSize={50}>
+						<TextFit minFontSize={1} maxFontSize={50}>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						</ComponentTextFitParagraph>
+						</TextFit>
 					</DemoElement>
 					<DemoElement name="Hook TextFit" width="250px" height="150px">
 						<HookTextFit />
