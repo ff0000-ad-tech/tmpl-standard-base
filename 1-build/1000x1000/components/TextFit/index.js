@@ -66,11 +66,10 @@ class TextFit extends Component {
 					ref={(el) => (this.element = el)}
 					style={{
 						width: '100%',
-						height: '100%',
+						height: '100%'
 					}}
-				>
-					{this.props.children}
-				</div>
+					dangerouslySetInnerHTML={{ __html: this.props.children }}
+				></div>
 			</div>
 		)
 	}
