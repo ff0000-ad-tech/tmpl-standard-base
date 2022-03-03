@@ -1,32 +1,32 @@
 {
-	"default": {
-		"webpack": {
-			"deploy": {
-				"profile": {
-					"name": "default",
-					"fbaCompile": true,
-					"optimize": true
-				},
-				"env": {
-					"runPath": "",
-					"adPath": ""
-				},
-				"settings": {
-					"adParams": {
-						"dpsConfig": {
-							"mode": "dps-local"
-						}
-					}
-				}
-			}
-		},
-		"targets": [
-			{
-				"size": "300x250",
-				"index": "index.html",
-				"deployAt": 1631567408986
-			}
-		],
-		"updateAt": 1631321376633
-	}
+  "default": {
+    "webpack": {
+      "deploy": {
+        "profile": {
+          "name": "default",
+          "fbaCompile": true,
+          "optimize": true
+        },
+        "env": {
+          "runPath": "",
+          "adPath": ""
+        },
+        "settings": {
+          "adParams": {
+            "dpsConfig": {
+              "mode": "dps-local"
+            }
+          }
+        }
+      }
+    },
+    "targets": [
+      {
+        "size": "300x250",
+        "index": "index.html",
+        "deployAt": 1646267513273
+      }
+    ],
+    "updateAt": 1631321376633
+  }
 }
