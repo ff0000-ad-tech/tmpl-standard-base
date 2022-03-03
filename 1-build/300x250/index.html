@@ -23,7 +23,7 @@
 				adHeight: 250,
 				politeLoadAfter: 1,
 				failoverOnError: true,
-				version: '3.1.0-beta.1',
+				version: '3.8.0-beta.6',
 				dpsConfig: {
 					mode: 'dps-local', // 'dps-inlined', 'dps-staging', 'dps-prod',
 					feeds: [
@@ -207,6 +207,7 @@
 			function preparePreloader(images) {
 				console.log('Index.preparePreloader()')
 				images.map(function (image) {
+					// NOTE: these image-elements' id is the filename without extension
 					document.getElementById('preloader').appendChild(image)
 				})
 				// resolve this function when
@@ -214,7 +215,7 @@
 				return new Promise(function (resolve) {
 					setTimeout(function () {
 						resolve()
-					}, 1000)
+					}, adParams.preloaderDuration * 1000)
 					// resolve()
 				})
 			}
