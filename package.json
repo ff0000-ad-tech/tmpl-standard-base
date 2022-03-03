@@ -17,7 +17,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-velvet-espn-cfb",
-  "version": "3.7.1-beta.1",
+  "version": "3.8.0-beta.1",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
@@ -31,15 +31,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
-    "branch": "bsa/main"
+    "branch": "bsa/standard__base__default"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.0",
     "@ff0000-ad-tech/cs-plugin-apply-network": "^2.0.0",
     "@ff0000-ad-tech/cs-plugin-bulk-compile": "^1.1.0",
     "@ff0000-ad-tech/debug": "^4.1.0",
-    "@ff0000-ad-tech/wp-creative-server": "^4.0.0",
-    "@ff0000-ad-tech/wp-deploy-manager": "^11.3.1",
+    "@ff0000-ad-tech/wp-creative-server": "^4.3.1",
+    "@ff0000-ad-tech/wp-deploy-manager": "^12.0.3",
     "babel-eslint": "^8.2.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
