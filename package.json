@@ -17,7 +17,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-dps-base-default",
-  "version": "3.8.0-beta.7",
+  "version": "3.8.1-beta.7",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
