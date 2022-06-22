@@ -3,7 +3,6 @@ import * as Preflight from '@common/js/Preflight.js'
 
 // if rendering dps-inline, Creative Server will add dps asset imports here
 /*-- DPS.Assets.import.start --*/
-import './dps-assets-index'
 /*-- DPS.Assets.import.end --*/
 
 import Control from './components/Control'
