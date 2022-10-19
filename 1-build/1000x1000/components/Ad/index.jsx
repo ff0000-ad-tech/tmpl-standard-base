@@ -11,11 +11,13 @@ import Cta from '../Cta'
 import MatchupInline from '../MatchupInline'
 import MatchupStacked from '../MatchupStacked'
 import Networks from '../Networks'
+import SpritePlayer from '../SpritePlayer'
 
 // Assets
 import '@common/fonts/template_font.woff'
 import '@size/images/160over90-logo.png'
 import '@size/images/160over90-logo-small.png'
+import '@size/images/woman_bike_spritesheet.png'
 
 // Styles
 import './styles.scss'
@@ -31,7 +33,7 @@ class Ad extends Component {
 				<div className="ad__inner-container">
 					<ComponentBasic />
 					<ComponentMethods ref={(el) => (this.componentMethods = el)} />
-					<DemoElement name="Component TextFitParagraph" width="250px" height="150px">
+					<DemoElement name="Component TextFit" width="250px" height="150px">
 						<TextFit minFontSize={1} maxFontSize={50}>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						</TextFit>
@@ -53,6 +55,17 @@ class Ad extends Component {
 					</DemoElement>
 					<DemoElement name="ESPN Networks" width="200px" height="150px">
 						<Networks networks={adData.networks} logoHeight="20" />
+					</DemoElement>
+					<DemoElement name="Sprite Player" width="200px" height="150px">
+						<SpritePlayer
+							className="ad__spriteplayer-woman"
+							spritesheet="woman_bike_spritesheet"
+							autoStart
+							frames={39}
+							duration={1}
+							loopCount={30}
+							speed={1}
+						/>
 					</DemoElement>
 				</div>
 			</div>

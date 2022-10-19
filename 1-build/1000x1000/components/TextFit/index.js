@@ -49,6 +49,8 @@ class TextFit extends Component {
 
 			const fh = this.element.clientHeight
 			this.setState({ finalHeight: fh })
+			// If we have a callback that needs to happen after resize is complete
+			// then we call it here, and pass in the final font size after resize
 			if (this.props.onResizeComplete) {
 				this.props.onResizeComplete(this.state.fontSizeNum)
 			}
@@ -102,6 +104,7 @@ class TextFit extends Component {
 export default TextFit
 
 TextFit.defaultProps = {
+	className: 'textfit',
 	initialFontSize: 80,
 	minFontSize: 5,
 }

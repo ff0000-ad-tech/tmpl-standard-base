@@ -1,10 +1,6 @@
 // Import the main scss file to have access to variables, globals, mixins
 @import '../../../common/styles/main.scss';
 
-.textfit {
-	text-align: center;
-	width: 240px;
-	height: 125px;
-	// white-space: nowrap;
-	line-height: .9;
+.spriteplayer {
+	overflow: hidden;
 }
