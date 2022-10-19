@@ -42,13 +42,25 @@ class TextFit extends Component {
 			this.setState((prevState, props) => ({
 				fontSizeNum: prevState.fontSizeNum - 1,
 			}))
-		}
-		// set width/height to auto so that the dimensions clamp to the final text-fit
-		else {
+		} else {
+			// set width/height to auto so that the dimensions clamp to the final text-fit
 			this.element.style = 'width: auto; height: auto;'
+			// this.container.style = `height: ${this.element.clientHeight}; width: ${this.element.clientWidth}`
+
 			const fh = this.element.clientHeight
 			this.setState({ finalHeight: fh })
+			if (this.props.onResizeComplete) {
+				this.props.onResizeComplete(this.state.fontSizeNum)
+			}
 		}
+	}
+
+	getFontSize = () => {
+		return this.state.fontSizeNum
+	}
+
+	setFontSize = (fss) => {
+		this.setState({ fontSizeNum: fss })
 	}
 
 	render() {
@@ -62,22 +74,34 @@ class TextFit extends Component {
 					height: this.state.finalHeight,
 				}}
 			>
-				<div
-					ref={(el) => (this.element = el)}
-					style={{
-						width: '100%',
-						height: '100%',
-					}}
-					dangerouslySetInnerHTML={{ __html: this.props.children }}
-				></div>
+				{typeof this.props.children === 'string' ? (
+					<div
+						ref={(el) => (this.element = el)}
+						style={{
+							width: '100%',
+							height: '100%',
+						}}
+						dangerouslySetInnerHTML={{ __html: this.props.children }}
+					/>
+				) : (
+					<div
+						ref={(el) => (this.element = el)}
+						style={{
+							width: '100%',
+							height: '100%',
+						}}
+					>
+						{this.props.children}
+					</div>
+				)}
 			</div>
 		)
 	}
 }
 
+export default TextFit
+
 TextFit.defaultProps = {
 	initialFontSize: 80,
 	minFontSize: 5,
 }
-
-export default TextFit
