@@ -48,5 +48,8 @@
     "np": "^7.2.0",
     "prettier": "^2.3.2",
     "version-bump-prompt": "^6.1.0"
+  },
+  "dependencies": {
+    "@ff0000-ad-tech/cs-plugin-particle-simulator": "^1.1.3"
   }
 }

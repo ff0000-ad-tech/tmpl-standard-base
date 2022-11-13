@@ -1,5 +1,7 @@
 import { h, render, Component, createRef } from 'preact'
 import { ImageManager } from '@ff0000-ad-tech/ad-assets'
+import { Emitter } from '@ff0000-ad-tech/ad-particles'
+import EmitterData from '@size/js/EmitterData.js'
 
 // Components
 import BrandLogo from '../BrandLogo'
@@ -17,14 +19,18 @@ class Ad extends Component {
 		super(props)
 	}
 
+	componentDidMount() {
+		const particles = new Emitter()
+		const el = document.getElementById('myCanvas')
+		particles.init(el, { emitterData: EmitterData })
+
+		particles.emit()
+	}
+
 	render() {
 		return (
 			<div className="ad" onClick={this.props.onClick} onMouseOver={this.props.onMouseOver} onMouseLeave={this.props.onMouseLeave}>
-				<BrandLogo ref={(el) => (this.brandlogo = el)} />
-				<div className="ad__footer">
-					<img className="ad__logo" src={ImageManager.get('160over90-logo-small').src} />
-					<div className="ad__cta">LEARN MORE</div>
-				</div>
+				<canvas id="myCanvas" width="300" height="250"></canvas>
 			</div>
 		)
 	}

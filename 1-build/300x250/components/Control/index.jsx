@@ -12,24 +12,21 @@ class Control extends Component {
 	}
 
 	startAnimation = () => {
-		const { brandlogo } = this.adRef
-
-		brandlogo.start()
-
-		gsap.set('.ad__cta', { opacity: 1 })
-
-		gsap.from('.ad__logo', { delay: 1, duration: 0.5, x: -adParams.adWidth, ease: 'expo.out' })
-		gsap.from('.ad__cta', { delay: 1, duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })
+		// const { brandlogo } = this.adRef
+		// brandlogo.start()
+		// gsap.set('.ad__cta', { opacity: 1 })
+		// gsap.from('.ad__logo', { delay: 1, duration: 0.5, x: -adParams.adWidth, ease: 'expo.out' })
+		// gsap.from('.ad__cta', { delay: 1, duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })
 	}
 
 	handleClick = () => {
 		Network.exit(window.clickTag)
 	}
 	handleRollOver = () => {
-		this.adRef.brandlogo.over()
+		// this.adRef.brandlogo.over()
 	}
 	handleRollOut = () => {
-		this.adRef.brandlogo.out()
+		// this.adRef.brandlogo.out()
 	}
 
 	render() {
