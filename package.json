@@ -18,7 +18,7 @@
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
   "name": "@ff0000-ad-tech/tmpl-standard-base-particles",
-  "version": "3.7.2-beta.1",
+  "version": "3.7.2",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
   "license": "MIT",
