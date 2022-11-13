@@ -2,9 +2,9 @@
   "buildSource": {
     "platform": "Standard",
     "template": "Base",
-    "option": "Default",
+    "option": "Particles",
     "size": "300x250",
-    "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/standard__base__default",
+    "repo": "https://github.com/ff0000-ad-tech/tmpl-standard-base/tree/bsa/standard__base__particles",
     "release": "beta.1"
   },
   "scripts": {
@@ -17,7 +17,7 @@
     "prettier": "npx prettier --write \"./1-build/**/*.+(js|html)\"",
     "pub": "cd ./dev-ops && sh npm-publish.sh"
   },
-  "name": "@ff0000-ad-tech/tmpl-standard-base-default",
+  "name": "@ff0000-ad-tech/tmpl-standard-base-particles",
   "version": "3.7.2-beta.1",
   "description": "Open-source HTML banner-authoring framework.",
   "author": "160over90",
@@ -32,7 +32,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ff0000-ad-tech/tmpl-standard-base",
-    "branch": "bsa/standard__base__default"
+    "branch": "bsa/standard__base__particles"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.0",
