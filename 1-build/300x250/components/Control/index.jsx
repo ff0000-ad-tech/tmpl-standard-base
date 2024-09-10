@@ -1,20 +1,15 @@
-import { h, render, Component, createRef } from 'preact'
+import { h } from 'preact'
+import { useEffect, useRef } from 'preact/hooks'
 import Ad from '../Ad'
 
-class Control extends Component {
-	constructor(props) {
-		super(props)
-	}
+const Control = () => {
+	const adRef = useRef()
 
-	componentDidMount = () => {
-		window.hidePreloader()
-		this.startAnimation()
-	}
+	const startAnimation = () => {
+		// Get any refs from the ad component
+		const { brandlogo } = adRef.current || {}
 
-	startAnimation = () => {
-		const { brandlogo } = this.adRef
-
-		brandlogo.start()
+		brandlogo?.start()
 
 		gsap.set('.ad__cta', { opacity: 1 })
 
@@ -22,20 +17,24 @@ class Control extends Component {
 		gsap.from('.ad__cta', { delay: 1, duration: 0.5, x: adParams.adWidth, ease: 'expo.out' })
 	}
 
-	handleClick = () => {
+	useEffect(() => {
+		window.hidePreloader()
+		startAnimation()
+	}, [])
+
+	const handleClick = () => {
 		Network.exit(window.clickTag)
 	}
-	handleRollOver = () => {
-		this.adRef.brandlogo.over()
-	}
-	handleRollOut = () => {
-		this.adRef.brandlogo.out()
+
+	const handleRollOver = () => {
+		adRef.current?.brandlogo?.over()
 	}
 
-	render() {
-		return (
-			<Ad ref={(el) => (this.adRef = el)} onClick={this.handleClick} onMouseOver={this.handleRollOver} onMouseLeave={this.handleRollOut} />
-		)
+	const handleRollOut = () => {
+		adRef.current?.brandlogo?.out()
 	}
+
+	return <Ad ref={adRef} onClick={handleClick} onMouseOver={handleRollOver} onMouseLeave={handleRollOut} />
 }
+
 export default Control
